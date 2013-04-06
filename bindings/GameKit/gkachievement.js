@@ -1,0 +1,32 @@
+// This file is part of coffeekit.  for licensing information, see the LICENSE file
+
+exports.GKAchievement = GKAchievement = objc.bindClass(foundation.NSObject,
+  function GKAchievement () {
+    return GKAchievement.__super__.constructor.apply(this, arguments);
+  }, {
+
+    // Retrieving Achievement Progress from Game Center
+    loadAchievementsWithCompletionHandler: objc.staticSelector("loadAchievementsWithCompletionHandler:"),
+
+    // Initializing an Achievement Object
+    initWithIdentifier: objc.instanceSelector("initWithIdentifier:"),
+
+    // Configuring an Achievement
+    identifier:       objc.instanceProperty(),
+    percentComplete:  objc.instanceProperty(),
+
+    // Reading the State of an Achievement
+    completed:        objc.instanceProperty(),
+    lastReportedDate: objc.instanceProperty(),
+    hidden:           objc.instanceProperty(),
+
+    // Reporting Progress on an Achievement
+    reportAchievement: objc.instanceSelector("reportAchievementWithCompletionHandler:"),
+
+    // Displaying a Notification Banner For an Achievement
+    showsCompletionBanner: objc.instanceProperty(),
+
+    // Resetting the Player’s Progress on Achievements
+    resetAchievements: objc.staticSelector("resetAchievementsWithCompletionHandler:")
+
+});

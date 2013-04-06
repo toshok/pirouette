@@ -18,15 +18,15 @@ BOUND_FRAMEWORKS= \
 
 EXTRA_FILES= objc.js
 
-# FRAMEWORK_SOURCES_Foundation= \
-# 	Foundation/Protocol.js \
-# 	Foundation/nspoint.js \
-# 	Foundation/nsrect.js \
-# 	Foundation/nssize.js \
-# 	Foundation/nsobject.js \
-# 	Foundation/nsresponder.js \
-# 	Foundation/nsrunloop.js \
-# 	Foundation/nsindexpath.js
+FRAMEWORK_SOURCES_Foundation= \
+	Foundation/Protocol.js \
+	Foundation/nspoint.js \
+	Foundation/nsrect.js \
+	Foundation/nssize.js \
+	Foundation/nsobject.js \
+	Foundation/nsresponder.js \
+	Foundation/nsrunloop.js \
+	Foundation/nsindexpath.js
 
 
 FRAMEWORK_SOURCES_GLKit= \

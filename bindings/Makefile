@@ -83,6 +83,30 @@ FRAMEWORK_SOURCES_GameKit= \
 	GameKit/gkvoicechatclient.js \
 	GameKit/gkvoicechatservice.js
 
+FRAMEWORK_SOURCES_MapKit= \
+	MapKit/mkannotation.js \
+	MapKit/mkannotationview.js \
+	MapKit/mkcircle.js \
+	MapKit/mkcircleview.js \
+	MapKit/mkmapview.js \
+	MapKit/mkmapviewdelegate.js \
+	MapKit/mkmultipoint.js \
+	MapKit/mkoverlay.js \
+	MapKit/mkoverlaypathview.js \
+	MapKit/mkoverlayview.js \
+	MapKit/mkpinannotationview.js \
+	MapKit/mkplacemark.js \
+	MapKit/mkpointannotation.js \
+	MapKit/mkpolygon.js \
+	MapKit/mkpolygonview.js \
+	MapKit/mkpolyline.js \
+	MapKit/mkpolylineview.js \
+	MapKit/mkreversegeocoder.js \
+	MapKit/mkreversegeocoderdelegate.js \
+	MapKit/mkshape.js \
+	MapKit/mkuserlocation.js \
+	MapKit/mkusertrackingbarbuttonitem.js
+
 # FRAMEWORK_SOURCES_AppKit= \
 # 	AppKit/nsalert.js \
 # 	AppKit/nsanimation.js \

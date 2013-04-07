@@ -168,6 +168,10 @@ FRAMEWORK_SOURCES_GameKit= \
 # 	CoreAnimation/catransition.js \
 # 	CoreAnimation/cavaluefunction.js
 
+FRAMEWORK_SOURCES_Twitter= \
+	Twitter/twrequest.js \
+	Twitter/twtweetcomposeviewcontroller.js
+
 # FRAMEWORK_SOURCES_UIKit= \
 # 	UIKit/uitextviewdelegate.js \
 # 	UIKit/uiwebviewdelegate.js \

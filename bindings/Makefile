@@ -142,34 +142,34 @@ FRAMEWORK_SOURCES_GameKit= \
 FRAMEWORK_SOURCES_OpenGLES= \
 	OpenGLES/eaglcontext.js
 
-# FRAMEWORK_SOURCES_CoreAnimation= \
-# 	CoreAnimation/caaction.js \
-# 	CoreAnimation/caanimationdelegate.js \
-# 	CoreAnimation/calayerdelegate.js \
-# 	CoreAnimation/caconstraint.js \
-# 	CoreAnimation/caconstraintlayoutmanager.js \
-# 	CoreAnimation/carenderer.js \
-# 	CoreAnimation/caanimation.js \
-# 	CoreAnimation/caanimationgroup.js \
-# 	CoreAnimation/cabasicanimation.js \
-# 	CoreAnimation/cakeyframeanimation.js \
-# 	CoreAnimation/capropertyanimation.js \
-# 	CoreAnimation/cadisplaylink.js \
-# 	CoreAnimation/caemittercell.js \
-# 	CoreAnimation/calayer.js \
-# 	CoreAnimation/caeagllayer.js \
-# 	CoreAnimation/caemitterlayer.js \
-# 	CoreAnimation/cagradientlayer.js \
-# 	CoreAnimation/careplicatorlayer.js \
-# 	CoreAnimation/cascrolllayer.js \
-# 	CoreAnimation/cashapelayer.js \
-# 	CoreAnimation/catextlayer.js \
-# 	CoreAnimation/catiledlayer.js \
-# 	CoreAnimation/catransformlayer.js \
-# 	CoreAnimation/camediatimingfunction.js \
-# 	CoreAnimation/catransaction.js \
-# 	CoreAnimation/catransition.js \
-# 	CoreAnimation/cavaluefunction.js
+FRAMEWORK_SOURCES_CoreAnimation= \
+	CoreAnimation/caaction.js \
+	CoreAnimation/caanimationdelegate.js \
+	CoreAnimation/calayerdelegate.js \
+	CoreAnimation/caconstraint.js \
+	CoreAnimation/caconstraintlayoutmanager.js \
+	CoreAnimation/carenderer.js \
+	CoreAnimation/caanimation.js \
+	CoreAnimation/caanimationgroup.js \
+	CoreAnimation/cabasicanimation.js \
+	CoreAnimation/cakeyframeanimation.js \
+	CoreAnimation/capropertyanimation.js \
+	CoreAnimation/cadisplaylink.js \
+	CoreAnimation/caemittercell.js \
+	CoreAnimation/calayer.js \
+	CoreAnimation/caeagllayer.js \
+	CoreAnimation/caemitterlayer.js \
+	CoreAnimation/cagradientlayer.js \
+	CoreAnimation/careplicatorlayer.js \
+	CoreAnimation/cascrolllayer.js \
+	CoreAnimation/cashapelayer.js \
+	CoreAnimation/catextlayer.js \
+	CoreAnimation/catiledlayer.js \
+	CoreAnimation/catransformlayer.js \
+	CoreAnimation/camediatimingfunction.js \
+	CoreAnimation/catransaction.js \
+	CoreAnimation/catransition.js \
+	CoreAnimation/cavaluefunction.js
 
 FRAMEWORK_SOURCES_Twitter= \
 	Twitter/twrequest.js \

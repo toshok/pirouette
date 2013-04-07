@@ -3,7 +3,7 @@
 let objc = require("objc_internal"),
     foundation = require("foundation");
 
-console.log("objc");
+//console.log("objc");
 
 function __extends (child, parent) {
     let keys = Object.getOwnPropertyNames(parent);

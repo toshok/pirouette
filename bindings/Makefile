@@ -171,6 +171,15 @@ FRAMEWORK_SOURCES_CoreAnimation= \
 	CoreAnimation/catransition.js \
 	CoreAnimation/cavaluefunction.js
 
+FRAMEWORK_SOURCES_CoreLocation= \
+	CoreLocation/clgeocoder.js \
+	CoreLocation/clheading.js \
+	CoreLocation/cllocation.js \
+	CoreLocation/cllocationmanager.js \
+	CoreLocation/cllocationmanagerdelegate.js \
+	CoreLocation/clplacemark.js \
+	CoreLocation/clregion.js
+
 FRAMEWORK_SOURCES_Twitter= \
 	Twitter/twrequest.js \
 	Twitter/twtweetcomposeviewcontroller.js

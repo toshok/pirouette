@@ -1,6 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKProduct = SKProduct = objc.bindProtocol(foundation.NSObject,
+exports.SKProduct = SKProduct = objc.bindClass(foundation.NSObject,
   function SKProduct () {
     return SKProduct.__super__.constructor.apply(this, arguments);
   }, {

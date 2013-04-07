@@ -1,6 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKProductRequest = SKProductRequest = objc.bindProtocol(SKRequest,
+exports.SKProductRequest = SKProductRequest = objc.bindClass(SKRequest,
   function SKProductRequest () {
     return SKProductRequest.__super__.constructor.apply(this, arguments);
   }, {

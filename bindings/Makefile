@@ -107,24 +107,24 @@ FRAMEWORK_SOURCES_MapKit= \
 	MapKit/mkuserlocation.js \
 	MapKit/mkusertrackingbarbuttonitem.js
 
-# FRAMEWORK_SOURCES_AppKit= \
-# 	AppKit/nsalert.js \
-# 	AppKit/nsanimation.js \
-# 	AppKit/nsanimationcontext.js \
-# 	AppKit/nsview.js \
-# 	AppKit/nscontrol.js \
-# 	AppKit/nscontroller.js \
-# 	AppKit/nsbutton.js \
-# 	AppKit/nstablecellview.js \
-# 	AppKit/nstablecolumn.js \
-# 	AppKit/nstableviewdelegate.js \
-# 	AppKit/nstableviewdatasource.js \
-# 	AppKit/nstableview.js \
-# 	AppKit/nstablerowview.js \
-# 	AppKit/nswindow.js \
-# 	AppKit/nswindowcontroller.js \
-# 	AppKit/nsapplication.js \
-# 	AppKit/nsapplicationdelegate.js
+FRAMEWORK_SOURCES_AppKit= \
+	AppKit/nsalert.js \
+	AppKit/nsanimation.js \
+	AppKit/nsanimationcontext.js \
+	AppKit/nsview.js \
+	AppKit/nscontrol.js \
+	AppKit/nscontroller.js \
+	AppKit/nsbutton.js \
+	AppKit/nstablecellview.js \
+	AppKit/nstablecolumn.js \
+	AppKit/nstableviewdelegate.js \
+	AppKit/nstableviewdatasource.js \
+	AppKit/nstableview.js \
+	AppKit/nstablerowview.js \
+	AppKit/nswindow.js \
+	AppKit/nswindowcontroller.js \
+	AppKit/nsapplication.js \
+	AppKit/nsapplicationdelegate.js
 
 # FRAMEWORK_SOURCES_CoreAnimation= \
 # 	CoreAnimation/caaction.js \

@@ -43,4 +43,6 @@ exports.NSTableColumn = NSTableColumn = objc.bindClass(foundation.NSObject,
 
 });
 
-NSTableColumn.newWithIdentifier = (identifier) => NSTableColumn.newWith({ initWith: "Identifier", args: [identifier] })
+NSTableColumn.newWithIdentifier = function(identifier) {
+  return NSTableColumn.newWith({ initWith: "Identifier", args: [identifier] });
+};

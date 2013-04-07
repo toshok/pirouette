@@ -45,13 +45,13 @@ exports.UITableViewCell = UITableViewCell = objc.bindClass(UIView,
     // Managing Cell Selection and Highlighting
     setSelected:    objc.instanceSelector("setSelected:animated:"),
     setHighlighted: objc.instanceSelector("setHighlighted:animated:"),
-    selected: objc.instanceProperty({ set: (v) => this.setSelected (v, false) }),
+    selected: objc.instanceProperty({ set: function(v) { return this.setSelected (v, false); } }),
     selectionStyle: objc.instanceProperty(),
-    highlighted: objc.instanceProperty({ set: (v) => this.setHighlighted (v, false) }),
+    highlighted: objc.instanceProperty({ set: function(v) { return this.setHighlighted (v, false); } }),
 
     // Editing the Cell
     setEditing: objc.instanceSelector("setEditing:animated:"),
-    editing: objc.instanceProperty({ set: (v) => this.setEditing (v, false) }),
+    editing: objc.instanceProperty({ set: function(v) { return this.setEditing (v, false); } }),
     editingStyle: objc.instanceProperty(),
     showingDeleteConfirmation: objc.instanceProperty(),
     showsReorderControl: objc.instanceProperty(),

@@ -53,7 +53,7 @@ exports.CAEmitterCell = CAEmitterCell = objc.bindClass(foundation.NSObject,
     // Key-Value Coding Extensions
     defaultValueForKey: objc.staticSelector("defaultValueForKey:"),
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:").
-                                            returns( () => ck.sig.Bool ).
-                                             params( () => [ ck.sig.NSString ] )
+                                            returns( function() { return ck.sig.Bool; } ).
+                                             params( function() { return [ ck.sig.NSString ]; } )
 
 });

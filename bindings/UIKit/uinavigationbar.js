@@ -17,7 +17,7 @@ exports.UINavigationBar = UINavigationBar = objc.bindClass(UIView,
     pushNavigationItem: objc.instanceSelector("pushNavigationItem:animated:"),
     popNavigationItem:  objc.instanceSelector("popNavigationItemAnimated:"),
     setItems:           objc.instanceSelector("setItems:animated:"),
-    items: objc.instanceProperty({ set: (v) => this.setItems(v, false) }),
+    items: objc.instanceProperty({ set: function(v) { return this.setItems(v, false); } }),
     topItem: objc.instanceProperty(),
     backItem: objc.instanceProperty(),
 
@@ -27,6 +27,6 @@ exports.UINavigationBar = UINavigationBar = objc.bindClass(UIView,
     titleVerticalPositionAdjustment:    objc.instanceSelector("titleVerticalPositionAdjustmentForBarMetrics:"),
     setTitleVerticalPositionAdjustment: objc.instanceSelector("setTitleVerticalPositionAdjustment:forBarMetrics:"),
     tintColor: objc.instanceProperty(),
-    titleTextAttributes: objc.instanceProperty(),
+    titleTextAttributes: objc.instanceProperty()
 
 });

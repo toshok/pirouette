@@ -7,16 +7,16 @@ exports.UICanvasView = UICanvasView = objc.bindClass(UIView,
   }, {
 
   layerClass: objc.staticSelector("layerClass").
-			  returns( () => ck.sig.Class).
-			     impl( () => coreAnimation.CAEAGLLayer),
-  getContext: (name, args) => {
+                          returns( function () { return ck.sig.Class; }).
+			     impl( function () { return coreAnimation.CAEAGLLayer; }),
+  getContext: function (name, args) {
     if (name === "experimental-webgl" || name === "webgl") {
       if (!this.context)
 	this.context = objc_internal.allocateGLContext(this.layer, args);
       return this.context;
     }
     else {
-      throw "UICanvasView only supports webgl rendering"
+      throw "UICanvasView only supports webgl rendering";
     }
   }
 

@@ -13,7 +13,7 @@ exports.UIPageViewController = UIPageViewController = objc.bindClass(UIViewContr
 
     // Providing Content
     setViewControllers: objc.instanceSelector("setViewControllers:direction:animated:completion:"),
-    viewControllers: objc.instanceProperty({ set: (v) => this.setViewControllers(v, false, null) }),
+    viewControllers: objc.instanceProperty({ set: function(v) { return this.setViewControllers(v, false, null); } }),
     gestureRecognizers: objc.instanceProperty(),
 
     // Display Options

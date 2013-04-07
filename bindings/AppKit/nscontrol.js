@@ -85,7 +85,7 @@ exports.NSControl = NSControl = objc.bindClass(NSView,
     controlTextDidEndEditing: objc.instanceSelector("controlTextDidEndEditing:"),  // delegate method
 
     // Supporting Constraint-Based Layout
-    invalidateIntrinsicContentSizeForCell: objc.instanceSelector("invalidateIntrinsicContentSizeForCell:"),
+    invalidateIntrinsicContentSizeForCell: objc.instanceSelector("invalidateIntrinsicContentSizeForCell:")
 
 });
 
@@ -97,8 +97,8 @@ exports.NSControlProxy = NSControlProxy = objc.bindClass(foundation.NSObject,
   }, {
 
     proxyAction: objc.instanceSelector("action").
-                               returns( () => ck.sig.Void).
-			        params( () => [foundation.NSObject]).
-				  impl( () => @fn())
+                               returns( function() { return ck.sig.Void; }).
+			        params( function() { return [foundation.NSObject]; }).
+				  impl( function() { return @fn(); })
 
 });

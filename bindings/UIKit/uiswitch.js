@@ -10,7 +10,7 @@ exports.UISwitch = UISwitch = objc.bindClass(UIControl,
     initWithFrame: objc.instanceSelector("initWithFrame:"),
 
     // Setting the Off/On State
-    on: objc.instanceProperty({ set: (v) => this.setOn(v, false) }),
+    on: objc.instanceProperty({ set: function (v) { return this.setOn(v, false); } }),
     setOn: objc.instanceSelector("setOn:animated:"),
 
     // Customizing the Appearance of the Switch

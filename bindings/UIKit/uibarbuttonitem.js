@@ -13,9 +13,9 @@ exports.UIBarButtonItem = UIBarButtonItem = objc.bindClass(UIBarItem,
     initWithTitle:               objc.instanceSelector("initWithTitle:style:target:action:"),
     initWithImageAndLandscape:   objc.instanceSelector("initWithImage:landscapeImagePhone:style:target:action:"),
 
-    initWithClickHandler: (title,style,click) => {
+    initWithClickHandler: function (title,style,click) {
       this.proxy = new UIControlProxy1(click);
-      this.initWithTitle(title, style, @proxy, @proxy.proxyAction);
+      return this.initWithTitle(title, style, @proxy, @proxy.proxyAction);
     },
 
     // Getting and Setting Properties
@@ -47,7 +47,7 @@ exports.UIBarButtonItem = UIBarButtonItem = objc.bindClass(UIBarItem,
     setTitlePositionAdjustment:                        objc.instanceSelector("setTitlePositionAdjustment:forBarMetrics:").makeUIAppearance(),
 
     clicked: objc.instanceProperty({
-        set: (v) => {
+        set: function (v) {
           if (v) {
             this.proxy = new UIControlProxy1(v);
             this.target = this.proxy;

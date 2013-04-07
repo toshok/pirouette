@@ -57,7 +57,7 @@ exports.UITableView = UITableView = objc.bindClass(UIScrollView,
     moveSection:            objc.instanceSelector("moveSection:toSection:"),
 
     // Managing the Editing of Table Cells
-    editing: objc.instanceProperty({ set: (v) => this.setEditing(v, false) }),
+    editing: objc.instanceProperty({ set: function(v) { return this.setEditing(v, false); } }),
     setEditing: objc.instanceSelector("setEditing:animated:"),
 
     // Reloading the Table View

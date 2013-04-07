@@ -10,7 +10,7 @@ exports.UISearchDisplayController = UISearchDisplayController = objc.bindClass(f
     initWithSearchBar: objc.instanceSelector("initWithSearchBar:contentsController:"),
 
     // Displaying the Search Interface
-    active:                   objc.instanceProperty ({ set: (v) => this.setActive(v, false) }),
+    active:                   objc.instanceProperty ({ set: function(v) { return this.setActive(v, false); } }),
     setActive:                objc.instanceSelector("setActive:animated:"),
 
     // Configuration
@@ -20,6 +20,6 @@ exports.UISearchDisplayController = UISearchDisplayController = objc.bindClass(f
     searchResultsTableView:   objc.instanceProperty(),
     searchResultsDataSource:  objc.instanceProperty(),
     searchResultsDelegate:    objc.instanceProperty(),
-    searchResultsTitle:       objc.instanceProperty(),
+    searchResultsTitle:       objc.instanceProperty()
 
 });

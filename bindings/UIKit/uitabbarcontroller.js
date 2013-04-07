@@ -12,12 +12,12 @@ exports.UITabBarController = UITabBarController = objc.bindClass(UIViewControlle
 
     // Managing the View Controllers
     setViewControllers: objc.instanceSelector("setViewControllers:animated:"),
-    viewControllers:   objc.instanceProperty({ set: (v) => this.setViewControllers(v, false) }),
+    viewControllers:   objc.instanceProperty({ set: function (v) { return this.setViewControllers(v, false); } }),
     customizableViewControllers:   objc.instanceProperty(),
     moreNavigationController:   objc.instanceProperty(),
 
     // Managing the Selected Tab
     selectedViewController:   objc.instanceProperty(),
-    selectedIndex:   objc.instanceProperty(),
+    selectedIndex:   objc.instanceProperty()
 
 });

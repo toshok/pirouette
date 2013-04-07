@@ -13,7 +13,7 @@ exports.UINavigationController = UINavigationController = objc.bindClass(UIViewC
     setViewControllers:     objc.instanceSelector("setViewControllers:animated:"),
     topViewController:      objc.instanceProperty(),
     visibleViewController:  objc.instanceProperty(),
-    viewControllers:        objc.instanceProperty({ set: (v) => this.setViewControllers(v, false) }),
+    viewControllers:        objc.instanceProperty({ set: function(v) { return this.setViewControllers(v, false); } }),
 
     // Pushing and Popping Stack Items
     pushViewController:      objc.instanceSelector("pushViewController:animated:"),
@@ -23,7 +23,7 @@ exports.UINavigationController = UINavigationController = objc.bindClass(UIViewC
 
     // Configuring Navigation Bars
     navigationBar:       objc.instanceProperty(),
-    navigationBarHidden:       objc.instanceProperty({ set: (v) => this.setNavigationBarHidden(v, false) }),
+    navigationBarHidden:       objc.instanceProperty({ set: function(v) { return this.setNavigationBarHidden(v, false); } }),
     setNavigationBarHidden: objc.instanceSelector("setNavigationBarHidden:animated:"),
 
     // Accessing the Delegate
@@ -32,6 +32,6 @@ exports.UINavigationController = UINavigationController = objc.bindClass(UIViewC
     // Configuring Custom Toolbars
     toolbar:       objc.instanceProperty(),
     setToolbarHidden:       objc.instanceSelector("setToolbarHidden:animated:"),
-    toolbarHidden:       objc.instanceProperty({ set: (v) => this.setToolbarHidden(v, false) })
+    toolbarHidden:       objc.instanceProperty({ set: function (v) { return this.setToolbarHidden(v, false); } })
 
 });

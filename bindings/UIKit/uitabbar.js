@@ -11,7 +11,7 @@ exports.UITabBar = UITabBar = objc.bindClass(UIView,
 
     // Configuring Items
     setItems: objc.instanceSelector("setItems:animated:"),
-    items: objc.instanceProperty({ set: (v) => this.setItems (v, false) }),
+    items: objc.instanceProperty({ set: function (v) { return this.setItems (v, false); } }),
     selectedItem: objc.instanceProperty(),
 
     // Customizing Tab Bars

@@ -8,8 +8,8 @@ exports.UITableViewController = UITableViewController = objc.bindClass(UIViewCon
 
     // Initializing the UITableViewController Object
     initWithStyle: objc.instanceSelector("initWithStyle:").
-                         returns( () => UITableViewController).
-			  params( () => [ ck.sig.Int ]),
+                                 returns( function () { return UITableViewController; }).
+				  params( function () { return [ ck.sig.Int ]; }),
 
     // Getting the Table View
     tableView: objc.instanceProperty(),

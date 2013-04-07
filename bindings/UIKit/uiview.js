@@ -7,8 +7,8 @@ exports.UIView = UIView = objc.bindClass(UIResponder,
   }, {
 
     initWithFrame:    objc.instanceSelector("initWithFrame:").
-                            returns( () => UIView).
-			     params( () => [ foundation.NSRect ]),
+                            returns( function() { return UIView; }).
+			     params( function() { return [ foundation.NSRect ]; }),
 
     // Configuring a View’s Visual Appearance
     layerClass:      objc.staticSelector("layerClass"),

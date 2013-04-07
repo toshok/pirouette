@@ -11,14 +11,14 @@ exports.UIToolbar = UIToolbar = objc.bindClass(UIView,
     translucent: objc.instanceProperty(),
 
     // Configuring Toolbar Items
-    items: objc.instanceProperty({ set: (v) => this.setItems (v, false) }),
+    items: objc.instanceProperty({ set: function(v) { return this.setItems (v, false); } }),
     setItems: objc.instanceSelector("setItems:animated:").
-                    returns( () => ck.sig.Void).
-		     params( () => [ foundation.NSObject, ck.sig.Bool ]), // XXX param 1 is actually an array, we should have a ck.sig.NSArray for that
+                            returns( function() { return ck.sig.Void; }).
+			     params( function(v) { return [ foundation.NSObject, ck.sig.Bool ]; }), // XXX param 1 is actually an array, we should have a ck.sig.NSArray for that
 
     // Customizing Appearance
     backgroundImage:    objc.instanceSelector("backgroundImageForToolbarPosition:barMetrics:"),
     setBackgroundImage: objc.instanceSelector("setBackgroundImage:forToolbarPosition:barMetrics:"),
-    tintColor: objc.instanceProperty(),
+    tintColor: objc.instanceProperty()
 
 });

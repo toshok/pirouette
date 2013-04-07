@@ -42,8 +42,8 @@ let UIControlProxy = objc.bindClass(foundation.NSObject,
   }, {
 
     proxyAction: objc.instanceSelector("action").
-                       returns( () => ck.sig.Void).
-                          impl( () => @fn() )
+                               returns( function() { return ck.sig.Void; }).
+				  impl( function() { return @fn(); } )
 });
 
 let UIControlProxy1 = objc.bindClass(foundation.NSObject,
@@ -53,7 +53,7 @@ let UIControlProxy1 = objc.bindClass(foundation.NSObject,
   }, {
 
     proxyAction: objc.instanceSelector("action").
-                       returns( () => ck.sig.Void).
-                        params( () => [foundation.NSObject]).
-                          impl( (v) => @fn(v) )
+                               returns( function() { return ck.sig.Void; }).
+				params( function() { return [foundation.NSObject]; }).
+				  impl( function(v) { return @fn(v); } )
 });

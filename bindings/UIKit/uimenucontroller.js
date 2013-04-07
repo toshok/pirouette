@@ -10,7 +10,7 @@ exports.UIMenuController = UIMenuController = objc.bindClass(foundation.NSObject
     sharedMenuController: objc.staticSelector("sharedMenuController"),
 
     // Showing and Hiding the Menu
-    menuVisible: objc.instanceProperty({ set: (v) => this.setMenuVisible(v, false) }),
+    menuVisible: objc.instanceProperty({ set: function (v) { return this.setMenuVisible(v, false); } }),
     setMenuVisible:   objc.instanceSelector("setMenuVisible:animated:"),
 
     // Positioning the Menu

@@ -43,7 +43,7 @@ exports.NSButton = NSButton = objc.bindProtocol(NSControl,
     performKeyEquivalent: objc.instanceSelector("performKeyEquivalent:"),
 
     clicked: objc.instanceProperty({
-      set: (v) => {
+      set: function (v) {
         if (v) {
 	  this.proxy = new NSControlProxy(v);
           this.target = this.proxy;
@@ -59,4 +59,6 @@ exports.NSButton = NSButton = objc.bindProtocol(NSControl,
     })
 });
 
-NSButton.newWithFrame = (frame) => NSButton.newWith({ initWith: "Frame", args: [frame] });
+NSButton.newWithFrame = function (frame) {
+  return NSButton.newWith({ initWith: "Frame", args: [frame] });
+};

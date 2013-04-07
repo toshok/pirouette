@@ -18,7 +18,7 @@ exports.UIViewController = UIViewController = objc.bindClass(UIResponder,
     nibBundle: objc.instanceProperty(),
 
     // Managing the View
-    loadView:       objc.instanceSelector("loadView").returns( () => ck.sig.Void ),
+    loadView:       objc.instanceSelector("loadView").returns( function() { return ck.sig.Void; } ),
     viewDidLoad:    objc.instanceSelector("viewDidLoad"),
     viewWillUnload: objc.instanceSelector("viewWillUnload"),
     viewDidUnload:  objc.instanceSelector("viewDidUnload"),
@@ -99,12 +99,12 @@ exports.UIViewController = UIViewController = objc.bindClass(UIResponder,
     setEditing:     objc.instanceSelector("setEditing:animated:"),
     editButtonItem: objc.instanceSelector("editButtonItem"),
     navigationItem: objc.instanceProperty(),
-    editing: objc.instanceProperty({ set: (v) => this.setEditing(v, false) }),
+    editing: objc.instanceProperty({ set: function(v) { this.setEditing(v, false); } }),
     hidesBottomBarWhenPushed: objc.instanceProperty(),
 
     // Configuring the Navigation Controller’s Toolbar
     setToolbarItems: objc.instanceSelector("setToolbarItems:animated:"),
-    toolbarItems: objc.instanceProperty({ set: (v) => this.setToolbarItems(v, false) }),
+    toolbarItems: objc.instanceProperty({ set: function(v) { return this.setToolbarItems(v, false); } }),
 
     // Configuring Tab Bar Items
     tabBarItem: objc.instanceProperty(),
@@ -114,6 +114,6 @@ exports.UIViewController = UIViewController = objc.bindClass(UIResponder,
     dismissModal:                       objc.instanceSelector("dismissModalViewControllerAnimated:"),
     disablesAutomaticKeyboardDismissal: objc.instanceSelector("disablesAutomaticKeyboardDismissal"),
     modalTransitionStyle: objc.instanceProperty(),
-    modalPresentationStyle: objc.instanceProperty(),
+    modalPresentationStyle: objc.instanceProperty()
 
 });

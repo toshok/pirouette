@@ -24,7 +24,7 @@ exports.UISearchBar = UISearchBar = objc.bindClass(UIView,
 
     // Button Configuration
     showsBookmarkButton: objc.instanceProperty(),
-    showsCancelButton: objc.instanceProperty({ set: (v) => this.setShowsCancelButton (v, false) }),
+    showsCancelButton: objc.instanceProperty({ set: function (v) { return this.setShowsCancelButton (v, false); } }),
     setShowsCancelButton: objc.instanceSelector("setShowsCancelButton:animated:"),
     showsSearchResultsButton: objc.instanceProperty(),
     searchResultsButtonSelected: objc.instanceProperty(),

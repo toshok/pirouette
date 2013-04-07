@@ -6,7 +6,7 @@ exports.NSApplication = NSApplication = objc.bindClass(foundation.NSResponder,
   }, {
 
     // Getting the Application
-    sharedApplication: objc.staticProperty( { get: () => new NSApplication (objc.staticCall("NSApplication", "sharedApplication")) } ),
+    sharedApplication: objc.staticProperty( { get: function() { return new NSApplication (objc.staticCall("NSApplication", "sharedApplication")); } } ),
 
     // Configuring Applications
     applicationIconImage: objc.instanceSelector("applicationIconImage"),
@@ -182,4 +182,6 @@ exports.NSApplication = NSApplication = objc.bindClass(foundation.NSResponder,
 });
 
 // use this instead of NSApplicationMain
-NSApplication.main = (args) => objc_internal.NSApplicationMain (args);
+NSApplication.main = function (args) {
+  return objc_internal.NSApplicationMain (args);
+};

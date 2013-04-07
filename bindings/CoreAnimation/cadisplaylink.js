@@ -12,13 +12,13 @@ exports.CADisplayLink = CADisplayLink = objc.bindClass(foundation.NSObject,
 
     // Scheduling the Display Link to Send Notifications
     addToRunLoop: objc.instanceSelector("addToRunLoop:forMode:").
-                                returns( () => ck.sig.Void ).
-				 params( () => [ foundation.NSRunLoop, ck.sig.NSString ] ),
+                                returns( function() { return ck.sig.Void; } ).
+				 params( function() { return [ foundation.NSRunLoop, ck.sig.NSString ]; } ),
     removeFromRunLoop: objc.instanceSelector("removeFromRunLoop:forMode:").
-                                     returns( () => ck.sig.Void ).
-				      params( () => [ foundation.NSRunLoop, ck.sig.NSString ] ),
+                                     returns( function() { return ck.sig.Void; } ).
+				      params( function() { return [ foundation.NSRunLoop, ck.sig.NSString ]; } ),
     invalidate: objc.instanceSelector("invalidate").
-                             returns( () => ck.sig.Void ),
+                             returns( function() { return ck.sig.Void; } ),
 
     // Configuring the Display Link
     duration: objc.instanceProperty(),

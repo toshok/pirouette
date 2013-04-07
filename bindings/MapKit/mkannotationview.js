@@ -20,7 +20,7 @@ exports.MKAnnotationView = MKAnnotationView = objc.bindClass(ui.UIView,
 
     // Managing the Selection State
     setSelected: objc.instanceSelector("setSelected:animated:"),
-    selected: objc.instanceProperty({ set: (v) => this.setSelected(v, false) }),
+    selected: objc.instanceProperty({ set: function(v) { return this.setSelected(v, false); } }),
 
     // Managing Callout Views
     canShowCallout: objc.instanceProperty(),
@@ -30,6 +30,6 @@ exports.MKAnnotationView = MKAnnotationView = objc.bindClass(ui.UIView,
     // Supporting Drag Operations
     draggable: objc.instanceProperty(),
     setDragState: objc.instanceSelector("setDragState:animated:"),
-    dragState: objc.instanceProperty ({ set: (v) => this.setDragState(v, false) })
+    dragState: objc.instanceProperty ({ set: function(v) { return this.setDragState(v, false); } })
 
 });

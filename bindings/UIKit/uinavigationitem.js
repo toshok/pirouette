@@ -1,27 +1,30 @@
-# This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-console.log "UINavigationItem"
-exports.UINavigationItem = class UINavigationItem extends foundation.NSObject
-  # Initializing an Item
-  initWithTitle: @nativeSelector "initWithTitle:"
+//console.log("UINavigationItem");
+exports.UINavigationItem = UINavigationItem = objc.bindClass(foundation.NSObject,
+  function UINavigationItem () {
+    return UINavigationItem.__super__.constructor.apply(this, arguments);
+  }, {
+    // Initializing an Item
+    initWithTitle: objc.instanceSelector("initWithTitle:"),
 
-  # Getting and Setting Properties
-  @instanceProperty   "title"
-  @instanceProperty   "prompt"
-  @instanceProperty   "backBarButtonItem"
-  @instanceProperty   "hidesBackButton", { set: (v) -> @setHidesBackButton v, false }
-  setHidesBackButton: @nativeSelector "setHidesBackButton:animated:"
-  @instanceProperty   "leftItemsSupplementBackButton"
+    // Getting and Setting Properties
+    title:   objc.instanceProperty(),
+    prompt:   objc.instanceProperty(),
+    backBarButtonItem:   objc.instanceProperty(),
+    hidesBackButton:   objc.instanceProperty({ set: function(v) { return this.setHidesBackButton(v, false); } }),
+    setHidesBackButton: objc.instanceSelector("setHidesBackButton:animated:"),
+    leftItemsSupplementBackButton:   objc.instanceProperty(),
 
-  # Customizing Views
-  @instanceProperty       "titleView"
-  @instanceProperty       "leftBarButtonItems", { set: (v) -> @setLeftBarButtonItems v, false }
-  @instanceProperty       "leftBarButtonItem", { set: (v) -> @setLeftBarButtonItem v, false }
-  @instanceProperty       "rightBarButtonItems", { set: (v) -> @setRightBarButtonItems v, false }
-  @instanceProperty       "rightBarButtonItem", { set: (v) -> @setRightBarButtonItem v, false }
-  setLeftBarButtonItems:  @nativeSelector "setLeftBarButtonItems:animated:"
-  setLeftBarButtonItem:   @nativeSelector "setLeftBarButtonItem:animated:"
-  setRightBarButtonItems: @nativeSelector "setRightBarButtonItems:animated:"
-  setRightBarButtonItem:  @nativeSelector "setRightBarButtonItem:animated:"
+    // Customizing Views
+    titleView:       objc.instanceProperty(),
+    leftBarButtonItems:       objc.instanceProperty({ set: function(v) { return this.setLeftBarButtonItems(v, false); } }),
+    leftBarButtonItem:       objc.instanceProperty({ set: function(v) { return this.setLeftBarButtonItem(v, false); } }),
+    rightBarButtonItems:       objc.instanceProperty({ set: function(v) { return this.setRightBarButtonItems(v, false); } }),
+    rightBarButtonItem:       objc.instanceProperty({ set: function(v) { return this.setRightBarButtonItem(v, false); } }),
+    setLeftBarButtonItems:  objc.instanceSelector("setLeftBarButtonItems:animated:"),
+    setLeftBarButtonItem:   objc.instanceSelector("setLeftBarButtonItem:animated:"),
+    setRightBarButtonItems: objc.instanceSelector("setRightBarButtonItems:animated:"),
+    setRightBarButtonItem:  objc.instanceSelector("setRightBarButtonItem:animated:")
 
-  @register()
+});

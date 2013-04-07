@@ -10,7 +10,7 @@ exports.UIProgressView = UIProgressView = objc.bindClass(UIView,
     initWithProgressViewStyle: objc.instanceSelector("initWithProgressViewStyle:"),
 
     // Managing the Progress Bar
-    progress: objc.instanceProperty({ set: (v) => this.setProgress(v, false) }),
+    progress: objc.instanceProperty({ set: function (v) { return this.setProgress(v, false); } }),
     setProgress: objc.instanceSelector("setProgress:animated:"),
 
     // Configuring the Progress Bar

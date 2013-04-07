@@ -55,7 +55,7 @@ exports.UIButton = UIButton = objc.bindClass (UIControl,
   imageRectForContentRect: objc.instanceSelector("imageRectForContentRect:"),
 
   clicked: objc.instanceProperty({
-				 set: (v) => {
+				 set: function (v) {
 				   if (v) {
 				     this.proxy = new UIControlProxy(v);
 				     this.addTarget(this.proxy, this.proxy.proxyAction, UIControlEvent.TouchUpInside);

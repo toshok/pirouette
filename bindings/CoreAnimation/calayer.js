@@ -8,17 +8,17 @@ exports.CALayer = CALayer = objc.bindClass(foundation.NSObject,
     // Creating a Layer
     layer: objc.staticSelector("layer"),
     init: objc.instanceSelector("init").
-			returns( () => CALayer ),
+			returns( function() { return CALayer; } ),
     initWithLayer: objc.instanceSelector("initWithLayer:").
-                                 returns( () => CALayer ).
-				  params( () => [ CALayer ] ),
+                                 returns( function() { return CALayer; } ).
+				  params( function() { return [ CALayer ]; } ),
 
 
     // Accessing the Presentation Layer
     presentationLayer: objc.instanceSelector("presentationLayer").
-				     returns( () => CALayer ),
+				     returns( function() { return CALayer; } ),
     modelLayer: objc.instanceSelector("modelLayer").
-			      returns( () => CALayer ),
+			      returns( function() { return CALayer; } ),
 
     // Modifying the Layer Geometry
     frame: objc.instanceProperty(),
@@ -37,14 +37,14 @@ exports.CALayer = CALayer = objc.bindClass(foundation.NSObject,
     contentsRect: objc.instanceProperty(),
     contentsCenter: objc.instanceProperty(),
     display: objc.instanceSelector("display").
-			   returns( () => ck.sig.Void ),
+			   returns( function() { return ck.sig.Void; } ),
     drawInContext: objc.instanceSelector("drawInContext:").
-                                 returns( () => ck.sig.Void ).
-				  params( () => [ ck.sig.PointerTo(ck.sig.CGContext)] ),
+                                 returns( function() { return ck.sig.Void; } ).
+				  params( function() { return [ ck.sig.PointerTo(ck.sig.CGContext)]; } ),
     opaque: objc.instanceProperty(),
     edgeAntialiasingMask: objc.instanceProperty(),
     contentsAreFlipped: objc.instanceSelector("contentsAreFlipped").
-				      returns( () => ck.sig.Bool ),
+				      returns( function() { return ck.sig.Bool; } ),
     geometryFlipped: objc.instanceProperty(),
 
     // Style Attributes
@@ -75,50 +75,50 @@ exports.CALayer = CALayer = objc.bindClass(foundation.NSObject,
     sublayers: objc.instanceProperty(),
     superlayer: objc.instanceProperty(),
     addSublayer: objc.instanceSelector("addSublayer:").
-                             returns( () => ck.sig.Void ).
-			      params( () => [ CALayer ] ),
+                             returns( function() { return ck.sig.Void; } ).
+			      params( function() { return [ CALayer ]; } ),
 
     removeFromSuperlayer: objc.instanceSelector("removeFromSuperlayer").
-					returns( () => ck.sig.Void ),
+					returns( function() { return ck.sig.Void; } ),
 
     insertSublayerAtIndex: objc.instanceSelector("insertSublayer:atIndex:").
-                                         returns( () => ck.sig.Void ).
-					  params( () => [ CALayer, ck.sig.UInt ] ),
+                                         returns( function() { return ck.sig.Void; } ).
+					  params( function() { return [ CALayer, ck.sig.UInt ]; } ),
     insertSublayerBelow: objc.instanceSelector("insertSublayer:below:").
-                                       returns( () => ck.sig.Void ).
-				        params( () => [ CALayer, CALayer ] ),
+                                       returns( function() { return ck.sig.Void; } ).
+				        params( function() { return [ CALayer, CALayer ]; } ),
     insertSublayerAbove: objc.instanceSelector("insertSublayer:above:").
-                                       returns( () => ck.sig.Void ).
-				        params( () => [ CALayer, CALayer ] ),
+                                       returns( function() { return ck.sig.Void; } ).
+				        params( function() { return [ CALayer, CALayer ]; } ),
     replaceSublayerWith: objc.instanceSelector("replaceSublayer:with:").
-                                       returns( () => ck.sig.Void ).
-				        params( () => [ CALayer, CALayer ] ),
+                                       returns( function() { return ck.sig.Void; } ).
+				        params( function() { return [ CALayer, CALayer ]; } ),
 
     // Updating Layer Display
     needsDisplay: objc.instanceProperty(),
     needsDisplayOnBoundsChange: objc.instanceProperty(),
-    @needsDisplayForKey: objc.instanceSelector("needsDisplayForKey:"),
+    needsDisplayForKey: objc.staticSelector("needsDisplayForKey:"),
     setNeedsDisplayInRect: objc.instanceSelector("setNeedsDisplayInRect:").
-                                       returns( () => ck.sig.Void ).
-					params( () => [ foundation.NSRect ] ),
+                                       returns( function() { return ck.sig.Void; } ).
+					params( function() { return [ foundation.NSRect ]; } ),
     displayIfNeeded: objc.instanceSelector("displayIfNeeded").
-				   returns( () => ck.sig.Void ),
+				   returns( function() { return ck.sig.Void; } ),
 
     // Layer Animations
     addAnimation: objc.instanceSelector("addAnimation:forKey:").
-                              returns( () => ck.sig.Void ).
-			       params( () => [ CAAnimation, ck.sig.NSString ] ),
+                              returns( function() { return ck.sig.Void; } ).
+			       params( function() { return [ CAAnimation, ck.sig.NSString ]; } ),
 
     animation: objc.instanceSelector("animationForKey:").
-                             returns( () => CAAnimation ).
-			      params( () => [ ck.sig.NSString ] ),
+                             returns( function() { return CAAnimation; } ).
+			      params( function() { return [ ck.sig.NSString ]; } ),
 
     removeAllAnimations: objc.instanceSelector("removeAllAnimations").
-				       returns( () => ck.sig.Void ),
+				       returns( function() { return ck.sig.Void; } ),
 
     removeAnimation: objc.instanceSelector("removeAnimationForKey:").
-                                   returns( () => ck.sig.Void ).
-				    params( () => [ ck.sig.NSString ] ),
+                                   returns( function() { return ck.sig.Void; } ).
+				    params( function() { return [ ck.sig.NSString ]; } ),
 
     animationKeys: objc.instanceProperty({ set: null }),
 
@@ -132,59 +132,59 @@ exports.CALayer = CALayer = objc.bindClass(foundation.NSObject,
     //resizeWithOldSuperlayerSize: objc.instanceSelector("resizeWithOldSuperlayerSize:"),  XXX osx only
     //resizeSublayersWithOldSize: objc.instanceSelector("resizeSublayersWithOldSize:"),    XXX osx only
     preferredFrameSize: objc.instanceSelector("preferredFrameSize").
-				      returns( () => foundation.NSSize ),
+				      returns( function() { return foundation.NSSize; } ),
     layoutIfNeeded: objc.instanceSelector("layoutIfNeeded").
-				  returns( () => ck.sig.Void ),
+				  returns( function() { return ck.sig.Void; } ),
     layoutSublayers: objc.instanceSelector("layoutSublayers").
-				   returns( () => ck.sig.Void ),
+				   returns( function() { return ck.sig.Void; } ),
 
     // Actions
     actions: objc.instanceProperty(),
-    @defaultActionForKey: objc.instanceSelector("defaultActionForKey:"),
+    defaultActionForKey: objc.staticSelector("defaultActionForKey:"),
     actionForKey: objc.instanceSelector("actionForKey:").
-				returns( () => CAAction ).
-				 params( () => [ ck.sig.NSString ] ),
+				returns( function() { return CAAction; } ).
+				 params( function() { return [ ck.sig.NSString ]; } ),
 
     // Mapping Between Coordinate and Time Spaces
     convertPointFromLayer: objc.instanceSelector("convertPoint:fromLayer:").
-                                         returns( () => foundation.NSPoint ).
-					  params( () => [ foundation.NSPoint, CALayer ]),
+                                         returns( function() { return foundation.NSPoint; } ).
+					  params( function() { return [ foundation.NSPoint, CALayer ]; }),
     convertPointToLayer: objc.instanceSelector("convertPoint:toLayer:").
-      				       returns( () => foundation.NSPoint ).
-					params( () => [ foundation.NSPoint, CALayer ]),
+      				       returns( function() { return foundation.NSPoint; } ).
+					params( function() { return [ foundation.NSPoint, CALayer ]; }),
     convertRectFromLayer: objc.instanceSelector("convertRect:fromLayer:").
-                                	returns( () => foundation.NSRect ).
-					 params( () => [ foundation.NSRect, CALayer ]),
+                                	returns( function() { return foundation.NSRect; } ).
+					 params( function() { return [ foundation.NSRect, CALayer ]; }),
     convertRectToLayer: objc.instanceSelector("convertRect:toLayer:").
-      				      returns( () => foundation.NSRect ).
-				       params( () => [ foundation.NSRect, CALayer ]),
+      				      returns( function() { return foundation.NSRect; } ).
+				       params( function() { return [ foundation.NSRect, CALayer ]; }),
     convertTimeFromLayer: objc.instanceSelector("convertTime:fromLayer:").
-					returns( () => ck.sig.Double ).    // these Double's should be CFTimeInverval
-					 params( () => [ ck.sig.Double, CALayer ]),
+					returns( function() { return ck.sig.Double; } ).    // these Double's should be CFTimeInverval
+					 params( function() { return [ ck.sig.Double, CALayer ]; }),
     convertTimeToLayer: objc.instanceSelector("convertTime:toLayer:").
-				      returns( () => ck.sig.Double ).    // these Double's should be CFTimeInverval
-				      params( () => [ ck.sig.Double, CALayer ]),
+				      returns( function() { return ck.sig.Double; } ).    // these Double's should be CFTimeInverval
+				      params( function() { return [ ck.sig.Double, CALayer ]; }),
 
     // Hit Testing
     hitTest: objc.instanceSelector("hitTest:").
-			   returns( () => CALayer ).
-			    params( () => [ foundation.NSPoint ] ),
+			   returns( function() { return CALayer; } ).
+			    params( function() { return [ foundation.NSPoint ]; } ),
     containsPoint: objc.instanceSelector("containsPoint:").
-				 returns( () => ck.sig.Bool ).
-				  params( () => [ foundation.NSPoint ] ),
+				 returns( function() { return ck.sig.Bool; } ).
+				  params( function() { return [ foundation.NSPoint ]; } ),
 
     // Rendering
     renderInContext: objc.instanceSelector("renderInContext:").
-				   returns( () => ck.sig.Void ).
-				    params( () => [ ck.sig.PointerTo(ck.sig.CGContext) ] ),
+				   returns( function() { return ck.sig.Void; } ).
+				    params( function() { return [ ck.sig.PointerTo(ck.sig.CGContext) ]; } ),
     shouldRasterize: objc.instanceProperty(),
     rasterizationScale: objc.instanceProperty(),
 
     // Scrolling
     visibleRect: objc.instanceProperty(),
     scrollPoint: objc.instanceSelector("scrollPoint:").
-			       returns( () => ck.sig.Void ).
-			        params( () => [ foundation.NSPoint ] ),
+			       returns( function() { return ck.sig.Void; } ).
+			        params( function() { return [ foundation.NSPoint ]; } ),
     scrollRectToVisible: objc.instanceSelector("scrollRectToVisible:"),
 
     // Modifying the Delegate
@@ -192,8 +192,8 @@ exports.CALayer = CALayer = objc.bindClass(foundation.NSObject,
 
     // Key-Value Coding Extensions
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:").
-					    returns( () => ck.sig.Bool ).
-					     params( () => [ ck.sig.NSString ] ),
-    @defaultValueForKey: objc.instanceSelector("defaultValueForKey:")
+					    returns( function() { return ck.sig.Bool; } ).
+					     params( function() { return [ ck.sig.NSString ]; } ),
+    defaultValueForKey: objc.staticSelector("defaultValueForKey:")
 
 });

@@ -10,10 +10,10 @@ exports.CAScrollLayer = CAScrollLayer = objc.bindClass(CALayer,
 
     // Scrolling the Layer
     scrollToPoint: objc.instanceSelector("scrollToPoint:").
-                         returns( () => ck.sig.Void ).
-			  params( () => [ foundation.NSPoint ] ),
+                         returns( function() { return ck.sig.Void; } ).
+			  params( function() { return [ foundation.NSPoint ]; } ),
     scrollToRect: objc.instanceSelector("scrollToRect:").
-                        returns( () => ck.sig.Void ).
-			 params( () => [ foundation.NSRect ] )
+                        returns( function() { return ck.sig.Void; } ).
+			 params( function() { return [ foundation.NSRect ]; } )
 
 });

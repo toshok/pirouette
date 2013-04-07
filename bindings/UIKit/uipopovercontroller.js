@@ -12,8 +12,8 @@ exports.UIPopoverController = UIPopoverController = objc.bindClass(foundation.NS
     // Configuring the Popover Attributes
     setContentViewController: objc.instanceSelector("setContentViewController:animated:"),
     setPopoverContentSize:    objc.instanceSelector("setPopoverContentSize:animated:"),
-    contentViewController: objc.instanceProperty({ set: (v) => this.setContentViewController(v, false) }),
-    popoverContentSize: objc.instanceProperty({ set: (v) => this.setPopoverContentSize(v, false) }),
+    contentViewController: objc.instanceProperty({ set: function(v) { return this.setContentViewController(v, false); } }),
+    popoverContentSize: objc.instanceProperty({ set: function(v) { return this.setPopoverContentSize(v, false); } }),
     passthroughViews: objc.instanceProperty(),
     delegate: objc.autoboxProperty(UIPopoverControllerDelegate),
 
@@ -28,6 +28,6 @@ exports.UIPopoverController = UIPopoverController = objc.bindClass(foundation.NS
 
     // Customizing the Popover Appearance
     popoverLayoutMargins: objc.instanceProperty(),
-    popoverBackgroundViewClass: objc.instanceProperty(),
+    popoverBackgroundViewClass: objc.instanceProperty()
 
 });

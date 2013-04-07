@@ -14,11 +14,11 @@ exports.MKMapView = MKMapView = objc.bindClass(ui.UIView,
     delegate:      autoboxProperty(MKMapViewDelegate),
 
     // Manipulating the Visible Portion of the Map
-    region:        objc.instanceProperty ({ set: (v) => this.setRegion(v, false) }),
+    region:        objc.instanceProperty ({ set: function(v) { return this.setRegion(v, false); } }),
     setRegion: objc.instanceSelector("setRegion:animated:"),
-    centerCoordinate: objc.instanceSelector({ set: (v) => this.setCenterCoordinate(v, false) }),
+    centerCoordinate: objc.instanceSelector({ set: function(v) { return this.setCenterCoordinate(v, false); } }),
     setCenterCoordinate: objc.instanceSelector("setCenterCoordinate:animated:"),
-    visibleMapRect: objc.instanceProperty ({ set: (v) => this.setVisibleMapRect(v, false) }),
+    visibleMapRect: objc.instanceProperty ({ set: function(v) { return this.setVisibleMapRect(v, false); } }),
     setVisibleMapRect: objc.instanceSelector("setVisibleMapRect:animated:"),
     setVisibleMapRectWithEdgePadding: objc.instanceSelector("setVisibleMapRect:edgePadding:animated:"),
 
@@ -68,5 +68,5 @@ exports.MKMapView = MKMapView = objc.bindClass(ui.UIView,
 
     // Tracking the User Location
     setUserTrackingMode: objc.instanceSelector("setUserTrackingMode:animated:"),
-    userTrackingMode: objc.instanceProperty({ set: (v) => this.setUserTrackingMode(v, false) })
+    userTrackingMode: objc.instanceProperty({ set: function(v) { return this.setUserTrackingMode(v, false); } })
 });

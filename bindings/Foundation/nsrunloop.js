@@ -10,8 +10,8 @@ exports.NSRunLoop = NSRunLoop = objc.bindClass(foundation.NSObject,
     currentRunLoop: objc.staticProperty ({ set: null }),
     currentMode: objc.instanceProperty ({ set: null }),
     limitDate: objc.instanceSelector("limitDateForMode:").
-                             returns( () => ck.sig.Void).
-			      params( () => [ ck.sig.NSString ]),
+                             returns( function() { return ck.sig.Void; }).
+			      params( function() { return [ ck.sig.NSString ]; }),
     mainRunLoop: objc.staticProperty ({ set: null }),
     getCFRunLoop: objc.instanceSelector("getCFRunLoop"),
 

@@ -4,9 +4,11 @@
 
 let appearances = Object.create(null);
 
-let makeAppearance = (sel, o, ...args) => {
+function makeAppearance (sel, o /*, ...args */) {
   let appearance = appearances[o.prototype.constructor];
   if (appearance) return appearance;
+
+  let args = Array.prototype.slice.call(arguments, 2);
 
   // kind of a hack to invoke the selector on the right object
   appearance = objc.selectorInvoker(sel).apply(o, args);
@@ -52,7 +54,7 @@ exports.UIAppearance = UIAppearance = objc.bindProtocol(foundation.Protocol,
   }, {
 
     // Appearance Methods
-    appearance:                objc.requiredMethod("appearance", { tramp: () => makeAppearance("appearance", this) }),
-    appearanceWhenContainedIn: objc.requiredMethod("appearanceWhenContainedIn:", { tramp: (...args) => makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(args)) } )
+    appearance:                objc.requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,
+    appearanceWhenContainedIn: objc.requiredMethod("appearanceWhenContainedIn:", { tramp: function () { return makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(Array.prototype.slice.call(arguments, 0))); } } )
 
 });

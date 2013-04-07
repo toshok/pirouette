@@ -181,4 +181,6 @@ exports.NSTableView = NSTableView = objc.bindClass(NSControl,
     writeRows: objc.instanceSelector("tableView:writeRows:toPasteboard:")  // delegate method Deprecated in OS X v10.4
 });
 
-NSTableView.newWithFrame = (frame) => NSTableView.newWith({ initWith: "Frame", args: [frame] });
+NSTableView.newWithFrame = function(frame) {
+  return NSTableView.newWith({ initWith: "Frame", args: [frame] });
+};

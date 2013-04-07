@@ -8,7 +8,7 @@ exports.UIApplication = UIApplication = objc.bindClass(UIResponder,
 
     // Getting the Application Instance
 
-    sharedApplication: objc.staticProperty({ set: null, get: () => objc.invokeSelector("sharedApplication").call(UIApplication) }),
+    sharedApplication: objc.staticProperty({ set: null, get: function () { return objc.selectorInvoker("sharedApplication").call(UIApplication); } }),
 
     // Setting and Getting the Delegate
     delegate: objc.autoboxProperty(UIApplicationDelegate),
@@ -67,15 +67,15 @@ exports.UIApplication = UIApplication = objc.bindClass(UIResponder,
     // Managing Status Bar Orientation
 
     setStatusBarOrientation: objc.instanceSelector("setStatusBarOrientation:animated:"),
-    statusBarOrientation:        objc.instanceProperty({ set: (v) => this.setStatusBarOrientation(v, false) }),
+    statusBarOrientation:        objc.instanceProperty({ set: function (v) { return this.setStatusBarOrientation(v, false); } }),
     statusBarOrientationAnimationDuration:        objc.instanceProperty({ set: null }), // readonly
 
     // Controlling Application Appearance
     setStatusBarHidden: objc.instanceSelector("setStatusBarHidden:withAnimation:"),
-    statusBarHidden:   objc.instanceProperty({ get: "isStatusBarHidden", set: (v) => this.setStatusBarHidden(v, false) }),
+    statusBarHidden:   objc.instanceProperty({ get: "isStatusBarHidden", set: function (v) { return this.setStatusBarHidden(v, false); } }),
 
     setStatusBarStyle: objc.instanceSelector("setStatusBarStyle:withAnimation:"),
-    statusBarStyle:  objc.instanceProperty({ set: (v) => this.setStatusBarStyle(v, false) }),
+    statusBarStyle:  objc.instanceProperty({ set: function (v) { return this.setStatusBarStyle(v, false); } }),
     statusBarFrame:  objc.instanceProperty({ set: null }),
 
     networkActivityIndicatorVisible: objc.instanceProperty({ get: "isNetworkActivityIndicatorVisible" }),
@@ -83,8 +83,10 @@ exports.UIApplication = UIApplication = objc.bindClass(UIResponder,
     userInterfaceLayoutDirection: objc.instanceProperty({ set: null }), // readonly
 
     // Setting the Icon of a Newsstand Application
-    setNewsstandIconImage: objc.instanceSelector("setNewsstandIconImage:"),
+    setNewsstandIconImage: objc.instanceSelector("setNewsstandIconImage:")
 
 });
 
-UIApplication.main = (args, principalClassName, delegateClassName) => objc_internal.UIApplicationMain(args, principalClassName, delegateClassName)
+UIApplication.main = function (args, principalClassName, delegateClassName) {
+  return objc_internal.UIApplicationMain(args, principalClassName, delegateClassName);
+};

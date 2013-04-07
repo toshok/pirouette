@@ -7,7 +7,7 @@ exports.UISlider = UISlider = objc.bindClass(UIControl,
   }, {
 
     // Accessing the Slider’s Value
-    value: objc.instanceProperty({ set: (v) => this.setValue(v, false) }),
+    value: objc.instanceProperty({ set: function(v) { return this.setValue(v, false); } }),
     setValue: objc.instanceSelector("setValue:animated:"),
 
     // Accessing the Slider’s Value Limits

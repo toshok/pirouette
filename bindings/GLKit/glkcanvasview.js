@@ -9,7 +9,7 @@ exports.GLKCanvasView = GLKCanvasView = objc.bindClass(GLKView,
     return GLKCanvasView.__super__.constructor.apply(this, arguments);
   }, {
 
-    getContext: (name, args) => {
+    getContext: function (name, args) {
       if (name === "experimental-webgl" || name === "webgl") {
 	if (!this.webglcontext) {
 	  this.context = new gles.EAGLContext().initWithAPI(gles.EAGLRenderingAPI.OpenGLES2);
@@ -22,11 +22,11 @@ exports.GLKCanvasView = GLKCanvasView = objc.bindClass(GLKView,
       }
     },
 
-    width: objc.instanceProperty({ get: () => this.frame.width,
+    width: objc.instanceProperty({ get: function() { return this.frame.width; },
 				   set: null
 				 }),
 
-    height: objc.instanceProperty({ get: () => this.frame.height,
+    height: objc.instanceProperty({ get: function() { return this.frame.height; },
 				    set: null
 				  })
 });

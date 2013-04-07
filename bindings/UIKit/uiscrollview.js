@@ -7,7 +7,7 @@ exports.UIScrollView = UIScrollView = objc.bindClass(UIView,
 
     // Managing the Display of Content
     setContentOffset: objc.instanceSelector("setContentOffset:animated:"),
-    contentOffset: objc.instanceProperty({ set: (v) => this.setContentOffset (v, false) }),
+    contentOffset: objc.instanceProperty({ set: function(v) { return this.setContentOffset (v, false); } }),
     contentSize: objc.instanceProperty(),
     contentInset: objc.instanceProperty(),
 
@@ -41,7 +41,7 @@ exports.UIScrollView = UIScrollView = objc.bindClass(UIView,
     setZoomScale: objc.instanceSelector("setZoomScale:animated:"),
     panGestureRecognizer: objc.instanceProperty(),
     pinchGestureRecognizer: objc.instanceProperty(),
-    zoomScale: objc.instanceProperty({ set: (v) => this.setZoomScale(v, false) }),
+    zoomScale: objc.instanceProperty({ set: function (v) { return this.setZoomScale(v, false); } }),
     maximumZoomScale: objc.instanceProperty(),
     minimumZoomScale: objc.instanceProperty(),
     zoomBouncing: objc.instanceProperty(),

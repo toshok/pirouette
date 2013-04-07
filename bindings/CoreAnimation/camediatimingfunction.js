@@ -9,12 +9,12 @@ exports.CAMediaTimingFunction = CAMediaTimingFunction = objc.bindClass(foundatio
     functionWithName: objc.staticSelector("functionWithName:"),
     functionWithControlPoints: objc.staticSelector("functionWithControlPoints::::"),
     initWithControlPoints: objc.instanceSelector("initWithControlPoints::::").
-                                 returns( () => CAMediaTimingFunction ).
-				  params( () => [ ck.sig.Float, ck.sig.Float, ck.sig.Float, ck.sig.Float ] ),
+                                 returns( function() { return CAMediaTimingFunction; } ).
+				  params( function() { return [ ck.sig.Float, ck.sig.Float, ck.sig.Float, ck.sig.Float ]; } ),
 
     // Accessing the Control Points
     getControlPointAtIndex: objc.instanceSelector("getControlPointAtIndex:values:").
-                                 returns( () => ck.sig.Void ).
-                                  params( () => [ ck.sig.ULong, ck.sig.ArrayOf(ck.sig.Float) ] )
+                                 returns( function() { return ck.sig.Void; } ).
+                                  params( function() { return [ ck.sig.ULong, ck.sig.ArrayOf(ck.sig.Float) ]; } )
 
 });

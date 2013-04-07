@@ -8,7 +8,7 @@ exports.UIDatePicker = UIDatePicker = objc.bindClass(UIControl,
 
     // Managing the Date and Calendar
     calendar:  objc.instanceProperty(),
-    date:  objc.instanceProperty({ set: (v) => this.setDate(v, false) }),
+    date:  objc.instanceProperty({ set: function(v) { return this.setDate(v, false); } }),
     setDate:           objc.instanceSelector("setDate:animated:"),
     timeZone:  objc.instanceProperty(),
     locale:  objc.instanceProperty(), // Deprecated in iOS 5.0
@@ -20,6 +20,6 @@ exports.UIDatePicker = UIDatePicker = objc.bindClass(UIControl,
     maximumDate:  objc.instanceProperty(),
     minimumDate:  objc.instanceProperty(),
     minuteInterval:  objc.instanceProperty(),
-    countDownDuration:  objc.instanceProperty(),
+    countDownDuration:  objc.instanceProperty()
 
 });

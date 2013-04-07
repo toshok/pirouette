@@ -139,6 +139,9 @@ FRAMEWORK_SOURCES_GameKit= \
 	StoreKit/skrequest.js \
 	StoreKit/skrequestdelegate.js
 
+FRAMEWORK_SOURCES_OpenGLES= \
+	OpenGLES/eaglcontext.js
+
 # FRAMEWORK_SOURCES_CoreAnimation= \
 # 	CoreAnimation/caaction.js \
 # 	CoreAnimation/caanimationdelegate.js \

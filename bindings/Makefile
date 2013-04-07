@@ -126,6 +126,19 @@ FRAMEWORK_SOURCES_AppKit= \
 	AppKit/nsapplication.js \
 	AppKit/nsapplicationdelegate.js
 
+FRAMEWORK_SOURCES_GameKit= \
+	StoreKit/skmutablepayment.js \
+	StoreKit/skpayment.js \
+	StoreKit/skpaymentqueue.js \
+	StoreKit/skpaymenttransaction.js \
+	StoreKit/skpaymenttransactionobserver.js \
+	StoreKit/skproduct.js \
+	StoreKit/skproductsrequest.js \
+	StoreKit/skproductsrequestdelegate.js \
+	StoreKit/skproductsresponse.js \
+	StoreKit/skrequest.js \
+	StoreKit/skrequestdelegate.js
+
 # FRAMEWORK_SOURCES_CoreAnimation= \
 # 	CoreAnimation/caaction.js \
 # 	CoreAnimation/caanimationdelegate.js \

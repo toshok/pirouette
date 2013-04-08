@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationBar");
-exports.UINavigationBar = UINavigationBar = objc.bindClass(UIView,
-  function UINavigationBar () {
-    return UINavigationBar.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UINavigationBar = UINavigationBar = UIView.extendClass ("UINavigationBar", {
 
     // Configuring Navigation Bars
     barStyle: objc.instanceProperty(),

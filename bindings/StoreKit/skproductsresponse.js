@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKProductResponse = SKProductResponse = objc.bindClass(foundation.NSObject,
-  function SKProductResponse () {
-    return SKProductResponse.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKProductResponse = SKProductResponse = foundation.NSObject.extendClass ("SKProductResponse", {
 
     // Response Information
     products: objc.instanceProperty(),

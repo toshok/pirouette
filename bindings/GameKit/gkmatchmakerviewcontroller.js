@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKMatchmakerViewController = GKMatchmakerViewController = objc.bindClass(ui.UINavigationController,
-  function GKMatchmakerViewController () {
-    return GKMatchmakerViewController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKMatchmakerViewController = GKMatchmakerViewController = ui.UINavigationController.extendClass ("GKMatchmakerViewController", {
 
     // Initializing a Matchmaker View Controller
     initWithInvite: objc.instanceSelector ("initWithInvite:"),

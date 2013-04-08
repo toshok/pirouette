@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKPlayer = GKPlayer = objc.bindClass(foundation.NSObject,
-  function GKPlayer () {
-    return GKPlayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKPlayer = GKPlayer = foundation.NSObject.extendClass ("GKPlayer", {
 
     // Loading Player Details
     loadPlayersForIdentifiers: objc.staticSelector("loadPlayersForIdentifiers:withCompletionHandler:"),

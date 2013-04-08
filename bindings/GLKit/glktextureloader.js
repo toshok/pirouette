@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKTextureLoader = GLKTextureLoader = objc.bindClass(foundation.NSObject,
-  function GLKTextureLoader () {
-    return GLKTextureLoader.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", {
 
     // Initialization
     initWithSharegroup: objc.instanceSelector("initWithSharegroup:"),

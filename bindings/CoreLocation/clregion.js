@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLRegion = CLRegion = objc.bindClass(foundation.NSObject,
-  function CLRegion () {
-    return CLRegion.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLRegion = CLRegion = foundation.NSObject.extendClass("CLRegion", {
 
     // Initializing a Circular Region
     initCircularRegion: objc.instanceSelector("initCircularRegionWithCenter:radius:identifier:"),

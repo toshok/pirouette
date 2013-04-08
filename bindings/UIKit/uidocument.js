@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDocument");
-exports.UIDocument = UIDocument = objc.bindClass(foundation.NSObject,
-  function UIDocument () {
-    return UIDocument.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument", {
 
     // Initializing a Document Object
     initWithFileURL: objc.instanceSelector("initWithFileURL:"),

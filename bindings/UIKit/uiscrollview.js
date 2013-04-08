@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.UIScrollView = UIScrollView = objc.bindClass(UIView,
-  function UIScrollView () {
-    return UIScrollView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", {
 
     // Managing the Display of Content
     setContentOffset: objc.instanceSelector("setContentOffset:animated:"),

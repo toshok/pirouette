@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBezierPath");
-exports.UIBezierPath = UIBezierPath = objc.bindClass(foundation.NSObject,
-  function UIBezierPath () {
-    return UIBezierPath.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", {
 
     // Creating a UIBezierPath Object
     bezierPath:                                 objc.instanceSelector("bezierPath"),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPanGestureRecognizer");
-exports.UIPanGestureRecognizer = UIPanGestureRecognizer = objc.bindClass(UIGestureRecognizer,
-  function UIPanGestureRecognizer () {
-    return UIPanGestureRecognizer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPanGestureRecognizer = UIPanGestureRecognizer = UIGestureRecognizer.extendClass ("UIPanGestureRecognizer", {
 
     // Configuring the Gesture Recognizer
     maximumNumberOfTouches: objc.instanceProperty(),

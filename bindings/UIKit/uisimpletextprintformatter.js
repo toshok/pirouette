@@ -1,7 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISimpleTextPrintFormatter");
-exports.UISimplePrintFormatter = UISimplePrintFormatter = objc.bindClass(UIPrintFormatter,
+exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter",
   function UISimplePrintFormatter () {
     return UISimplePrintFormatter.__super__.constructor.apply(this, arguments);
   }, {

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSButton = NSButton = objc.bindProtocol(NSControl,
-  function NSButton () {
-    return NSButton.__super__.constructor.apply(this, arguments);
-  }, {
+exports.NSButton = NSButton = NSControl.extendClass("NSButton", {
 
     // Configuring Buttons
     buttonType: objc.instanceProperty(),

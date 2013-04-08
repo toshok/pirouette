@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILabel");
-exports.UILabel = UILabel = objc.bindClass(UIView,
-  function UILabel () {
-    return UILabel.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UILabel = UILabel = UIView.extendClass ("UILabel", {
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),

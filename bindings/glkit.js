@@ -7,28 +7,28 @@ let objc = require("objc"),
 
 objc.requireFramework("GLKit");
 
-exports.GLKViewDrawableColorFormat = GLKViewDrawableColorFormat = ck.makeEnum({
+exports.GLKViewDrawableColorFormat = GLKViewDrawableColorFormat = objc.makeEnum({
    rgba8888 : 0,
    rgb565   : 1
 });
 
-exports.GLKViewDrawableDepthFormat = GLKViewDrawableDepthFormat = ck.makeEnum({
+exports.GLKViewDrawableDepthFormat = GLKViewDrawableDepthFormat = objc.makeEnum({
    depthNone : 0,
    depth16   : 1,
    depth24   : 2
 });
 
-exports.GLKViewDrawableStencilFormat = GLKViewDrawableStencilFormat = ck.makeEnum({
+exports.GLKViewDrawableStencilFormat = GLKViewDrawableStencilFormat = objc.makeEnum({
    stencilNone : 0,
    stencil8    : 1
 });
 
-exports.GLKViewDrawableMultisample = GLKViewDrawableMultisample = ck.makeEnum({
+exports.GLKViewDrawableMultisample = GLKViewDrawableMultisample = objc.makeEnum({
    multisampleNone : 0,
    multisample4X   : 1
 });
 
-exports.GLKVertexAttrib = GLKVertexAttrib = ck.makeEnum({
+exports.GLKVertexAttrib = GLKVertexAttrib = objc.makeEnum({
    position  : 0,
    normal    : 1,
    color     : 2,

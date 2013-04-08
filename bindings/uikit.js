@@ -6,19 +6,19 @@ let objc = require("objc"),
 
 objc.requireFramework("UIKit");
 
-exports.UITableViewStyle = UITableViewStyle = ck.makeEnum({
+exports.UITableViewStyle = UITableViewStyle = objc.makeEnum({
     plain: 0,
     grouped: 1
 });
 
 
-exports.UITableViewCellStyle = UITableViewCellStyle = ck.makeEnum({
+exports.UITableViewCellStyle = UITableViewCellStyle = objc.makeEnum({
    value1: 0,
    value2: 1,
    subtitle: 2
 });
 
-exports.UIButtonType = UIButtonType = ck.makeEnum({
+exports.UIButtonType = UIButtonType = objc.makeEnum({
    custom: 0,
    roundedRect: 1,
    detailDisclosure: 2,
@@ -27,13 +27,13 @@ exports.UIButtonType = UIButtonType = ck.makeEnum({
    contactAdd: 5
 });
 
-exports.UITextAlignment = UITextAlignment = ck.makeEnum({
+exports.UITextAlignment = UITextAlignment = objc.makeEnum({
    left: 0,
    center: 1,
    right: 2
 });
 
-exports.UIControlState = UIControlState = ck.makeEnum({
+exports.UIControlState = UIControlState = objc.makeEnum({
    normal               : 0,
    highlighted          : 1 << 0,
    disabled             : 1 << 1,
@@ -42,7 +42,7 @@ exports.UIControlState = UIControlState = ck.makeEnum({
    reserved             : 0xFF000000
 });
 
-exports.UIBarStyle = UIBarStyle = ck.makeEnum({
+exports.UIBarStyle = UIBarStyle = objc.makeEnum({
    default          : 0,
    black            : 1,
 
@@ -51,7 +51,7 @@ exports.UIBarStyle = UIBarStyle = ck.makeEnum({
 });
 
 
-exports.UIDataDetectorType = UIDataDetectorType = ck.makeEnum({
+exports.UIDataDetectorType = UIDataDetectorType = objc.makeEnum({
    phoneNumber   : 1 << 0,
    link          : 1 << 1,
    address       : 1 << 2,
@@ -61,13 +61,13 @@ exports.UIDataDetectorType = UIDataDetectorType = ck.makeEnum({
 });
 
 
-exports.UIBarButtonItemStyle = UIBarButtonItemStyle = ck.makeEnum({
+exports.UIBarButtonItemStyle = UIBarButtonItemStyle = objc.makeEnum({
    plain: 0,
    bordered: 1,
    done: 2
 });
 
-exports.UIBarButtonSystemItem = UIBarButtonSystemItem = ck.makeEnum({
+exports.UIBarButtonSystemItem = UIBarButtonSystemItem = objc.makeEnum({
    done: 0,
    cancel: 1,
    edit: 2,
@@ -95,7 +95,7 @@ exports.UIBarButtonSystemItem = UIBarButtonSystemItem = ck.makeEnum({
 });
 
 
-exports.UIControlEvent = UIControlEvent = ck.makeEnum({
+exports.UIControlEvent = UIControlEvent = objc.makeEnum({
    TouchDown           : 1 <<  0,
    TouchDownRepeat     : 1 <<  1,
    TouchDragInside     : 1 <<  2,
@@ -120,7 +120,7 @@ exports.UIControlEvent = UIControlEvent = ck.makeEnum({
    AllEvents           : 0xFFFFFFFF
 });
 
-exports.UIPopoverArrowDirection = UIPopoverArrowDirection = ck.makeEnum({
+exports.UIPopoverArrowDirection = UIPopoverArrowDirection = objc.makeEnum({
    up:       1 << 0,
    down:     1 << 1,
    left:     1 << 2,
@@ -129,7 +129,7 @@ exports.UIPopoverArrowDirection = UIPopoverArrowDirection = ck.makeEnum({
    unknown: ~0
 });
 
-exports.UIUserInterfaceIdiom = UIUserInterfaceIdiom = ck.makeEnum({
+exports.UIUserInterfaceIdiom = UIUserInterfaceIdiom = objc.makeEnum({
    phone: 0,
    pad: 1
 });

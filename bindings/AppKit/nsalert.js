@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSAlert = NSAlert = objc.bindClass(foundation.NSObject,
-  function NSAlert () {
-    return NSAlert.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSAlert = NSAlert = foundation.NSObject.extendClass("NSAlert", {
     init: objc.instanceSelector("init"),
     alertWithError: objc.staticSelector("alertWithError:"),
     alertWithMessageText: objc.staticSelector("alertWithMessageText:defaultButton:alternateButton:otherButton:informativeTextWithFormat:"),

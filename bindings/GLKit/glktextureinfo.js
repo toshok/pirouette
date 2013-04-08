@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKTextureInfo = GLKTextureInfo = objc.bindClass(foundation.NSObject,
-  function GLKTextureInfo () {
-    return GLKTextureInfo.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKTextureInfo", {
 
     // Reading Texture Information
     glName: objc.instanceProperty(),

@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSAnimation = NSAnimation = objc.bindClass(foundation.NSObject,
-  function NSAnimation () {
-    return NSAnimation.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSAnimation = NSAnimation = foundation.NSObject.extendClass("NSAnimation", {
     // Initializing an NSAnimation Object
     initWithDuration: objc.instanceSelector("initWithDuration:animationCurve:"),
 

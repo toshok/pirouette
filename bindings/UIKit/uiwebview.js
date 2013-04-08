@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIWebView");
-exports.UIWebView = UIWebView = objc.bindClass(UIView,
-  function UIWebView () {
-    return UIWebView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", {
 
     // Setting the Delegate
     delegate: objc.autoboxProperty(UIWebViewDelegate),

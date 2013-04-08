@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSController = NSController = objc.bindClass(foundation.NSObject,
-  function NSController () {
-    NSController.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSController = NSController = foundation.NSObject.extendClass("NSController", {
   // Managing Editing
   objectDidBeginEditing: objc.instanceSelector("objectDidBeginEditing:"),
   objectDidEndEditing: objc.instanceSelector("objectDidEndEditing:"),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAReplicationLayer = CAReplicationLayer = objc.bindClass(CALayer,
-  function CAReplicationLayer () {
-    return CAReplicationLayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAReplicationLayer = CAReplicationLayer = CALayer.extendClass("CAReplicationLayer", {
 
     // Setting Instance Display Properties
     instanceCount: objc.instanceProperty(),

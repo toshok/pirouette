@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIWindow");
-exports.UIWindow = UIWindow = objc.bindClass(UIView,
-  function UIWindow () {
-    return UIWindow.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIWindow = UIWindow = UIView.extendClass ("UIWindow", {
 
     // Configuring Windows
     windowLevel: objc.instanceProperty(),

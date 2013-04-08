@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIEvent");
-exports.UIEvent = UIEvent = objc.bindClass(foundation.NSObject,
-  function UIEvent () {
-    return UIEvent.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIEvent = UIEvent = foundation.NSObject.extendClass ("UIEvent", {
 
     // Getting the Touches for an Event
     allTouches:       objc.instanceSelector("allTouches"),

@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyFog = GLKEffectPropertyFog = objc.bindClass(GLKEffectProperty,
-  function GLKEffectPropertyFog () {
-    return GLKEffectPropertyFog.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", {
     // Enabling Fog
     enabled: objc.instanceProperty(),
 

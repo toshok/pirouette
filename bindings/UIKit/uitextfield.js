@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextField");
-exports.UITextField = UITextField = objc.bindClass(UIControl,
-  function UITextField () {
-    return UITextField.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITextField = UITextField = UIControl.extendClass ("UITextField", {
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),

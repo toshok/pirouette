@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIView");
-exports.UIView = UIView = objc.bindClass(UIResponder,
-  function UIView () {
-    return UIResponder.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIView = UIView = UIResponder.extendClass ("UIView", {
 
     initWithFrame:    objc.instanceSelector("initWithFrame:").
                             returns( function() { return UIView; }).

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyLight = GLKEffectPropertyLight = objc.bindClass(GLKEffectProperty,
-  function GLKEffectPropertyLight () {
-    return GLKEffectPropertyLight.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.extendClass ("GLKEffectPropertyLight", {
 
     // Configuring Common Lighting Properties
     enabled: objc.instanceProperty(),

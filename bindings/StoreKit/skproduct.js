@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKProduct = SKProduct = objc.bindClass(foundation.NSObject,
-  function SKProduct () {
-    return SKProduct.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKProduct = SKProduct = foundation.NSObject.extendClass ("SKProduct", {
 
     // Getting Product Attributes
     localizedDescription: objc.instanceProperty(),

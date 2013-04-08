@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationController");
-exports.UINavigationController = UINavigationController = objc.bindClass(UIViewController,
-  function UINavigationController () {
-    return UINavigationController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UINavigationController = UINavigationController = UIViewController.extendClass ("UINavigationController", {
 
     // Creating Navigation Controllers
     initWithRootViewController: objc.instanceSelector("initWithRootViewController:"),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKMatchmaker = GKMatchmaker = objc.bindClass(foundation.NSObject,
-  function GKMatchmaker () {
-    return GKMatchmaker.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKMatchmaker = GKMatchmaker = foundation.NSObject.extendClass ("GKMatchmaker", {
 
     // Retrieving the Shared Matchmaker
     sharedMatchmaker: objc.staticSelector("sharedMatchmaker"),

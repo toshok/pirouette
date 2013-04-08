@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISearchDisplayController");
-exports.UISearchDisplayController = UISearchDisplayController = objc.bindClass(foundation.NSObject,
-  function UISearchDisplayController () {
-    return UISearchDisplayController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISearchDisplayController = UISearchDisplayController = foundation.NSObject.extendClass ("UISearchDisplayController", {
 
     // Initialization
     initWithSearchBar: objc.instanceSelector("initWithSearchBar:contentsController:"),

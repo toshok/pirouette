@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBarButtonItem");
-exports.UIBarButtonItem = UIBarButtonItem = objc.bindClass(UIBarItem,
-  function UIBarButtonItem () {
-    return UIBarButtonItem.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", {
 
     // Initializing an Item
     initWithCustomView:          objc.instanceSelector("initWithCustomView:"),

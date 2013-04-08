@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.EAGLContext = EAGLContext = objc.bindClass(foundation.NSObject,
-  function EAGLContext () {
-    return EAGLContext.__super__.constructor.apply(this, arguments);
-  }, {
+exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContext", {
 
     // Creating EAGL Contexts
     initWithAPI: objc.instanceSelector("initWithAPI:"),

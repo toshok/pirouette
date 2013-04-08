@@ -1,17 +1,14 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("NSRunLoop");
-exports.NSRunLoop = NSRunLoop = objc.bindClass(foundation.NSObject,
-  function NSRunLoop () {
-    return NSRunLoop.__super__.constructor.apply(this, arguments);
-  }, {
+exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", {
 
     // Accessing Run Loops and Modes
     currentRunLoop: objc.staticProperty ({ set: null }),
     currentMode: objc.instanceProperty ({ set: null }),
     limitDate: objc.instanceSelector("limitDateForMode:").
-                             returns( function() { return ck.sig.Void; }).
-			      params( function() { return [ ck.sig.NSString ]; }),
+                             returns( function() { return objc.sig.Void; }).
+			      params( function() { return [ objc.sig.NSString ]; }),
     mainRunLoop: objc.staticProperty ({ set: null }),
     getCFRunLoop: objc.instanceSelector("getCFRunLoop"),
 

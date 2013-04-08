@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKReverseGeocoder = MKReverseGeocoder = objc.bindClass(foundation.NSObject,
-  function MKReverseGeocoder () {
-    return MKReverseGeocoder.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKReverseGeocoder = MKReverseGeocoder = foundation.NSObject.extendClass ("MKReverseGeocoder", {
 
     // Initializing the Reverse Geocoder
     initWithCoordinate: objc.instanceSelector("initWithCoordinate:"), // Deprecated in iOS 5.0

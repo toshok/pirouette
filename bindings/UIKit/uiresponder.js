@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIResponder");
-exports.UIResponder = UIResponder = objc.bindClass(foundation.NSObject,
-  function UIResponder () {
-    return UIResponder.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", {
 
     // Managing the Responder Chain
     nextResponder:           objc.instanceSelector("nextResponder"),

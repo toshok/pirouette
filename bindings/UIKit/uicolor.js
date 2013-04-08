@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIColor");
-exports.UIColor = UIColor = objc.bindClass(foundation.NSObject,
-  function UIColor () {
-    return UIColor.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIColor = UIColor = foundation.NSObject.extendClass ("UIColor", {
 
     // Creating a UIColor Object from Component Values
     colorWithWhite:          objc.staticSelector("colorWithWhite:alpha:"),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-console.log("UIActionSheet");
-exports.UIActionSheet = UIActionSheet = objc.bindClass(UIView,
-  function UIActionSheet () {
-    return UIActionSheet.__super__.constructor.apply(this, arguments);
-  }, {
+//console.log("UIActionSheet");
+exports.UIActionSheet = UIActionSheet = UIView.extendClass ("UIActionSheet", {
 
   // Creating Action Sheets
   init: objc.instanceSelector("initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:"),

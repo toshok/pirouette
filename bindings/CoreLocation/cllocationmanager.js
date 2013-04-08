@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLLocationManager = CLLocationManager = objc.bindClass(foundation.NSObject,
-  function CLLocationManager () {
-    return CLLocationManager.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLLocationManager = CLLocationManager = foundation.NSObject.extendClass("CLLocationManager", {
 
     // Accessing the Delegate
     delgate: objc.autoboxProperty(CLLocationManagerDelegate),

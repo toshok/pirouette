@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKOverlayView = MKOverlayView = objc.bindClass(ui.UIView,
-  function MKOverlayView () {
-    return MKOverlayView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKOverlayView = MKOverlayView = ui.UIView.extendClass ("MKOverlayView", {
 
     // Initializing an Overlay View
     initWithOverlay: objc.instanceSelector("initWithOverlay:"),

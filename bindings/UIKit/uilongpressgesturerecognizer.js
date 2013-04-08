@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILongPressGestureRecognizer");
-exports.UILongPressGestureRecognizer = UILongPressGestureRecognizer = objc.bindClass(UIGestureRecognizer,
-  function UILongPressGestureRecognizer () {
-    return UILongPressGestureRecognizer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UILongPressGestureRecognizer = UILongPressGestureRecognizer = UIGestureRecognizer.extendClass ("UILongPressGestureRecognizer", {
 
     // Configuring the Gesture Recognizer
     minimumPressDuration: objc.instanceProperty(),

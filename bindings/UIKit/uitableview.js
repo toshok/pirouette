@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableView");
-exports.UITableView = UITableView = objc.bindClass(UIScrollView,
-  function UITableView () {
-    return UITableView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", {
 
     // Initializing a UITableView Object
     initWithFrame: objc.instanceSelector("initWithFrame:style:"),

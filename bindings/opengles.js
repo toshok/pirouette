@@ -5,8 +5,7 @@ let objc = require('objc'),
 
 objc.requireFramework("OpenGLES");
 
-exports.EAGLRenderingAPI = EAGLRenderingAPI = ck.makeEnum({
+exports.EAGLRenderingAPI = EAGLRenderingAPI = objc.makeEnum({
    OpenGLES1         : 1,
    OpenGLES2         : 2
 });
-

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDevice");
-exports.UIDevice = UIDevice = objc.bindClass(foundation.NSObject,
-  function UIDevice () {
-    return UIDevice.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIDevice = UIDevice = foundation.NSObject.extendClass ("UIDevice", {
 
     // Getting the Shared Device Instance
     currentDevice:                                objc.staticProperty({ set: null }),

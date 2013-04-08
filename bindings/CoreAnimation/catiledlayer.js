@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATiledLayer = CATiledLayer = objc.bindClass(CALayer,
-  function CATiledLayer () {
-    return CATiledLayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", {
 
     // Visual Fade
     fadeDuration: objc.staticSelector("fadeDuration"),

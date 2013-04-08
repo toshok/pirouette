@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-//console.log("NSApplicationDelegate");
-exports.NSApplicationDelegate = NSApplicationDelegate = objc.bindProtocol(foundation.NSResponder,
-  function NSApplication () {
-    return NSApplication.__super__.constructor.apply(this, arguments);
-  }, {
+exports.NSApplicationDelegate = NSApplicationDelegate = foundation.Protocol.extendClass ("NSApplicationDelegate", {
 
     // Launching Applications
     willFinishLaunching: objc.optionalMethod("applicationWillFinishLaunching:", { sig: "v@:@" }),

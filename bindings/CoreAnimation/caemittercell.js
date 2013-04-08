@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAEmitterCell = CAEmitterCell = objc.bindClass(foundation.NSObject,
-  function CAEmitterCell () {
-    return CAEmitterCell.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", {
 
     // Creating and Initializing an Emitter Cell
     emitterCell: objc.staticSelector("emitterCell"),
@@ -53,7 +50,7 @@ exports.CAEmitterCell = CAEmitterCell = objc.bindClass(foundation.NSObject,
     // Key-Value Coding Extensions
     defaultValueForKey: objc.staticSelector("defaultValueForKey:"),
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:").
-                                            returns( function() { return ck.sig.Bool; } ).
-                                             params( function() { return [ ck.sig.NSString ]; } )
+                                            returns( function() { return objc.sig.Bool; } ).
+                                             params( function() { return [ objc.sig.NSString ]; } )
 
 });

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKPolygon = MKPolygon = objc.bindClass(MKMultiPoint,
-  function MKPolygon () {
-    return MKPolygon.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKPolygon = MKPolygon = MKMultiPoint.extendClass ("MKPolygon", {
 
     // Creating a Polygon Overlay
     polygonWithPoints: objc.staticSelector("polygonWithPoints:count:"),

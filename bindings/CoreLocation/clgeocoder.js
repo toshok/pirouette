@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLGeocoder = CLGeocoder = objc.bindClass(foundation.NSObject,
-  function CLGeocoder () {
-    return CLGeocoder.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLGeocoder = CLGeocoder = foundation.NSObject.extendClass("CLGeocoder", {
 
     // Reverse Geocoding a Location
     reverseGeocodeLocation: objc.instanceSelector("reverseGeocodeLocation:completionHandler:"),

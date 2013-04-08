@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintInfo");
-exports.UIPrintPageInteractionController = UIPrintPageInteractionController = objc.bindClass(foundation.NSObject,
-  function UIPrintPageInteractionController () {
-    return UIPrintPageInteractionController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", {
 
     // Creating a UIPrintInfo Object
     printInfo:               objc.staticSelector("printInfo"),

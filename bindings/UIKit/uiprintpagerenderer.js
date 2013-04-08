@@ -1,10 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintPageRenderer");
-exports.UIPrintPageRenderer = UIPrintPageRenderer = objc.bindClass(foundation.NSObject,
-  function UIPrintPageRenderer () {
-    return UIPrintPageRenderer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendClass ("UIPrintPageRenderer", {
+
     // Accessing Information About the Print Job
     numberOfPages: objc.instanceSelector("numberOfPages"),
     paperRect:     objc.instanceProperty(),

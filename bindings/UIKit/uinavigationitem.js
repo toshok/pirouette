@@ -1,10 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationItem");
-exports.UINavigationItem = UINavigationItem = objc.bindClass(foundation.NSObject,
-  function UINavigationItem () {
-    return UINavigationItem.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("UINavigationItem", {
+
     // Initializing an Item
     initWithTitle: objc.instanceSelector("initWithTitle:"),
 

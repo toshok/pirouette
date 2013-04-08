@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIMenuItem");
-exports.UIMenuItem = UIMenuItem = objc.bindClass(foundation.NSObject,
-  function UIMenuItem () {
-    return UIMenuItem.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIMenuItem = UIMenuItem = foundation.NSObject.extendClass ("UIMenuItem", {
 
     // Creating a Menu Item
     initWithTitle: objc.instanceSelector("initWithTitle:action:"),

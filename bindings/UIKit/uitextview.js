@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextView");
-exports.UITextView = UITextView = objc.bindClass(UIScrollView,
-  function UITextView () {
-    return UITextView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", {
 
     // Configuring the Text Attributes
     text: objc.instanceProperty(),

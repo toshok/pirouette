@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKSession = GKSession = objc.bindClass(foundation.NSObject,
-  function GKSession () {
-    return GKSession.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKSession = GKSession = foundation.NSObject.extendClass ("GKSession", {
 
     // Creating a Session
     init: objc.instanceSelector("initWithSessionID:displayName:sessionMode:"),

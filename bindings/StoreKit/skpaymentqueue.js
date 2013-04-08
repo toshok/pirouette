@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKPaymentQueue = SKPaymentQueue = objc.bindClass(NSObject,
-  function SKPaymentQueue () {
-    return SKPaymentQueue.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKPaymentQueue = SKPaymentQueue = NSObject.extendClass ("SKPaymentQueue", {
 
   // Determining Whether the User Can Make Payments
   canMakePayments: objc.staticSelector("canMakePayments"),

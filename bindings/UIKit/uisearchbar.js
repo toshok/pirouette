@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISearchBar");
-exports.UISearchBar = UISearchBar = objc.bindClass(UIView,
-  function UISearchBar () {
-    return UISearchBar.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISearchBar = UISearchBar = UIView.extendClass ("UISearchBar", {
 
     // Text Content
     placeholder: objc.instanceProperty(),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIManagedDocument");
-exports.UIManagedDocument = UIManagedDocument = objc.bindClass(foundation.NSObject,
-  function UIManagedDocument () {
-    return UIManagedDocument.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", {
 
     // Managing the Core Data Stack
     configurePersistentStoreCoordinator: objc.instanceSelector("configurePersistentStoreCoordinatorForURL:ofType:modelConfiguration:storeOptions:error:"),

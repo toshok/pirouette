@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIImagePickerController");
-exports.UIImagePickerController = UIImagePickerController = objc.bindClass(UINavigationController,
-  function UIImagePickerController () {
-    return UIImagePickerController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIImagePickerController = UIImagePickerController = UINavigationController.extendClass ("UIImagePickerController", {
 
     // Setting the Picker Source
     availableMediaTypes:   objc.staticSelector("availableMediaTypesForSourceType:"),

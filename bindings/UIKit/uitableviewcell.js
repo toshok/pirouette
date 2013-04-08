@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewCell");
-exports.UITableViewCell = UITableViewCell = objc.bindClass(UIView,
-  function UITableViewCell () {
-    return UITableViewCell.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", {
 
     // Initializing a UITableViewCell Object
     initWithStyle: objc.instanceSelector("initWithStyle:reuseIdentifier:"),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKLocalPlayer = GKLocalPlayer = objc.bindClass(GKPlayer,
-  function GKLocalPlayer () {
-    return GKLocalPlayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKLocalPlayer = GKLocalPlayer = GKPlayer.extendClass ("GKLocalPlayer", {
 
     // Accessing the Shared Local Player
     localPlayer: objc.staticSelector("localPlayer"),

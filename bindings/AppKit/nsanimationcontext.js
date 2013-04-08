@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSAnimationContext = NSAnimationContext = objc.bindClass(foundation.NSObject,
-  function NSAnimationContext () {
-    return NSAnimationContext.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSAnimationContext = NSAnimationContext = foundation.NSObject.extendClass("NSAnimationContext", {
     // Grouping Transactions
     beginGrouping: objc.instanceSelector("beginGrouping"),
     endGrouping: objc.instanceSelector("endGrouping"),

@@ -1,13 +1,10 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UICanvasView");
-exports.UICanvasView = UICanvasView = objc.bindClass(UIView,
-  function UICanvasView () {
-    return UICanvasView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", {
 
   layerClass: objc.staticSelector("layerClass").
-                          returns( function () { return ck.sig.Class; }).
+                          returns( function () { return objc.sig.Class; }).
 			     impl( function () { return coreAnimation.CAEAGLLayer; }),
   getContext: function (name, args) {
     if (name === "experimental-webgl" || name === "webgl") {

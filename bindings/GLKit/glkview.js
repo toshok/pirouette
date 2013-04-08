@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKView = GLKView = objc.bindClass(uikit.UIView,
-  function GLKView () {
-    return GLKView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", {
 
     // Initializing the View
     initWithFrameAndContext: objc.instanceSelector("initWithFrame:context:"),

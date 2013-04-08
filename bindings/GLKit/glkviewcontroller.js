@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKViewController = GLKViewController = objc.bindClass(uikit.UIViewController,
-  function GLKViewController () {
-    return GLKViewController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKViewController = GLKViewController = uikit.UIViewController.extendClass ("GLKViewController", {
 
     // Configuring the Frame Rate
     preferredFramesPerSecond: objc.instanceProperty(),

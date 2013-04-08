@@ -334,5 +334,6 @@ endef
 $(foreach framework,$(BOUND_FRAMEWORKS),$(eval $(call Framework,$(framework))))
 
 $(DEST_DIR)/%.js: %.js
-	@echo [GEN $<] && traceur --experimental --out $@ $<
+	@mkdir -p $(DEST_DIR)
+	@echo [GEN $<] && cp $< $@
 

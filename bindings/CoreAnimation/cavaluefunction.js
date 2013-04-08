@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAValueFunction = CAValueFunction = objc.bindClass(foundation.NSObject,
-  function CAValueFunction () {
-    return CAValueFunction.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", {
 
     // Getting Value Function Properties
     name: objc.instanceProperty(),

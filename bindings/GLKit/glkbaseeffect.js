@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKBaseEffect = GLKBaseEffect = objc.bindClass(foundation.NSObject,
-  function GLKBaseEffect () {
-    return GLKBaseEffect.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", {
 
     // XXX ES6-port
     // @mixinProtocol GLKNamedEffect

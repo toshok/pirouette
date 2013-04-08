@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKOverlayPathView = MKOverlayPathView = objc.bindClass(MKOverlayView,
-  function MKOverlayPathView () {
-    return MKOverlayPathView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKOverlayPathView = MKOverlayPathView = MKOverlayView.extendClass ("MKOverlayPathView", {
 
     // Accessing the Drawing Attributes
     fillColor: objc.instanceProperty(),

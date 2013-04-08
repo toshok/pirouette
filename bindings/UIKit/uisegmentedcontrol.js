@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISegmentedControl");
-exports.UISegmentedControl = UISegmentedControl = objc.bindClass(UIControl,
-  function UISegmentedControl () {
-    return UISegmentedControl.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegmentedControl", {
 
     // Initializing a Segmented Control
     initWithItems: objc.instanceSelector("initWithItems:"),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAConstraint = CAConstraint = objc.bindClass(foundation.NSObject,
-  function CAConstraint () {
-    return CAConstraint.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAConstraint = CAConstraint = foundation.NSObject.extendClass("CAConstraint", {
 
     // Create a New Constraint
     constraintWithAttributeAndScaleAndOffset: objc.staticSelector("constraintWithAttribute:relativeTo:attribute:scale:offset:"),

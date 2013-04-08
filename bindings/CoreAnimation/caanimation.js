@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAAnimation = CAAnimation = objc.bindClass(foundation.NSObject,
-  function CAAnimation () {
-    return CAAnimation.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", {
 
     // Archiving Properties
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:"),

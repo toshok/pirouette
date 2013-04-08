@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISwitch");
-exports.UISwitch = UISwitch = objc.bindClass(UIControl,
-  function UISwitch () {
-    return UISwitch.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", {
 
     // Initializing the Switch Object
     initWithFrame: objc.instanceSelector("initWithFrame:"),

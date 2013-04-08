@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDocumentInteractionController");
-exports.UIDocumentInteractionController = UIDocumentInteractionController = objc.bindClass(foundation.NSObject,
-  function UIDocumentInteractionController () {
-    return UIDocumentInteractionController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", {
 
     // Creating the Document Interaction Controller
     interactionControllerWithURL:       objc.staticSelector("interactionControllerWithURL:"),

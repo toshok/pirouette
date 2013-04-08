@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.TWRequest = TWRequest = objc.bindClass(foundation.NSObject,
-  function TWRequest () {
-    return TWRequest.__super__.constructor.apply(this, arguments);
-  }, {
+exports.TWRequest = TWRequest = foundation.NSObject.extendClass ("TWRequest", {
 
     // Initializing Requests
     initWithURL:      objc.instanceSelector("initWithURL:parameters:requestMethod:"),

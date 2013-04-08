@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarController");
-exports.UITabBarController = UITabBarController = objc.bindClass(UIViewController,
-  function UITabBarController () {
-    return UITabBarController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", {
 
     // Accessing the Tab Bar Controller Properties
     delegate: objc.autoboxProperty(UITabBarControllerDelegate),

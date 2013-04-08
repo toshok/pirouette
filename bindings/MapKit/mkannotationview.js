@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKAnnotationView = MKAnnotationView = objc.bindClass(ui.UIView,
-  function MKAnnotationView () {
-    return MKAnnotationView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKAnnotationView = MKAnnotationView = ui.UIView.extendClass ("MKAnnotationView", {
 
     // Initializing and Preparing the View
     initWithAnnotation: objc.instanceSelector("initWithAnnotation:reuseIdentifier:"),

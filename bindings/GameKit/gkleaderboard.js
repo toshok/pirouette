@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKLeaderboard = GKLeaderboard = objc.bindClass(foundation.NSObject,
-  function GKLeaderboard () {
-    return GKLeaderboard.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKLeaderboard = GKLeaderboard = foundation.NSObject.extendClass ("GKLeaderboard", {
 
     // Determining the Available Leaderboards to Display
     loadCategories: objc.staticSelector("loadCategoriesWithCompletionHandler:"),

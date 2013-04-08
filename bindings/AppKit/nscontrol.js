@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSControl = NSControl = objc.bindClass(NSView,
-  function NSControl () {
-    NSControl.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSControl = NSControl = NSView.extendClass("NSControl", {
     // Initializing an NSControl
     initWithFrame: objc.instanceSelector("initWithFrame:"),
 
@@ -90,15 +86,15 @@ exports.NSControl = NSControl = objc.bindClass(NSView,
 });
 
 
-exports.NSControlProxy = NSControlProxy = objc.bindClass(foundation.NSObject,
-  function NSControlProxy (fn) {
-    NSControlProxy.__super__.constructor.apply(this, arguments);
-    this.fn = fn;
-  }, {
+exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSControlProxy", {
+    constructor: function(_super, fn) {
+      _super.call (this);
+      this.fn = fn;
+    },
 
     proxyAction: objc.instanceSelector("action").
-                               returns( function() { return ck.sig.Void; }).
+                               returns( function() { return objc.sig.Void; }).
 			        params( function() { return [foundation.NSObject]; }).
-				  impl( function() { return @fn(); })
+				  impl( function() { return this.fn(); })
 
 });

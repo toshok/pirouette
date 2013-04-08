@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPickerView");
-exports.UIPickerView = UIPickerView = objc.bindClass(UIView,
-  function UIPickerView () {
-    return UIPickerView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPickerView = UIPickerView = UIView.extendClass ("UIPickerView", {
 
     // Getting the Dimensions of the View Picker
     numberOfRowsInComponent: objc.instanceSelector("numberOfRowsInComponent:"),

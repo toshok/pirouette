@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log "UITouch"
-exports.UITouch = UITouch = objc.bindClass(foundation.NSObject,
-  function UITouch () {
-    return UITouch.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", {
 
     // Getting the Location of Touches
     locationInView:         objc.instanceSelector("locationInView:"),

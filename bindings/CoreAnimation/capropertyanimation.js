@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAPropertyAnimation = CAPropertyAnimation = objc.bindClass(CAAnimation,
-  function CAPropertyAnimation () {
-    return CAPropertyAnimation.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAPropertyAnimation = CAPropertyAnimation = CAAnimation.extendClass("CAPropertyAnimation", {
 
     // Animated Key Path
     keyPath: objc.instanceProperty(),

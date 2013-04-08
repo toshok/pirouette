@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log ("UIButton");
-exports.UIButton = UIButton = objc.bindClass (UIControl,
-  function UIButton () {
-    return UIButton.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIButton = UIButton = UIControl.extendClass ("UIButton", {
 
   // Creating Buttons
   buttonWithType:                     objc.staticSelector("buttonWithType:"),

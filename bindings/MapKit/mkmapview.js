@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKMapView = MKMapView = objc.bindClass(ui.UIView,
-  function MKMapView () {
-    return MKMapView.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKMapView = MKMapView = ui.UIView.extendClass ("MKMapView", {
 
     // Accessing Map Properties
     mapType:       objc.instanceProperty(),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIImage");
-exports.UIImage = UIImage = objc.bindClass(foundation.NSObject,
-  function UIImage () {
-    return UIImage.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIImage = UIImage = foundation.NSObject.extendClass ("UIImage", {
 
     // Cached Image Loading Routines
     imageNamed: objc.staticSelector("imageNamed:"),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKTurnBasedParticipant = GKTurnBasedParticipant = objc.bindClass(foundation.NSObject,
-  function GKTurnBasedParticipant () {
-    return GKTurnBasedParticipant.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKTurnBasedParticipant = GKTurnBasedParticipant = foundation.NSObject.extendClass ("GKTurnBasedParticipant", {
 
     // Participant Information
     playerID: objc.instanceProperty(),

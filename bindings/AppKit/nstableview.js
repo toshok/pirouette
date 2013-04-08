@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSTableView = NSTableView = objc.bindClass(NSControl,
-  function NSTableView () {
-    NSTableView.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSTableView = NSTableView = NSControl.extendClass("NSTableView", {
     // Creating the Displayed Views
     makeViewWithIdentifier: objc.instanceSelector("makeViewWithIdentifier:owner:"),
     rowViewAtRow: objc.instanceSelector("rowViewAtRow:makeIfNecessary:"),
@@ -32,8 +28,8 @@ exports.NSTableView = NSTableView = objc.bindClass(NSControl,
 
     // Target-action Behavior
     doubleAction: objc.instanceSelector(),
-    clickedColumn: objc.instanceSelector({ set: null }),
-    clickedRow: objc.instanceSelector({ set: null }),
+    clickedColumn: objc.instanceProperty({ set: null }),
+    clickedRow: objc.instanceProperty({ set: null }),
 
     // Configuring Behavior
     allowsColumnReordering: objc.instanceSelector(),
@@ -61,17 +57,17 @@ exports.NSTableView = NSTableView = objc.bindClass(NSControl,
     addTableColumn: objc.instanceSelector("addTableColumn:"),
     removeTableColumn: objc.instanceSelector("removeTableColumn:"),
     moveColumn: objc.instanceSelector("moveColumn:toColumn:"),
-    tableColumns: objc.instanceSelector({ set: null }),
+    tableColumns: objc.instanceProperty({ set: null }),
     columnWithIdentifier: objc.instanceSelector("columnWithIdentifier:"),
     tableColumnWithIdentifier: objc.instanceSelector("tableColumnWithIdentifier:"),
 
     // Selecting Columns and Rows
-    selectedColumn: objc.instanceSelector({ set: null }),
-    selectedColumnIndexes: objc.instanceSelector({ set: null }),
-    numberOfSelectedColumns: objc.instanceSelector({ set: null }),
-    selectedRow: objc.instanceSelector({ set: null }),
-    selectedRowIndexes: objc.instanceSelector({ set: null }),
-    numberOfSelectedRows: objc.instanceSelector({ set: null }),
+    selectedColumn: objc.instanceProperty({ set: null }),
+    selectedColumnIndexes: objc.instanceProperty({ set: null }),
+    numberOfSelectedColumns: objc.instanceProperty({ set: null }),
+    selectedRow: objc.instanceProperty({ set: null }),
+    selectedRowIndexes: objc.instanceProperty({ set: null }),
+    numberOfSelectedRows: objc.instanceProperty({ set: null }),
     selectColumnIndexes: objc.instanceSelector("selectColumnIndexes:byExtendingSelection:"),
     deselectColumn: objc.instanceSelector("deselectColumn:"),
     isColumnSelected: objc.instanceSelector("isColumnSelected:"),

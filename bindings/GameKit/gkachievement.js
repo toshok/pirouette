@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKAchievement = GKAchievement = objc.bindClass(foundation.NSObject,
-  function GKAchievement () {
-    return GKAchievement.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKAchievement = GKAchievement = foundation.NSObject.extendClass ("GKAchievement", {
 
     // Retrieving Achievement Progress from Game Center
     loadAchievementsWithCompletionHandler: objc.staticSelector("loadAchievementsWithCompletionHandler:"),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPageControl");
-exports.UIPageControl = UIPageControl = objc.bindClass(UIControl,
-  function UIPageControl () {
-    return UIPageControl.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", {
 
     // Managing the Page Navigation
     currentPage: objc.instanceProperty(),

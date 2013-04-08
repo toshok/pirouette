@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLHeading = CLHeading = objc.bindClass(foundation.NSObject,
-  function CLHeading () {
-    return CLHeading.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLHeading = CLHeading = foundation.NSObject.extendClass("CLHeading", {
 
     // Accessing the Heading Attributes
     magneticHeading: objc.instanceProperty(),

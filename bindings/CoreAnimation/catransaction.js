@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATransaction = CATransaction = objc.bindClass(foundation.NSObject,
-  function CATransaction () {
-    return CATransaction.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CATransaction = CATransaction = foundation.NSObject.extendClass("CATransaction", {
 
     // Creating and Committing Transactions
     begin: objc.staticSelector("begin"),

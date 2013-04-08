@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKPayment = SKPayment = objc.bindClass(NSObject,
-  function SKPayment () {
-    return SKPayment.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKPayment = SKPayment = NSObject.extendClass ("SKPayment", {
 
     // Creating Instances
     paymentWithProduct: objc.staticSelector("paymentWithProduct:"),

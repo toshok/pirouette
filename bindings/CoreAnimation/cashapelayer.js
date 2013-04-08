@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAShapeLayer = CAShapeLayer = objc.bindClass(CALayer,
-  function CAShapeLayer () {
-    return CAShapeLayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", {
 
     // Specifying the Shape Path
     path: objc.instanceProperty(),

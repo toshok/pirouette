@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLLocation = CLLocation = objc.bindClass(foundation.NSObject,
-  function CLLocation () {
-    return CLLocation.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLLocation = CLLocation = foundation.NSObject.extendClass("CLLocation", {
 
     // Initializing a Location Object
     initWithLatitudeAndlongitude: objc.instanceSelector("initWithLatitude:longitude:"),

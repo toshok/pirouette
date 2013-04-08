@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIApplication");
-exports.UIApplication = UIApplication = objc.bindClass(UIResponder,
-  function UIApplication () {
-    return UIApplication.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", {
 
     // Getting the Application Instance
 

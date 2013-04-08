@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKMatch = GKMatch = objc.bindClass(foundation.NSObject,
-  function GKMatch () {
-    return GKMatch.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKMatch = GKMatch = foundation.NSObject.extendClass ("GKMatch", {
 
     // Getting and Setting the Delegate
     delegate: objc.autoboxProperty(GKMatchDelegate),

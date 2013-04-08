@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKInvite = GKInvite = objc.bindClass(foundation.NSObject,
-  function GKInvite () {
-    return GKInvite.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKInvite = GKInvite = foundation.NSObject.extendClass ("GKInvite", {
 
     // Invitation Properties
     hosted: objc.instanceProperty(),

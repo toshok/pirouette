@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATextLayer = CATextLayer = objc.bindClass(CALayer,
-  function CATextLayer () {
-    return CATextLayer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", {
 
     // Getting and Setting the Text
     string: objc.instanceProperty(),

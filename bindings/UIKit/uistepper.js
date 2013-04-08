@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIStepper");
-exports.UIStepper = UIStepper = objc.bindClass(UIControl,
-  function UIStepper () {
-    return UIStepper.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", {
 
     // Configuring the Stepper
     continuous: objc.instanceProperty(),

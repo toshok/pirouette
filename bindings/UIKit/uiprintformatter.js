@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintFormatter");
-exports.UIPrintFormatter = UIPrintFormatter = objc.bindClass(foundation.NSObject,
-  function UIPrintFormatter () {
-    return UIPrintFormatter.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPrintFormatter = UIPrintFormatter = foundation.NSObject.extendClass ("UIPrintFormatter", {
 
     // Laying Out the Content
     contentInsets: objc.instanceProperty(),

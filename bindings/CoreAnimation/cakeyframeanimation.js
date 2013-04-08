@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAKeyFrameAnimation = CAKeyFrameAnimation = objc.bindClass(CAAnimation,
-  function CAKeyFrameAnimation () {
-    return CAKeyFrameAnimation.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", {
 
     // Providing Keyframe Values
     path: objc.instanceProperty(),

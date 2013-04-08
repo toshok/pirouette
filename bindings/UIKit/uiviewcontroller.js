@@ -1,16 +1,16 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log "UIViewController"
-exports.UIViewController = UIViewController = objc.bindClass(UIResponder,
-  function UIViewController (handle, arg2) {
-    if (typeof (handle) === 'string') {
-      UIViewController.__super__.constructor.apply(this, arguments);
-      this.initWithNibNameAndBundle(handle, arg2);
-    }
-    else {
-      UIViewController.__super__.constructor.apply(this, arguments);
-    }
-  }, {
+exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", {
+    constructor: function (_super, handle, arg2) {
+      if (typeof (handle) === 'string') {
+	_super.call(this);
+	this.initWithNibNameAndBundle(handle, arg2);
+      }
+      else {
+	_super.apply(this, arguments.slice(1));
+      }
+    },
 
     // Creating a View Controller Using Nib Files
     initWithNibNameAndBundle: objc.instanceSelector("initWithNibName:bundle:"),
@@ -18,7 +18,7 @@ exports.UIViewController = UIViewController = objc.bindClass(UIResponder,
     nibBundle: objc.instanceProperty(),
 
     // Managing the View
-    loadView:       objc.instanceSelector("loadView").returns( function() { return ck.sig.Void; } ),
+    loadView:       objc.instanceSelector("loadView").returns( function() { return objc.sig.Void; } ),
     viewDidLoad:    objc.instanceSelector("viewDidLoad"),
     viewWillUnload: objc.instanceSelector("viewWillUnload"),
     viewDidUnload:  objc.instanceSelector("viewDidUnload"),

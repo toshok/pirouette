@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.TWTweetComposeViewController = TWTweetComposeViewController = objc.bindClass(ui.UIViewController,
-  function TWTweetComposeViewController () {
-    return TWTweetComposeViewController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.TWTweetComposeViewController = TWTweetComposeViewController = ui.UIViewController.extendClass ("TWTweetComposeViewController", {
 
     // Checking Status
     canSendTweet: objc.staticSelector("canSendTweet"),

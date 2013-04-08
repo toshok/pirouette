@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPasteboard");
-exports.UIPasteboard = UIPasteboard = objc.bindClass(foundation.NSObject,
-  function UIPasteboard () {
-    return UIPasteboard.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIPasteboard = UIPasteboard = foundation.NSObject.extendClass ("UIPasteboard", {
 
     // Getting and Removing Pasteboards
     generalPasteboard:        objc.staticSelector("generalPasteboard"),

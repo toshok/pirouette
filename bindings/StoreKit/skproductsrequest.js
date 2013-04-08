@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKProductRequest = SKProductRequest = objc.bindClass(SKRequest,
-  function SKProductRequest () {
-    return SKProductRequest.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKProductRequest = SKProductRequest = SKRequest.extendClass ("SKProductRequest", {
 
     // Initializing a Products sRequest
     initWithProductIdentifiers: objc.instanceSelector("initWithProductIdentifiers:"),

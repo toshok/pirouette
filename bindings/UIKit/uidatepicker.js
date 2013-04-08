@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDatePicker");
-exports.UIDatePicker = UIDatePicker = objc.bindClass(UIControl,
-  function UIDatePicker () {
-    return UIDatePicker.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", {
 
     // Managing the Date and Calendar
     calendar:  objc.instanceProperty(),

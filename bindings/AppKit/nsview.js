@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSView = NSView = objc.bindClass(foundation.NSResponder,
-  function NSView () {
-    NSView.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSView = NSView = foundation.NSResponder.extendClass("NSView", {
     // Creating Instances
     initWithFrame: objc.instanceSelector("initWithFrame:"),
 

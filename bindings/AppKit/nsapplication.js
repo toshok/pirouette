@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSApplication = NSApplication = objc.bindClass(foundation.NSResponder,
-  function NSApplication () {
-    return NSApplication.__super__.constructor.apply(this, arguments);
-  }, {
-
+console.log("NSApplication");
+exports.NSApplication = NSApplication = foundation.NSResponder.extendClass("NSApplication", {
     // Getting the Application
     sharedApplication: objc.staticProperty( { get: function() { return new NSApplication (objc.staticCall("NSApplication", "sharedApplication")); } } ),
 
@@ -180,6 +177,7 @@ exports.NSApplication = NSApplication = objc.bindClass(foundation.NSResponder,
     unregisterForRemoteNotifications: objc.instanceSelector("unregisterForRemoteNotifications")
 
 });
+console.log("<NSApplication");
 
 // use this instead of NSApplicationMain
 NSApplication.main = function (args) {

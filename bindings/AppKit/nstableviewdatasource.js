@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSTableViewDataSource = NSTableViewDataSource = objc.bindProtocol(foundation.Protocol,
-  function NSTableViewDataSource () {
-    NSTableViewDataSource.__super__.constructor.apply(this, arguments);
-  }, {
+exports.NSTableViewDataSource = NSTableViewDataSource = foundation.Protocol.extendClass("NSTableViewDataSource", {
 
     // Getting Values
     numberOfRows: objc.optionalMethod ("numberOfRowsInTableView:"),

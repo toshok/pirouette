@@ -1,9 +1,5 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
-
-exports.NSTableViewDelegate = NSTableViewDelegate = objc.bindProtocol(foundation.Protocol,
-  function NSTableViewDelegate () {
-    NSTableViewDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.NSTableViewDelegate = NSTableViewDelegate = foundation.Protocol.extendClass("NSTableViewDelegate", {
 
     // Providing Views for Rows and Columns
     viewFor: objc.optionalMethod ("tableView:viewForTableColumn:row:"),

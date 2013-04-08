@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSTableColumn = NSTableColumn = objc.bindClass(foundation.NSObject,
-  function NSTableColumn () {
-    NSTableColumn.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSTableColumn = NSTableColumn = foundation.NSObject.extendClass("NSTableColumn", {
     // Creating an NSTableColumn
     initWithIdentifier: objc.instanceSelector("initWithIdentifier:"),
 

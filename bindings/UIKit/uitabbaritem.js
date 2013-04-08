@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarItem");
-exports.UITabBarItem = UITabBarItem = objc.bindClass(UIBarItem,
-  function UITabBarItem () {
-    return UITabBarItem.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITabBarItem = UITabBarItem = UIBarItem.extendClass ("UITabBarItem", {
 
     // Initializing a Item
     initWithTabBarSystemItem: objc.instanceSelector("initWithTabBarSystemItem:tag:"),

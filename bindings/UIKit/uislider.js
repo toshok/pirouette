@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISlider");
-exports.UISlider = UISlider = objc.bindClass(UIControl,
-  function UISlider () {
-    return UISlider.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISlider = UISlider = UIControl.extendClass ("UISlider", {
 
     // Accessing the Slider’s Value
     value: objc.instanceProperty({ set: function(v) { return this.setValue(v, false); } }),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIScreen");
-exports.UIScreen = UIScreen = objc.bindClass(foundation.NSObject,
-  function UIScreen () {
-    return UIScreen.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", {
 
     // Getting the Available Screens
     mainScreen:   objc.staticProperty({ set: null }), // readonly class property

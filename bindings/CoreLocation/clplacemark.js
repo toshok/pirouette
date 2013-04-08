@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CLPlacemark = CLPlacemark = objc.bindClass(foundation.NSObject,
-  function CLPlacemark () {
-    return CLPlacemark.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLPlacemark = CLPlacemark = foundation.NSObject.extendClass("CLPlacemark", {
 
     // Initializing a Placemark Object
     initWithPlacemark: objc.instanceSelector("initWithPlacemark:"),

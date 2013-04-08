@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIGestureRecognizer");
-exports.UIGestureRecognizer = UIGestureRecognizer = objc.bindClass(foundation.NSObject,
-  function UIGestureRecognizer () {
-    return UIGestureRecognizer.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", {
 
     // Initializing a Gesture Recognizer
     initWithTarget: objc.instanceSelector("initWithTarget:action:"),

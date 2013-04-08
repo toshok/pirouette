@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKPaymentTransaction = SKPaymentTransaction = objc.bindClass(NSObject,
-  function SKPaymentTransaction () {
-    return SKPaymentTransaction.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKPaymentTransaction = SKPaymentTransaction = NSObject.extendClass ("SKPaymentTransaction", {
 
     // Getting Information About the Transaction
     error: objc.instanceProperty(),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILocalNotification");
-exports.UILocalNotification = UILocalNotification = objc.bindClass(foundation.NSObject,
-  function UILocalNotification () {
-    return UILocalNotification.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", {
 
     // Scheduling a Local Notification
     fireDate: objc.instanceProperty(),

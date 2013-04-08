@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIStoryboardSegue");
-exports.UIStoryboardSegue = UIStoryboardSegue = objc.bindClass(foundation.NSObject,
-  function UIStoryboardSegue () {
-    return UIStoryboardSegue.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIStoryboardSegue = UIStoryboardSegue = foundation.NSObject.extendClass ("UIStoryboardSegue", {
 
     // Initializing a Storyboard Segue
     initWithIdentifier: objc.instanceSelector("initWithIdentifier:source:destination:"),

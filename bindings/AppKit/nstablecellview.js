@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSTableCellView = NSTableCellView = objc.bindClass(NSView,
-  function NSTableCellView () {
-    NSTableCellView.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSTableCellView = NSTableCellView = NSView.extendClass("NSTableCellView", {
   // Represented Object
   objectValue: objc.instanceProperty(),
 

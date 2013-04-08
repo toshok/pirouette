@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKSkyboxEffect = GLKSkyboxEffect = objc.bindClass(GLKBaseEffect,
-  function GLKSkyboxEffect () {
-    return GLKSkyboxEffect.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKSkyboxEffect = GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkyboxEffect", {
 
     // Naming the Effect
     label: objc.instanceProperty(),

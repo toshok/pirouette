@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.SKRequest = SKRequest = objc.bindClass(foundation.NSObject,
-  function SKRequest () {
-    return SKRequest.__super__.constructor.apply(this, arguments);
-  }, {
+exports.SKRequest = SKRequest = foundation.NSObject.extendClass ("SKRequest", {
 
     // Controlling the Request
     start: objc.instanceSelector("start"),

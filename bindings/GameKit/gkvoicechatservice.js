@@ -1,6 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKVoiceChatService = GKVoiceChatService = objc.bindClass(foundation.NSObject,
+exports.GKVoiceChatService = GKVoiceChatService = foundation.NSObject.extendClass ("GKVoiceChatService",
   function GKVoiceChatService () {
     return GKVoiceChatService.__super__.constructor.apply(this, arguments);
   }, {

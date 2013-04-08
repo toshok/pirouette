@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKScore = GKScore = objc.bindClass(foundation.NSObject,
-  function GKScore () {
-    return GKScore.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKScore = GKScore = foundation.NSObject.extendClass ("GKScore", {
 
     // Initializing a Score Object
     init: objc.instanceSelector("init"),

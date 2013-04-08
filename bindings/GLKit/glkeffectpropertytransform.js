@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyTransform = GLKEffectPropertyTransform = objc.bindClass(GLKEffectProperty,
-  function GLKEffectPropertyTransform () {
-    return GLKEffectPropertyTransform.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKEffectPropertyTransform = GLKEffectPropertyTransform = GLKEffectProperty.extendClass ("GLKEffectPropertyTransform", {
 
     // Configuring Modelview Properties
     modelviewMatrix: objc.instanceProperty(),

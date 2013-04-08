@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKFriendRequestComposeViewController = GKFriendRequestComposeViewController = objc.bindClass(ui.UINavigationController,
-  function GKFriendRequestComposeViewController () {
-    return GKFriendRequestComposeViewController.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKFriendRequestComposeViewController = GKFriendRequestComposeViewController = ui.UINavigationController.extendClass ("GKFriendRequestComposeViewController", {
 
     // Determining the Maximum Number of Recipients
     maxNumberOfRecipients: objc.staticSelector("maxNumberOfRecipients"),

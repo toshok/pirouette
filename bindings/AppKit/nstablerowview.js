@@ -1,10 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSTableRowView = NSTableRowView = objc.bindClass(NSView,
-  function NSTableRowView () {
-    NSTableRowView.__super__.constructor.apply(this, arguments);
-  }, {
-
+exports.NSTableRowView = NSTableRowView = NSView.extendClass("NSTableRowView", {
     // Display Style
     emphasized: objc.instanceProperty({ get: "isEmphasized" }),
     interiorBackgroundStyle: objc.instanceProperty({ set: null }),

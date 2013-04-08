@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBarItem");
-exports.UIBarItem = UIBarItem = objc.bindClass(UIView,
-  function UIBarItem () {
-    return UIBarItem.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", {
 
     // Getting and Setting Properties
     enabled: objc.instanceProperty(),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.MKUserLocation = MKUserLocation = objc.bindClass(foundation.NSObject,
-  function MKUserLocation () {
-    return MKUserLocation.__super__.constructor.apply(this, arguments);
-  }, {
+exports.MKUserLocation = MKUserLocation = foundation.NSObject.extendClass ("MKUserLocation", {
 
     // Determining the User’s Position
     location: objc.instanceProperty(),

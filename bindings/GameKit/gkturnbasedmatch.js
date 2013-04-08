@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GKTurnBasedMatch = GKTurnBasedMatch = objc.bindClass(foundation.NSObject,
-  function GKTurnBasedMatch () {
-    return GKTurnBasedMatch.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GKTurnBasedMatch = GKTurnBasedMatch = foundation.NSObject.extendClass ("GKTurnBasedMatch", {
 
     // Retrieving Existing Matches
     loadMatches: objc.staticSelector("loadMatchesWithCompletionHandler:"),

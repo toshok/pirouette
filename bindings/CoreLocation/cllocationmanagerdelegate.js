@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("CLLocationManagerDelegate");
-exports.CLLocationManagerDelegate = CLLocationManagerDelegate = objc.bindProtocol(foundation.Protocol,
-  function CLLocationManagerDelegate () {
-    return CLLocationManagerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CLLocationManagerDelegate = CLLocationManagerDelegate = foundation.Protocol.extendClass("CLLocationManagerDelegate", {
 
     // Responding to Location Events
     didUpdateToLocation:   objc.optionalMethod ("locationManager:didUpdateToLocation:fromLocation:"),

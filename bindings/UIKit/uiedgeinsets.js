@@ -8,7 +8,7 @@ function UIEdgeInsets(top, left, bottom, right) {
   this.right = right;
 }
 
-Object.defineProperty (UIEdgeinsets, "zero", {
+Object.defineProperty (UIEdgeInsets, "zero", {
 			 get: function() { new UIEdgeInsets (0, 0, 0, 0); },
 			 configurable: false
 		       });

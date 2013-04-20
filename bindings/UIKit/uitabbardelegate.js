@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarDelegate");
-exports.UITabBarDelegate = UITabBarDelegate = objc.bindProtocol(foundation.Protocol,
-  function UITabBarDelegate () {
-    return UITabBarDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITabBarDelegate = UITabBarDelegate = foundation.Protocol.extendClass("UITabBarDelegate", {
 
     // Customizing Tab Bars
     willBeginCustomizingItems: objc.optionalMethod("tabBar:willBeginCustomizingItems:"),

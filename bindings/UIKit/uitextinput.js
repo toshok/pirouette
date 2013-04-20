@@ -2,10 +2,7 @@
 
 //console.log("UITextInput");
 
-exports.UITextInput = UITextInput = objc.bindProtocol(foundation.Protocol,
-  function UITextInput () {
-    return UITextInput.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", {
 
     // Replacing and Returning Text
     textInRange:  objc.requiredMethod("textInRange:"),

@@ -1,6 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSAnimation = NSAnimation = foundation.NSObject.extendClass("NSAnimation", {
+console.log (3.141593);
+let NSAnimation = exports.NSAnimation = foundation.NSObject.extendClass("NSAnimation", {
+								      /*
     // Initializing an NSAnimation Object
     initWithDuration: objc.instanceSelector("initWithDuration:animationCurve:"),
 
@@ -14,11 +16,10 @@ exports.NSAnimation = NSAnimation = foundation.NSObject.extendClass("NSAnimation
     duration: objc.instanceSelector("duration"),
     setFrameRate: objc.instanceSelector("setFrameRate:"),
     frameRate: objc.instanceSelector("frameRate"),
-
+*/
     // Managing the Delegate
-    setDelegate: objc.instanceSelector("setDelegate:"),
-    delegate: objc.instanceSelector("delegate"),
-
+    delegate: objc.autoboxProperty(NSAnimationDelegate),
+/*
     // Controlling and Monitoring an Animation
     startAnimation: objc.instanceSelector("startAnimation"),
     stopAnimation: objc.instanceSelector("stopAnimation"),
@@ -38,5 +39,6 @@ exports.NSAnimation = NSAnimation = foundation.NSObject.extendClass("NSAnimation
     stopWhenAnimationReachesProgress: objc.instanceSelector("stopWhenAnimation:reachesProgress:"),
     clearStartAnimation: objc.instanceSelector("clearStartAnimation"),
     clearStopAnimation: objc.instanceSelector("clearStopAnimation")
-
+*/
 });
+console.log (6.28318);

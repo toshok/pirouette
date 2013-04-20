@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIAlertViewDelegate");
-exports.UIAlertViewDelegate = UIAlertViewDelegate = objc.bindProtocol(foundation.Protocol,
-  function UIAlertViewDelegate () {
-    return UIAlertViewDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIAlertViewDelegate = UIAlertViewDelegate = foundation.Protocol.extendClass("UIAlertViewDelegate", {
 
   // Responding to Actions
   clickedButton:                objc.optionalMethod("alertView:clickedButtonAtIndex:"),

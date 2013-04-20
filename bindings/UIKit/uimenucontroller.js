@@ -7,18 +7,18 @@ exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("
     sharedMenuController: objc.staticSelector("sharedMenuController"),
 
     // Showing and Hiding the Menu
-    menuVisible: objc.instanceProperty({ set: function (v) { return this.setMenuVisible(v, false); } }),
-    setMenuVisible:   objc.instanceSelector("setMenuVisible:animated:"),
+    menuVisible:    objc.instanceProperty(),
+    setMenuVisible: objc.instanceSelector("setMenuVisible:animated:"),
 
     // Positioning the Menu
     setTargetRect:    objc.instanceSelector("setTargetRect:inView:"),
-    menuFrame: objc.instanceProperty(),
-    arrowDirection: objc.instanceProperty(),
+    menuFrame:        objc.instanceProperty(),
+    arrowDirection:   objc.instanceProperty(),
 
     // Updating the Menu
     update:           objc.instanceSelector("update"),
 
     // Customizing Menu Items
-    menuItems: objc.instanceProperty(),
+    menuItems: objc.instanceProperty()
 
 });

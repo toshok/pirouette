@@ -48,10 +48,7 @@ function makeAppearance (sel, o /*, ...args */) {
   return appearance;
 };
 
-exports.UIAppearance = UIAppearance = objc.bindProtocol(foundation.Protocol,
-  function UIAppearance () {
-    return UIAppearance.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", {
 
     // Appearance Methods
     appearance:                objc.requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,

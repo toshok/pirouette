@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIScrollViewDelegate");
-exports.UIScrollViewDelegate = UIScrollViewDelegate = objc.bindProtocol(foundation.Protocol,
-  function UIScrollViewDelegate () {
-    return UIScrollViewDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIScrollViewDelegate = UIScrollViewDelegate = foundation.Protocol.extendClass("UIScrollViewDelegate", {
 
     // Responding to Scrolling and Dragging
     didScroll:             objc.optionalMethod("scrollViewDidScroll:"),

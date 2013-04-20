@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIApplicationDelegate");
-exports.UIApplicationDelegate = UIApplicationDelegate = objc.bindProtocol(foundation.Protocol,
-  function UIApplicationDelegate () {
-    return UIApplicationDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.extendClass("UIApplicationDelegate", {
 
     // Monitoring Application State Changes
     didFinishLaunchingWithOptions:   objc.optionalMethod("application:didFinishLaunchingWithOptions:", { sig: "v@:@@" }),

@@ -1,9 +1,6 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKViewControllerDelegate = GLKViewControllerDelegate = objc.bindProtocol(foundation.Protocol,
-  function GLKViewControllerDelegate () {
-    return GLKViewControllerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.GLKViewControllerDelegate = GLKViewControllerDelegate = foundation.Protocol.extendClass ("GLKViewControllerDelegate", {
 
     // Handling an Update Event
     update:    objc.requiredMethod("glkViewControllerUpdate:", {sig: "v@:@"}),

@@ -2,13 +2,13 @@
 
 //console.log "UIViewController"
 exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", {
-    constructor: function (_super, handle, arg2) {
+    constructor: function (handle, arg2) {
       if (typeof (handle) === 'string') {
-	_super.call(this);
+	objc.chainCtor (UIViewController, this, []);
 	this.initWithNibNameAndBundle(handle, arg2);
       }
       else {
-	_super.apply(this, arguments.slice(1));
+	objc.chainCtor (UIViewController, this, arguments);
       }
     },
 

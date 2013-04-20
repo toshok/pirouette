@@ -5,10 +5,10 @@ exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", {
 
     // Managing the Date and Calendar
     calendar:  objc.instanceProperty(),
-    date:  objc.instanceProperty({ set: function(v) { return this.setDate(v, false); } }),
-    setDate:           objc.instanceSelector("setDate:animated:"),
+    date:      objc.instanceProperty(),
+    setDate:   objc.instanceSelector("setDate:animated:"),
     timeZone:  objc.instanceProperty(),
-    locale:  objc.instanceProperty(), // Deprecated in iOS 5.0
+    locale:    objc.instanceProperty(), // Deprecated in iOS 5.0
 
     // Configuring the Date Picker Mode
     datePickerMode:  objc.instanceProperty(),

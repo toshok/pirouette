@@ -24,6 +24,7 @@ FRAMEWORK_SOURCES_Foundation= \
 	Foundation/nsrect.js \
 	Foundation/nssize.js \
 	Foundation/nsobject.js \
+	Foundation/nsbundle.js \
 	Foundation/nsresponder.js \
 	Foundation/nsrunloop.js \
 	Foundation/nsindexpath.js
@@ -109,6 +110,7 @@ FRAMEWORK_SOURCES_MapKit= \
 
 FRAMEWORK_SOURCES_AppKit= \
 	AppKit/nsalert.js \
+	AppKit/nsanimationdelegate.js \
 	AppKit/nsanimation.js \
 	AppKit/nsanimationcontext.js \
 	AppKit/nsview.js \

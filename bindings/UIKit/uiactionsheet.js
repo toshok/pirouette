@@ -13,20 +13,20 @@ exports.UIActionSheet = UIActionSheet = UIView.extendClass ("UIActionSheet", {
   property: objc.instanceProperty(),
 
   // Configuring Buttons
-  addButton:        	  objc.nativeSelector("addButtonWithTitle:"),
-  buttonTitle:      	  objc.nativeSelector("buttonTitleAtIndex:"),
+  addButton:        	  objc.instanceSelector("addButtonWithTitle:"),
+  buttonTitle:      	  objc.instanceSelector("buttonTitleAtIndex:"),
   numberOfButtons:        objc.instanceProperty(),
   cancelButtonIndex:      objc.instanceProperty(),
   destructiveButtonIndex: objc.instanceProperty(),
   firstOtherButtonIndex:  objc.instanceProperty(),
 
   // Presenting the Action Sheet
-  showFromTabBar:        objc.nativeSelector("showFromTabBar:"),
-  showFromToolbar:       objc.nativeSelector("showFromToolbar:"),
-  showInView:            objc.nativeSelector("showInView:"),
-  showFromBarButtonItem: objc.nativeSelector("showFromBarButtonItem:animated:"),
-  showFromRect:          objc.nativeSelector("showFromRect:inView:animated:"),
+  showFromTabBar:        objc.instanceSelector("showFromTabBar:"),
+  showFromToolbar:       objc.instanceSelector("showFromToolbar:"),
+  showInView:            objc.instanceSelector("showInView:"),
+  showFromBarButtonItem: objc.instanceSelector("showFromBarButtonItem:animated:"),
+  showFromRect:          objc.instanceSelector("showFromRect:inView:animated:"),
 
   // Dismissing the Action Sheet
-  dismissWithClickedButtonIndexAnimated: objc.nativeSelector("dismissWithClickedButtonIndex:animated:")
+  dismissWithClickedButtonIndexAnimated: objc.instanceSelector("dismissWithClickedButtonIndex:animated:")
 });

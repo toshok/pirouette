@@ -1,10 +1,10 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendObject("CADisplayLink", {
-    constructor: function (_super, handle) {
+    constructor: function (handle) {
       if (!handle) throw "use CADisplayLink.displayLink instead of new CADisplayLink";
 
-      return _super.apply (this, arguments.slice(1));
+      objc.chainCtor (CADisplayLink, this, arguments);
     },
 
     // Creating Instances

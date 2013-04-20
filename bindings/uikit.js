@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 let objc = require("objc"),
+    objc_internal = require("objc_internal"),
     foundation = require("foundation"),
     ck = require("coffeekit");
 

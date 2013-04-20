@@ -2,10 +2,7 @@
 
 //console.log("CAAnimationDelegate");
 
-exports.CAAnimationDelegate = CAAnimationDelegate = objc.bindProtocol(foundation.Protocol,
-  function CAAnimationDelegate () {
-    return CAAnimationDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CAAnimationDelegate = CAAnimationDelegate = foundation.Protocol.extendClass("CAAnimationDelegate", {
 
     // Animation Progress
     animationDidStart: objc.optionalMethod("animationDidStart"),

@@ -11,7 +11,7 @@ exports.UISearchDisplayController = UISearchDisplayController = foundation.NSObj
     setActive:                objc.instanceSelector("setActive:animated:"),
 
     // Configuration
-    delegate:                 autoboxProperty(UISearchDisplayDelegate),
+    delegate:                 objc.autoboxProperty(UISearchDisplayDelegate),
     searchBar:                objc.instanceProperty(),
     searchContentsController: objc.instanceProperty(),
     searchResultsTableView:   objc.instanceProperty(),

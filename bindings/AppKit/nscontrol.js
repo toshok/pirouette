@@ -87,8 +87,8 @@ exports.NSControl = NSControl = NSView.extendClass("NSControl", {
 
 
 exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSControlProxy", {
-    constructor: function(_super, fn) {
-      _super.call (this);
+    constructor: function(fn) {
+      objc.chainCtor (NSControlProxy, this, []);
       this.fn = fn;
     },
 

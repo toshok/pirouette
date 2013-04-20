@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIActionSheetDelegate");
-exports.UIActionSheetDelegate = UIActionSheetDelegate = objc.bindProtocol(foundation.Protocol,
-  function UIActionSheetDelegate () {
-    return UIActionSheetDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", {
 
   // Responding to Actions
   clickedButton:  objc.optionalMethod("actionSheet:clickedButtonAtIndex:"),

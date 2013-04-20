@@ -12,7 +12,7 @@ exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonI
 
     initWithClickHandler: function (title,style,click) {
       this.proxy = new UIControlProxy1(click);
-      return this.initWithTitle(title, style, @proxy, @proxy.proxyAction);
+      return this.initWithTitle(title, style, this.proxy, this.proxy.proxyAction);
     },
 
     // Getting and Setting Properties

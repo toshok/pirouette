@@ -3,16 +3,16 @@
 // console.log("NSObject");
 exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.PirouetteObject, {
 
-    constructor: function (_super, handle) {
+    constructor: function (handle) {
       this.handle = handle;
 
       if (!handle) {
-	console.log("calling @constructor.alloc()!");
+	// construct the native object if we aren't supplied a handle
 	this.handle = this.constructor.alloc();
       }
 
-      objc_internal.Pirouette.setHandle.call(this, this.handle);
-      return _super.apply(this, arguments.slice(1));
+      // then make sure to associate the handle to this object
+      objc_internal.PirouetteObject.setHandle.call(this, this.handle);
     },
 
     toString: function () {
@@ -22,7 +22,8 @@ exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.Pirouet
   });
 
 NSObject.alloc = function() {
-  return objc_internal.allocInstance (this.name);
+  //console.log ("NSObject.alloc(" + this._ck_register + ")");
+  return objc_internal.allocInstance (this._ck_register);
 };
 
 NSObject.getTypeSignature = function() {
@@ -45,9 +46,8 @@ NSObject.newWith = function(newInfo) {
   return instance;
 };
 
-NSObject.extendClass = function(name, description) {
-  return objc.extendClass(name, this, description);
-};
+console.log("creating NSObject.extendClass");
+objc.createExtendClass(NSObject);
 
 /*
  @mixinProtocol: (p) -> new ck.MixinProtocolAttribute @, p

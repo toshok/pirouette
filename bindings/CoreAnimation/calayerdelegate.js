@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("CALayerDelegate");
-exports.CALayerDelegate = CALayerDelegate = objc.bindProtocol(foundation.Protocol,
-  function CALayerDelegate () {
-    return CALayerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", {
 
     // Providing Layer Content
     displayLayer:   objc.optionalMethod("displayLayer"),

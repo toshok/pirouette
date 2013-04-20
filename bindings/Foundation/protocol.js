@@ -15,9 +15,4 @@ function Protocol() {
   @optionalProperty: (n,accessors) -> property: n, get: accessors?.get, set: accessors?.set
 */
 
-Protocol.extendClass = function(name, description) {
-  console.log ("extending protocol " + name);
-  return objc.extendClass(name, this, description);
-};
-
-exports.Protocol = Protocol;
+exports.Protocol = Protocol = objc.extendClass("Protocol", Object, {});

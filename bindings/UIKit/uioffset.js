@@ -6,7 +6,7 @@ function UIOffset(horizontal, vertical) {
   this.vertical = vertical;
 }
 
-Object.defineProperty (UIEdgeinsets, "zero", {
+Object.defineProperty (UIOffset, "zero", {
 			 get: function() { new UIOffset (0, 0); },
 			 configurable: false
 		       });

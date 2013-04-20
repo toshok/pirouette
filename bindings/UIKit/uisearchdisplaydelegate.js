@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISearchDisplayDelegate");
-exports.UISearchDisplayDelegate = UISearchDisplayDelegate = objc.bindProtocol(foundation.Protocol,
-  function UISearchDisplayDelegate () {
-    return UISearchDisplayDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", {
 
     // Search State Change
     willBeginSearch: objc.optionalMethod("searchDisplayControllerWillBeginSearch:"),

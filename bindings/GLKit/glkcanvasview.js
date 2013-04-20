@@ -10,7 +10,7 @@ exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", {
       if (name === "experimental-webgl" || name === "webgl") {
 	if (!this.webglcontext) {
 	  this.context = new gles.EAGLContext().initWithAPI(gles.EAGLRenderingAPI.OpenGLES2);
-          this.webglcontext = objc.allocateWebGLRenderingContext(this.context);
+          this.webglcontext = objc_internal.allocateWebGLRenderingContext(this.context);
 	}
 	return this.webglcontext;
       }

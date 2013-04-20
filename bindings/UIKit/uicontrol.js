@@ -1,7 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIControl");
-exports.UIController = UIController = UIView.extendClass ("UIController", {
+exports.UIControl = UIControl = UIView.extendClass ("UIControl", {
 
     // Preparing and Sending Action Messages
     sendAction:                  objc.instanceSelector("sendAction:to:forEvent:"),
@@ -34,25 +34,25 @@ exports.UIController = UIController = UIView.extendClass ("UIController", {
 
 let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", {
 
-    constructor: function (_super, fn) {
-      _super.apply (this, arguments.slice(1));
+    constructor: function (fn) {
+      objc.chainCtor (UIControlProxy, this);
       this.fn = fn;
     },
 
     proxyAction: objc.instanceSelector("action").
                                returns( function() { return objc.sig.Void; }).
-				  impl( function() { return @fn(); } )
+				  impl( function() { return this.fn(); } )
 });
 
 let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", {
 
-    constructor: function (_super, fn) {
-      _super.apply (this, arguments.slice(1));
+    constructor: function (fn) {
+      objc.chainCtor (UIControlProxy1, this);
       this.fn = fn;
     },
 
     proxyAction: objc.instanceSelector("action").
                                returns( function() { return objc.sig.Void; }).
 				params( function() { return [foundation.NSObject]; }).
-				  impl( function(v) { return @fn(v); } )
+				  impl( function(v) { return this.fn(v); } )
 });

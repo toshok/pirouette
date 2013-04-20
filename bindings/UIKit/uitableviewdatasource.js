@@ -1,14 +1,12 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewDataSource");
-exports.UITableViewDataSource = UITableViewDataSource = objc.bindProtocol(foundation.Protocol,
-  function UITableViewDataSource () {
-    return UITableViewDataSource.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", {
+
     // Configuring a Table View
     cellForRow:                  objc.requiredMethod("tableView:cellForRowAtIndexPath:", { sig: "@@:@@" }),
     numberOfSections:            objc.optionalMethod("numberOfSectionsInTableView:", { sig: "i@:@" }),
-    numberOfRowsInSection:       @requiredMethod("tableView:numberOfRowsInSection:", { sig: "i@:@i" }),
+    numberOfRowsInSection:       objc.requiredMethod("tableView:numberOfRowsInSection:", { sig: "i@:@i" }),
     sectionIndexTitles:          objc.optionalMethod("sectionIndexTitlesForTableView:"),
     sectionForSectionIndexTitle: objc.optionalMethod("tableView:sectionForSectionIndexTitle:atIndex:"),
     titleForHeaderInSection:     objc.optionalMethod("tableView:titleForHeaderInSection:", { sig: "@@:@i" }),

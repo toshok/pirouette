@@ -4,13 +4,13 @@
 exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", {
 
   // Initializing an Activity Indicator
-  initWithActivityIndicatorStyle: objc.nativeSelector("initWithActivityIndicatorStyle:"),
+  initWithActivityIndicatorStyle: objc.instanceSelector("initWithActivityIndicatorStyle:"),
 
   // Managing an Activity Indicator
-  startAnimating:   objc.nativeSelector("startAnimating"),
-  stopAnimating:    objc.nativeSelector("stopAnimating"),
-  isAnimating:      objc.nativeSelector("isAnimating"),
-  hidesWhenStopped: objc.instanceProperty("hidesWhenStopped"),
+  startAnimating:   objc.instanceSelector("startAnimating"),
+  stopAnimating:    objc.instanceSelector("stopAnimating"),
+  isAnimating:      objc.instanceSelector("isAnimating"),
+  hidesWhenStopped: objc.instanceProperty(),
 
   // Configuring the Activity Indicator Appearance
   activityIndicatorViewStyle: objc.instanceProperty(),

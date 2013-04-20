@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewDelegate");
-exports.UITableViewDelegate = UITableViewDelegate = objc.bindProtocol(foundation.Protocol,
-  function UITableViewDelegate () {
-    return UITableViewDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UITableViewDelegate = UITableViewDelegate = foundation.Protocol.extendClass("UITableViewDelegate", {
 
     // Configuring Rows for the Table View
     heightForRowAtIndexPath:  objc.optionalMethod("tableView:heightForRowAtIndexPath:"),

@@ -1,10 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDocumentInteractionControllerDelegate");
-exports.UIDocumentInteractionControllerDelegate = UIDocumentInteractionControllerDelegate = objc.bindProtocol(foundation.Protocol,
-  function UIDocumentInteractionControllerDelegate () {
-    return UIDocumentInteractionControllerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+exports.UIDocumentInteractionControllerDelegate = UIDocumentInteractionControllerDelegate = foundation.Protocol.extendClass("UIDocumentInteractionControllerDelegate", {
 
     // Configuring the Parent View Controller
     viewControllerForPreview: objc.optionalMethod("documentInteractionControllerViewControllerForPreview:"),

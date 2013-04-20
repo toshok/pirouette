@@ -6,6 +6,7 @@ let objc = require('objc'),
 
 objc.requireFramework("AppKit");
 
+console.log ("NSButtonType");
 exports.NSButtonType = NSButtonType = objc.makeEnum({
    MomentaryLightButton   : 0,
    PushOnPushOffButton    : 1,
@@ -20,6 +21,7 @@ exports.NSButtonType = NSButtonType = objc.makeEnum({
 });
 
 
+console.log ("NSBezelStyle");
 exports.NSBezelStyle = NSBezelStyle = objc.makeEnum({
    RoundedBezelStyle           : 1,
    RegularSquareBezelStyle     : 2,
@@ -38,3 +40,5 @@ exports.NSBezelStyle = NSBezelStyle = objc.makeEnum({
    InlineBezelStyle            : 15,
    SmallIconButtonBezelStyle   : 2
 });
+
+console.log ("appkit!");

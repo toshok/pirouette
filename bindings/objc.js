@@ -44,7 +44,6 @@ function typeSignature(types) {
   };
   return types.map(function(t) { return getTypeSignature(t); }).join('');
 };
-exports.typeSignature = typeSignature;
 
 exports.requireFramework = function requireFramework(framework) {
   console.log ("requireFramework " + framework);
@@ -707,12 +706,13 @@ function outlet (outletType) {
 exports.outlet = outlet;
 
 function makeEnum(spec) {
-    let addConstant = function(obj, jsprop, v) { return Object.defineProperty(obj, jsprop, { value: v, enumerable: true }); };
+  let addConstant = function(obj, jsprop, v) { return Object.defineProperty(obj, jsprop, { value: v, enumerable: true }); };
 
-    let rv = Object.create(null);
-    Object.getOwnPropertyNames(spec).forEach (function (name) {
-      addConstant (rv, name, spec[name]);
-    });
-    return rv;
+  let rv = Object.create(null);
+  Object.getOwnPropertyNames(spec).forEach (function (name) {
+    addConstant (rv, name, spec[name]);
+  });
+  Object.freeze(rv);
+  return rv;
 };
 exports.makeEnum = makeEnum;

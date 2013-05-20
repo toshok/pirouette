@@ -4,11 +4,11 @@
 exports.UIView = UIView = UIResponder.extendClass ("UIView", {
 
     initWithFrame:    objc.instanceSelector("initWithFrame:").
-                            returns( function() { return UIView; }).
+                            returns( function() { return foundation.NSObject; /* XXX should be UIView */}).
 			     params( function() { return [ foundation.NSRect ]; }),
 
     // Configuring a View’s Visual Appearance
-    layerClass:      objc.staticSelector("layerClass"),
+    layerClass:      objc.staticSelector(),
     backgroundColor: objc.instanceProperty(),
     hidden: objc.instanceProperty(),
     alpha: objc.instanceProperty(),

@@ -4,13 +4,23 @@
 exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", {
 
     // Configuring a Table View
-    cellForRow:                  objc.requiredMethod("tableView:cellForRowAtIndexPath:", { sig: "@@:@@" }),
-    numberOfSections:            objc.optionalMethod("numberOfSectionsInTableView:", { sig: "i@:@" }),
-    numberOfRowsInSection:       objc.requiredMethod("tableView:numberOfRowsInSection:", { sig: "i@:@i" }),
+    cellForRow:                  objc.requiredMethod("tableView:cellForRowAtIndexPath:").
+					returns (function() { return foundation.NSObject; }).
+				        params (function() { return [ foundation.NSObject, foundation.NSObject ]; }),
+    numberOfSections:            objc.optionalMethod("numberOfSectionsInTableView:", { sig: "i@:@" }).
+					returns (function() { return objc.sig.Int; }).
+					params (function() { return [ foundation.NSObject ]; }),
+    numberOfRowsInSection:       objc.requiredMethod("tableView:numberOfRowsInSection:", { sig: "i@:@i" }).
+					returns (function() { return objc.sig.Int; }).
+					params (function() { return [ foundation.NSObject, objc.sig.Int ]; }),
     sectionIndexTitles:          objc.optionalMethod("sectionIndexTitlesForTableView:"),
     sectionForSectionIndexTitle: objc.optionalMethod("tableView:sectionForSectionIndexTitle:atIndex:"),
-    titleForHeaderInSection:     objc.optionalMethod("tableView:titleForHeaderInSection:", { sig: "@@:@i" }),
-    titleForFooterInSection:     objc.optionalMethod("tableView:titleForFooterInSection:"),
+    titleForHeaderInSection:     objc.optionalMethod("tableView:titleForHeaderInSection:", { sig: "@@:@i" }).
+					returns (function() { return objc.sig.NSString; }).
+					params (function() { return [ foundation.NSObject, objc.sig.Int ]; }),
+    titleForFooterInSection:     objc.optionalMethod("tableView:titleForFooterInSection:").
+					returns (function() { return objc.sig.NSString; }).
+					params (function() { return [ foundation.NSObject, objc.sig.Int ]; }),
 
     // Inserting or Deleting Table Rows
     commitEditingStyle:          objc.optionalMethod("tableView:commitEditingStyle:forRowAtIndexPath:"),

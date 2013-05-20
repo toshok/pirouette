@@ -14,7 +14,9 @@ exports.UITableViewDelegate = UITableViewDelegate = foundation.Protocol.extendCl
 
     // Managing Selections
     willSelectRow:    objc.optionalMethod("tableView:willSelectRowAtIndexPath:", { sig: "@@:@@" }),
-    didSelectRow:     objc.optionalMethod("tableView:didSelectRowAtIndexPath:", { sig: "v@:@@" }),
+    didSelectRow:     objc.optionalMethod("tableView:didSelectRowAtIndexPath:"/*, { sig: "v@:@@" }*/).
+					returns (function() { return objc.sig.Void; }).
+					params (function() { return [ foundation.NSObject, foundation.NSObject ]; }),
     willDeselectRow:  objc.optionalMethod("tableView:willDeselectRowAtIndexPath:", { sig: "@@:@@" }),
     didDeselectRow:   objc.optionalMethod("tableView:didDeselectRowAtIndexPath:", { sig: "v@:@@" }),
 

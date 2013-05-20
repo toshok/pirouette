@@ -5,7 +5,7 @@ exports.UITableViewController = UITableViewController = UIViewController.extendC
 
     // Initializing the UITableViewController Object
     initWithStyle: objc.instanceSelector("initWithStyle:").
-                                 returns( function () { return UITableViewController; }).
+				  returns( function () { return foundation.NSObject; /* should be UITableViewController */ }).
 				  params( function () { return [ objc.sig.Int ]; }),
 
     // Getting the Table View

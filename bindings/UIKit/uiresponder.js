@@ -4,17 +4,17 @@
 exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", {
 
     // Managing the Responder Chain
-    nextResponder:           objc.instanceSelector("nextResponder"),
-    isFirstResponder:        objc.instanceSelector("isFirstResponder"),
-    canBecomeFirstResponder: objc.instanceSelector("canBecomeFirstResponder"),
-    becomeFirstResponder:    objc.instanceSelector("becomeFirstResponder"),
-    canResignFirstResponder: objc.instanceSelector("canResignFirstResponder"),
-    resignFirstResponder:    objc.instanceSelector("resignFirstResponder"),
+    nextResponder:           objc.instanceProperty(),
+    isFirstResponder:        objc.instanceProperty(),
+    canBecomeFirstResponder: objc.instanceProperty(),
+    becomeFirstResponder:    objc.instanceSelector(),
+    canResignFirstResponder: objc.instanceProperty(),
+    resignFirstResponder:    objc.instanceSelector(),
 
     // Managing Input Views
     inputView: objc.instanceProperty(),
     inputAccessoryView: objc.instanceProperty(),
-    reloadInputViews: objc.instanceSelector("reloadInputViews"),
+    reloadInputViews: objc.instanceSelector(),
 
     // Responding to Touch Events
     touchesBegan:     objc.instanceSelector("touchesBegan:withEvent:"),

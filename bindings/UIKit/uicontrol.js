@@ -41,7 +41,8 @@ let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", {
 
     proxyAction: objc.instanceSelector("action").
                                returns( function() { return objc.sig.Void; }).
-				  impl( function() { return this.fn(); } )
+				params( function() { return []; }).
+				  impl( function() { this.fn(); } )
 });
 
 let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", {
@@ -54,5 +55,5 @@ let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", {
     proxyAction: objc.instanceSelector("action").
                                returns( function() { return objc.sig.Void; }).
 				params( function() { return [foundation.NSObject]; }).
-				  impl( function(v) { return this.fn(v); } )
+				  impl( function(v) { this.fn(v); } )
 });

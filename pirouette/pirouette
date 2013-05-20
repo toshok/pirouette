@@ -1,0 +1,122 @@
+#!/usr/bin/env node
+
+var args = process.argv;
+
+// slice off the right number of arguments
+args = args.slice(typeof __ejs !== 'undefined' ? 1 : 2);
+
+var toolname = "pirouette";
+
+var createCommand = require("./commands/create"),
+    buildCommand  = require("./commands/build"),
+    simCommand    = require("./commands/sim"),
+    devCommand    = require("./commands/dev"),
+    cleanCommand  = require("./commands/clean");
+
+var commands = [
+    { name: "help",
+      usage: function() { return this.name + " <Command>"; },
+      usageString: function(s) { return ": gives more detailed help for <Command>, or this output if no command is given."; },
+      run: function(args) {
+	  if (args.length === 0) {
+	      return usage();
+	  }
+	  throw "help command not implemented";
+      }
+    },
+
+    { name: "create",
+      usage: function() { return this.name + " <options> <ProjectName>"; },
+      usageString: function(nl_and_indent) {
+	  return              ": generates initial project template named <ProjectName> in current directory." +
+	      nl_and_indent("    where <options> may contain:") +
+	      nl_and_indent("        -ios: an iOS project") + 
+	      nl_and_indent("        -osx: an OSX project [default]");
+      },
+
+      run: function(args) {
+	  createCommand.run(args);
+      }
+    },
+
+    { name: "build",
+      usage: function() { return this.name; },
+      usageString: function(s) { return ": Builds the current project."; },
+      run: function(args) {
+	  buildCommand.run(args);
+      }
+    },
+
+    { name: "clean",
+      usage: function() { return this.name; },
+      usageString: function(s) { return ": Cleans the current project."; },
+      run: function(args) {
+	  cleanCommand.run(args);
+      }
+    },
+
+    { name: "sim",
+      usage: function() { return this.name; },
+      usageString: function(s) { return ": deploy the current project to the simulator."; },
+      run: function(args) {
+	  buildCommand.run([]); // the default build behavior is to build if necessary
+	  simCommand.run(args);
+      }
+    },
+
+    { name: "dev",
+      usage: function() { return this.name; },
+      usageString: function(s) { return ": deploy the current project to the device."; },
+      run: function(args) {
+	  buildCommand.run([]); // the default build behavior is to build if necessary
+	  devCommand.run(args);
+      }
+    }
+];
+	    
+
+function usage() {
+    var justify_col = 40;
+
+    function justify(str) {
+	var justify_str = new Array(50).join(" ");
+	return str + justify_str.substring(0, justify_col - str.length);
+    }
+
+    console.log (" $ " + toolname + " [options] <command>");
+    console.log ("where <command> is one of the following:");
+    for (var i = 0, e = commands.length; i < e; i ++) {
+	var cmd = commands[i];
+	console.log ("  " + justify(cmd.usage()) + cmd.usageString(function(str) { return "\n" + justify("") + str; }));
+    }
+}
+
+function findCommand(name) {
+    var cmd;
+    for (var i = 0, e = commands.length; i < e; i ++) {
+	if (commands[i].name === name) {
+	    cmd = commands[i];
+	    break;
+	}
+    }
+    return cmd;
+}
+
+if (args.length === 0) {
+    usage();
+    process.exit(0);
+}
+
+var cmd = findCommand(args[0]);
+
+if (cmd) {
+    cmd.run (args.slice(1));
+}
+else {
+    console.log(toolname + ": Unknown command `" + args[0] + "'");
+}
+
+// Local Variables:
+// mode: javascript
+// End:
+

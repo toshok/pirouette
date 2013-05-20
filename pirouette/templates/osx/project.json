@@ -1,0 +1,11 @@
+
+{
+    "projectName": "@@PROJECT_NAME@@",
+    "bundleIdentifier": "org.pirouette.@@PROJECT_NAME@@",
+    "mainXib": "Resources/en.lproj/MainMenu.xib",
+    "delegate": "AppDelegate",
+    "frameworks": ["appkit", "foundation", "objc"],
+
+    "projectType": "osx",
+    "version": @@PIROUETTE_VERSION@@
+}

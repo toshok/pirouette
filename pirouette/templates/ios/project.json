@@ -1,0 +1,11 @@
+
+{
+    "bundleName": "@@PROJECT_NAME@@",
+    "bundleIdentifier": "org.pirouette.@@PROJECT_NAME@@",
+    "delegate": "AppDelegate",
+
+    // shouldn't edit anything below here
+    "projectName": "@@PROJECT_NAME@@",
+    "projectType": "ios",
+    "configVersion": @@PIROUETTE_VERSION@@
+}

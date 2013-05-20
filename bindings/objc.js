@@ -5,7 +5,7 @@ let objc_internal = require("objc_internal"),
 
 //console.log("objc");
 
-let sig = {
+const sig = {
   Class:     function() { return "//"; },
   Selector:  function() { return ":"; },
   Char:      function() { return "c"; },
@@ -24,6 +24,7 @@ let sig = {
   Void:      function() { return "v"; },
   Ptr:       function() { return "^"; },
   CharStar:  function() { return "*"; },
+  NSObject:  function() { return "@"; },
   NSString:  function() { return "@"; },
   ArrayOf:   function(s) { return function() { return "["+typeSignature([s])+"]"; }; },
   PointerTo: function(s) { return function() { return "^"+typeSignature([s]); }; },
@@ -57,6 +58,16 @@ function selectorInvoker(sel) {
 }
 exports.selectorInvoker = selectorInvoker;
 
+function signatureFromTypeGetters(returnTypeGetter, paramTypesGetter) {
+  let fsig = null;
+  if (returnTypeGetter) {
+    let paramTypes = paramTypesGetter ? paramTypesGetter() : [];
+    fsig = typeSignature([returnTypeGetter(), sig.NSObject, sig.Selector].concat(paramTypes));
+  }
+  return fsig;
+}
+
+
 function instanceSelector (selector) {
   //console.log ("adding instanceSelector for " + seletor);
   let instance_info = Object.create(null);
@@ -75,7 +86,7 @@ function instanceSelector (selector) {
     return instance_info;
   };
   instance_info.params = function (pTypes) {
-    if (typeof (rType) === "function") {
+    if (typeof (pTypes) === "function") {
       instance_info.paramTypesGetter = pTypes;
     }
     else {
@@ -105,25 +116,21 @@ function instanceSelector (selector) {
       install_selector_attribute = false;
     }
 
-    let fsig;
-    if (instance_info.returnTypeGetter) {
-      let paramTypes = instance_info.paramTypesGetter ? instance_info.paramTypesGetter() : [];
-      try {
-        fsig = typeSignature([instance_info.returnTypeGetter(), NSObject, sig.Selector].concat(paramTypes));
-      }
-      catch (error) {
-        console.log("error in type specification for " + c.name + " " + sel + ": " + error);
-      }
+    let fsig = null;
+
+    try {
+      fsig = signatureFromTypeGetters(instance_info.returnTypeGetter, instance_info.paramTypesGetter);
     }
-    else {
-      fsig = "@@:"; // is this a reasonable thing to default to?
+    catch (e) {
+      console.warn ("exception registering " + selector + ", type error");
     }
+    if (!fsig) fsig = "@@:";
 
     if (install_selector_attribute) {
       new SelectorAttribute (f, instance_info.sel, fsig);
     }
     else {
-      f._typeSig = fsig;
+      f._ck_typeSig = fsig;
     }
 
     f._ck_appearance = instance_info._ck_appearance;
@@ -172,7 +179,7 @@ function RegisterAttribute(obj, name) {
 exports.RegisterAttribute = RegisterAttribute;
 
 function SelectorAttribute(obj, sel_name, type_sig) {
-  //console.log ("In SelectorAttribute ctor");
+  //console.log ("In SelectorAttribute (" + sel_name + ", " + type_sig + ")");
   Attribute.call(this, obj);
   obj._ck_exported = true;
   obj._ck_sel = sel_name;
@@ -249,6 +256,7 @@ function ConformsToProtocolAttribute(obj, protocol) {
       if (protocol_item.returnTypeGetter) inst_info.returns(protocol_item.returnTypeGetter);
       if (protocol_item.paramTypesGetter) inst_info.params(protocol_item.paramTypesGetter);
 
+      // set @fn to be called when the selector is invoked
       inst_info.impl(fn);
 
       inst_info.register(obj, key);
@@ -295,8 +303,10 @@ exports.override = function override () {
       s = s.__super__;
     }
 
-    if (!overridden)
+    if (!overridden) {
+      console.warn ("Failed to find overridden method for " + name);
       throw "Failed to find overridden method for " + name;
+    }
 
     let inst_info = instanceSelector(overridden.sel);
     if (overridden.returnTypeGetter) inst_info.returnTypeGetter = overridden.returnTypeGetter;
@@ -474,43 +484,33 @@ function staticProperty(opts) {
 };
 exports.staticProperty = staticProperty;
 
-function optionalMethod(selector) {
-  let optional_info = Object.create(null);
-  optional_info.method = selector;
-  optional_info.required = false;
-  optional_info.returns = function (typeGetter) {
-    optional_info.returnTypeGetter = typeGetter;
-    return optional_info;
+function protocolMethod(selector, required) {
+  let info = Object.create(null);
+  info.method = selector;
+  info.required = required;
+  info.returns = function (typeGetter) {
+    console.log ("setting return type for selector " + selector);
+    info.returnTypeGetter = typeGetter;
+    return info;
   };
-  optional_info.params = function (typeGetter) {
-    optional_info.paramsTypesGetter = typeGetter;
-    return optional_info;
+  info.params = function (typeGetter) {
+    console.log ("setting param types for selector " + selector);
+    info.paramTypesGetter = typeGetter;
+    return info;
   };
-  optional_info.register = function(cls, jsprop) {
-    cls.prototype[jsprop] = optional_info;
+  info.register = function(cls, jsprop) {
+    cls.prototype[jsprop] = info;
   };
-  return optional_info;
+  return info;
 }
-exports.optionalMethod = optionalMethod;
 
-function requiredMethod(selector) {
-  let required_info = Object.create(null);
-  required_info.method = selector;
-  required_info.required = true;
-  required_info.returns = function (typeGetter) {
-    required_info.returnTypeGetter = typeGetter;
-    return required_info;
-  };
-  required_info.params = function (typeGetter) {
-    required_info.paramTypesGetter = typeGetter;
-    return required_info;
-  };
-  required_info.register = function(cls, jsprop) {
-    cls.prototype[jsprop] = required_info;
-  };
-  return required_info;
-}
-exports.requiredMethod = requiredMethod;
+exports.optionalMethod = function optionalMethod (selector) {
+  return protocolMethod (selector, false);
+};
+
+exports.requiredMethod = function requiredMethod (selector) {
+  return protocolMethod (selector, true);
+};
 
 function optionalProperty(selector, accessors) {
   let optional_info = { property: selector, tramp: args && args.tramp, sig: args && args.sig };
@@ -640,7 +640,9 @@ let autobox = exports.autobox = function(obj, protocol) {
 
         if (pv.method) {
             ProtocolProxy.prototype[key] = value.bind(obj);
-            new SelectorAttribute(ProtocolProxy.prototype[key], pv.method, pv.sig);
+	    let fsig = signatureFromTypeGetters(pv.returnTypeGetter, pv.paramTypesGetter);
+	    if (!fsig) fsig = pv.sig;
+            new SelectorAttribute(ProtocolProxy.prototype[key], pv.method, fsig);
         }
         else {
 	  throw "unhandled case:  property " + key + " overriding from a protocol " + String(protocol);
@@ -661,7 +663,7 @@ function autoboxProperty(protocolType) {
   autobox_info.register = function (cls, jsprop) {
     let propinfo = addProperty ({ set: function (v) {
 				    if (!autobox_info.invoker) {
-				      //console.log ("selector = " + "set" + jsprop[0].toUpperCase() + jsprop.slice(1) + ":");
+				      //console.log ("autobox selector = " + "set" + jsprop[0].toUpperCase() + jsprop.slice(1) + ":");
 				      autobox_info.invoker = selectorInvoker("set" + jsprop[0].toUpperCase() + jsprop.slice(1) + ":");
 				    }
 				    autobox_info.invoker.call (this, autobox(v, autobox_info.protocolType));

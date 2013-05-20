@@ -10,3 +10,5 @@ function NSRect(x, y, width, height) {
 NSRect.getTypeSignature = function() {
   return "{CGRect={CGPoint=ff}{CGSize=ff}}";
 };
+
+exports.NSRect = NSRect;

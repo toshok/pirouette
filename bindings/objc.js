@@ -535,6 +535,7 @@ function __extends (child, parent) {
     return !own || (own.configurable || own.writable);
   };
   Object.getOwnPropertyNames(parent).forEach(function (key) {
+    if (key === "prototype") return;
     if (can_put (child, key))
       Object.defineProperty(child, key, Object.getOwnPropertyDescriptor(parent, key));
   });

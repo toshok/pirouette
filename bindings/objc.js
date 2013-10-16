@@ -558,7 +558,7 @@ function createClass(name, baseType, description) {
     chainCtor(ctor, this, arguments);
   };
 
-  let type_ctor = description.hasOwnProperty("constructor") ? description.constructor : ctor;
+  let type_ctor = description && description.hasOwnProperty("constructor") ? description.constructor : ctor;
 
   __extends (type_ctor, baseType);
 

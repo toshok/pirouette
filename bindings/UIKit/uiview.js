@@ -38,6 +38,10 @@ exports.UIView = UIView = UIResponder.extendClass ("UIView", {
 
     // Managing the View Hierarchy
     addSubview:                               objc.instanceSelector("addSubview:"),
+    addSubviews: function (...subviews) {
+      for (var i = 0, e = subviews.length; i < e; i ++)
+	this.addSubview (subviews[i]);
+    },
     bringSubviewToFront:                      objc.instanceSelector("bringSubviewToFront:"),
     sendSubviewToBack:                        objc.instanceSelector("sendSubviewToBack:"),
     removeFromSuperview:                      objc.instanceSelector("removeFromSuperview"),

@@ -62,5 +62,12 @@ exports.UIButton = UIButton = UIControl.extendClass ("UIButton", {
 				   }
 				 },
 				 get: null // this should really be an actual getter that returns the callback...
-			       })
+  }),
+
+  // handle accessors for normal state
+  title: objc.instanceProperty({
+      set: function (v) { this.setTitle(v, UIControlState.normal); },
+      get: function () { return this.getTitle(UIControlState.normal); }
+  })
+
 });

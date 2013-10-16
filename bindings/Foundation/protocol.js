@@ -1,7 +1,5 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-function Protocol() {
-}
 /*
   @getTypeSignature: -> "@"
 
@@ -15,4 +13,4 @@ function Protocol() {
   @optionalProperty: (n,accessors) -> property: n, get: accessors?.get, set: accessors?.set
 */
 
-exports.Protocol = Protocol = objc.extendClass("Protocol", Object, {});
+exports.Protocol = Protocol = objc.extendClass("Protocol", Object);

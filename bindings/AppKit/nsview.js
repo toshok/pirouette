@@ -10,6 +10,10 @@ exports.NSView = NSView = foundation.NSResponder.extendClass("NSView", {
     subviews: objc.instanceSelector("subviews"),
     window: objc.instanceSelector("window"),
     addSubview: objc.instanceSelector("addSubview:"),
+    addSubviews: function (...subviews) {
+      for (var i = 0, e = subviews.length; i < e; i ++)
+	this.addSubview (subviews[i]);
+    },
     addSubviewPositionedRelativeTo: objc.instanceSelector("addSubview:positioned:relativeTo:"),
     didAddSubview: objc.instanceSelector("didAddSubview:"),
     removeFromSuperview: objc.instanceSelector("removeFromSuperview"),

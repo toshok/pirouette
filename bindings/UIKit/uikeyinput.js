@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIKeyInput");
-exports.UIKeyInput = UIKeyInput = foundation.Protocol.extendClass("UIKeyInput", {
+var UIKeyInput;
+_exports.UIKeyInput = UIKeyInput = foundation.Protocol.extendClass("UIKeyInput", () => { return {
 
     // XXX ES6-port
     // @mixinProtocol UITextInputTraits
@@ -11,4 +12,4 @@ exports.UIKeyInput = UIKeyInput = foundation.Protocol.extendClass("UIKeyInput", 
     deleteBackward: objc.requiredMethod("deleteBackward"),
     hasText:        objc.requiredMethod("hasText")
 
-});
+}; });

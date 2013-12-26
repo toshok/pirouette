@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILabel");
-exports.UILabel = UILabel = UIView.extendClass ("UILabel", {
+var UILabel;
+_exports.UILabel = UILabel = UIView.extendClass ("UILabel", () => { return {
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),
@@ -32,4 +33,4 @@ exports.UILabel = UILabel = UIView.extendClass ("UILabel", {
     // Setting and Getting Attributes
     userInteractionEnabled: objc.instanceProperty()
 
-});
+}; });

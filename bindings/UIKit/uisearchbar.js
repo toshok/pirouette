@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISearchBar");
-exports.UISearchBar = UISearchBar = UIView.extendClass ("UISearchBar", {
+var UISearchBar;
+_exports.UISearchBar = UISearchBar = UIView.extendClass ("UISearchBar", () => { return {
 
     // Text Content
     placeholder: objc.instanceProperty(),
@@ -52,4 +53,4 @@ exports.UISearchBar = UISearchBar = UIView.extendClass ("UISearchBar", {
     searchFieldBackgroundPositionAdjustment: objc.instanceProperty(),
     searchTextPositionAdjustment: objc.instanceProperty()
 
-});
+}; });

@@ -1,4 +1,5 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
+"use strict";
 
 let objc = require("objc"),
     objc_internal = require("objc_internal"),
@@ -7,19 +8,24 @@ let objc = require("objc"),
 
 objc.requireFramework("UIKit");
 
-exports.UITableViewStyle = UITableViewStyle = objc.makeEnum({
+let _exports = exports;
+
+let UITableViewStyle;
+_exports.UITableViewStyle = UITableViewStyle = objc.makeEnum({
     plain: 0,
     grouped: 1
 });
 
 
-exports.UITableViewCellStyle = UITableViewCellStyle = objc.makeEnum({
+let UITableViewCellStyle;
+_exports.UITableViewCellStyle = UITableViewCellStyle = objc.makeEnum({
    value1: 0,
    value2: 1,
    subtitle: 2
 });
 
-exports.UIButtonType = UIButtonType = objc.makeEnum({
+let UIButtonType;
+_exports.UIButtonType = UIButtonType = objc.makeEnum({
    custom: 0,
    roundedRect: 1,
    detailDisclosure: 2,
@@ -28,13 +34,15 @@ exports.UIButtonType = UIButtonType = objc.makeEnum({
    contactAdd: 5
 });
 
-exports.UITextAlignment = UITextAlignment = objc.makeEnum({
+let UITextAlignment;
+_exports.UITextAlignment = UITextAlignment = objc.makeEnum({
    left: 0,
    center: 1,
    right: 2
 });
 
-exports.UIControlState = UIControlState = objc.makeEnum({
+let UIControlState;
+_exports.UIControlState = UIControlState = objc.makeEnum({
    normal               : 0,
    highlighted          : 1 << 0,
    disabled             : 1 << 1,
@@ -43,7 +51,8 @@ exports.UIControlState = UIControlState = objc.makeEnum({
    reserved             : 0xFF000000
 });
 
-exports.UIBarStyle = UIBarStyle = objc.makeEnum({
+let UIBarStyle;
+_exports.UIBarStyle = UIBarStyle = objc.makeEnum({
    default          : 0,
    black            : 1,
 
@@ -52,7 +61,8 @@ exports.UIBarStyle = UIBarStyle = objc.makeEnum({
 });
 
 
-exports.UIDataDetectorType = UIDataDetectorType = objc.makeEnum({
+let UIDataDetectorType;
+_exports.UIDataDetectorType = UIDataDetectorType = objc.makeEnum({
    phoneNumber   : 1 << 0,
    link          : 1 << 1,
    address       : 1 << 2,
@@ -62,13 +72,15 @@ exports.UIDataDetectorType = UIDataDetectorType = objc.makeEnum({
 });
 
 
-exports.UIBarButtonItemStyle = UIBarButtonItemStyle = objc.makeEnum({
+let UIBarButtonItemStye;
+_exports.UIBarButtonItemStyle = UIBarButtonItemStye = objc.makeEnum({
    plain: 0,
    bordered: 1,
    done: 2
 });
 
-exports.UIBarButtonSystemItem = UIBarButtonSystemItem = objc.makeEnum({
+let UIBarButtonSystemItem;
+_exports.UIBarButtonSystemItem = UIBarButtonSystemItem = objc.makeEnum({
    done: 0,
    cancel: 1,
    edit: 2,
@@ -96,7 +108,8 @@ exports.UIBarButtonSystemItem = UIBarButtonSystemItem = objc.makeEnum({
 });
 
 
-exports.UIControlEvent = UIControlEvent = objc.makeEnum({
+let UIControlEvent;
+_exports.UIControlEvent = UIControlEvent = objc.makeEnum({
    TouchDown           : 1 <<  0,
    TouchDownRepeat     : 1 <<  1,
    TouchDragInside     : 1 <<  2,
@@ -121,7 +134,8 @@ exports.UIControlEvent = UIControlEvent = objc.makeEnum({
    AllEvents           : 0xFFFFFFFF
 });
 
-exports.UIPopoverArrowDirection = UIPopoverArrowDirection = objc.makeEnum({
+let UIPopoverArrowDirection;
+_exports.UIPopoverArrowDirection = UIPopoverArrowDirection = objc.makeEnum({
    up:       1 << 0,
    down:     1 << 1,
    left:     1 << 2,
@@ -130,7 +144,8 @@ exports.UIPopoverArrowDirection = UIPopoverArrowDirection = objc.makeEnum({
    unknown: ~0
 });
 
-exports.UIUserInterfaceIdiom = UIUserInterfaceIdiom = objc.makeEnum({
+let UIUserInterfaceIdiom;
+_exports.UIUserInterfaceIdiom = UIUserInterfaceIdiom = objc.makeEnum({
    phone: 0,
    pad: 1
 });

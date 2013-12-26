@@ -48,10 +48,11 @@ function makeAppearance (sel, o /*, ...args */) {
   return appearance;
 };
 
-exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", {
+var UIAppearance;
+_exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", () => { return {
 
     // Appearance Methods
     appearance:                objc.requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,
     appearanceWhenContainedIn: objc.requiredMethod("appearanceWhenContainedIn:", { tramp: function () { return makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(Array.prototype.slice.call(arguments, 0))); } } )
 
-});
+}; });

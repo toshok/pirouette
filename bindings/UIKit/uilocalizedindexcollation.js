@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILocalizedIndexCollation");
-exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObject.extendClass ("UILocalizedIndexCollation", {
+var UILocalizedIndexCollation;
+_exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObject.extendClass ("UILocalizedIndexCollation", () => { return {
 
     // Getting the Shared Instance
     currentCollation:    objc.staticSelector("currentCollation"),
@@ -15,4 +16,4 @@ exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObj
     sectionIndexTitles: objc.instanceProperty(),
     sectionForSectionIndexTitleAtIndex: objc.instanceSelector("sectionForSectionIndexTitleAtIndex:")
 
-});
+}; });

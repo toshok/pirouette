@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIImagePickerController");
-exports.UIImagePickerController = UIImagePickerController = UINavigationController.extendClass ("UIImagePickerController", {
+var UIImagePickerController;
+_exports.UIImagePickerController = UIImagePickerController = UINavigationController.extendClass ("UIImagePickerController", () => { return {
 
     // Setting the Picker Source
     availableMediaTypes:   objc.staticSelector("availableMediaTypesForSourceType:"),
@@ -36,4 +37,4 @@ exports.UIImagePickerController = UIImagePickerController = UINavigationControll
     availableCaptureModesForCameraDevice: objc.staticSelector("availableCaptureModesForCameraDevice:"),
     isFlashAvailableForCameraDevice:      objc.staticSelector("isFlashAvailableForCameraDevice:")
 
-});
+}; });

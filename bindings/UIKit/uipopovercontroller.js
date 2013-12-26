@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPopoverController");
-exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendClass ("UIPopoverController", {
+var UIPopoverController;
+_exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendClass ("UIPopoverController", () => { return {
 
     // Initializing the Popover
     initWithContentViewController: objc.instanceSelector("initWithContentViewController:"),
@@ -27,4 +28,4 @@ exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendCl
     popoverLayoutMargins: objc.instanceProperty(),
     popoverBackgroundViewClass: objc.instanceProperty()
 
-});
+}; });

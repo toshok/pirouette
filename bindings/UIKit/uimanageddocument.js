@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIManagedDocument");
-exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", {
+var UIManagedDocument;
+_exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", () => { return {
 
     // Managing the Core Data Stack
     configurePersistentStoreCoordinator: objc.instanceSelector("configurePersistentStoreCoordinatorForURL:ofType:modelConfiguration:storeOptions:error:"),
@@ -19,4 +20,4 @@ exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass 
     // Naming the Persistent Store File
     persistentStoreName: objc.staticSelector("persistentStoreName")
 
-});
+}; });

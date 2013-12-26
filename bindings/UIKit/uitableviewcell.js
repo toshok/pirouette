@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewCell");
-exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", {
+var UITableViewCell;
+_exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", () => { return {
 
     // Initializing a UITableViewCell Object
     initWithStyle: objc.instanceSelector("initWithStyle:reuseIdentifier:"),
@@ -70,4 +71,4 @@ exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell
     editAction: objc.instanceProperty(), // Deprecated in iOS 3.0
     target: objc.instanceProperty(), // Deprecated in iOS 3.0
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIImageView");
-exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", {
+var UIImageView;
+_exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", () => { return {
 
     // Initializing a UIImageView Object
     initWithImage:                    objc.instanceSelector("initWithImage:"),
@@ -24,4 +25,4 @@ exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", {
     userInteractionEnabled: objc.instanceProperty(),
     highlighted: objc.instanceProperty()
 
-});
+}; });

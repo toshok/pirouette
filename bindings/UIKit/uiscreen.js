@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIScreen");
-exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", {
+var UIScreen;
+_exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", () => { return {
 
     // Getting the Available Screens
     mainScreen:   objc.staticProperty({ set: null }), // readonly class property
@@ -28,4 +29,4 @@ exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", {
     // Setting a Display’s Overscan Compensation.
     overscanCompensation: objc.instanceProperty()
 
-});
+}; });

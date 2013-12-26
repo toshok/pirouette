@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIProgressView");
-exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", {
+var UIProgressView;
+_exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", () => { return {
 
     // Initializing the UIProgressView Object
     initWithProgressViewStyle: objc.instanceSelector("initWithProgressViewStyle:"),
@@ -17,4 +18,4 @@ exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", 
     trackTintColor: objc.instanceProperty(),
     trackImage: objc.instanceProperty()
 
-});
+}; });

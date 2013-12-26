@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextInputTraits");
-exports.UITextInputTraits = UITextInputTraits = foundation.Protocol.extendClass("UITextInputTraits", {
+var UITextInputTraits;
+_exports.UITextInputTraits = UITextInputTraits = foundation.Protocol.extendClass("UITextInputTraits", () => { return {
 
     // we don't want NSObjectProtocol, I'm pretty sure..  too much underlying stuff we don't want to expose.
     // so let's leave it at that.
@@ -17,4 +18,4 @@ exports.UITextInputTraits = UITextInputTraits = foundation.Protocol.extendClass(
     returnKeyType:                 objc.requiredProperty("returnKeyType"),
     secureTextEntry:               objc.requiredProperty("secureTextEntry")
 
-});
+}; });

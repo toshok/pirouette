@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextInputMode");
-exports.UITextInputMode = UITextInputMode = foundation.NSObject.extendClass ("UITextInputMode", {
+var UITextInputMode;
+_exports.UITextInputMode = UITextInputMode = foundation.NSObject.extendClass ("UITextInputMode", () => { return {
 
     // Getting the Current and Active Text-Input Modes
     currentInputMode: objc.staticSelector("currentInputMode"),
@@ -10,4 +11,4 @@ exports.UITextInputMode = UITextInputMode = foundation.NSObject.extendClass ("UI
     // Getting the Primary Language
     primaryLanguage: objc.instanceProperty()
 
-});
+}; });

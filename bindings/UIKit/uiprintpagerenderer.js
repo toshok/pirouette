@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintPageRenderer");
-exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendClass ("UIPrintPageRenderer", {
+var UIPrintPageRenderer;
+_exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendClass ("UIPrintPageRenderer", () => { return {
 
     // Accessing Information About the Print Job
     numberOfPages: objc.instanceSelector("numberOfPages"),
@@ -27,4 +28,4 @@ exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendCl
     drawPrintFormatterForPageAtIndex: objc.instanceSelector("drawPrintFormatter:forPageAtIndex:"),
     drawFooterForPageAtIndex:         objc.instanceSelector("drawFooterForPageAtIndex:inRect:")
 
-});
+}; });

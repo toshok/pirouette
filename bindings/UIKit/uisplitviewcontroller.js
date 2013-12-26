@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISplitViewController");
-exports.UISplitViewController = UISplitViewController = UIViewController.extendClass ("UISplitViewController", {
+var UISplitViewController;
+_exports.UISplitViewController = UISplitViewController = UIViewController.extendClass ("UISplitViewController", () => { return {
 
     // Managing the Child View Controllers
     viewControllers: objc.instanceProperty(),
@@ -9,4 +10,4 @@ exports.UISplitViewController = UISplitViewController = UIViewController.extendC
     // Accessing the Delegate Object
     delegate: objc.autoboxProperty(UISplitViewController)
 
-});
+}; });

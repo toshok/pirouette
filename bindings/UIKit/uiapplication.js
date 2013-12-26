@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIApplication");
-exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", {
+var UIApplication;
+_exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", () => { return {
 
     // Getting the Application Instance
 
@@ -82,7 +83,7 @@ exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication"
     // Setting the Icon of a Newsstand Application
     setNewsstandIconImage: objc.instanceSelector("setNewsstandIconImage:")
 
-});
+}; });
 
 UIApplication.main = function (args, principalClassName, delegateClassName) {
   return objc_internal.UIApplicationMain(args, principalClassName, delegateClassName);

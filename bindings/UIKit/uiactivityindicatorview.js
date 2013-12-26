@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIActivityIndicatorView");
-exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", {
+var UIActivityIndicatorView;
+_exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", () => { return {
 
   // Initializing an Activity Indicator
   initWithActivityIndicatorStyle: objc.instanceSelector("initWithActivityIndicatorStyle:"),
@@ -16,4 +17,4 @@ exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass (
   activityIndicatorViewStyle: objc.instanceProperty(),
   color: objc.instanceProperty()
 
-});
+}; });

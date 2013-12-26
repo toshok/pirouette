@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIImage");
-exports.UIImage = UIImage = foundation.NSObject.extendClass ("UIImage", {
+var UIImage;
+_exports.UIImage = UIImage = foundation.NSObject.extendClass ("UIImage", () => { return {
 
     // Cached Image Loading Routines
     imageNamed: objc.staticSelector("imageNamed:"),
@@ -44,4 +45,4 @@ exports.UIImage = UIImage = foundation.NSObject.extendClass ("UIImage", {
     drawInRectWithBlend:  objc.instanceSelector("drawInRect:blendMode:alpha:"),
     drawAsPatternInRect:  objc.instanceSelector("drawAsPatternInRect:")
 
-});
+}; });

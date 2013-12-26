@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISlider");
-exports.UISlider = UISlider = UIControl.extendClass ("UISlider", {
+var UISlider;
+_exports.UISlider = UISlider = UIControl.extendClass ("UISlider", () => { return {
 
     // Accessing the Slider’s Value
     value: objc.instanceProperty({ set: function(v) { return this.setValue(v, false); } }),
@@ -36,4 +37,4 @@ exports.UISlider = UISlider = UIControl.extendClass ("UISlider", {
     trackRect:             objc.instanceSelector("trackRectForBounds:"),
     thumbRect:             objc.instanceSelector("thumbRectForBounds:trackRect:value:")
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewDataSource");
-exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", {
+var UITableViewDataSource;
+_exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", () => { return {
 
     // Configuring a Table View
     cellForRow:                  objc.requiredMethod("tableView:cellForRowAtIndexPath:").
@@ -30,4 +31,4 @@ exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.exte
     canMoveRow:                  objc.optionalMethod("tableView:canMoveRowAtIndexPath:"),
     moveRow:                     objc.optionalMethod("tableView:moveRowAtIndexPath:toIndexPath:")
 
-});
+}; });

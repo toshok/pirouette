@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBezierPath");
-exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", {
+var UIBezierPath;
+_exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", () => { return {
 
     // Creating a UIBezierPath Object
     bezierPath:                                 objc.instanceSelector("bezierPath"),
@@ -51,4 +52,4 @@ exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezier
     // Applying Transformations
     applyTransform:   objc.instanceSelector("applyTransform:")
 
-});
+}; });

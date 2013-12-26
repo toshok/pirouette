@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIVideoEditorController");
-exports.UIVideoEditorController = UIVideoEditorController = UINavigationController.extendClass ("UIVideoEditorController", {
+var UIVideoEditorController;
+_exports.UIVideoEditorController = UIVideoEditorController = UINavigationController.extendClass ("UIVideoEditorController", () => { return {
 
     // Determining Editing Availability
     canEditVideoAtPath: objc.staticSelector("canEditVideoAtPath:"),
@@ -12,4 +13,4 @@ exports.UIVideoEditorController = UIVideoEditorController = UINavigationControll
     videoPath: objc.instanceProperty(),
     videoQuality: objc.instanceProperty()
 
-});
+}; });

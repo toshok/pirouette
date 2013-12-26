@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBarItem");
-exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", {
+var UIBarItem;
+_exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", () => { return {
 
     // Getting and Setting Properties
     enabled: objc.instanceProperty(),
@@ -16,4 +17,4 @@ exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", {
     setTitleTextAttributes: objc.instanceSelector("setTitleTextAttributes:forState:"),
     getTitleTextAttributes: objc.instanceSelector("titleTextAttributesForState:")
 
-});
+}; });

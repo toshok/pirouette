@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPageControl");
-exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", {
+var UIPageControl;
+_exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", () => { return {
 
     // Managing the Page Navigation
     currentPage: objc.instanceProperty(),
@@ -15,4 +16,4 @@ exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", 
     // Resizing the Control
     sizeForNumberOfPages: objc.instanceSelector("sizeForNumberOfPages:")
 
-});
+}; });

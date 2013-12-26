@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIToolbar");
-exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", {
+var UIToolbar;
+_exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", () => { return {
 
     // Configuring the Toolbar
     barStyle: objc.instanceProperty(),
@@ -18,4 +19,4 @@ exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", {
     setBackgroundImage: objc.instanceSelector("setBackgroundImage:forToolbarPosition:barMetrics:"),
     tintColor: objc.instanceProperty()
 
-});
+}; });

@@ -3,8 +3,6 @@
 let objc_internal = require("objc_internal"),
     foundation = require("foundation");
 
-//console.log("objc");
-
 const sig = {
   Class:     function() { return "//"; },
   Selector:  function() { return ":"; },
@@ -46,7 +44,6 @@ function typeSignature(types) {
 };
 
 exports.requireFramework = function requireFramework(framework) {
-  console.log ("requireFramework " + framework);
 };
 
 function selectorInvoker(sel) {
@@ -172,7 +169,6 @@ function RegisterAttribute(obj, name) {
     superclass_name = obj.__super__.constructor._ck_register;
   }
 
-  //console.log(`registering ${obj._ck_register}, subclass of ${ (obj.__super__) ? obj.__super__.constructor._ck_register : ''}`);
   objc_internal.registerJSClass(obj, obj.prototype, obj._ck_register, superclass_name);
 };
 exports.RegisterAttribute = RegisterAttribute;
@@ -557,6 +553,9 @@ function createClass(name, baseType, description) {
   let ctor = function () {
     chainCtor(ctor, this, arguments);
   };
+
+  if (typeof description == "function")
+      description = description();
 
   let type_ctor = description && description.hasOwnProperty("constructor") ? description.constructor : ctor;
 

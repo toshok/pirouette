@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIView");
-exports.UIView = UIView = UIResponder.extendClass ("UIView", {
+var UIView;
+_exports.UIView = UIView = UIResponder.extendClass ("UIView", () => { return {
 
     initWithFrame:    objc.instanceSelector("initWithFrame:").
                             returns( function() { return foundation.NSObject; /* XXX should be UIView */}).
@@ -127,4 +128,4 @@ exports.UIView = UIView = UIResponder.extendClass ("UIView", {
 
     // XXX ES6-port
     //@mixinProtocol UIAppearance
-});
+}; });

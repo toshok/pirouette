@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISimpleTextPrintFormatter");
-exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter", {
+var UISimplePrintFormatter;
+_exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter", () => { return {
     // Creating a Simple-Text Print Formatter
     initWithText:     objc.instanceSelector("initWithText:"),
 
@@ -14,4 +15,4 @@ exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.exten
     lineBreakMode: objc.instanceProperty(),
     textAlignment: objc.instanceProperty()
 
-});
+}; });

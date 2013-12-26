@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIWebViewDelegate");
-exports.UIWebViewDelegate = UIWebViewDelegate = foundation.Protocol.extendClass("UIWebViewDelegate", {
+var UIWebViewDelegate;
+_exports.UIWebViewDelegate = UIWebViewDelegate = foundation.Protocol.extendClass("UIWebViewDelegate", () => { return {
 
     // Loading Content
     shouldStartLoad: objc.optionalMethod("webView:shouldStartLoadWithRequest:navigationType:"),
@@ -9,4 +10,4 @@ exports.UIWebViewDelegate = UIWebViewDelegate = foundation.Protocol.extendClass(
     didFinishLoad:   objc.optionalMethod("webViewDidFinishLoad:"),
     didFailLoad:     objc.optionalMethod("webView:didFailLoadWithError:")
 
-});
+}; });

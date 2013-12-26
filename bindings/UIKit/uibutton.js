@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log ("UIButton");
-exports.UIButton = UIButton = UIControl.extendClass ("UIButton", {
+var UIButton;
+_exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => { return {
 
   // Creating Buttons
   buttonWithType:                     objc.staticSelector("buttonWithType:"),
@@ -70,4 +71,4 @@ exports.UIButton = UIButton = UIControl.extendClass ("UIButton", {
       get: function () { return this.getTitle(UIControlState.normal); }
   })
 
-});
+}; });

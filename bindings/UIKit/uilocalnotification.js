@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UILocalNotification");
-exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", {
+var UILocalNotification;
+_exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", () => { return {
 
     // Scheduling a Local Notification
     fireDate: objc.instanceProperty(),
@@ -20,4 +21,4 @@ exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendCl
     soundName: objc.instanceProperty(),
     userInfo: objc.instanceProperty()
 
-});
+}; });

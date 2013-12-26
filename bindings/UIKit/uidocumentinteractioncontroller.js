@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDocumentInteractionController");
-exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", {
+var UIDocumentInteractionController;
+_exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", () => { return {
 
     // Creating the Document Interaction Controller
     interactionControllerWithURL:       objc.staticSelector("interactionControllerWithURL:"),
@@ -28,4 +29,4 @@ exports.UIDocumentInteractionController = UIDocumentInteractionController = foun
     gestureRecognizers: objc.instanceProperty(),
     delegate: objc.autoboxProperty(UIDocumentInteractionControllerDelegate)
 
-});
+}; });

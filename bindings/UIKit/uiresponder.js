@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIResponder");
-exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", {
+var UIResponder;
+_exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", () => { return {
 
     // Managing the Responder Chain
     nextResponder:           objc.instanceProperty(),
@@ -36,4 +37,4 @@ exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponde
     // Validating Commands
     canPerformAction: objc.instanceSelector("canPerformAction:withSender:")
 
-});
+}; });

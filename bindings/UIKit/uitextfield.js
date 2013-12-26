@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextField");
-exports.UITextField = UITextField = UIControl.extendClass ("UITextField", {
+var UITextField;
+_exports.UITextField = UITextField = UIControl.extendClass ("UITextField", () => { return {
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),
@@ -60,4 +61,4 @@ exports.UITextField = UITextField = UIControl.extendClass ("UITextField", {
     secureTextEntry: objc.instanceProperty()
     // end UITextInputTraits Protocol
 
-});
+}; });

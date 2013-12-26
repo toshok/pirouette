@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDocument");
-exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument", {
+var UIDocument;
+_exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument", () => { return {
 
     // Initializing a Document Object
     initWithFileURL: objc.instanceSelector("initWithFileURL:"),
@@ -51,4 +52,4 @@ exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument",
     finishedHandlingError:            objc.instanceSelector("finishedHandlingError:recovered:"),
     userInteractionNoLongerPermitted: objc.instanceSelector("userInteractionNoLongerPermittedForError:")
 
-});
+}; });

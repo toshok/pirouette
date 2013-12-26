@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIFont");
-exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", {
+var UIFont;
+_exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", () => { return {
 
     // Creating Arbitrary Fonts
     fontWithName: objc.staticSelector("fontWithName:size:"),
@@ -35,4 +36,4 @@ exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", {
     smallSystemFontSize: objc.staticSelector("smallSystemFontSize"),
     systemFontSize:      objc.staticSelector("systemFontSize")
 
-});
+}; });

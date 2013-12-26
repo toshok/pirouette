@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISegmentedControl");
-exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegmentedControl", {
+var UISegmentedControl;
+_exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegmentedControl", () => { return {
 
     // Initializing a Segmented Control
     initWithItems: objc.instanceSelector("initWithItems:"),
@@ -42,4 +43,4 @@ exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegm
     titleTextAttributes:          objc.instanceSelector("titleTextAttributesForState:").makeUIAppearance(),
     setTitleTextAttributes:       objc.instanceSelector("setTitleTextAttributes:forState:").makeUIAppearance()
 
-});
+}; });

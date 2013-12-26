@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIBarButtonItem");
-exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", {
+var UIBarButtonItem;
+_exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", () => { return {
 
     // Initializing an Item
     initWithCustomView:          objc.instanceSelector("initWithCustomView:"),
@@ -59,4 +60,4 @@ exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonI
         get: null // this should really be an actual getter that returns the callback...
     })
 
-});
+}; });

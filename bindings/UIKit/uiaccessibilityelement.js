@@ -1,7 +1,9 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIAccessibilityElement");
-exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.extendClass ("UIAccessibilityElement", {
+
+var UIAccessibilityElement;
+_exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.extendClass ("UIAccessibilityElement", () => { return {
 
   // Creating an Accessibility Element
   initWithAccessibilityContainer: objc.instanceSelector("initWithAccessibilityContainer:"),
@@ -19,4 +21,4 @@ exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.ex
   accessibilityFrame: objc.instanceProperty(),
   accessibilityTraits: objc.instanceProperty()
 
-});
+}; });

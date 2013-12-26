@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINib");
-exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", {
+var UINib;
+_exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", () => { return {
 
     // Creating a Nib Object
     nibWithNibName: objc.staticSelector("nibWithNibName:bundle:"),
@@ -10,4 +11,4 @@ exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", {
     // Instantiating a Nib
     instantiateWithOwner: objc.instanceSelector("instantiateWithOwner:options:")
 
-});
+}; });

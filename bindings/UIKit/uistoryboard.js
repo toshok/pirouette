@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log "UIStoryboard"
-exports.UIStoryboard = UIStoryboard = foundation.NSObject.extendClass ("UIStoryboard", {
+var UIStoryboard;
+_exports.UIStoryboard = UIStoryboard = foundation.NSObject.extendClass ("UIStoryboard", () => { return {
 
     // Getting a Storyboard Object
     storyboardWithName:                      objc.instanceSelector("storyboardWithName:bundle:"),
@@ -10,4 +11,4 @@ exports.UIStoryboard = UIStoryboard = foundation.NSObject.extendClass ("UIStoryb
     instantiateInitialViewController:        objc.instanceSelector("instantiateInitialViewController"),
     instantiateViewControllerWithIdentifier: objc.instanceSelector("instantiateViewControllerWithIdentifier:")
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIWindow");
-exports.UIWindow = UIWindow = UIView.extendClass ("UIWindow", {
+var UIWindow;
+_exports.UIWindow = UIWindow = UIView.extendClass ("UIWindow", () => { return {
 
     // Configuring Windows
     windowLevel: objc.instanceProperty(),
@@ -24,4 +25,4 @@ exports.UIWindow = UIWindow = UIView.extendClass ("UIWindow", {
     // Sending Events
     sendEvent:              objc.instanceSelector("sendEvent:")
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarController");
-exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", {
+var UITabBarController;
+_exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", () => { return {
 
     // Accessing the Tab Bar Controller Properties
     delegate: objc.autoboxProperty(UITabBarControllerDelegate),
@@ -17,4 +18,4 @@ exports.UITabBarController = UITabBarController = UIViewController.extendClass (
     selectedViewController:   objc.instanceProperty(),
     selectedIndex:   objc.instanceProperty()
 
-});
+}; });

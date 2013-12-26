@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIGestureRecognizerDelegate");
-exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.Protocol.extendClass("UIGestureRecognizerDelegate", {
+var UIGestureRecognizerDelegate;
+_exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.Protocol.extendClass("UIGestureRecognizerDelegate", () => { return {
 
     // Regulating Gesture Recognition
     shouldBegin:        objc.optionalMethod("gestureRecognizerShouldBegin:"),
@@ -10,4 +11,4 @@ exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.P
     // Controlling Simultaneous Gesture Recognition
     shouldRecognizeSimultaneouslyWithGestureRecognizer: objc.optionalMethod("gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:")
 
-});
+}; });

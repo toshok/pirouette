@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIStepper");
-exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", {
+var UIStepper;
+_exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", () => { return {
 
     // Configuring the Stepper
     continuous: objc.instanceProperty(),
@@ -14,4 +15,4 @@ exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", {
     // Accessing the Stepper’s Value
     value: objc.instanceProperty()
 
-});
+}; });

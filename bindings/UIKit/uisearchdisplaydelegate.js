@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISearchDisplayDelegate");
-exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", {
+var UISearchDisplayDelegate;
+_exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", () => { return {
 
     // Search State Change
     willBeginSearch: objc.optionalMethod("searchDisplayControllerWillBeginSearch:"),
@@ -23,4 +24,4 @@ exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.
     shouldReloadTableForSearchString: objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchString:"),
     shouldReloadTableForSearchScope:  objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchScope:")
 
-});
+}; });

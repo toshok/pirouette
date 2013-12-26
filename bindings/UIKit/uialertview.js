@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIAlertView");
-exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", {
+var UIAlertView;
+_exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", () => { return {
 
   // Creating Alert Views
   init: objc.instanceSelector("initWithTitle:message:delegate:cancelButtonTitle:otherButtonTitles:"),
@@ -27,4 +28,4 @@ exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", {
   // Dismissing
   dismissWithClickedButtonIndex: objc.instanceSelector("dismissWithClickedButtonIndex:animated:")
 
-});
+}; });

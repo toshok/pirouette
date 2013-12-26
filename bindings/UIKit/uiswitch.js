@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UISwitch");
-exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", {
+var UISwitch;
+_exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", () => { return {
 
     // Initializing the Switch Object
     initWithFrame: objc.instanceSelector("initWithFrame:"),
@@ -13,4 +14,4 @@ exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", {
     // Customizing the Appearance of the Switch
     onTintColor: objc.instanceProperty()
 
-});
+}; });

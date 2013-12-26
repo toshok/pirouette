@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableView");
-exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", {
+var UITableView;
+_exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", () => { return {
 
     // Initializing a UITableView Object
     initWithFrame: objc.instanceSelector("initWithFrame:style:"),
@@ -76,4 +77,4 @@ exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", {
     dataSource: objc.autoboxProperty(UITableViewDataSource),
     delegate: objc.autoboxProperty(UITableViewDelegate)
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIMenuController");
-exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("UIMenuController", {
+var UIMenuController;
+_exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("UIMenuController", () => { return {
 
     // Getting the Menu Controller Instance
     sharedMenuController: objc.staticSelector("sharedMenuController"),
@@ -21,4 +22,4 @@ exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("
     // Customizing Menu Items
     menuItems: objc.instanceProperty()
 
-});
+}; });

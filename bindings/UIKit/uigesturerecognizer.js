@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIGestureRecognizer");
-exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", {
+var UIGestureRecognizer;
+_exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => { return {
 
     // Initializing a Gesture Recognizer
     initWithTarget: objc.instanceSelector("initWithTarget:action:"),
@@ -48,4 +49,4 @@ exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendCl
     canBePreventedByGestureRecognizer: objc.instanceSelector("canBePreventedByGestureRecognizer:"),
     canPreventGestureRecognizer:       objc.instanceSelector("canPreventGestureRecognizer:")
 
-});
+}; });

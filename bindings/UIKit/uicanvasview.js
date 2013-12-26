@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UICanvasView");
-exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", {
+var UICanvasView;
+_exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", () => { return {
 
   layerClass: objc.staticSelector("layerClass").
                           returns( function () { return objc.sig.Class; }).
@@ -17,4 +18,4 @@ exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", {
     }
   }
 
-});
+}; });

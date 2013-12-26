@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintInteractionController");
-exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", {
+var UIPrintPageInteractionController;
+_exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", () => { return {
 
     // Getting the Shared Controller Instance
     sharedPrintController: objc.staticSelector("sharedPrintController"),
@@ -31,4 +32,4 @@ exports.UIPrintPageInteractionController = UIPrintPageInteractionController = fo
 
     // Assigning the Delegate
     delegate: objc.autoboxProperty(UIPrintInteractionControllerDelegate)
-  });
+}; });

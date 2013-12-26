@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log "UIViewController"
-exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", {
+var UIViewController;
+_exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", () => { return {
     constructor: function (handle, arg2) {
       if (typeof (handle) === 'string') {
 	objc.chainCtor (UIViewController, this, []);
@@ -116,4 +117,4 @@ exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewCo
     modalTransitionStyle: objc.instanceProperty(),
     modalPresentationStyle: objc.instanceProperty()
 
-});
+}; });

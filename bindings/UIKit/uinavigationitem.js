@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationItem");
-exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("UINavigationItem", {
+var UINavigationItem;
+_exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("UINavigationItem", () => { return {
 
     // Initializing an Item
     initWithTitle: objc.instanceSelector("initWithTitle:"),
@@ -25,4 +26,4 @@ exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("
     setRightBarButtonItems: objc.instanceSelector("setRightBarButtonItems:animated:"),
     setRightBarButtonItem:  objc.instanceSelector("setRightBarButtonItem:animated:")
 
-});
+}; });

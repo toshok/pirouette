@@ -1,7 +1,11 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextView");
-exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", {
+var UITextView;
+_exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", () => { return {
+
+    // Initialization
+    initWithFrame:  objc.instanceSelector("initWithFrame:textContainer:"),
 
     // Configuring the Text Attributes
     text: objc.instanceProperty(),
@@ -38,4 +42,4 @@ exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", {
     // XXX ES6-port
     //@conformsToProtocol UITextInput
 
-});
+}; });

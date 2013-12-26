@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log "UITouch"
-exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", {
+var UITouch;
+_exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", () => { return {
 
     // Getting the Location of Touches
     locationInView:         objc.instanceSelector("locationInView:"),
@@ -17,4 +18,4 @@ exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", {
     // Getting a Touch Object’s Gesture Recognizers
     gestureRecognizers: objc.instanceProperty()
 
-});
+}; });

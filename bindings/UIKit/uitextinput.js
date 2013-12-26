@@ -1,8 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextInput");
-
-exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", {
+var UITextInput;
+_exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", () => { return {
 
     // Replacing and Returning Text
     textInRange:  objc.requiredMethod("textInRange:"),
@@ -48,12 +48,12 @@ exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput
     textStylingAtPosition: objc.optionalMethod("textStylingAtPosition:inDirection:"),
 
     // Reconciling Text Position and Character Offset
-    positionWithinRange:       objc.optionalMethod("positionWithinRange:atCharacterOffset:"),
+    positionWithinRangeAtCharacterOffset: objc.optionalMethod("positionWithinRange:atCharacterOffset:"),
     characterOffsetOfPosition: objc.optionalMethod("characterOffsetOfPosition:withinRange:"),
 
     // Returning the Text Input View
-    textInputView: objc.optionalMethod("textInputView"),
+    textInputView: objc.optionalMethod("textInputView")
 
     // XXX ES6-port
     //@mixinProtocol UIKeyInput
-});
+}; });

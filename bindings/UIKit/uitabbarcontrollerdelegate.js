@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarControllerDelegate");
-exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Protocol.extendClass("UITabBarControllerDelegate", {
+var UITabBarControllerDelegate;
+_exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Protocol.extendClass("UITabBarControllerDelegate", () => { return {
 
     // Managing Tab Bar Selections
     shouldSelectViewController:          objc.optionalMethod("tabBarController:shouldSelectViewController:"),
@@ -12,4 +13,4 @@ exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Pro
     willEndCustomizingViewControllers:   objc.optionalMethod("tabBarController:willEndCustomizingViewControllers:changed:"),
     didEndCustomizingViewControllers:    objc.optionalMethod("tabBarController:didEndCustomizingViewControllers:changed:")
 
-});
+}; });

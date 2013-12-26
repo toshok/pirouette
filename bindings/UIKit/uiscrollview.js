@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", {
+var UIScrollView;
+_exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", () => { return {
 
     // Managing the Display of Content
     setContentOffset: objc.instanceSelector("setContentOffset:animated:"),
@@ -48,4 +49,4 @@ exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", {
     // Managing the Delegate
     delegate: objc.autoboxProperty(UIScrollViewDelegate)
 
-});
+}; });

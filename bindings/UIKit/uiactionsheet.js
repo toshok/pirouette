@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIActionSheet");
-exports.UIActionSheet = UIActionSheet = UIView.extendClass ("UIActionSheet", {
+var UIActionSheet;
+_exports.UIActionSheet = UIActionSheet = UIView.extendClass ("UIActionSheet", () => { return {
 
   // Creating Action Sheets
   init: objc.instanceSelector("initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:"),
@@ -29,4 +30,4 @@ exports.UIActionSheet = UIActionSheet = UIView.extendClass ("UIActionSheet", {
 
   // Dismissing the Action Sheet
   dismissWithClickedButtonIndexAnimated: objc.instanceSelector("dismissWithClickedButtonIndex:animated:")
-});
+}; });

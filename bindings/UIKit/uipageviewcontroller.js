@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPageViewController");
-exports.UIPageViewController = UIPageViewController = UIViewController.extendClass ("UIPageViewController", {
+var UIPageViewController;
+_exports.UIPageViewController = UIPageViewController = UIViewController.extendClass ("UIPageViewController", () => { return {
 
     // Creating Page View Controllers
     initWithTransitionStyle: objc.instanceSelector("initWithTransitionStyle:navigationOrientation:options:"),
@@ -17,6 +18,6 @@ exports.UIPageViewController = UIPageViewController = UIViewController.extendCla
     navigationOrientation: objc.instanceProperty(),
     spineLocation: objc.instanceProperty(),
     transitionStyle: objc.instanceProperty(),
-    doubleSided: objc.instanceProperty(),
+    doubleSided: objc.instanceProperty()
 
-});
+}; });

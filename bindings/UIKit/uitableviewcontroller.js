@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewController");
-exports.UITableViewController = UITableViewController = UIViewController.extendClass ("UITableViewController", {
+var UITableViewController;
+_exports.UITableViewController = UITableViewController = UIViewController.extendClass ("UITableViewController", () => { return {
 
     // Initializing the UITableViewController Object
     initWithStyle: objc.instanceSelector("initWithStyle:").
@@ -14,4 +15,4 @@ exports.UITableViewController = UITableViewController = UIViewController.extendC
     // Configuring the Table Behavior
     clearsSelectionOnViewWillAppear: objc.instanceProperty()
 
-});
+}; });

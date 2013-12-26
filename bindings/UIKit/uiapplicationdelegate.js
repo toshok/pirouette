@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIApplicationDelegate");
-exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.extendClass("UIApplicationDelegate", {
+var UIApplicationDelegate;
+_exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.extendClass("UIApplicationDelegate", () => { return {
 
     // Monitoring Application State Changes
     didFinishLaunchingWithOptions:   objc.optionalMethod("application:didFinishLaunchingWithOptions:", { sig: "v@:@@" }),
@@ -41,4 +42,4 @@ exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.exte
     // Providing a Window for Storyboarding
     //window  property
 
-});
+}; });

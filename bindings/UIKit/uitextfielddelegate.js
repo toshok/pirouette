@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITextFieldDelegate");
-exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendClass("UITextFieldDelegate", {
+var UITextFieldDelegate;
+_exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendClass("UITextFieldDelegate", () => { return {
 
     // Managing Editing
     shouldBeginEditing: objc.optionalMethod("textFieldShouldBeginEditing:"),
@@ -14,4 +15,4 @@ exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendCl
     ShouldClear:                   objc.optionalMethod("textFieldShouldClear:"),
     ShouldReturn:                  objc.optionalMethod("textFieldShouldReturn:")
 
-});
+}; });

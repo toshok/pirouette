@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIEvent");
-exports.UIEvent = UIEvent = foundation.NSObject.extendClass ("UIEvent", {
+var UIEvent;
+_exports.UIEvent = UIEvent = foundation.NSObject.extendClass ("UIEvent", () => { return {
 
     // Getting the Touches for an Event
     allTouches:       objc.instanceSelector("allTouches"),
@@ -18,4 +19,4 @@ exports.UIEvent = UIEvent = foundation.NSObject.extendClass ("UIEvent", {
     // Getting the Touches for a Gesture Recognizer
     touchesForGestureRecognizer: objc.instanceSelector("touchesForGestureRecognizer:")
 
-});
+}; });

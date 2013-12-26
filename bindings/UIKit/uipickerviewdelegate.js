@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIPickerViewDelegate");
-exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.extendClass("UIPickerViewDelegate", {
+var UIPickerViewDelegate;
+_exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.extendClass("UIPickerViewDelegate", () => { return {
 
     // Setting the Dimensions of the Picker View
     rowHeightForComponent: objc.optionalMethod("pickerView:rowHeightForComponent:"),
@@ -17,4 +18,4 @@ exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.extend
     // Responding to Row Selection
     didSelectRow:          objc.optionalMethod("pickerView:didSelectRow:inComponent:")
 
-});
+}; });

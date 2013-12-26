@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UIActionSheetDelegate");
-exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", {
+var UIActionSheetDelegate;
+_exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", () => { return {
 
   // Responding to Actions
   clickedButton:  objc.optionalMethod("actionSheet:clickedButtonAtIndex:"),
@@ -14,4 +15,4 @@ exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.exte
 
   // Canceling
   cancel:      objc.optionalMethod("actionSheetCancel:")
-});
+}; });

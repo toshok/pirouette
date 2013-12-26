@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIWebView");
-exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", {
+var UIWebView;
+_exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", () => { return {
 
     // Setting the Delegate
     delegate: objc.autoboxProperty(UIWebViewDelegate),
@@ -37,4 +38,4 @@ exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", {
     mediaPlaybackRequiresUserAction: objc.instanceProperty(),
     mediaPlaybackAllowsAirPlay: objc.instanceProperty()
 
-});
+}; });

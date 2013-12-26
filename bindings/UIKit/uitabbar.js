@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UITabBar");
-exports.UITabBar = UITabBar = UIView.extendClass ("UITabBar", {
+var UITabBar;
+_exports.UITabBar = UITabBar = UIView.extendClass ("UITabBar", () => { return {
 
     // Getting and Setting Properties
     delegate: objc.autoboxProperty(UITabBarDelegate),
@@ -22,4 +23,4 @@ exports.UITabBar = UITabBar = UIView.extendClass ("UITabBar", {
     selectionIndicatorImage: objc.instanceProperty(),
     tintColor: objc.instanceProperty()
 
-});
+}; });

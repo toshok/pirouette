@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UIDatePicker");
-exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", {
+var UIDatePicker;
+_exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", () => { return {
 
     // Managing the Date and Calendar
     calendar:  objc.instanceProperty(),
@@ -19,4 +20,4 @@ exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", {
     minuteInterval:  objc.instanceProperty(),
     countDownDuration:  objc.instanceProperty()
 
-});
+}; });

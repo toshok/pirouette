@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("UITextViewDelegate");
-exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClass("UITextViewDelegate", {
+var UITextViewDelegate;
+_exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClass("UITextViewDelegate", () => { return {
 
     // Responding to Editing Notifications
     shouldBeginEditing: objc.optionalMethod("textViewShouldBeginEditing:"),
@@ -16,4 +17,4 @@ exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClas
     // Responding to Selection Changes
     didChangeSelection: objc.optionalMethod("textViewDidChangeSelection:")
 
-});
+}; });

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationController");
-exports.UINavigationController = UINavigationController = UIViewController.extendClass ("UINavigationController", {
+var UINavigationController;
+_exports.UINavigationController = UINavigationController = UIViewController.extendClass ("UINavigationController", () => { return {
 
     // Creating Navigation Controllers
     initWithRootViewController: objc.instanceSelector("initWithRootViewController:"),
@@ -31,4 +32,4 @@ exports.UINavigationController = UINavigationController = UIViewController.exten
     setToolbarHidden:       objc.instanceSelector("setToolbarHidden:animated:"),
     toolbarHidden:       objc.instanceProperty({ set: function (v) { return this.setToolbarHidden(v, false); } })
 
-});
+}; });

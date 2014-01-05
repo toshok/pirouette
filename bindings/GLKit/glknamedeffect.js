@@ -1,8 +1,9 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKNamedEffect = GLKNamedEffect = foundation.Protocol.extendClass("GLKNamedEffect", {
+var GLKNamedEffect;
+exports.GLKNamedEffect = GLKNamedEffect = foundation.Protocol.extendClass("GLKNamedEffect", () => ({
 
     // Binding the Shader Program
     prepareToDraw:  objc.requiredMethod("prepareToDraw")
 
-});
+}));

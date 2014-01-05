@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKSkyboxEffect = GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkyboxEffect", {
+var GLKSkyboxEffect;
+exports.GLKSkyboxEffect = GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkyboxEffect", () => ({
 
     // Naming the Effect
     label: objc.instanceProperty(),
@@ -21,4 +22,4 @@ exports.GLKSkyboxEffect = GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkybo
     // Setting the Skybox Transform
     transform: objc.instanceProperty()
 
-});
+}));

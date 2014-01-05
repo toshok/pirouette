@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", {
+var GLKTextureLoader;
+exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", () => ({
 
     // Initialization
     initWithSharegroup: objc.instanceSelector("initWithSharegroup:"),
@@ -31,4 +32,4 @@ exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("
     cubeMapWithContentsOfURL: objc.staticSelector("cubeMapWithContentsOfURL:options:error:"),
     cubeMapWithContentsOfURLWithQueue: objc.instanceSelector("cubeMapWithContentsOfURL:options:queue:completionHandler:")
 
-});
+}));

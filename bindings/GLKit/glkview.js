@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", {
+var GLKView;
+exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", () => ({
 
     // Initializing the View
     initWithFrameAndContext: objc.instanceSelector("initWithFrame:context:"),
@@ -28,4 +29,4 @@ exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", {
     // Deleting the View’s Underlying Framebuffer Object
     deleteDrawable: objc.instanceSelector("deleteDrawable")
 
-});
+}));

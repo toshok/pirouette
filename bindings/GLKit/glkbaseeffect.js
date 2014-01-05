@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", {
+var GLKBaseEffect;
+exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", () => ({
 
     // XXX ES6-port
     // @mixinProtocol GLKNamedEffect
@@ -36,4 +37,4 @@ exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBase
 
     // Preparing the Effect for Drawing
     prepareToDraw: objc.instanceSelector()
-});
+}));

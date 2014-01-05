@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKViewController = GLKViewController = uikit.UIViewController.extendClass ("GLKViewController", {
+var GLKViewController;
+exports.GLKViewController = GLKViewController = uikit.UIViewController.extendClass ("GLKViewController", () => ({
 
     // Configuring the Frame Rate
     preferredFramesPerSecond: objc.instanceProperty(),
@@ -21,4 +22,4 @@ exports.GLKViewController = GLKViewController = uikit.UIViewController.extendCla
     timeSinceLastUpdate: objc.instanceProperty(),
     timeSinceLastDraw: objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", {
+var GLKEffectPropertyFog;
+exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", () => ({
     // Enabling Fog
     enabled: objc.instanceProperty(),
 
@@ -12,4 +13,4 @@ exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendCl
     density: objc.instanceProperty(),
     start: objc.instanceProperty(),
     end: objc.instanceProperty()
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.extendClass ("GLKEffectPropertyLight", {
+var GLKEffectPropertyLight;
+exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.extendClass ("GLKEffectPropertyLight", () => ({
 
     // Configuring Common Lighting Properties
     enabled: objc.instanceProperty(),
@@ -22,4 +23,4 @@ exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.exte
     spotDirection: objc.instanceProperty(),
     spotExponent: objc.instanceProperty()
 
-});
+}));

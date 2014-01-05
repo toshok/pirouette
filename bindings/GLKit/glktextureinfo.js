@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKTextureInfo", {
+var GLKTextureInfo;
+exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKTextureInfo", () => ({
 
     // Reading Texture Information
     glName: objc.instanceProperty(),
@@ -11,4 +12,4 @@ exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKT
     alphaState: objc.instanceProperty(),
     containsMipmaps: objc.instanceProperty()
 
-});
+}));

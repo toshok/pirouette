@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.GLKEffectPropertyMaterial = GLKEffectPropertyMaterial = GLKEffectProperty.extendClass ("GLKEffectPropertyMaterial", {
+var GLKEffectPropertyMaterial;
+exports.GLKEffectPropertyMaterial = GLKEffectPropertyMaterial = GLKEffectProperty.extendClass ("GLKEffectPropertyMaterial", () => ({
 
     // Material Properties
     ambientColor: objc.instanceProperty(),
@@ -9,4 +10,4 @@ exports.GLKEffectPropertyMaterial = GLKEffectPropertyMaterial = GLKEffectPropert
     shininess: objc.instanceProperty(),
     specularColor: objc.instanceProperty()
 
-});
+}));

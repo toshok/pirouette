@@ -4,7 +4,8 @@
 // or maybe it doesn't matter?
 
 //console.log "GLKCanvasView"
-exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", {
+var GLKCanvasView;
+exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", () => ({
 
     getContext: function (name, args) {
       if (name === "experimental-webgl" || name === "webgl") {
@@ -26,4 +27,4 @@ exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", {
     height: objc.instanceProperty({ get: function() { return this.frame.height; },
 				    set: null
 				  })
-});
+}));

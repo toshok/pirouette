@@ -6,6 +6,7 @@ let objc = require("objc"),
 
 objc.requireFramework("Foundation");
 
+var NSComparisonResult;
 exports.NSComparisonResult = NSComparisonResult = objc.makeEnum({
     getTypeSignature: function() { return "i"; },
 

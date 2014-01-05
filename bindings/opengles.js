@@ -5,6 +5,7 @@ let objc = require('objc'),
 
 objc.requireFramework("OpenGLES");
 
+var EAGLRenderingAPI;
 exports.EAGLRenderingAPI = EAGLRenderingAPI = objc.makeEnum({
    OpenGLES1         : 1,
    OpenGLES2         : 2

@@ -4,6 +4,7 @@
 let objc = require("objc"),
     objc_internal = require("objc_internal"),
     foundation = require("foundation"),
+    coreAnimation = require("coreanimation"),
     ck = require("coffeekit");
 
 objc.requireFramework("UIKit");

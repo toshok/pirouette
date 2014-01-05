@@ -1,5 +1,5 @@
-
-exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", {
+var NSBundle;
+exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", () => ({
 
   // Initializing an NSBundle
   bundleWithURL: objc.staticSelector("bundleWithURL:"),
@@ -79,4 +79,4 @@ exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", {
   developmentLocalization: objc.instanceProperty({ set: null }),
   preferredLocalizations: objc.instanceProperty({ set: null }),
   localizedInfoDictionary: objc.instanceProperty({ set: null })
-});
+}));

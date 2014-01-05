@@ -13,4 +13,5 @@
   @optionalProperty: (n,accessors) -> property: n, get: accessors?.get, set: accessors?.set
 */
 
+var Protocol;
 exports.Protocol = Protocol = objc.extendClass("Protocol", Object);

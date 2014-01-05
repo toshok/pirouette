@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 // console.log("NSObject");
+var NSObject;
 exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.PirouetteObject, {
 
     constructor: function (handle) {

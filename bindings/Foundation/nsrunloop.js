@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 console.log("NSRunLoop");
-exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", {
+var NSRunLoop;
+exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", () => ({
 
     // Accessing Run Loops and Modes
     currentRunLoop: objc.staticProperty ({ set: null }),
@@ -30,5 +31,5 @@ exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", {
     cancelPerformSelector: objc.instanceSelector("cancelPerformSelector:target:argument:"),
     cancelPerformSelectors: objc.instanceSelector("cancelPerformSelectorsWithTarget:")
 
-});
+}));
 console.log ("<NSRunLoop");

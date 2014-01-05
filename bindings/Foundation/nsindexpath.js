@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", {
+var NSIndexPath;
+exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", () => ({
 
     // Creating Index Paths
     indexPathWithIndex: objc.staticSelector("indexPathWithIndex:"),
@@ -31,4 +32,4 @@ exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", {
                            returns( function() { return NSComparisonResult; } ).
 			    params( function() { return [ NSIndexPath ]; } )*/
 
-});
+}));

@@ -1,7 +1,8 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 //console.log("CALayerDelegate");
-exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", {
+var CALayerDelegate;
+exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", () => ({
 
     // Providing Layer Content
     displayLayer:   objc.optionalMethod("displayLayer"),
@@ -10,4 +11,4 @@ exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CAL
     // Actions
     actionForLayer: objc.optionalMethod("actionForLayer:forKey:")
 
-});
+}));

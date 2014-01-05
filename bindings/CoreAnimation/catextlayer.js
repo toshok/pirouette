@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", {
+var CATextLayer;
+exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", () => ({
 
     // Getting and Setting the Text
     string: objc.instanceProperty(),
@@ -15,4 +16,4 @@ exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", {
     alignmentMode: objc.instanceProperty(),
     truncationMode: objc.instanceProperty()
 
-});
+}));

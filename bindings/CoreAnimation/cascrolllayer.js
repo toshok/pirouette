@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAScrollLayer = CAScrollLayer = CALayer.extendClass("CAScrollLayer", {
+var CAScrollLayer;
+exports.CAScrollLayer = CAScrollLayer = CALayer.extendClass("CAScrollLayer", () => ({
 
     // Scrolling Constraints
     scrollMode: objc.instanceSelector(),
@@ -13,4 +14,4 @@ exports.CAScrollLayer = CAScrollLayer = CALayer.extendClass("CAScrollLayer", {
                         returns( function() { return objc.sig.Void; } ).
 			 params( function() { return [ foundation.NSRect ]; } )
 
-});
+}));

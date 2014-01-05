@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.extendClass("CAMediaTimingFunction", {
+var CAMediaTimingFunction;
+exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.extendClass("CAMediaTimingFunction", () => ({
 
     // Creating Timing Functions
     functionWithName: objc.staticSelector("functionWithName:"),
@@ -14,4 +15,4 @@ exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.exte
                                  returns( function() { return objc.sig.Void; } ).
                                   params( function() { return [ objc.sig.ULong, objc.sig.ArrayOf(objc.sig.Float) ]; } )
 
-});
+}));

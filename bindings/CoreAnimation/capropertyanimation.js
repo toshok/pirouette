@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAPropertyAnimation = CAPropertyAnimation = CAAnimation.extendClass("CAPropertyAnimation", {
+var CAPropertyAnimation;
+exports.CAPropertyAnimation = CAPropertyAnimation = CAAnimation.extendClass("CAPropertyAnimation", () => ({
 
     // Animated Key Path
     keyPath: objc.instanceProperty(),
@@ -13,4 +14,4 @@ exports.CAPropertyAnimation = CAPropertyAnimation = CAAnimation.extendClass("CAP
     // Creating an Animation
     animationWithKeyPath: objc.staticSelector("animationWithKeyPath:")
 
-});
+}));

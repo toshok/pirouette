@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", {
+var CAValueFunction;
+exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", () => ({
 
     // Getting Value Function Properties
     name: objc.instanceProperty(),
@@ -8,4 +9,4 @@ exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAV
     // Creating and Initializing Value Functions
     functionWithName: objc.staticSelector("functionWithName:")
 
-});
+}));

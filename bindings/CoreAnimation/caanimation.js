@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", {
+var CAAnimation;
+exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", () => ({
 
     // Archiving Properties
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:"),
@@ -19,4 +20,4 @@ exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation
     // Getting and Setting the Delegate
     delegate: objc.autoboxProperty(CAAnimationDelegate)
 
-});
+}));

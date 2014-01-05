@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CALayer = CALayer = foundation.NSObject.extendClass ("CALayer", {
+var CALayer;
+exports.CALayer = CALayer = foundation.NSObject.extendClass ("CALayer", () => ({
 
     // Creating a Layer
     layer: objc.staticSelector("layer"),
@@ -193,4 +194,4 @@ exports.CALayer = CALayer = foundation.NSObject.extendClass ("CALayer", {
 					     params( function() { return [ objc.sig.NSString ]; } ),
     defaultValueForKey: objc.staticSelector("defaultValueForKey:")
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransition", {
+var CATransition;
+exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransition", () => ({
 
   // Transition Start and End Point
   startProgress: objc.instanceProperty(),
@@ -13,4 +14,4 @@ exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransit
   // Custom Transition Filter
   filter: objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", {
+var CAKeyFrameAnimation;
+exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", () => ({
 
     // Providing Keyframe Values
     path: objc.instanceProperty(),
@@ -19,4 +20,4 @@ exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAK
     continuityValues: objc.instanceProperty(),
     biasValues: objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", {
+var CAShapeLayer;
+exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", () => ({
 
     // Specifying the Shape Path
     path: objc.instanceProperty(),
@@ -18,4 +19,4 @@ exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", {
     strokeStart: objc.instanceProperty(),
     strokeEnd: objc.instanceProperty()
 
-});
+}));

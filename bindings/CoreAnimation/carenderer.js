@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CARenderer = CARenderer = foundation.NSObject.extendClass("CARenderer", {
+var CARenderer;
+exports.CARenderer = CARenderer = foundation.NSObject.extendClass("CARenderer", () => ({
 
     // Rendered Layer
     layer: objc.instanceProperty(),
@@ -29,4 +30,4 @@ exports.CARenderer = CARenderer = foundation.NSObject.extendClass("CARenderer", 
     endFrame: objc.instanceSelector("endFrame").
 		    returns( function() { return objc.sig.Void; } )
 
-});
+}));

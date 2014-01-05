@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATransaction = CATransaction = foundation.NSObject.extendClass("CATransaction", {
+var CATransaction;
+exports.CATransaction = CATransaction = foundation.NSObject.extendClass("CATransaction", () => ({
 
     // Creating and Committing Transactions
     begin: objc.staticSelector("begin"),
@@ -25,4 +26,4 @@ exports.CATransaction = CATransaction = foundation.NSObject.extendClass("CATrans
     setValue: objc.staticSelector("setValue:forKey:"),
     valueForKey: objc.staticSelector("valueForKey:")
 
-});
+}));

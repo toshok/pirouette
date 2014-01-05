@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", {
+var CATiledLayer;
+exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", () => ({
 
     // Visual Fade
     fadeDuration: objc.staticSelector("fadeDuration"),
@@ -11,4 +12,4 @@ exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", {
 
     // Layer Tile Size
     tileSize: objc.instanceProperty()
-});
+}));

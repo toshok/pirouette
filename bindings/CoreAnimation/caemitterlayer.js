@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAEmitterLayer = CAEmitterLayer = CALayer.extendClass("CAEmitterLayer", {
+var CAEmitterLayer;
+exports.CAEmitterLayer = CAEmitterLayer = CALayer.extendClass("CAEmitterLayer", () => ({
 
     // Specifying Particle Emitter Cells
     emitterCells: objc.instanceProperty(),
@@ -23,4 +24,4 @@ exports.CAEmitterLayer = CAEmitterLayer = CALayer.extendClass("CAEmitterLayer", 
     lifetime: objc.instanceProperty(),
     preservesDepth: objc.instanceProperty()
 
-});
+}));

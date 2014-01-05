@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAConstraint = CAConstraint = foundation.NSObject.extendClass("CAConstraint", {
+var CAConstraint;
+exports.CAConstraint = CAConstraint = foundation.NSObject.extendClass("CAConstraint", () => ({
 
     // Create a New Constraint
     constraintWithAttributeAndScaleAndOffset: objc.staticSelector("constraintWithAttribute:relativeTo:attribute:scale:offset:"),
@@ -15,4 +16,4 @@ exports.CAConstraint = CAConstraint = foundation.NSObject.extendClass("CAConstra
     sourceAttribute: objc.instanceProperty(),
     sourceName:      objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", {
+var CAEmitterCell;
+exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", () => ({
 
     // Creating and Initializing an Emitter Cell
     emitterCell: objc.staticSelector("emitterCell"),
@@ -53,4 +54,4 @@ exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitt
                                             returns( function() { return objc.sig.Bool; } ).
                                              params( function() { return [ objc.sig.NSString ]; } )
 
-});
+}));

@@ -1,6 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
-exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContext", {
+var EAGLContext;
+exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContext", () => ({
 
     // Creating EAGL Contexts
     initWithAPI: objc.instanceSelector("initWithAPI:"),
@@ -20,4 +21,4 @@ exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContex
     sharegroup: objc.instanceProperty(),
     currentContext: objc.staticSelector("currentContext")
 
-});
+}));

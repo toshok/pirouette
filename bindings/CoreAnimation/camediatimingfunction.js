@@ -6,13 +6,9 @@ exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.exte
     // Creating Timing Functions
     functionWithName: objc.staticSelector("functionWithName:"),
     functionWithControlPoints: objc.staticSelector("functionWithControlPoints::::"),
-    initWithControlPoints: objc.instanceSelector("initWithControlPoints::::").
-                                 returns( function() { return CAMediaTimingFunction; } ).
-				  params( function() { return [ objc.sig.Float, objc.sig.Float, objc.sig.Float, objc.sig.Float ]; } ),
+    initWithControlPoints: objc.instanceSelector("initWithControlPoints::::"),
 
     // Accessing the Control Points
-    getControlPointAtIndex: objc.instanceSelector("getControlPointAtIndex:values:").
-                                 returns( function() { return objc.sig.Void; } ).
-                                  params( function() { return [ objc.sig.ULong, objc.sig.ArrayOf(objc.sig.Float) ]; } )
+    getControlPointAtIndex: objc.instanceSelector("getControlPointAtIndex:values:")
 
 }));

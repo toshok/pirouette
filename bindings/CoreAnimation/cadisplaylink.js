@@ -1,7 +1,7 @@
 // This file is part of coffeekit.  for licensing information, see the LICENSE file
 
 var CADisplayLink;
-exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendObject("CADisplayLink", () => ({
+exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendClass("CADisplayLink", () => ({
     constructor: function (handle) {
       if (!handle) throw "use CADisplayLink.displayLink instead of new CADisplayLink";
 
@@ -12,14 +12,9 @@ exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendObject("CADisp
     displayLink: objc.staticSelector("displayLinkWithTarget:selector:"),
 
     // Scheduling the Display Link to Send Notifications
-    addToRunLoop: objc.instanceSelector("addToRunLoop:forMode:").
-                                returns( function() { return objc.sig.Void; } ).
-				 params( function() { return [ foundation.NSRunLoop, objc.sig.NSString ]; } ),
-    removeFromRunLoop: objc.instanceSelector("removeFromRunLoop:forMode:").
-                                     returns( function() { return objc.sig.Void; } ).
-				      params( function() { return [ foundation.NSRunLoop, objc.sig.NSString ]; } ),
-    invalidate: objc.instanceSelector("invalidate").
-                             returns( function() { return objc.sig.Void; } ),
+    addToRunLoop: objc.instanceSelector("addToRunLoop:forMode:"),
+    removeFromRunLoop: objc.instanceSelector("removeFromRunLoop:forMode:"),
+    invalidate: objc.instanceSelector("invalidate"),
 
     // Configuring the Display Link
     duration: objc.instanceProperty(),

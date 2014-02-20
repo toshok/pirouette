@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIBezierPath");
 var UIBezierPath;
-_exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", () => { return {
+_exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", () => ({
 
     // Creating a UIBezierPath Object
     bezierPath:                                 objc.instanceSelector("bezierPath"),
@@ -52,4 +52,4 @@ _exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezie
     // Applying Transformations
     applyTransform:   objc.instanceSelector("applyTransform:")
 
-}; });
+}));

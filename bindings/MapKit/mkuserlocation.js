@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKUserLocation = MKUserLocation = foundation.NSObject.extendClass ("MKUserLocation", {
+var MKUserLocation;
+_exports.MKUserLocation = MKUserLocation = foundation.NSObject.extendClass ("MKUserLocation", () => ({
 
     // Determining the User’s Position
     location: objc.instanceProperty(),
@@ -11,4 +12,4 @@ exports.MKUserLocation = MKUserLocation = foundation.NSObject.extendClass ("MKUs
     title: objc.instanceProperty(),
     subtitle: objc.instanceProperty()
 
-});
+}));

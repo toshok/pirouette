@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIAlertView");
 var UIAlertView;
-_exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", () => { return {
+_exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", () => ({
 
   // Creating Alert Views
   init: objc.instanceSelector("initWithTitle:message:delegate:cancelButtonTitle:otherButtonTitles:"),
@@ -28,4 +28,4 @@ _exports.UIAlertView = UIAlertView = UIView.extendClass ("UIAlertView", () => { 
   // Dismissing
   dismissWithClickedButtonIndex: objc.instanceSelector("dismissWithClickedButtonIndex:animated:")
 
-}; });
+}));

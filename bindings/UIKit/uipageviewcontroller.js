@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPageViewController");
 var UIPageViewController;
-_exports.UIPageViewController = UIPageViewController = UIViewController.extendClass ("UIPageViewController", () => { return {
+_exports.UIPageViewController = UIPageViewController = UIViewController.extendClass ("UIPageViewController", () => ({
 
     // Creating Page View Controllers
     initWithTransitionStyle: objc.instanceSelector("initWithTransitionStyle:navigationOrientation:options:"),
@@ -20,4 +20,4 @@ _exports.UIPageViewController = UIPageViewController = UIViewController.extendCl
     transitionStyle: objc.instanceProperty(),
     doubleSided: objc.instanceProperty()
 
-}; });
+}));

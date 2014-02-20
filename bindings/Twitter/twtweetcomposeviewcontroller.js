@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.TWTweetComposeViewController = TWTweetComposeViewController = ui.UIViewController.extendClass ("TWTweetComposeViewController", {
+var TWTweetComposeViewController;
+_exports.TWTweetComposeViewController = TWTweetComposeViewController = ui.UIViewController.extendClass ("TWTweetComposeViewController", () => ({
 
     // Checking Status
     canSendTweet: objc.staticSelector("canSendTweet"),
@@ -15,4 +16,4 @@ exports.TWTweetComposeViewController = TWTweetComposeViewController = ui.UIViewC
     // Handling Results
     completionHandler: objc.instanceProperty()
 
-});
+}));

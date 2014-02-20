@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIScreen");
 var UIScreen;
-_exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", () => { return {
+_exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", () => ({
 
     // Getting the Available Screens
     mainScreen:   objc.staticProperty({ set: null }), // readonly class property
@@ -29,4 +29,4 @@ _exports.UIScreen = UIScreen = foundation.NSObject.extendClass ("UIScreen", () =
     // Setting a Display’s Overscan Compensation.
     overscanCompensation: objc.instanceProperty()
 
-}; });
+}));

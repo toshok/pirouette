@@ -1,12 +1,10 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("GKAchievementViewControllerDelegate");
-exports.GKAchievementViewControllerDelegate = GKAchievementViewControllerDelegate = objc.bindProtocol(foundation.Protocol,
-  function GKAchievementViewControllerDelegate () {
-    return GKAchievementViewControllerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var GKAchievementViewControllerDelegate;
+_exports.GKAchievementViewControllerDelegate = GKAchievementViewControllerDelegate = foundation.Protocol.extendClass ("GKAchievementViewControllerDelegate", () => ({
 
     // Responding to a Dismiss Action
     didFinish: objc.requiredMethod ("achievementViewControllerDidFinish:")
 
-});
+}));

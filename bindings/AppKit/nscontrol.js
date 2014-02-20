@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSControl = NSControl = NSView.extendClass("NSControl", {
+var NSControl;
+_exports.NSControl = NSControl = NSView.extendClass("NSControl", () => ({
     // Initializing an NSControl
     initWithFrame: objc.instanceSelector("initWithFrame:"),
 
@@ -83,10 +84,11 @@ exports.NSControl = NSControl = NSView.extendClass("NSControl", {
     // Supporting Constraint-Based Layout
     invalidateIntrinsicContentSizeForCell: objc.instanceSelector("invalidateIntrinsicContentSizeForCell:")
 
-});
+}));
 
 
-exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSControlProxy", {
+var NSControlProxy;
+_exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSControlProxy", () => ({
     constructor: function(fn) {
       objc.chainCtor (NSControlProxy, this, []);
       this.fn = fn;
@@ -97,4 +99,4 @@ exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSCon
 			        params( function() { return [foundation.NSObject]; }).
 				  impl( function() { return this.fn(); })
 
-});
+}));

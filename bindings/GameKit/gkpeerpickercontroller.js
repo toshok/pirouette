@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKPeerPickerController = GKPeerPickerController = foundation.NSObject.extendClass ("GKPeerPickerController", {
+var GKPeerPickerController;
+_exports.GKPeerPickerController = GKPeerPickerController = foundation.NSObject.extendClass ("GKPeerPickerController", () => ({
 
     // Setting and Getting the Delegate
     delegate: objc.autoboxProperty(GKPeerPickerControllerDelegate),
@@ -13,4 +14,4 @@ exports.GKPeerPickerController = GKPeerPickerController = foundation.NSObject.ex
     // Configuring Connectivity Options
     connectionTypesMask: objc.instanceProperty()
 
-});
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKView;
-exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", () => ({
+_exports.GLKView = GLKView = uikit.UIView.extendClass ("GLKView", () => ({
 
     // Initializing the View
     initWithFrameAndContext: objc.instanceSelector("initWithFrame:context:"),

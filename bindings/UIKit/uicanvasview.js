@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UICanvasView");
 var UICanvasView;
-_exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", () => { return {
+_exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", () => ({
 
   layerClass: objc.staticSelector("layerClass").
                           returns( function () { return objc.sig.Class; }).
@@ -18,4 +18,4 @@ _exports.UICanvasView = UICanvasView = UIView.extendClass ("UICanvasView", () =>
     }
   }
 
-}; });
+}));

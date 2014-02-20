@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIApplicationDelegate");
 var UIApplicationDelegate;
-_exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.extendClass("UIApplicationDelegate", () => { return {
+_exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.extendClass("UIApplicationDelegate", () => ({
 
     // Monitoring Application State Changes
     didFinishLaunchingWithOptions:   objc.optionalMethod("application:didFinishLaunchingWithOptions:", { sig: "v@:@@" }),
@@ -42,4 +42,4 @@ _exports.UIApplicationDelegate = UIApplicationDelegate = foundation.Protocol.ext
     // Providing a Window for Storyboarding
     //window  property
 
-}; });
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKMatchmakerViewController = GKMatchmakerViewController = ui.UINavigationController.extendClass ("GKMatchmakerViewController", {
+var GKMatchmakerViewController;
+_exports.GKMatchmakerViewController = GKMatchmakerViewController = ui.UINavigationController.extendClass ("GKMatchmakerViewController", () => ({
 
     // Initializing a Matchmaker View Controller
     initWithInvite: objc.instanceSelector ("initWithInvite:"),
@@ -21,4 +22,4 @@ exports.GKMatchmakerViewController = GKMatchmakerViewController = ui.UINavigatio
     setHostedPlayer: objc.instanceSelector ("setHostedPlayer:connected:"),
     setHostedPlayerReady: objc.instanceSelector ("setHostedPlayerReady:") // Deprecated in iOS 5.0
 
-});
+}));

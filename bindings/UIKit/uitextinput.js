@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITextInput");
 var UITextInput;
-_exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", () => { return {
+_exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", () => ({
 
     // Replacing and Returning Text
     textInRange:  objc.requiredMethod("textInRange:"),
@@ -56,4 +56,4 @@ _exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInpu
 
     // XXX ES6-port
     //@mixinProtocol UIKeyInput
-}; });
+}));

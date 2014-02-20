@@ -1,7 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("CLLocationManagerDelegate");
-exports.CLLocationManagerDelegate = CLLocationManagerDelegate = foundation.Protocol.extendClass("CLLocationManagerDelegate", {
+var CLLocationManagerDelegate;
+_exports.CLLocationManagerDelegate = CLLocationManagerDelegate = foundation.Protocol.extendClass("CLLocationManagerDelegate", () => ({
 
     // Responding to Location Events
     didUpdateToLocation:   objc.optionalMethod ("locationManager:didUpdateToLocation:fromLocation:"),
@@ -20,4 +21,4 @@ exports.CLLocationManagerDelegate = CLLocationManagerDelegate = foundation.Proto
     // Responding to Authorization Changes
     didChangeAuthorizationStatus: objc.optionalMethod ("locationManager:didChangeAuthorizationStatus:")
 
-});
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAAnimation;
-exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", () => ({
+_exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", () => ({
 
     // Archiving Properties
     shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:"),

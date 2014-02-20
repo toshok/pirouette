@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UILabel");
 var UILabel;
-_exports.UILabel = UILabel = UIView.extendClass ("UILabel", () => { return {
+_exports.UILabel = UILabel = UIView.extendClass ("UILabel", () => ({
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),
@@ -33,4 +33,4 @@ _exports.UILabel = UILabel = UIView.extendClass ("UILabel", () => { return {
     // Setting and Getting Attributes
     userInteractionEnabled: objc.instanceProperty()
 
-}; });
+}));

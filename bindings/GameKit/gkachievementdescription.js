@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKAchievementDescription = GKAchievementDescription = foundation.NSObject.extendClass ("GKAchievementDescription", {
+var GKAchievementDescription;
+_exports.GKAchievementDescription = GKAchievementDescription = foundation.NSObject.extendClass ("GKAchievementDescription", () => ({
 
     // Retrieving Achievement Descriptions
     loadAchievementDescriptions: objc.staticSelector("loadAchievementDescriptionsWithCompletionHandler:"),
@@ -19,4 +20,4 @@ exports.GKAchievementDescription = GKAchievementDescription = foundation.NSObjec
     placeholderCompletedAchievementImage: objc.staticSelector("placeholderCompletedAchievementImage"),
     loadImage: objc.instanceSelector("loadImageWithCompletionHandler:")
 
-});
+}));

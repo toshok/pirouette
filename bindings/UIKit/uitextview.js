@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITextView");
 var UITextView;
-_exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", () => { return {
+_exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", () => ({
 
     // Initialization
     initWithFrame:  objc.instanceSelector("initWithFrame:textContainer:"),
@@ -42,4 +42,4 @@ _exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", () =>
     // XXX ES6-port
     //@conformsToProtocol UITextInput
 
-}; });
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CATiledLayer;
-exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", () => ({
+_exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", () => ({
 
     // Visual Fade
     fadeDuration: objc.staticSelector("fadeDuration"),

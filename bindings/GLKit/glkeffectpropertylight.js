@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKEffectPropertyLight;
-exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.extendClass ("GLKEffectPropertyLight", () => ({
+_exports.GLKEffectPropertyLight = GLKEffectPropertyLight = GLKEffectProperty.extendClass ("GLKEffectPropertyLight", () => ({
 
     // Configuring Common Lighting Properties
     enabled: objc.instanceProperty(),

@@ -1,6 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKLeaderboard = GKLeaderboard = foundation.NSObject.extendClass ("GKLeaderboard", {
+var GKLeaderboard;
+
+_exports.GKLeaderboard = GKLeaderboard = foundation.NSObject.extendClass ("GKLeaderboard", () => ({
 
     // Determining the Available Leaderboards to Display
     loadCategories: objc.staticSelector("loadCategoriesWithCompletionHandler:"),
@@ -25,4 +27,4 @@ exports.GKLeaderboard = GKLeaderboard = foundation.NSObject.extendClass ("GKLead
 
     // Changing a Local Player’s Default Leaderboard
     setDefaultLeaderboard: objc.staticSelector("setDefaultLeaderboard:withCompletionHandler:")
-});
+}));

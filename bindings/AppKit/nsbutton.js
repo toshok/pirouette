@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSButton = NSButton = NSControl.extendClass("NSButton", {
+var NSButton;
+_exports.NSButton = NSButton = NSControl.extendClass("NSButton", () => ({
 
     // Configuring Buttons
     buttonType: objc.instanceProperty(),
@@ -54,7 +55,7 @@ exports.NSButton = NSButton = NSControl.extendClass("NSButton", {
       },
       get: null // this should really be an actual getter that returns the callback...
     })
-});
+}));
 
 NSButton.newWithFrame = function (frame) {
   return NSButton.newWith({ initWith: "Frame", args: [frame] });

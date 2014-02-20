@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKVoiceChat = GKVoiceChat = foundation.NSObject.extendClass ("GKVoiceChat", {
+var GKVoiceChat;
+_exports.GKVoiceChat = GKVoiceChat = foundation.NSObject.extendClass ("GKVoiceChat", () => ({
 
     // Determining Whether Voice Chat Is Available
     isVoIPAllowed: objc.staticSelector("isVoIPAllowed"),
@@ -23,4 +24,4 @@ exports.GKVoiceChat = GKVoiceChat = foundation.NSObject.extendClass ("GKVoiceCha
     name: objc.instanceProperty(),
     playerIDs: objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKSession = GKSession = foundation.NSObject.extendClass ("GKSession", {
+var GKSession;
+_exports.GKSession = GKSession = foundation.NSObject.extendClass ("GKSession", () => ({
 
     // Creating a Session
     init: objc.instanceSelector("initWithSessionID:displayName:sessionMode:"),
@@ -37,4 +38,4 @@ exports.GKSession = GKSession = foundation.NSObject.extendClass ("GKSession", {
     sessionID: objc.instanceProperty(),
     sessionMode: objc.instanceProperty()
 
-});
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSWindowController = NSWindowController = foundation.NSResponder.extendClass("NSWindowController", {
+var NSWindowController;
+_exports.NSWindowController = NSWindowController = foundation.NSResponder.extendClass("NSWindowController", () => ({
   constructor: function (handle, arg2) {
     if (typeof (handle) === 'string') {
       objc.chainCtor (NSWindowController, this, []);
@@ -16,4 +17,4 @@ exports.NSWindowController = NSWindowController = foundation.NSResponder.extendC
   initWithWindow: objc.instanceSelector("initWithWindow:"),
   initWithWindowNibName: objc.instanceSelector("initWithWindowNibName:")
 
-});
+}));

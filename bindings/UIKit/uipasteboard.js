@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPasteboard");
 var UIPasteboard;
-_exports.UIPasteboard = UIPasteboard = foundation.NSObject.extendClass ("UIPasteboard", () => { return {
+_exports.UIPasteboard = UIPasteboard = foundation.NSObject.extendClass ("UIPasteboard", () => ({
 
     // Getting and Removing Pasteboards
     generalPasteboard:        objc.staticSelector("generalPasteboard"),
@@ -47,4 +47,4 @@ _exports.UIPasteboard = UIPasteboard = foundation.NSObject.extendClass ("UIPaste
     color: objc.instanceProperty(),
     colors: objc.instanceProperty()
 
-}; });
+}));

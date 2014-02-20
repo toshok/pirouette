@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CABasicAnimation;
-exports.CABasicAnimation = CABasicAnimation = CAAnimation.extendClass("CABasicAnimation", () => ({
+_exports.CABasicAnimation = CABasicAnimation = CAAnimation.extendClass("CABasicAnimation", () => ({
 
     // Interpolation Values
     fromValue: objc.instanceProperty(),

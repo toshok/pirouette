@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKAchievement = GKAchievement = foundation.NSObject.extendClass ("GKAchievement", {
+var GKAchievement;
+_exports.GKAchievement = GKAchievement = foundation.NSObject.extendClass ("GKAchievement", () => ({
 
     // Retrieving Achievement Progress from Game Center
     loadAchievementsWithCompletionHandler: objc.staticSelector("loadAchievementsWithCompletionHandler:"),
@@ -26,4 +27,4 @@ exports.GKAchievement = GKAchievement = foundation.NSObject.extendClass ("GKAchi
     // Resetting the Player’s Progress on Achievements
     resetAchievements: objc.staticSelector("resetAchievementsWithCompletionHandler:")
 
-});
+}));

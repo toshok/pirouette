@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKScore = GKScore = foundation.NSObject.extendClass ("GKScore", {
+var GKScore;
+_exports.GKScore = GKScore = foundation.NSObject.extendClass ("GKScore", () => ({
 
     // Initializing a Score Object
     init: objc.instanceSelector("init"),
@@ -20,4 +21,4 @@ exports.GKScore = GKScore = foundation.NSObject.extendClass ("GKScore", {
 
     // Changing the Default Leaderboard
     shouldSetDefaultLeaderboard: objc.instanceProperty()
-});
+}));

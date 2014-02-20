@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKTextureInfo;
-exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKTextureInfo", () => ({
+_exports.GLKTextureInfo = GLKTextureInfo = foundation.NSObject.extendClass ("GLKTextureInfo", () => ({
 
     // Reading Texture Information
     glName: objc.instanceProperty(),

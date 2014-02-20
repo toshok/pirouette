@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSTableCellView = NSTableCellView = NSView.extendClass("NSTableCellView", {
+var NSTableCellView;
+_exports.NSTableCellView = NSTableCellView = NSView.extendClass("NSTableCellView", () => ({
   // Represented Object
   objectValue: objc.instanceProperty(),
 
@@ -17,4 +18,4 @@ exports.NSTableCellView = NSTableCellView = NSView.extendClass("NSTableCellView"
   // Dragging Images
   draggingImageComponents: objc.instanceProperty({ set: null })
 
-});
+}));

@@ -1,10 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("MKMapViewDelgate");
-exports.MKMapViewDelegate = MKMapViewDelegate = objc.bindProtocol(foundation.Protocol,
-  function MKMapViewDelegate () {
-    return MKMapViewDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var MKMapViewDelegate;
+_exports.MKMapViewDelegate = MKMapViewDelegate = foundation.Protocol.extendClass ("MKMapViewDelegate", () => ({
 
     // Responding to Map Position Changes
     regionWillChange:                 objc.optionalMethod("mapView:regionWillChangeAnimated:"),
@@ -38,4 +36,4 @@ exports.MKMapViewDelegate = MKMapViewDelegate = objc.bindProtocol(foundation.Pro
     viewForOverlay:                   objc.optionalMethod("mapView:viewForOverlay:"),
     didAddOverlayViews:               objc.optionalMethod("mapView:didAddOverlayViews:")
 
-});
+}));

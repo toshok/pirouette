@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIColor");
 var UIColor;
-_exports.UIColor = UIColor = foundation.NSObject.extendClass ("UIColor", () => { return {
+_exports.UIColor = UIColor = foundation.NSObject.extendClass ("UIColor", () => ({
 
     // Creating a UIColor Object from Component Values
     colorWithWhite:          objc.staticSelector("colorWithWhite:alpha:"),
@@ -58,4 +58,4 @@ _exports.UIColor = UIColor = foundation.NSObject.extendClass ("UIColor", () => {
     setFill:                  objc.instanceSelector("setFill"),
     setStroke:                objc.instanceSelector("setStroke")
 
-}; });
+}));

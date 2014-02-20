@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var NSIndexPath;
-exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", () => ({
+_exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", () => ({
 
     // Creating Index Paths
     indexPathWithIndex: objc.staticSelector("indexPathWithIndex:"),

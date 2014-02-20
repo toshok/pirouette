@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CADisplayLink;
-exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendClass("CADisplayLink", () => ({
+_exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendClass("CADisplayLink", () => ({
     constructor: function (handle) {
       if (!handle) throw "use CADisplayLink.displayLink instead of new CADisplayLink";
 

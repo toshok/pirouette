@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewDataSource");
 var UITableViewDataSource;
-_exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", () => { return {
+_exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.extendClass("UITableViewDataSource", () => ({
 
     // Configuring a Table View
     cellForRow:                  objc.requiredMethod("tableView:cellForRowAtIndexPath:").
@@ -31,4 +31,4 @@ _exports.UITableViewDataSource = UITableViewDataSource = foundation.Protocol.ext
     canMoveRow:                  objc.optionalMethod("tableView:canMoveRowAtIndexPath:"),
     moveRow:                     objc.optionalMethod("tableView:moveRowAtIndexPath:toIndexPath:")
 
-}; });
+}));

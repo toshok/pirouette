@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKBaseEffect;
-exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", () => ({
+_exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", () => ({
 
     // XXX ES6-port
     // @mixinProtocol GLKNamedEffect

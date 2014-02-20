@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UINib");
 var UINib;
-_exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", () => { return {
+_exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", () => ({
 
     // Creating a Nib Object
     nibWithNibName: objc.staticSelector("nibWithNibName:bundle:"),
@@ -11,4 +11,4 @@ _exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", () => { retur
     // Instantiating a Nib
     instantiateWithOwner: objc.instanceSelector("instantiateWithOwner:options:")
 
-}; });
+}));

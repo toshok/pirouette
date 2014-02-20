@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKEffectPropertyTexture;
-exports.GLKEffectPropertyTexture = GLKEffectPropertyTexture = GLKEffectProperty.extendClass ("GLKEffectPropertyTexture", () => ({
+_exports.GLKEffectPropertyTexture = GLKEffectPropertyTexture = GLKEffectProperty.extendClass ("GLKEffectPropertyTexture", () => ({
 
     // Configuring Texture Properties
     enabled: objc.instanceProperty(),

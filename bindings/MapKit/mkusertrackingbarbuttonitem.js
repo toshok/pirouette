@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem = ui.UIBarButtonItem.extendClass ("MKUserTrackingBarButtonItem", {
+var MKUserTrackingBarButtonItem;
+_exports.MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem = ui.UIBarButtonItem.extendClass ("MKUserTrackingBarButtonItem", () => ({
 
     // Initializing
     initWithMapView: objc.instanceSelector("initWithMapView:"),
@@ -8,4 +9,4 @@ exports.MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem = ui.UIBarButt
     // Accessing Properties
     mapView: objc.instanceProperty()
 
-});
+}));

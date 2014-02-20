@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UILocalizedIndexCollation");
 var UILocalizedIndexCollation;
-_exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObject.extendClass ("UILocalizedIndexCollation", () => { return {
+_exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObject.extendClass ("UILocalizedIndexCollation", () => ({
 
     // Getting the Shared Instance
     currentCollation:    objc.staticSelector("currentCollation"),
@@ -16,4 +16,4 @@ _exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSOb
     sectionIndexTitles: objc.instanceProperty(),
     sectionForSectionIndexTitleAtIndex: objc.instanceSelector("sectionForSectionIndexTitleAtIndex:")
 
-}; });
+}));

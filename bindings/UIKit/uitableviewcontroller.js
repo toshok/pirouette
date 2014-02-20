@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewController");
 var UITableViewController;
-_exports.UITableViewController = UITableViewController = UIViewController.extendClass ("UITableViewController", () => { return {
+_exports.UITableViewController = UITableViewController = UIViewController.extendClass ("UITableViewController", () => ({
 
     // Initializing the UITableViewController Object
     initWithStyle: objc.instanceSelector("initWithStyle:").
@@ -15,4 +15,4 @@ _exports.UITableViewController = UITableViewController = UIViewController.extend
     // Configuring the Table Behavior
     clearsSelectionOnViewWillAppear: objc.instanceProperty()
 
-}; });
+}));

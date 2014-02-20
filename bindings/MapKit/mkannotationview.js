@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKAnnotationView = MKAnnotationView = ui.UIView.extendClass ("MKAnnotationView", {
+var MKAnnotationView;
+_exports.MKAnnotationView = MKAnnotationView = ui.UIView.extendClass ("MKAnnotationView", () => ({
 
     // Initializing and Preparing the View
     initWithAnnotation: objc.instanceSelector("initWithAnnotation:reuseIdentifier:"),
@@ -29,4 +30,4 @@ exports.MKAnnotationView = MKAnnotationView = ui.UIView.extendClass ("MKAnnotati
     setDragState: objc.instanceSelector("setDragState:animated:"),
     dragState: objc.instanceProperty ({ set: function(v) { return this.setDragState(v, false); } })
 
-});
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIPrintInteractionControllerDelegte");
 var UIPrintInteractionControllerDelegate;
-_exports.UIPrintInteractionControllerDelegate = UIPrintInteractionControllerDelegate = foundation.Protocol.extendClass("UIPrintInteractionControllerDelegate", () => { return {
+_exports.UIPrintInteractionControllerDelegate = UIPrintInteractionControllerDelegate = foundation.Protocol.extendClass("UIPrintInteractionControllerDelegate", () => ({
 
     // Returning a Parent View Controller
     parentViewController: objc.optionalMethod("printInteractionControllerParentViewController:"),
@@ -20,4 +20,4 @@ _exports.UIPrintInteractionControllerDelegate = UIPrintInteractionControllerDele
     willStartJob: objc.optionalMethod("printInteractionControllerWillStartJob:"),
     didFinishJob: objc.optionalMethod("printInteractionControllerDidFinishJob:"),
 
-}; });
+}));

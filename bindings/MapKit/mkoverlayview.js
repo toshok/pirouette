@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKOverlayView = MKOverlayView = ui.UIView.extendClass ("MKOverlayView", {
+var MKOverlayView;
+_exports.MKOverlayView = MKOverlayView = ui.UIView.extendClass ("MKOverlayView", () => ({
 
     // Initializing an Overlay View
     initWithOverlay: objc.instanceSelector("initWithOverlay:"),
@@ -20,4 +21,4 @@ exports.MKOverlayView = MKOverlayView = ui.UIView.extendClass ("MKOverlayView", 
     setNeedsDisplay: objc.instanceSelector("setNeedsDisplayInMapRect:"),
     setNeedsDisplayAtZoomScale: objc.instanceSelector("setNeedsDisplayInMapRect:zoomScale:")
 
-});
+}));

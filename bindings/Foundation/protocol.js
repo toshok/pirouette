@@ -1,4 +1,4 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 /*
   @getTypeSignature: -> "@"
@@ -14,4 +14,4 @@
 */
 
 var Protocol;
-exports.Protocol = Protocol = objc.extendClass("Protocol", Object);
+_exports.Protocol = Protocol = objc.extendClass("Protocol", Object);

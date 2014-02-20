@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CALayer;
-exports.CALayer = CALayer = foundation.NSObject.extendClass ("CALayer", () => ({
+_exports.CALayer = CALayer = foundation.NSObject.extendClass ("CALayer", () => ({
 
     // Creating a Layer
     layer: objc.staticSelector("layer"),

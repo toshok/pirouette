@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIStoryboardSegue");
 var UIStoryboardSegue;
-_exports.UIStoryboardSegue = UIStoryboardSegue = foundation.NSObject.extendClass ("UIStoryboardSegue", () => { return {
+_exports.UIStoryboardSegue = UIStoryboardSegue = foundation.NSObject.extendClass ("UIStoryboardSegue", () => ({
 
     // Initializing a Storyboard Segue
     initWithIdentifier: objc.instanceSelector("initWithIdentifier:source:destination:"),
@@ -15,4 +15,4 @@ _exports.UIStoryboardSegue = UIStoryboardSegue = foundation.NSObject.extendClass
     // Performing the Segue
     perform: objc.instanceSelector("perform")
 
-}; });
+}));

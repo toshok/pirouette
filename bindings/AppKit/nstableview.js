@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSTableView = NSTableView = NSControl.extendClass("NSTableView", {
+var NSTableView;
+_exports.NSTableView = NSTableView = NSControl.extendClass("NSTableView", () => ({
     // Creating the Displayed Views
     makeViewWithIdentifier: objc.instanceSelector("makeViewWithIdentifier:owner:"),
     rowViewAtRow: objc.instanceSelector("rowViewAtRow:makeIfNecessary:"),
@@ -175,7 +176,7 @@ exports.NSTableView = NSTableView = NSControl.extendClass("NSTableView", {
     dragImage: objc.instanceSelector("dragImageForRows:event:dragImageOffset:"), // Deprecated in OS X v10.4
     setAutoresizesAllColumnsToFit: objc.instanceSelector("setAutoresizesAllColumnsToFit:"), // Deprecated in OS X v10.4
     writeRows: objc.instanceSelector("tableView:writeRows:toPasteboard:")  // delegate method Deprecated in OS X v10.4
-});
+}));
 
 NSTableView.newWithFrame = function(frame) {
   return NSTableView.newWith({ initWith: "Frame", args: [frame] });

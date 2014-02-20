@@ -1,4 +1,5 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
+"use strict";
 
 let objc = require('objc'),
     objc_internal = require('objc_internal'),
@@ -6,8 +7,11 @@ let objc = require('objc'),
 
 objc.requireFramework("AppKit");
 
+let _exports = exports;
+
 console.log ("NSButtonType");
-exports.NSButtonType = NSButtonType = objc.makeEnum({
+let NSButtonType;
+_exports.NSButtonType = NSButtonType = objc.makeEnum({
    MomentaryLightButton   : 0,
    PushOnPushOffButton    : 1,
    ToggleButton           : 2,
@@ -22,7 +26,8 @@ exports.NSButtonType = NSButtonType = objc.makeEnum({
 
 
 console.log ("NSBezelStyle");
-exports.NSBezelStyle = NSBezelStyle = objc.makeEnum({
+let NSBezelStyle;
+_exports.NSBezelStyle = NSBezelStyle = objc.makeEnum({
    RoundedBezelStyle           : 1,
    RegularSquareBezelStyle     : 2,
    ThickSquareBezelStyle       : 3,

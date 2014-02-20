@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.SKProduct = SKProduct = foundation.NSObject.extendClass ("SKProduct", {
+var SKProduct;
+_exports.SKProduct = SKProduct = foundation.NSObject.extendClass ("SKProduct", () => ({
 
     // Getting Product Attributes
     localizedDescription: objc.instanceProperty(),
@@ -9,4 +10,4 @@ exports.SKProduct = SKProduct = foundation.NSObject.extendClass ("SKProduct", {
     priceLocale: objc.instanceProperty(),
     productIdentifier: objc.instanceProperty()
 
-});
+}));

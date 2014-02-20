@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIStepper");
 var UIStepper;
-_exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", () => { return {
+_exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", () => ({
 
     // Configuring the Stepper
     continuous: objc.instanceProperty(),
@@ -15,4 +15,4 @@ _exports.UIStepper = UIStepper = UIControl.extendClass ("UIStepper", () => { ret
     // Accessing the Stepper’s Value
     value: objc.instanceProperty()
 
-}; });
+}));

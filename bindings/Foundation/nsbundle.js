@@ -1,5 +1,7 @@
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
+
 var NSBundle;
-exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", () => ({
+_exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", () => ({
 
   // Initializing an NSBundle
   bundleWithURL: objc.staticSelector("bundleWithURL:"),

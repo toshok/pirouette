@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIBarItem");
 var UIBarItem;
-_exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", () => { return {
+_exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", () => ({
 
     // Getting and Setting Properties
     enabled: objc.instanceProperty(),
@@ -17,4 +17,4 @@ _exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", () => { return
     setTitleTextAttributes: objc.instanceSelector("setTitleTextAttributes:forState:"),
     getTitleTextAttributes: objc.instanceSelector("titleTextAttributesForState:")
 
-}; });
+}));

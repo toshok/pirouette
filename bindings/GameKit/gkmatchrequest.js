@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKMatchRequest = GKMatchRequest = foundation.NSObject.extendClass ("GKMatchRequest", {
+var GKMatchRequest;
+_exports.GKMatchRequest = GKMatchRequest = foundation.NSObject.extendClass ("GKMatchRequest", () => ({
 
     // Restricting the Number of Players
     maxPlayers: objc.instanceProperty(),
@@ -13,4 +14,4 @@ exports.GKMatchRequest = GKMatchRequest = foundation.NSObject.extendClass ("GKMa
     // Inviting an Initial Group of Players
     playersToInvite: objc.instanceProperty()
 
-});
+}));

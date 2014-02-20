@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKOverlayPathView = MKOverlayPathView = MKOverlayView.extendClass ("MKOverlayPathView", {
+var MKOverlayPathView;
+_exports.MKOverlayPathView = MKOverlayPathView = MKOverlayView.extendClass ("MKOverlayPathView", () => ({
 
     // Accessing the Drawing Attributes
     fillColor: objc.instanceProperty(),
@@ -23,4 +24,4 @@ exports.MKOverlayPathView = MKOverlayPathView = MKOverlayView.extendClass ("MKOv
     strokePath: objc.instanceSelector("strokePath:inContext:"),
     fillPath: objc.instanceSelector("fillPath:inContext:")
 
-});
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAMediaTimingFunction;
-exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.extendClass("CAMediaTimingFunction", () => ({
+_exports.CAMediaTimingFunction = CAMediaTimingFunction = foundation.NSObject.extendClass("CAMediaTimingFunction", () => ({
 
     // Creating Timing Functions
     functionWithName: objc.staticSelector("functionWithName:"),

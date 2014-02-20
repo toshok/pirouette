@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIMenuController");
 var UIMenuController;
-_exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("UIMenuController", () => { return {
+_exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("UIMenuController", () => ({
 
     // Getting the Menu Controller Instance
     sharedMenuController: objc.staticSelector("sharedMenuController"),
@@ -22,4 +22,4 @@ _exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass (
     // Customizing Menu Items
     menuItems: objc.instanceProperty()
 
-}; });
+}));

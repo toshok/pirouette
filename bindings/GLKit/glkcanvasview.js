@@ -1,11 +1,11 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 // XXX this likely shouldn't use extendClass, since that registers the type with objc.
 // or maybe it doesn't matter?
 
 //console.log "GLKCanvasView"
 var GLKCanvasView;
-exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", () => ({
+_exports.GLKCanvasView = GLKCanvasView = GLKView.extendClass("GLKCanvasView", () => ({
 
     getContext: function (name, args) {
       if (name === "experimental-webgl" || name === "webgl") {

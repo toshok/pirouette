@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPopoverController");
 var UIPopoverController;
-_exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendClass ("UIPopoverController", () => { return {
+_exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendClass ("UIPopoverController", () => ({
 
     // Initializing the Popover
     initWithContentViewController: objc.instanceSelector("initWithContentViewController:"),
@@ -28,4 +28,4 @@ _exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendC
     popoverLayoutMargins: objc.instanceProperty(),
     popoverBackgroundViewClass: objc.instanceProperty()
 
-}; });
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAKeyFrameAnimation;
-exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", () => ({
+_exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", () => ({
 
     // Providing Keyframe Values
     path: objc.instanceProperty(),

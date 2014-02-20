@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAValueFunction;
-exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", () => ({
+_exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", () => ({
 
     // Getting Value Function Properties
     name: objc.instanceProperty(),

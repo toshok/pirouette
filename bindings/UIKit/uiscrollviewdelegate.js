@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIScrollViewDelegate");
 var UIScrollViewDelegate;
-_exports.UIScrollViewDelegate = UIScrollViewDelegate = foundation.Protocol.extendClass("UIScrollViewDelegate", () => { return {
+_exports.UIScrollViewDelegate = UIScrollViewDelegate = foundation.Protocol.extendClass("UIScrollViewDelegate", () => ({
 
     // Responding to Scrolling and Dragging
     didScroll:             objc.optionalMethod("scrollViewDidScroll:"),
@@ -23,4 +23,4 @@ _exports.UIScrollViewDelegate = UIScrollViewDelegate = foundation.Protocol.exten
     // Responding to Scrolling Animations
     didEndScrollingAnimation:   objc.optionalMethod("scrollViewDidEndScrollingAnimation:")
 
-}; });
+}));

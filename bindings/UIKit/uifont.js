@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIFont");
 var UIFont;
-_exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", () => { return {
+_exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", () => ({
 
     // Creating Arbitrary Fonts
     fontWithName: objc.staticSelector("fontWithName:size:"),
@@ -36,4 +36,4 @@ _exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", () => { re
     smallSystemFontSize: objc.staticSelector("smallSystemFontSize"),
     systemFontSize:      objc.staticSelector("systemFontSize")
 
-}; });
+}));

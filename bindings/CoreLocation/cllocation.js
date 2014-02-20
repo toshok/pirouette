@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLLocation = CLLocation = foundation.NSObject.extendClass("CLLocation", {
+var CLLocation;
+_exports.CLLocation = CLLocation = foundation.NSObject.extendClass("CLLocation", () => ({
 
     // Initializing a Location Object
     initWithLatitudeAndlongitude: objc.instanceSelector("initWithLatitude:longitude:"),
@@ -23,4 +24,4 @@ exports.CLLocation = CLLocation = foundation.NSObject.extendClass("CLLocation", 
     speed: objc.instanceProperty(),
     course: objc.instanceProperty()
 
-});
+}));

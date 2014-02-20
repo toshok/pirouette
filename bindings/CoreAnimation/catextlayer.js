@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CATextLayer;
-exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", () => ({
+_exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", () => ({
 
     // Getting and Setting the Text
     string: objc.instanceProperty(),

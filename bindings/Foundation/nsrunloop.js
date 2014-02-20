@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("NSRunLoop");
 var NSRunLoop;
-exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", () => ({
+_exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", () => ({
 
     // Accessing Run Loops and Modes
     currentRunLoop: objc.staticProperty ({ set: null }),

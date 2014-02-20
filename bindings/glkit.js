@@ -1,4 +1,5 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
+"use strict";
 
 let objc = require("objc"),
     objc_internal = require("objc_internal"),
@@ -8,33 +9,35 @@ let objc = require("objc"),
 
 objc.requireFramework("GLKit");
 
-var GLKViewDrawableColorFormat;
-exports.GLKViewDrawableColorFormat = GLKViewDrawableColorFormat = objc.makeEnum({
+let _exports = exports;
+
+let GLKViewDrawableColorFormat;
+_exports.GLKViewDrawableColorFormat = GLKViewDrawableColorFormat = objc.makeEnum({
    rgba8888 : 0,
    rgb565   : 1
 });
 
-var GLKViewDrawableDepthFormat;
-exports.GLKViewDrawableDepthFormat = GLKViewDrawableDepthFormat = objc.makeEnum({
+let GLKViewDrawableDepthFormat;
+_exports.GLKViewDrawableDepthFormat = GLKViewDrawableDepthFormat = objc.makeEnum({
    depthNone : 0,
    depth16   : 1,
    depth24   : 2
 });
 
-var GLKViewDrawableStencilFormat;
-exports.GLKViewDrawableStencilFormat = GLKViewDrawableStencilFormat = objc.makeEnum({
+let GLKViewDrawableStencilFormat;
+_exports.GLKViewDrawableStencilFormat = GLKViewDrawableStencilFormat = objc.makeEnum({
    stencilNone : 0,
    stencil8    : 1
 });
 
-var GLKViewDrawableMultisample;
-exports.GLKViewDrawableMultisample = GLKViewDrawableMultisample = objc.makeEnum({
+let GLKViewDrawableMultisample;
+_exports.GLKViewDrawableMultisample = GLKViewDrawableMultisample = objc.makeEnum({
    multisampleNone : 0,
    multisample4X   : 1
 });
 
-var GLKVertexAttrib;
-exports.GLKVertexAttrib = GLKVertexAttrib = objc.makeEnum({
+let GLKVertexAttrib;
+_exports.GLKVertexAttrib = GLKVertexAttrib = objc.makeEnum({
    position  : 0,
    normal    : 1,
    color     : 2,

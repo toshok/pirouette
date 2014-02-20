@@ -1,10 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("GKVoiceChatClient");
-exports.GKVoiceChatClient = GKVoiceChatClient = objc.bindProtocol(foundation.Protocol,
-  function GKVoiceChatClient () {
-    return GKVoiceChatClient.__super__.constructor.apply(this, arguments);
-  }, {
+var GKVoiceChatClient;
+_exports.GKVoiceChatClient = GKVoiceChatClient = foundation.Protocol.extendClass ("GKVoiceChatClient", () => ({
 
     // Getting Information About the Participant
     participantID:        objc.requiredMethod("participantID"),
@@ -20,4 +18,4 @@ exports.GKVoiceChatClient = GKVoiceChatClient = objc.bindProtocol(foundation.Pro
     didStart:             objc.optionalMethod("voiceChatService:didStartWithParticipantID:"),
     didNotStart:          objc.optionalMethod("voiceChatService:didNotStartWithParticipantID:error:"),
     didStop:              objc.optionalMethod("voiceChatService:didStopWithParticipantID:error:")
-});
+}));

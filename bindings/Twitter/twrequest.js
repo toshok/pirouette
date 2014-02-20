@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.TWRequest = TWRequest = foundation.NSObject.extendClass ("TWRequest", {
+var TWRequest;
+_exports.TWRequest = TWRequest = foundation.NSObject.extendClass ("TWRequest", () => ({
 
     // Initializing Requests
     initWithURL:      objc.instanceSelector("initWithURL:parameters:requestMethod:"),
@@ -16,4 +17,4 @@ exports.TWRequest = TWRequest = foundation.NSObject.extendClass ("TWRequest", {
     performRequestWithHandler: objc.instanceSelector("performRequestWithHandler:"),
     signedURLRequest: objc.instanceSelector("signedURLRequest")
 
-});
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIBarButtonItem");
 var UIBarButtonItem;
-_exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", () => { return {
+_exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", () => ({
 
     // Initializing an Item
     initWithCustomView:          objc.instanceSelector("initWithCustomView:"),
@@ -60,4 +60,4 @@ _exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButton
         get: null // this should really be an actual getter that returns the callback...
     })
 
-}; });
+}));

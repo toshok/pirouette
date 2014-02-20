@@ -1,9 +1,10 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKVoiceChatService = GKVoiceChatService = foundation.NSObject.extendClass ("GKVoiceChatService",
+var GKVoiceChatService;
+_exports.GKVoiceChatService = GKVoiceChatService = foundation.NSObject.extendClass ("GKVoiceChatService",
   function GKVoiceChatService () {
     return GKVoiceChatService.__super__.constructor.apply(this, arguments);
-  }, {
+  }, () => ({
 
     // Determining Whether Voice Chat Is Available
     isVoIPAllowed: objc.staticSelector("isVoIPAllowed"),
@@ -35,4 +36,4 @@ exports.GKVoiceChatService = GKVoiceChatService = foundation.NSObject.extendClas
     denyCallID: objc.instanceSelector("denyCallID:"),
     receivedData: objc.instanceSelector("receivedData:fromParticipantID:"),
     receivedRealTimeData: objc.instanceSelector("receivedRealTimeData:fromParticipantID:")
-});
+}));

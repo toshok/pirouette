@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLHeading = CLHeading = foundation.NSObject.extendClass("CLHeading", {
+var CLHeading;
+_exports.CLHeading = CLHeading = foundation.NSObject.extendClass("CLHeading", () => ({
 
     // Accessing the Heading Attributes
     magneticHeading: objc.instanceProperty(),
@@ -14,4 +15,4 @@ exports.CLHeading = CLHeading = foundation.NSObject.extendClass("CLHeading", {
     y: objc.instanceProperty(),
     z: objc.instanceProperty()
 
-});
+}));

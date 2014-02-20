@@ -1,4 +1,5 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
+"use strict";
 
 let objc = require("objc"),
     objc_internal = require("objc_internal");
@@ -6,8 +7,10 @@ let objc = require("objc"),
 
 objc.requireFramework("Foundation");
 
+let _exports = exports;
+
 var NSComparisonResult;
-exports.NSComparisonResult = NSComparisonResult = objc.makeEnum({
+_exports.NSComparisonResult = NSComparisonResult = objc.makeEnum({
     getTypeSignature: function() { return "i"; },
 
     ascending: -1,

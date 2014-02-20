@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITextFieldDelegate");
 var UITextFieldDelegate;
-_exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendClass("UITextFieldDelegate", () => { return {
+_exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendClass("UITextFieldDelegate", () => ({
 
     // Managing Editing
     shouldBeginEditing: objc.optionalMethod("textFieldShouldBeginEditing:"),
@@ -15,4 +15,4 @@ _exports.UITextFieldDelegate = UITextFieldDelegate = foundation.Protocol.extendC
     ShouldClear:                   objc.optionalMethod("textFieldShouldClear:"),
     ShouldReturn:                  objc.optionalMethod("textFieldShouldReturn:")
 
-}; });
+}));

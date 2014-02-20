@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-
-exports.NSWindow = NSWindow = foundation.NSResponder.extendClass("NSWindow", {
+var NSWindow;
+_exports.NSWindow = NSWindow = foundation.NSResponder.extendClass("NSWindow", () => ({
 
   // Creating Windows
   initWithContentRect: objc.instanceSelector("initWithContentRect:styleMask:backing:defer:"),
@@ -338,4 +338,4 @@ exports.NSWindow = NSWindow = foundation.NSResponder.extendClass("NSWindow", {
   // Constraint-Based Layouts
   anchorAttribute: objc.instanceSelector("anchorAttributeForOrientation:"),
   setAnchorAttribute: objc.instanceSelector("setAnchorAttribute:forOrientation:")
-});
+}));

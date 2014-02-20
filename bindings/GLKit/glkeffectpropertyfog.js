@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKEffectPropertyFog;
-exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", () => ({
+_exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", () => ({
     // Enabling Fog
     enabled: objc.instanceProperty(),
 

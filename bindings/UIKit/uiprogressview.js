@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIProgressView");
 var UIProgressView;
-_exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", () => { return {
+_exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", () => ({
 
     // Initializing the UIProgressView Object
     initWithProgressViewStyle: objc.instanceSelector("initWithProgressViewStyle:"),
@@ -18,4 +18,4 @@ _exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView",
     trackTintColor: objc.instanceProperty(),
     trackImage: objc.instanceProperty()
 
-}; });
+}));

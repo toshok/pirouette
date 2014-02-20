@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarItem");
 var UITabBarItem;
-_exports.UITabBarItem = UITabBarItem = UIBarItem.extendClass ("UITabBarItem", () => { return {
+_exports.UITabBarItem = UITabBarItem = UIBarItem.extendClass ("UITabBarItem", () => ({
 
     // Initializing a Item
     initWithTabBarSystemItem: objc.instanceSelector("initWithTabBarSystemItem:tag:"),
@@ -20,4 +20,4 @@ _exports.UITabBarItem = UITabBarItem = UIBarItem.extendClass ("UITabBarItem", ()
     titlePositionAdjustment:    objc.instanceSelector("titlePositionAdjustment"),
     setTitlePositionAdjustment: objc.instanceSelector("setTitlePositionAdjustment:")
 
-}; });
+}));

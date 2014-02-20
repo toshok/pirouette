@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIResponder");
 var UIResponder;
-_exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", () => { return {
+_exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", () => ({
 
     // Managing the Responder Chain
     nextResponder:           objc.instanceProperty(),
@@ -37,4 +37,4 @@ _exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIRespond
     // Validating Commands
     canPerformAction: objc.instanceSelector("canPerformAction:withSender:")
 
-}; });
+}));

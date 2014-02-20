@@ -1,4 +1,4 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKEffectProperty;
-exports.GLKEffectProperty = GLKEffectProperty = foundation.NSObject.extendClass ("GLKEffectProperty", {});
+_exports.GLKEffectProperty = GLKEffectProperty = foundation.NSObject.extendClass ("GLKEffectProperty", {});

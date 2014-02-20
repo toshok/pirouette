@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarController");
 var UITabBarController;
-_exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", () => { return {
+_exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", () => ({
 
     // Accessing the Tab Bar Controller Properties
     delegate: objc.autoboxProperty(UITabBarControllerDelegate),
@@ -18,4 +18,4 @@ _exports.UITabBarController = UITabBarController = UIViewController.extendClass 
     selectedViewController:   objc.instanceProperty(),
     selectedIndex:   objc.instanceProperty()
 
-}; });
+}));

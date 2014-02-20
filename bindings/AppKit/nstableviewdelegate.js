@@ -1,5 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
-exports.NSTableViewDelegate = NSTableViewDelegate = foundation.Protocol.extendClass("NSTableViewDelegate", {
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
+
+var NSTableViewDelegate;
+_exports.NSTableViewDelegate = NSTableViewDelegate = foundation.Protocol.extendClass("NSTableViewDelegate", () => ({
 
     // Providing Views for Rows and Columns
     viewFor: objc.optionalMethod ("tableView:viewForTableColumn:row:"),
@@ -47,4 +49,4 @@ exports.NSTableViewDelegate = NSTableViewDelegate = foundation.Protocol.extendCl
     mouseDownInHeader: objc.optionalMethod ("tableView:mouseDownInHeaderOfTableColumn:"),
     shouldTrackCell: objc.optionalMethod ("tableView:shouldTrackCell:forTableColumn:row:")
 
-});
+}));

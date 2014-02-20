@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.SKProductRequest = SKProductRequest = SKRequest.extendClass ("SKProductRequest", {
+var SKProductRequest;
+_exports.SKProductRequest = SKProductRequest = SKRequest.extendClass ("SKProductRequest", () => ({
 
     // Initializing a Products sRequest
     initWithProductIdentifiers: objc.instanceSelector("initWithProductIdentifiers:"),
@@ -8,4 +9,4 @@ exports.SKProductRequest = SKProductRequest = SKRequest.extendClass ("SKProductR
     // Setting the Delegate
     delegate: objc.autoboxProperty(SKProductsRequestDelegate)
 
-});
+}));

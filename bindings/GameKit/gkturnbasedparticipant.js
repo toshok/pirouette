@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKTurnBasedParticipant = GKTurnBasedParticipant = foundation.NSObject.extendClass ("GKTurnBasedParticipant", {
+var GKTurnBasedParticipant;
+_exports.GKTurnBasedParticipant = GKTurnBasedParticipant = foundation.NSObject.extendClass ("GKTurnBasedParticipant", () => ({
 
     // Participant Information
     playerID: objc.instanceProperty(),
@@ -10,4 +11,4 @@ exports.GKTurnBasedParticipant = GKTurnBasedParticipant = foundation.NSObject.ex
     // Setting the Match Outcome
     matchOutcome: objc.instanceProperty()
 
-});
+}));

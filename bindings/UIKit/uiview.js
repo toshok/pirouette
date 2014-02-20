@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIView");
 var UIView;
-_exports.UIView = UIView = UIResponder.extendClass ("UIView", () => { return {
+_exports.UIView = UIView = UIResponder.extendClass ("UIView", () => ({
 
     initWithFrame:    objc.instanceSelector("initWithFrame:").
                             returns( function() { return foundation.NSObject; /* XXX should be UIView */}).
@@ -128,4 +128,4 @@ _exports.UIView = UIView = UIResponder.extendClass ("UIView", () => { return {
 
     // XXX ES6-port
     //@mixinProtocol UIAppearance
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintPageRenderer");
 var UIPrintPageRenderer;
-_exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendClass ("UIPrintPageRenderer", () => { return {
+_exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendClass ("UIPrintPageRenderer", () => ({
 
     // Accessing Information About the Print Job
     numberOfPages: objc.instanceSelector("numberOfPages"),
@@ -28,4 +28,4 @@ _exports.UIPrintPageRenderer = UIPrintPageRenderer = foundation.NSObject.extendC
     drawPrintFormatterForPageAtIndex: objc.instanceSelector("drawPrintFormatter:forPageAtIndex:"),
     drawFooterForPageAtIndex:         objc.instanceSelector("drawFooterForPageAtIndex:inRect:")
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UISwitch");
 var UISwitch;
-_exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", () => { return {
+_exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", () => ({
 
     // Initializing the Switch Object
     initWithFrame: objc.instanceSelector("initWithFrame:"),
@@ -14,4 +14,4 @@ _exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", () => { return
     // Customizing the Appearance of the Switch
     onTintColor: objc.instanceProperty()
 
-}; });
+}));

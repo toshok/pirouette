@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIDocument");
 var UIDocument;
-_exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument", () => { return {
+_exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument", () => ({
 
     // Initializing a Document Object
     initWithFileURL: objc.instanceSelector("initWithFileURL:"),
@@ -52,4 +52,4 @@ _exports.UIDocument = UIDocument = foundation.NSObject.extendClass ("UIDocument"
     finishedHandlingError:            objc.instanceSelector("finishedHandlingError:recovered:"),
     userInteractionNoLongerPermitted: objc.instanceSelector("userInteractionNoLongerPermittedForError:")
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIImagePickerController");
 var UIImagePickerController;
-_exports.UIImagePickerController = UIImagePickerController = UINavigationController.extendClass ("UIImagePickerController", () => { return {
+_exports.UIImagePickerController = UIImagePickerController = UINavigationController.extendClass ("UIImagePickerController", () => ({
 
     // Setting the Picker Source
     availableMediaTypes:   objc.staticSelector("availableMediaTypesForSourceType:"),
@@ -37,4 +37,4 @@ _exports.UIImagePickerController = UIImagePickerController = UINavigationControl
     availableCaptureModesForCameraDevice: objc.staticSelector("availableCaptureModesForCameraDevice:"),
     isFlashAvailableForCameraDevice:      objc.staticSelector("isFlashAvailableForCameraDevice:")
 
-}; });
+}));

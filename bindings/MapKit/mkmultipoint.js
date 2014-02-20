@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKMultiPoint = MKMultiPoint = MKShape.extendClass ("MKMultiPoint", {
+var MKMultiPoint;
+_exports.MKMultiPoint = MKMultiPoint = MKShape.extendClass ("MKMultiPoint", () => ({
 
   // Accessing the Points in the Shape
   points: objc.instanceProperty(),
@@ -9,4 +10,4 @@ exports.MKMultiPoint = MKMultiPoint = MKShape.extendClass ("MKMultiPoint", {
   // Getting Coordinate Values
   getCoordinates: objc.instanceSelector("getCoordinates:range:")
 
-});
+}));

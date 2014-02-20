@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSAnimationContext = NSAnimationContext = foundation.NSObject.extendClass("NSAnimationContext", {
+var NSAnimationContext;
+_exports.NSAnimationContext = NSAnimationContext = foundation.NSObject.extendClass("NSAnimationContext", () => ({
     // Grouping Transactions
     beginGrouping: objc.instanceSelector("beginGrouping"),
     endGrouping: objc.instanceSelector("endGrouping"),
@@ -17,4 +18,4 @@ exports.NSAnimationContext = NSAnimationContext = foundation.NSObject.extendClas
     duration: objc.instanceProperty(),
     timingFunction: objc.instanceProperty()
 
-});
+}));

@@ -1,4 +1,4 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIAppearance");
 
@@ -49,10 +49,10 @@ function makeAppearance (sel, o /*, ...args */) {
 };
 
 var UIAppearance;
-_exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", () => { return {
+_exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", () => ({
 
     // Appearance Methods
     appearance:                objc.requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,
     appearanceWhenContainedIn: objc.requiredMethod("appearanceWhenContainedIn:", { tramp: function () { return makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(Array.prototype.slice.call(arguments, 0))); } } )
 
-}; });
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKLocalPlayer = GKLocalPlayer = GKPlayer.extendClass ("GKLocalPlayer", {
+var GKLocalPlayer;
+_exports.GKLocalPlayer = GKLocalPlayer = GKPlayer.extendClass ("GKLocalPlayer", () => ({
 
     // Accessing the Shared Local Player
     localPlayer: objc.staticSelector("localPlayer"),
@@ -16,4 +17,4 @@ exports.GKLocalPlayer = GKLocalPlayer = GKPlayer.extendClass ("GKLocalPlayer", {
     // Age-Restricted Content
     underage: objc.instanceProperty()
 
-});
+}));

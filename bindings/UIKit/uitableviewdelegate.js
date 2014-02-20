@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewDelegate");
 var UITableViewDelegate;
-_exports.UITableViewDelegate = UITableViewDelegate = foundation.Protocol.extendClass("UITableViewDelegate", () => { return {
+_exports.UITableViewDelegate = UITableViewDelegate = foundation.Protocol.extendClass("UITableViewDelegate", () => ({
 
     // Configuring Rows for the Table View
     heightForRowAtIndexPath:  objc.optionalMethod("tableView:heightForRowAtIndexPath:"),
@@ -42,4 +42,4 @@ _exports.UITableViewDelegate = UITableViewDelegate = foundation.Protocol.extendC
     canPerformActionForRow:            objc.optionalMethod("tableView:canPerformAction:forRowAtIndexPath:withSender:"),
     performActionForRow:               objc.optionalMethod("tableView:performAction:forRowAtIndexPath:withSender:")
 
-}; });
+}));

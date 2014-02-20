@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintFormatter");
 var UIPrintFormatter;
-_exports.UIPrintFormatter = UIPrintFormatter = foundation.NSObject.extendClass ("UIPrintFormatter", () => { return {
+_exports.UIPrintFormatter = UIPrintFormatter = foundation.NSObject.extendClass ("UIPrintFormatter", () => ({
 
     // Laying Out the Content
     contentInsets: objc.instanceProperty(),
@@ -21,4 +21,4 @@ _exports.UIPrintFormatter = UIPrintFormatter = foundation.NSObject.extendClass (
     removeFromPrintPageRenderer: objc.instanceSelector("removeFromPrintPageRenderer"),
     printPageRenderer: objc.instanceProperty()
 
-}; });
+}));

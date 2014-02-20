@@ -1,6 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKPlacemark = MKPlacemark = cl.CLPlacemark.extendClass ("MKPlacemark", {
+var MKPlacemark;
+
+_exports.MKPlacemark = MKPlacemark = cl.CLPlacemark.extendClass ("MKPlacemark", () => ({
 
     // Initializing a Placemark Object
     initWithCoordinate: objc.instanceSelector("initWithCoordinate:addressDictionary:"),
@@ -8,4 +10,4 @@ exports.MKPlacemark = MKPlacemark = cl.CLPlacemark.extendClass ("MKPlacemark", {
     // Accessing the Placemark Attributes
     countryCode: objc.instanceProperty()
 
-});
+}));

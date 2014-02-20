@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UISimpleTextPrintFormatter");
 var UISimplePrintFormatter;
-_exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter", () => { return {
+_exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter", () => ({
     // Creating a Simple-Text Print Formatter
     initWithText:     objc.instanceSelector("initWithText:"),
 
@@ -15,4 +15,4 @@ _exports.UISimplePrintFormatter = UISimplePrintFormatter = UIPrintFormatter.exte
     lineBreakMode: objc.instanceProperty(),
     textAlignment: objc.instanceProperty()
 
-}; });
+}));

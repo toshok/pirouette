@@ -1,11 +1,9 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("GKPeerPickerControllerDelegate");
 
-exports.GKPeerPickerControllerDelegate = GKPeerPickerControllerDelegate = objc.bindProtocol(foundation.Protocol,
-  function GKPeerPickerControllerDelegate () {
-    return GKPeerPickerControllerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var GKPeerPickerControllerDelegate;
+_exports.GKPeerPickerControllerDelegate = GKPeerPickerControllerDelegate = foundation.Protocol.extendClass ("GKPeerPickerControllerDelegate", () => ({
 
     // Creating a Session for the Peer Picker
     didSelectConnectionType:  objc.optionalMethod("peerPickerController:didSelectConnectionType:"),
@@ -17,4 +15,4 @@ exports.GKPeerPickerControllerDelegate = GKPeerPickerControllerDelegate = objc.b
     // Responding When the User Cancels the Connection Attempt
     didCancel:                objc.optionalMethod("peerPickerControllerDidCancel:")
 
-});
+}));

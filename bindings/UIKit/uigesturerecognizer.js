@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIGestureRecognizer");
 var UIGestureRecognizer;
-_exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => { return {
+_exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => ({
 
     // Initializing a Gesture Recognizer
     initWithTarget: objc.instanceSelector("initWithTarget:action:"),
@@ -49,4 +49,4 @@ _exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendC
     canBePreventedByGestureRecognizer: objc.instanceSelector("canBePreventedByGestureRecognizer:"),
     canPreventGestureRecognizer:       objc.instanceSelector("canPreventGestureRecognizer:")
 
-}; });
+}));

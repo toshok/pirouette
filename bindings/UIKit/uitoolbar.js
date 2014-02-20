@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIToolbar");
 var UIToolbar;
-_exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", () => { return {
+_exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", () => ({
 
     // Configuring the Toolbar
     barStyle: objc.instanceProperty(),
@@ -19,4 +19,4 @@ _exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", () => { return
     setBackgroundImage: objc.instanceSelector("setBackgroundImage:forToolbarPosition:barMetrics:"),
     tintColor: objc.instanceProperty()
 
-}; });
+}));

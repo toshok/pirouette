@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIDocumentInteractionController");
 var UIDocumentInteractionController;
-_exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", () => { return {
+_exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", () => ({
 
     // Creating the Document Interaction Controller
     interactionControllerWithURL:       objc.staticSelector("interactionControllerWithURL:"),
@@ -29,4 +29,4 @@ _exports.UIDocumentInteractionController = UIDocumentInteractionController = fou
     gestureRecognizers: objc.instanceProperty(),
     delegate: objc.autoboxProperty(UIDocumentInteractionControllerDelegate)
 
-}; });
+}));

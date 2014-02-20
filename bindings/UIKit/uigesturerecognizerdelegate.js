@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIGestureRecognizerDelegate");
 var UIGestureRecognizerDelegate;
-_exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.Protocol.extendClass("UIGestureRecognizerDelegate", () => { return {
+_exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.Protocol.extendClass("UIGestureRecognizerDelegate", () => ({
 
     // Regulating Gesture Recognition
     shouldBegin:        objc.optionalMethod("gestureRecognizerShouldBegin:"),
@@ -11,4 +11,4 @@ _exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.
     // Controlling Simultaneous Gesture Recognition
     shouldRecognizeSimultaneouslyWithGestureRecognizer: objc.optionalMethod("gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:")
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UISearchDisplayDelegate");
 var UISearchDisplayDelegate;
-_exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", () => { return {
+_exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", () => ({
 
     // Search State Change
     willBeginSearch: objc.optionalMethod("searchDisplayControllerWillBeginSearch:"),
@@ -24,4 +24,4 @@ _exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol
     shouldReloadTableForSearchString: objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchString:"),
     shouldReloadTableForSearchScope:  objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchScope:")
 
-}; });
+}));

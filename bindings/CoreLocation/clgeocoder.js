@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLGeocoder = CLGeocoder = foundation.NSObject.extendClass("CLGeocoder", {
+var CLGeocoder;
+_exports.CLGeocoder = CLGeocoder = foundation.NSObject.extendClass("CLGeocoder", () => ({
 
     // Reverse Geocoding a Location
     reverseGeocodeLocation: objc.instanceSelector("reverseGeocodeLocation:completionHandler:"),
@@ -14,4 +15,4 @@ exports.CLGeocoder = CLGeocoder = foundation.NSObject.extendClass("CLGeocoder", 
     cancelGeocode: objc.instanceSelector("cancelGeocode"),
     geocoding: objc.instanceProperty()
 
-});
+}));

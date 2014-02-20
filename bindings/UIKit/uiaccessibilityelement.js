@@ -1,9 +1,9 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIAccessibilityElement");
 
 var UIAccessibilityElement;
-_exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.extendClass ("UIAccessibilityElement", () => { return {
+_exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.extendClass ("UIAccessibilityElement", () => ({
 
   // Creating an Accessibility Element
   initWithAccessibilityContainer: objc.instanceSelector("initWithAccessibilityContainer:"),
@@ -21,4 +21,4 @@ _exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.e
   accessibilityFrame: objc.instanceProperty(),
   accessibilityTraits: objc.instanceProperty()
 
-}; });
+}));

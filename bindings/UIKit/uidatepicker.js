@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIDatePicker");
 var UIDatePicker;
-_exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", () => { return {
+_exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", () => ({
 
     // Managing the Date and Calendar
     calendar:  objc.instanceProperty(),
@@ -20,4 +20,4 @@ _exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", ()
     minuteInterval:  objc.instanceProperty(),
     countDownDuration:  objc.instanceProperty()
 
-}; });
+}));

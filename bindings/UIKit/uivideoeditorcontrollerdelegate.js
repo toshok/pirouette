@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIVideoEditorControllerDelegate");
 var UIVideoEditorControllerDelegate;
-_exports.UIVideoEditorControllerDelegate = UIVideoEditorControllerDelegate = foundation.Protocol.extendClass("UIVideoEditorControllerDelegate", () => { return {
+_exports.UIVideoEditorControllerDelegate = UIVideoEditorControllerDelegate = foundation.Protocol.extendClass("UIVideoEditorControllerDelegate", () => ({
 
     // Closing the Video Editor
     didSaveEditedVideoToPath: objc.optionalMethod("videoEditorController:didSaveEditedVideoToPath:"),
@@ -11,4 +11,4 @@ _exports.UIVideoEditorControllerDelegate = UIVideoEditorControllerDelegate = fou
     // Handling Errors
     didFailWithError:         objc.optionalMethod("videoEditorController:didFailWithError:")
 
-}; });
+}));

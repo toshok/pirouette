@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITabBarControllerDelegate");
 var UITabBarControllerDelegate;
-_exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Protocol.extendClass("UITabBarControllerDelegate", () => { return {
+_exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Protocol.extendClass("UITabBarControllerDelegate", () => ({
 
     // Managing Tab Bar Selections
     shouldSelectViewController:          objc.optionalMethod("tabBarController:shouldSelectViewController:"),
@@ -13,4 +13,4 @@ _exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Pr
     willEndCustomizingViewControllers:   objc.optionalMethod("tabBarController:willEndCustomizingViewControllers:changed:"),
     didEndCustomizingViewControllers:    objc.optionalMethod("tabBarController:didEndCustomizingViewControllers:changed:")
 
-}; });
+}));

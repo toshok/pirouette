@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationController");
 var UINavigationController;
-_exports.UINavigationController = UINavigationController = UIViewController.extendClass ("UINavigationController", () => { return {
+_exports.UINavigationController = UINavigationController = UIViewController.extendClass ("UINavigationController", () => ({
 
     // Creating Navigation Controllers
     initWithRootViewController: objc.instanceSelector("initWithRootViewController:"),
@@ -32,4 +32,4 @@ _exports.UINavigationController = UINavigationController = UIViewController.exte
     setToolbarHidden:       objc.instanceSelector("setToolbarHidden:animated:"),
     toolbarHidden:       objc.instanceProperty({ set: function (v) { return this.setToolbarHidden(v, false); } })
 
-}; });
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLRegion = CLRegion = foundation.NSObject.extendClass("CLRegion", {
+var CLRegion;
+_exports.CLRegion = CLRegion = foundation.NSObject.extendClass("CLRegion", () => ({
 
     // Initializing a Circular Region
     initCircularRegion: objc.instanceSelector("initCircularRegionWithCenter:radius:identifier:"),
@@ -12,4 +13,4 @@ exports.CLRegion = CLRegion = foundation.NSObject.extendClass("CLRegion", {
 
     // Hit-Testing in a Region
     containsCoordinate: objc.instanceSelector("containsCoordinate:")
-});
+}));

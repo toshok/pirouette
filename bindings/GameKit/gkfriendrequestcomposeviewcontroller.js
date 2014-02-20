@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKFriendRequestComposeViewController = GKFriendRequestComposeViewController = ui.UINavigationController.extendClass ("GKFriendRequestComposeViewController", {
+var GKFriendRequestComposeViewController;
+_exports.GKFriendRequestComposeViewController = GKFriendRequestComposeViewController = ui.UINavigationController.extendClass ("GKFriendRequestComposeViewController", () => ({
 
     // Determining the Maximum Number of Recipients
     maxNumberOfRecipients: objc.staticSelector("maxNumberOfRecipients"),
@@ -15,4 +16,4 @@ exports.GKFriendRequestComposeViewController = GKFriendRequestComposeViewControl
     // Setting an Invitation Message
     setMessage: objc.instanceSelector("setMessage:")
 
-});
+}));

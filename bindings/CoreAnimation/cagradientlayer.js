@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAGradientLayer;
-exports.CAGradientLayer = CAGradientLayer = CALayer.extendClass("CAGradientLayer", () => ({
+_exports.CAGradientLayer = CAGradientLayer = CALayer.extendClass("CAGradientLayer", () => ({
 
     // Gradient Style Properties
     colors: objc.instanceProperty(),

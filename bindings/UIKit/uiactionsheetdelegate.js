@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIActionSheetDelegate");
 var UIActionSheetDelegate;
-_exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", () => { return {
+_exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", () => ({
 
   // Responding to Actions
   clickedButton:  objc.optionalMethod("actionSheet:clickedButtonAtIndex:"),
@@ -15,4 +15,4 @@ _exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.ext
 
   // Canceling
   cancel:      objc.optionalMethod("actionSheetCancel:")
-}; });
+}));

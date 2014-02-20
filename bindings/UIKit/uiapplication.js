@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIApplication");
 var UIApplication;
-_exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", () => { return {
+_exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", () => ({
 
     // Getting the Application Instance
 
@@ -83,7 +83,7 @@ _exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication
     // Setting the Icon of a Newsstand Application
     setNewsstandIconImage: objc.instanceSelector("setNewsstandIconImage:")
 
-}; });
+}));
 
 UIApplication.main = function (args, principalClassName, delegateClassName) {
   return objc_internal.UIApplicationMain(args, principalClassName, delegateClassName);

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLLocationManager = CLLocationManager = foundation.NSObject.extendClass("CLLocationManager", {
+var CLLocationManager;
+_exports.CLLocationManager = CLLocationManager = foundation.NSObject.extendClass("CLLocationManager", () => ({
 
     // Accessing the Delegate
     delgate: objc.autoboxProperty(CLLocationManagerDelegate),
@@ -45,4 +46,4 @@ exports.CLLocationManager = CLLocationManager = foundation.NSObject.extendClass(
 
     // Describing Your Application’s Services to the User
     purpose: objc.instanceProperty()
-});
+}));

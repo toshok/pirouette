@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAEmitterCell;
-exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", () => ({
+_exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", () => ({
 
     // Creating and Initializing an Emitter Cell
     emitterCell: objc.staticSelector("emitterCell"),

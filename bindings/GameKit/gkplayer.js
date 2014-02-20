@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKPlayer = GKPlayer = foundation.NSObject.extendClass ("GKPlayer", {
+var GKPlayer;
+_exports.GKPlayer = GKPlayer = foundation.NSObject.extendClass ("GKPlayer", () => ({
 
     // Loading Player Details
     loadPlayersForIdentifiers: objc.staticSelector("loadPlayersForIdentifiers:withCompletionHandler:"),
@@ -15,4 +16,4 @@ exports.GKPlayer = GKPlayer = foundation.NSObject.extendClass ("GKPlayer", {
     // Player Photos
     loadPhotoForSize: objc.instanceSelector("loadPhotoForSize:withCompletionHandler:")
 
-});
+}));

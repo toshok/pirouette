@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKPolygon = MKPolygon = MKMultiPoint.extendClass ("MKPolygon", {
+var MKPolygon;
+_exports.MKPolygon = MKPolygon = MKMultiPoint.extendClass ("MKPolygon", () => ({
 
     // Creating a Polygon Overlay
     polygonWithPoints: objc.staticSelector("polygonWithPoints:count:"),
@@ -11,4 +12,4 @@ exports.MKPolygon = MKPolygon = MKMultiPoint.extendClass ("MKPolygon", {
     // Accessing the Interior Polygons
     interiorPolygons: objc.instanceProperty()
 
-});
+}));

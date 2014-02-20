@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSAlert = NSAlert = foundation.NSObject.extendClass("NSAlert", {
+var NSAlert;
+_exports.NSAlert = NSAlert = foundation.NSObject.extendClass("NSAlert", () => ({
     init: objc.instanceSelector("init"),
     alertWithError: objc.staticSelector("alertWithError:"),
     alertWithMessageText: objc.staticSelector("alertWithMessageText:defaultButton:alternateButton:otherButton:informativeTextWithFormat:"),
@@ -38,4 +39,4 @@ exports.NSAlert = NSAlert = foundation.NSObject.extendClass("NSAlert", {
     // Getting Alert Panels
     window: objc.instanceProperty({ set: null}) // read-only
 
-});
+}));

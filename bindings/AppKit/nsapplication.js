@@ -1,7 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("NSApplication");
-exports.NSApplication = NSApplication = foundation.NSResponder.extendClass("NSApplication", {
+var NSApplication;
+_exports.NSApplication = NSApplication = foundation.NSResponder.extendClass("NSApplication", () => ({
     // Getting the Application
     sharedApplication: objc.staticProperty( { get: function() { return new NSApplication (objc.staticCall("NSApplication", "sharedApplication")); } } ),
 
@@ -176,7 +177,7 @@ exports.NSApplication = NSApplication = foundation.NSResponder.extendClass("NSAp
     registerForRemoteNotificationTypes: objc.instanceSelector("registerForRemoteNotificationTypes:"),
     unregisterForRemoteNotifications: objc.instanceSelector("unregisterForRemoteNotifications")
 
-});
+}));
 console.log("<NSApplication");
 
 // use this instead of NSApplicationMain

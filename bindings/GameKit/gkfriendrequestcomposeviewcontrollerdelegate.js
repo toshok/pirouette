@@ -1,12 +1,10 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("GKFriendRequestComposeViewControllerDelegate");
-exports.GKFriendRequestComposeViewControllerDelegate = GKFriendRequestComposeViewControllerDelegate = objc.bindProtocol(foundation.Protocol,
-  function GKFriendRequestComposeViewControllerDelegate () {
-    return GKFriendRequestComposeViewControllerDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var GKFriendRequestComposeViewControllerDelegate;
+_exports.GKFriendRequestComposeViewControllerDelegate = GKFriendRequestComposeViewControllerDelegate = foundation.Protocol.extendClass ("GKFriendRequestComposeViewControllerDelegate", () => ({
 
     // Responding to User Events
     didFinish: objc.requiredMethod ("friendRequestComposeViewControllerDidFinish:")
 
-});
+}));

@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var GLKTextureLoader;
-exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", () => ({
+_exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", () => ({
 
     // Initialization
     initWithSharegroup: objc.instanceSelector("initWithSharegroup:"),

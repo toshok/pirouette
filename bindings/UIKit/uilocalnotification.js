@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UILocalNotification");
 var UILocalNotification;
-_exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", () => { return {
+_exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", () => ({
 
     // Scheduling a Local Notification
     fireDate: objc.instanceProperty(),
@@ -21,4 +21,4 @@ _exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendC
     soundName: objc.instanceProperty(),
     userInfo: objc.instanceProperty()
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log "UITouch"
 var UITouch;
-_exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", () => { return {
+_exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", () => ({
 
     // Getting the Location of Touches
     locationInView:         objc.instanceSelector("locationInView:"),
@@ -18,4 +18,4 @@ _exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", () => {
     // Getting a Touch Object’s Gesture Recognizers
     gestureRecognizers: objc.instanceProperty()
 
-}; });
+}));

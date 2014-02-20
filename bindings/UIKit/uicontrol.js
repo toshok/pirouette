@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIControl");
 var UIControl;
-_exports.UIControl = UIControl = UIView.extendClass ("UIControl", () => { return {
+_exports.UIControl = UIControl = UIView.extendClass ("UIControl", () => ({
 
     // Preparing and Sending Action Messages
     sendAction:                  objc.instanceSelector("sendAction:to:forEvent:"),
@@ -31,9 +31,9 @@ _exports.UIControl = UIControl = UIView.extendClass ("UIControl", () => { return
 
     tracking:            objc.instanceProperty(),
     touchInside:            objc.instanceProperty()
-}; });
+}));
 
-let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", () => { return {
+let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", () => ({
 
     constructor: function (fn) {
       objc.chainCtor (UIControlProxy, this);
@@ -44,9 +44,9 @@ let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", () => { 
                                returns( function() { return objc.sig.Void; }).
 				params( function() { return []; }).
 				  impl( function() { this.fn(); } )
-}; });
+}));
 
-let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", () => { return {
+let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", () => ({
 
     constructor: function (fn) {
       objc.chainCtor (UIControlProxy1, this);
@@ -57,4 +57,4 @@ let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", () => {
                                returns( function() { return objc.sig.Void; }).
 				params( function() { return [foundation.NSObject]; }).
 				  impl( function(v) { this.fn(v); } )
-}; });
+}));

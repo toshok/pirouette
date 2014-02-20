@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UITextViewDelegate");
 var UITextViewDelegate;
-_exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClass("UITextViewDelegate", () => { return {
+_exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClass("UITextViewDelegate", () => ({
 
     // Responding to Editing Notifications
     shouldBeginEditing: objc.optionalMethod("textViewShouldBeginEditing:"),
@@ -17,4 +17,4 @@ _exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendCla
     // Responding to Selection Changes
     didChangeSelection: objc.optionalMethod("textViewDidChangeSelection:")
 
-}; });
+}));

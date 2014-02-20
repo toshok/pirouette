@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSTableRowView = NSTableRowView = NSView.extendClass("NSTableRowView", {
+var NSTableRowView;
+_exports.NSTableRowView = NSTableRowView = NSView.extendClass("NSTableRowView", () => ({
     // Display Style
     emphasized: objc.instanceProperty({ get: "isEmphasized" }),
     interiorBackgroundStyle: objc.instanceProperty({ set: null }),
@@ -29,4 +30,4 @@ exports.NSTableRowView = NSTableRowView = NSView.extendClass("NSTableRowView", {
     // Accessing A Row Column View
     viewAtColumn: objc.instanceSelector("viewAtColumn:")
 
-});
+}));

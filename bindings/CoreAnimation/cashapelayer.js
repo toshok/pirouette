@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CAShapeLayer;
-exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", () => ({
+_exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", () => ({
 
     // Specifying the Shape Path
     path: objc.instanceProperty(),

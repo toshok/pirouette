@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var EAGLContext;
-exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContext", () => ({
+_exports.EAGLContext = EAGLContext = foundation.NSObject.extendClass ("EAGLContext", () => ({
 
     // Creating EAGL Contexts
     initWithAPI: objc.instanceSelector("initWithAPI:"),

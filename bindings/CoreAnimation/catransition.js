@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var CATransition;
-exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransition", () => ({
+_exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransition", () => ({
 
   // Transition Start and End Point
   startProgress: objc.instanceProperty(),

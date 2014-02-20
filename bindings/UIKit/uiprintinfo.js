@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPrintInfo");
 var UIPrintPageInteractionController;
-_exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", () => { return {
+_exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", () => ({
 
     // Creating a UIPrintInfo Object
     printInfo:               objc.staticSelector("printInfo"),
@@ -16,4 +16,4 @@ _exports.UIPrintPageInteractionController = UIPrintPageInteractionController = f
     outputType: objc.instanceProperty(),
     printerID: objc.instanceProperty()
 
-}; });
+}));

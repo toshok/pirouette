@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPickerViewDelegate");
 var UIPickerViewDelegate;
-_exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.extendClass("UIPickerViewDelegate", () => { return {
+_exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.extendClass("UIPickerViewDelegate", () => ({
 
     // Setting the Dimensions of the Picker View
     rowHeightForComponent: objc.optionalMethod("pickerView:rowHeightForComponent:"),
@@ -18,4 +18,4 @@ _exports.UIPickerViewDelegate = UIPickerViewDelegate = foundation.Protocol.exten
     // Responding to Row Selection
     didSelectRow:          objc.optionalMethod("pickerView:didSelectRow:inComponent:")
 
-}; });
+}));

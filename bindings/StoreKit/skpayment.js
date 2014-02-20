@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.SKPayment = SKPayment = NSObject.extendClass ("SKPayment", {
+var SKPayment;
+_exports.SKPayment = SKPayment = NSObject.extendClass ("SKPayment", () => ({
 
     // Creating Instances
     paymentWithProduct: objc.staticSelector("paymentWithProduct:"),
@@ -11,4 +12,4 @@ exports.SKPayment = SKPayment = NSObject.extendClass ("SKPayment", {
     quantity: objc.instanceProperty(),
     requestData: objc.instanceProperty()
 
-});
+}));

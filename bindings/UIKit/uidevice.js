@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIDevice");
 var UIDevice;
-_exports.UIDevice = UIDevice = foundation.NSObject.extendClass ("UIDevice", () => { return {
+_exports.UIDevice = UIDevice = foundation.NSObject.extendClass ("UIDevice", () => ({
 
     // Getting the Shared Device Instance
     currentDevice:                                objc.staticProperty({ set: null }),
@@ -37,4 +37,4 @@ _exports.UIDevice = UIDevice = foundation.NSObject.extendClass ("UIDevice", () =
     // Playing Input Clicks
     playInputClick:                                objc.instanceSelector("playInputClick")
 
-}; });
+}));

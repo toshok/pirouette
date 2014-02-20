@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIManagedDocument");
 var UIManagedDocument;
-_exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", () => { return {
+_exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", () => ({
 
     // Managing the Core Data Stack
     configurePersistentStoreCoordinator: objc.instanceSelector("configurePersistentStoreCoordinatorForURL:ofType:modelConfiguration:storeOptions:error:"),
@@ -20,4 +20,4 @@ _exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass
     // Naming the Persistent Store File
     persistentStoreName: objc.staticSelector("persistentStoreName")
 
-}; });
+}));

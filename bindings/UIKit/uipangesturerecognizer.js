@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPanGestureRecognizer");
 var UIPanGestureRecognizer;
-_exports.UIPanGestureRecognizer = UIPanGestureRecognizer = UIGestureRecognizer.extendClass ("UIPanGestureRecognizer", () => { return {
+_exports.UIPanGestureRecognizer = UIPanGestureRecognizer = UIGestureRecognizer.extendClass ("UIPanGestureRecognizer", () => ({
 
     // Configuring the Gesture Recognizer
     maximumNumberOfTouches: objc.instanceProperty(),
@@ -13,4 +13,4 @@ _exports.UIPanGestureRecognizer = UIPanGestureRecognizer = UIGestureRecognizer.e
     setTranslationInView: objc.instanceSelector("setTranslation:inView:"),
     velocityInView:       objc.instanceSelector("velocityInView:")
 
-}; });
+}));

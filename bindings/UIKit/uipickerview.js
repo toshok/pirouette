@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPickerView");
 var UIPickerView;
-_exports.UIPickerView = UIPickerView = UIView.extendClass ("UIPickerView", () => { return {
+_exports.UIPickerView = UIPickerView = UIView.extendClass ("UIPickerView", () => ({
 
     // Getting the Dimensions of the View Picker
     numberOfRowsInComponent: objc.instanceSelector("numberOfRowsInComponent:"),
@@ -29,4 +29,4 @@ _exports.UIPickerView = UIPickerView = UIView.extendClass ("UIPickerView", () =>
     // Managing the Appearance of the Picker View
     showsSelectionIndicator: objc.instanceProperty()
 
-}; });
+}));

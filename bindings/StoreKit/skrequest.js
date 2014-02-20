@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.SKRequest = SKRequest = foundation.NSObject.extendClass ("SKRequest", {
+var SKRequest;
+_exports.SKRequest = SKRequest = foundation.NSObject.extendClass ("SKRequest", () => ({
 
     // Controlling the Request
     start: objc.instanceSelector("start"),
@@ -9,4 +10,4 @@ exports.SKRequest = SKRequest = foundation.NSObject.extendClass ("SKRequest", {
     // Accessing the Delegate
     delegate: objc.autoboxProperty(SKRequestDelegate)
 
-});
+}));

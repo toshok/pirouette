@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKMatch = GKMatch = foundation.NSObject.extendClass ("GKMatch", {
+var GKMatch;
+_exports.GKMatch = GKMatch = foundation.NSObject.extendClass ("GKMatch", () => ({
 
     // Getting and Setting the Delegate
     delegate: objc.autoboxProperty(GKMatchDelegate),
@@ -18,4 +19,4 @@ exports.GKMatch = GKMatch = foundation.NSObject.extendClass ("GKMatch", {
 
     // Finishing the Match
     disconnect: objc.instanceSelector("disconnect")
-});
+}));

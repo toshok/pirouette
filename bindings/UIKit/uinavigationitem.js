@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationItem");
 var UINavigationItem;
-_exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("UINavigationItem", () => { return {
+_exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass ("UINavigationItem", () => ({
 
     // Initializing an Item
     initWithTitle: objc.instanceSelector("initWithTitle:"),
@@ -26,4 +26,4 @@ _exports.UINavigationItem = UINavigationItem = foundation.NSObject.extendClass (
     setRightBarButtonItems: objc.instanceSelector("setRightBarButtonItems:animated:"),
     setRightBarButtonItem:  objc.instanceSelector("setRightBarButtonItem:animated:")
 
-}; });
+}));

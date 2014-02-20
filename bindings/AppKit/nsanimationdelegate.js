@@ -1,4 +1,4 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 let NSAnimationDelegate = exports.NSAnimationDelegate = foundation.Protocol.extendClass ("NSAnimationDelegate", {
   // Controlling and Monitoring an Animation

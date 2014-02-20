@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UISegmentedControl");
 var UISegmentedControl;
-_exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegmentedControl", () => { return {
+_exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISegmentedControl", () => ({
 
     // Initializing a Segmented Control
     initWithItems: objc.instanceSelector("initWithItems:"),
@@ -43,4 +43,4 @@ _exports.UISegmentedControl = UISegmentedControl = UIControl.extendClass ("UISeg
     titleTextAttributes:          objc.instanceSelector("titleTextAttributesForState:").makeUIAppearance(),
     setTitleTextAttributes:       objc.instanceSelector("setTitleTextAttributes:forState:").makeUIAppearance()
 
-}; });
+}));

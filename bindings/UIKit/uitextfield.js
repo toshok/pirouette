@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITextField");
 var UITextField;
-_exports.UITextField = UITextField = UIControl.extendClass ("UITextField", () => { return {
+_exports.UITextField = UITextField = UIControl.extendClass ("UITextField", () => ({
 
     // Accessing the Text Attributes
     text: objc.instanceProperty(),
@@ -61,4 +61,4 @@ _exports.UITextField = UITextField = UIControl.extendClass ("UITextField", () =>
     secureTextEntry: objc.instanceProperty()
     // end UITextInputTraits Protocol
 
-}; });
+}));

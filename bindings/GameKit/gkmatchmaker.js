@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKMatchmaker = GKMatchmaker = foundation.NSObject.extendClass ("GKMatchmaker", {
+var GKMatchmaker;
+_exports.GKMatchmaker = GKMatchmaker = foundation.NSObject.extendClass ("GKMatchmaker", () => ({
 
     // Retrieving the Shared Matchmaker
     sharedMatchmaker: objc.staticSelector("sharedMatchmaker"),
@@ -16,4 +17,4 @@ exports.GKMatchmaker = GKMatchmaker = foundation.NSObject.extendClass ("GKMatchm
     queryPlayerGroupActivity: objc.instanceSelector ("queryPlayerGroupActivity:withCompletionHandler:"),
     queryActivity: objc.instanceSelector ("queryActivityWithCompletionHandler:")
 
-});
+}));

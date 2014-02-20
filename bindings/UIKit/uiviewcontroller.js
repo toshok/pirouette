@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log "UIViewController"
 var UIViewController;
-_exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", () => { return {
+_exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewController", () => ({
     constructor: function (handle, arg2) {
       if (typeof (handle) === 'string') {
 	objc.chainCtor (UIViewController, this, []);
@@ -117,4 +117,4 @@ _exports.UIViewController = UIViewController = UIResponder.extendClass ("UIViewC
     modalTransitionStyle: objc.instanceProperty(),
     modalPresentationStyle: objc.instanceProperty()
 
-}; });
+}));

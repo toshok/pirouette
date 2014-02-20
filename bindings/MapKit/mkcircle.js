@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKCircle = MKCircle = MKShape.extendClass ("MKCircle", {
+var MKCircle;
+_exports.MKCircle = MKCircle = MKShape.extendClass ("MKCircle", () => ({
 
     // Creating a Circle Overlay
     circleWithCenterCoordinate: objc.staticSelector("circleWithCenterCoordinate:radius:"),
@@ -11,4 +12,4 @@ exports.MKCircle = MKCircle = MKShape.extendClass ("MKCircle", {
     radius: objc.instanceProperty(),
     boundingMapRect: objc.instanceProperty()
 
-});
+}));

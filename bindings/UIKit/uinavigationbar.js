@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UINavigationBar");
 var UINavigationBar;
-_exports.UINavigationBar = UINavigationBar = UIView.extendClass ("UINavigationBar", () => { return {
+_exports.UINavigationBar = UINavigationBar = UIView.extendClass ("UINavigationBar", () => ({
 
     // Configuring Navigation Bars
     barStyle: objc.instanceProperty(),
@@ -27,4 +27,4 @@ _exports.UINavigationBar = UINavigationBar = UIView.extendClass ("UINavigationBa
     tintColor: objc.instanceProperty(),
     titleTextAttributes: objc.instanceProperty()
 
-}; });
+}));

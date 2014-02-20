@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 // console.log("NSObject");
 var NSObject;
-exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.PirouetteObject, {
+_exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.PirouetteObject, () => ({
 
     constructor: function (handle) {
       this.handle = handle;
@@ -20,7 +20,7 @@ exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.Pirouet
       return "[" + String(this.constructor._ck_register) + " " + this.handle.toString() + "]";
     }
 
-  });
+}));
 
 NSObject.alloc = function() {
   //console.log ("NSObject.alloc(" + this._ck_register + ")");

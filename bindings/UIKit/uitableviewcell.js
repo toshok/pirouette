@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITableViewCell");
 var UITableViewCell;
-_exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", () => { return {
+_exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", () => ({
 
     // Initializing a UITableViewCell Object
     initWithStyle: objc.instanceSelector("initWithStyle:reuseIdentifier:"),
@@ -71,4 +71,4 @@ _exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCel
     editAction: objc.instanceProperty(), // Deprecated in iOS 3.0
     target: objc.instanceProperty(), // Deprecated in iOS 3.0
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UITableView");
 var UITableView;
-_exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", () => { return {
+_exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", () => ({
 
     // Initializing a UITableView Object
     initWithFrame: objc.instanceSelector("initWithFrame:style:"),
@@ -77,4 +77,4 @@ _exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", ()
     dataSource: objc.autoboxProperty(UITableViewDataSource),
     delegate: objc.autoboxProperty(UITableViewDelegate)
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIWebView");
 var UIWebView;
-_exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", () => { return {
+_exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", () => ({
 
     // Setting the Delegate
     delegate: objc.autoboxProperty(UIWebViewDelegate),
@@ -38,4 +38,4 @@ _exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", () => { return
     mediaPlaybackRequiresUserAction: objc.instanceProperty(),
     mediaPlaybackAllowsAirPlay: objc.instanceProperty()
 
-}; });
+}));

@@ -1,10 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("SKRequestDelegate");
-exports.SKRequestDelegate = SKRequestDelegate = objc.bindProtocol(foundation.Protocol,
-  function SKRequestDelegate () {
-    return SKRequestDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var SKRequestDelegate;
+_exports.SKRequestDelegate = SKRequestDelegate = foundation.Protocol.extendClass ("SKRequestDelegate", () => ({
 
     // Completing Requests
     requestDidFinish: objc.optionalMethod("requestDidFinish:"),
@@ -12,4 +10,4 @@ exports.SKRequestDelegate = SKRequestDelegate = objc.bindProtocol(foundation.Pro
     // Handling Errrors
     requestDidFail: objc.optionalMethod("request:didFailWithError:")
 
-});
+}));

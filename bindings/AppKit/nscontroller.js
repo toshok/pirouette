@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSController = NSController = foundation.NSObject.extendClass("NSController", {
+var NSController;
+_exports.NSController = NSController = foundation.NSObject.extendClass("NSController", () => ({
   // Managing Editing
   objectDidBeginEditing: objc.instanceSelector("objectDidBeginEditing:"),
   objectDidEndEditing: objc.instanceSelector("objectDidEndEditing:"),
@@ -9,4 +10,4 @@ exports.NSController = NSController = foundation.NSObject.extendClass("NSControl
   discardEditing: objc.instanceSelector("discardEditing"),
   isEditing: objc.instanceSelector("isEditing")
 
-});
+}));

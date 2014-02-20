@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.SKPaymentTransaction = SKPaymentTransaction = NSObject.extendClass ("SKPaymentTransaction", {
+var SKPaymentTransaction;
+_exports.SKPaymentTransaction = SKPaymentTransaction = NSObject.extendClass ("SKPaymentTransaction", () => ({
 
     // Getting Information About the Transaction
     error: objc.instanceProperty(),
@@ -13,4 +14,4 @@ exports.SKPaymentTransaction = SKPaymentTransaction = NSObject.extendClass ("SKP
     // Restored Transactions
     originalTransaction: objc.instanceProperty()
 
-});
+}));

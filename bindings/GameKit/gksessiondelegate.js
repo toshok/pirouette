@@ -1,10 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("GKSessionDelegate");
-exports.GKSessionDelegate = GKSessionDelegate = objc.bindProtocol(foundation.Protocol,
-  function GKSessionDelegate () {
-    return GKSessionDelegate.__super__.constructor.apply(this, arguments);
-  }, {
+var GKSessionDelegate;
+_exports.GKSessionDelegate = GKSessionDelegate = foundation.Protocol.extendClass ("GKSessionDelegate", () => ({
 
     // Observing Changes to Peers
     didChangeState: objc.requiredMethod ("session:peer:didChangeState:"),
@@ -16,4 +14,4 @@ exports.GKSessionDelegate = GKSessionDelegate = objc.bindProtocol(foundation.Pro
     connectionWithPeerFailed: objc.requiredMethod ("session:connectionWithPeerFailed:withError:"),
     didFailWithError: objc.requiredMethod ("session:didFailWithError:")
 
-});
+}));

@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSTableColumn = NSTableColumn = foundation.NSObject.extendClass("NSTableColumn", {
+var NSTableColumn;
+_exports.NSTableColumn = NSTableColumn = foundation.NSObject.extendClass("NSTableColumn", () => ({
     // Creating an NSTableColumn
     initWithIdentifier: objc.instanceSelector("initWithIdentifier:"),
 
@@ -37,7 +38,7 @@ exports.NSTableColumn = NSTableColumn = foundation.NSObject.extendClass("NSTable
     // Deprecated Methods
     resizable: objc.instanceProperty({ get: "isResizable" }) // Deprecated in OS X v10.4
 
-});
+}));
 
 NSTableColumn.newWithIdentifier = function(identifier) {
   return NSTableColumn.newWith({ initWith: "Identifier", args: [identifier] });

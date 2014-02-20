@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log("UIAlertViewDelegate");
 var UIAlertViewDelegate;
-_exports.UIAlertViewDelegate = UIAlertViewDelegate = foundation.Protocol.extendClass("UIAlertViewDelegate", () => { return {
+_exports.UIAlertViewDelegate = UIAlertViewDelegate = foundation.Protocol.extendClass("UIAlertViewDelegate", () => ({
 
   // Responding to Actions
   clickedButton:                objc.optionalMethod("alertView:clickedButtonAtIndex:"),
@@ -17,4 +17,4 @@ _exports.UIAlertViewDelegate = UIAlertViewDelegate = foundation.Protocol.extendC
   // Canceling
   cancel:                       objc.optionalMethod("alertViewCancel:")
 
-}; });
+}));

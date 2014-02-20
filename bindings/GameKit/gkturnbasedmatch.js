@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.GKTurnBasedMatch = GKTurnBasedMatch = foundation.NSObject.extendClass ("GKTurnBasedMatch", {
+var GKTurnBasedMatch;
+_exports.GKTurnBasedMatch = GKTurnBasedMatch = foundation.NSObject.extendClass ("GKTurnBasedMatch", () => ({
 
     // Retrieving Existing Matches
     loadMatches: objc.staticSelector("loadMatchesWithCompletionHandler:"),
@@ -33,4 +34,4 @@ exports.GKTurnBasedMatch = GKTurnBasedMatch = foundation.NSObject.extendClass ("
     // Deleting a Match From Game Center
     remove: objc.instanceSelector("removeWithCompletionHandler:")
 
-});
+}));

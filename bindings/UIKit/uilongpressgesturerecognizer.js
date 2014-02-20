@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UILongPressGestureRecognizer");
 var UILongPressGestureRecognizer;
-_exports.UILongPressGestureRecognizer = UILongPressGestureRecognizer = UIGestureRecognizer.extendClass ("UILongPressGestureRecognizer", () => { return {
+_exports.UILongPressGestureRecognizer = UILongPressGestureRecognizer = UIGestureRecognizer.extendClass ("UILongPressGestureRecognizer", () => ({
 
     // Configuring the Gesture Recognizer
     minimumPressDuration: objc.instanceProperty(),
@@ -10,4 +10,4 @@ _exports.UILongPressGestureRecognizer = UILongPressGestureRecognizer = UIGesture
     numberOfTapsRequired: objc.instanceProperty(),
     allowableMovement: objc.instanceProperty()
 
-}; });
+}));

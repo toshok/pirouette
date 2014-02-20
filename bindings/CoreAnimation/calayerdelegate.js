@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("CALayerDelegate");
 var CALayerDelegate;
-exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", () => ({
+_exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", () => ({
 
     // Providing Layer Content
     displayLayer:   objc.optionalMethod("displayLayer"),

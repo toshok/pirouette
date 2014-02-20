@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.MKMapView = MKMapView = ui.UIView.extendClass ("MKMapView", {
+var MKMapView;
+_exports.MKMapView = MKMapView = ui.UIView.extendClass ("MKMapView", () => ({
 
     // Accessing Map Properties
     mapType:       objc.instanceProperty(),
@@ -66,4 +67,4 @@ exports.MKMapView = MKMapView = ui.UIView.extendClass ("MKMapView", {
     // Tracking the User Location
     setUserTrackingMode: objc.instanceSelector("setUserTrackingMode:animated:"),
     userTrackingMode: objc.instanceProperty({ set: function(v) { return this.setUserTrackingMode(v, false); } })
-});
+}));

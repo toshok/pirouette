@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 console.log ("UIButton");
 var UIButton;
-_exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => { return {
+_exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => ({
 
   // Creating Buttons
   buttonWithType:                     objc.staticSelector("buttonWithType:"),
@@ -71,4 +71,4 @@ _exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => { return
       get: function () { return this.getTitle(UIControlState.normal); }
   })
 
-}; });
+}));

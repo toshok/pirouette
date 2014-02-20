@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UISearchDisplayController");
 var UISearchDisplayController;
-_exports.UISearchDisplayController = UISearchDisplayController = foundation.NSObject.extendClass ("UISearchDisplayController", () => { return {
+_exports.UISearchDisplayController = UISearchDisplayController = foundation.NSObject.extendClass ("UISearchDisplayController", () => ({
 
     // Initialization
     initWithSearchBar: objc.instanceSelector("initWithSearchBar:contentsController:"),
@@ -20,4 +20,4 @@ _exports.UISearchDisplayController = UISearchDisplayController = foundation.NSOb
     searchResultsDelegate:    objc.instanceProperty(),
     searchResultsTitle:       objc.instanceProperty()
 
-}; });
+}));

@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIImageView");
 var UIImageView;
-_exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", () => { return {
+_exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", () => ({
 
     // Initializing a UIImageView Object
     initWithImage:                    objc.instanceSelector("initWithImage:"),
@@ -25,4 +25,4 @@ _exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", () => { 
     userInteractionEnabled: objc.instanceProperty(),
     highlighted: objc.instanceProperty()
 
-}; });
+}));

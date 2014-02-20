@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIActivityIndicatorView");
 var UIActivityIndicatorView;
-_exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", () => { return {
+_exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", () => ({
 
   // Initializing an Activity Indicator
   initWithActivityIndicatorStyle: objc.instanceSelector("initWithActivityIndicatorStyle:"),
@@ -17,4 +17,4 @@ _exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass 
   activityIndicatorViewStyle: objc.instanceProperty(),
   color: objc.instanceProperty()
 
-}; });
+}));

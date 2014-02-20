@@ -1,7 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 var UIScrollView;
-_exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", () => { return {
+_exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", () => ({
 
     // Managing the Display of Content
     setContentOffset: objc.instanceSelector("setContentOffset:animated:"),
@@ -49,4 +49,4 @@ _exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", () =>
     // Managing the Delegate
     delegate: objc.autoboxProperty(UIScrollViewDelegate)
 
-}; });
+}));

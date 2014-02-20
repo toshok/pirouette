@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSTableViewDataSource = NSTableViewDataSource = foundation.Protocol.extendClass("NSTableViewDataSource", {
+var NSTableViewDataSource;
+_exports.NSTableViewDataSource = NSTableViewDataSource = foundation.Protocol.extendClass("NSTableViewDataSource", () => ({
 
     // Getting Values
     numberOfRows: objc.optionalMethod ("numberOfRowsInTableView:"),
@@ -24,4 +25,4 @@ exports.NSTableViewDataSource = NSTableViewDataSource = foundation.Protocol.exte
     // Sorting
     sortDescriptorsChanged: objc.optionalMethod ("tableView:sortDescriptorsDidChange:")
 
-});
+}));

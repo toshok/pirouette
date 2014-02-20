@@ -1,5 +1,5 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("NSResponder");
 var NSResponder;
-exports.NSResponder = NSResponder = NSObject.extendClass("NSResponder", {});
+_exports.NSResponder = NSResponder = NSObject.extendClass("NSResponder", {});

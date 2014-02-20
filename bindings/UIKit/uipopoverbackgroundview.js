@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPopoverBackgroundView");
 var UIPopoverBackgroundView;
-_exports.UIPopoverBackgroundView = UIPopoverBackgroundView = UIView.extendClass ("UIPopoverBackgroundView", () => { return {
+_exports.UIPopoverBackgroundView = UIPopoverBackgroundView = UIView.extendClass ("UIPopoverBackgroundView", () => ({
 
     // Returning the Content View Insets
     contentViewInsets: objc.staticSelector("contentViewInsets"),
@@ -14,4 +14,4 @@ _exports.UIPopoverBackgroundView = UIPopoverBackgroundView = UIView.extendClass 
     arrowHeight: objc.staticSelector("arrowHeight"),
     arrowBase:   objc.staticSelector("arrowBase")
 
-}; });
+}));

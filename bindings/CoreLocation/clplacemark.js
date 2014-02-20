@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.CLPlacemark = CLPlacemark = foundation.NSObject.extendClass("CLPlacemark", {
+var CLPlacemark;
+_exports.CLPlacemark = CLPlacemark = foundation.NSObject.extendClass("CLPlacemark", () => ({
 
     // Initializing a Placemark Object
     initWithPlacemark: objc.instanceSelector("initWithPlacemark:"),
@@ -29,4 +30,4 @@ exports.CLPlacemark = CLPlacemark = foundation.NSObject.extendClass("CLPlacemark
     // Accessing Landmark Information
     areasOfInterest: objc.instanceProperty()
 
-});
+}));

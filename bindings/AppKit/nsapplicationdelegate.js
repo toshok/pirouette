@@ -1,6 +1,7 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-exports.NSApplicationDelegate = NSApplicationDelegate = foundation.Protocol.extendClass ("NSApplicationDelegate", {
+var NSApplicationDelegate;
+_exports.NSApplicationDelegate = NSApplicationDelegate = foundation.Protocol.extendClass ("NSApplicationDelegate", () => ({
 
   // Launching Applications
   willFinishLaunching: objc.optionalMethod("applicationWillFinishLaunching:").returns(objc.sig.Void).params([NSObject/*should be NSDictionary*/]),
@@ -57,4 +58,4 @@ exports.NSApplicationDelegate = NSApplicationDelegate = foundation.Protocol.exte
   // Application Restorable State
   didDecodeRestorableState: objc.optionalMethod("application:didDecodeRestorableState:"),
   willEncodeRestorableState: objc.optionalMethod("application:willEncodeRestorableState:")
-});
+}));

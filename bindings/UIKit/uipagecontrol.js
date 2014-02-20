@@ -1,8 +1,8 @@
-// This file is part of coffeekit.  for licensing information, see the LICENSE file
+// This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIPageControl");
 var UIPageControl;
-_exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", () => { return {
+_exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", () => ({
 
     // Managing the Page Navigation
     currentPage: objc.instanceProperty(),
@@ -16,4 +16,4 @@ _exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl",
     // Resizing the Control
     sizeForNumberOfPages: objc.instanceSelector("sizeForNumberOfPages:")
 
-}; });
+}));

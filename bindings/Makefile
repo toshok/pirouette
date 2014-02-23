@@ -114,6 +114,8 @@ FRAMEWORK_SOURCES_AppKit= \
 	AppKit/nsanimation.js \
 	AppKit/nsanimationcontext.js \
 	AppKit/nsview.js \
+	AppKit/nscolor.js \
+	AppKit/nscolorlist.js \
 	AppKit/nscontrol.js \
 	AppKit/nscontroller.js \
 	AppKit/nsbutton.js \

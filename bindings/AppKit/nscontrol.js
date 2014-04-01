@@ -1,102 +1,103 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSControl;
-_exports.NSControl = NSControl = NSView.extendClass("NSControl", () => ({
+import { instanceSelector, instanceProperty, sig, chainCtor } from '../objc';
+import { NSView } from 'nsview';
+import { NSObject } from '../foundation';
+
+export let NSControl = NSView.extendClass("NSControl", () => ({
     // Initializing an NSControl
-    initWithFrame: objc.instanceSelector("initWithFrame:"),
+    initWithFrame: instanceSelector("initWithFrame:"),
 
     // Setting the Control’s Cell
-    cellClass: objc.instanceProperty(),
-    cell: objc.instanceProperty(),
+    cellClass: instanceProperty(),
+    cell: instanceProperty(),
 
     // Enabling and Disabling the Control
-    enabled: objc.instanceProperty({ get: "isEnabled" }),
+    enabled: instanceProperty({ get: "isEnabled" }),
 
     // Identifying the Selected Cell
-    selectedCell: objc.instanceSelector("selectedCell"),
-    selectedTag: objc.instanceSelector("selectedTag"),
+    selectedCell: instanceSelector("selectedCell"),
+    selectedTag: instanceSelector("selectedTag"),
 
     // Setting the Control’s Value
-    doubleValue: objc.instanceProperty(),
-    floatValue: objc.instanceProperty(),
-    intValue: objc.instanceProperty(),
-    integerValue: objc.instanceProperty(),
-    objectValue: objc.instanceProperty(),
-    stringValue: objc.instanceProperty(),
-    attributedStringValue: objc.instanceProperty(),
-    setNeedsDisplay: objc.instanceSelector("setNeedsDisplay"),
+    doubleValue: instanceProperty(),
+    floatValue: instanceProperty(),
+    intValue: instanceProperty(),
+    integerValue: instanceProperty(),
+    objectValue: instanceProperty(),
+    stringValue: instanceProperty(),
+    attributedStringValue: instanceProperty(),
+    setNeedsDisplay: instanceSelector("setNeedsDisplay"),
 
     // Interacting with Other Controls
-    takeDoubleValueFrom: objc.instanceSelector("takeDoubleValueFrom:"),
-    takeFloatValueFrom: objc.instanceSelector("takeFloatValueFrom:"),
-    takeIntValueFrom: objc.instanceSelector("takeIntValueFrom:"),
-    takeIntegerValueFrom: objc.instanceSelector("takeIntegerValueFrom:"),
-    takeObjectValueFrom: objc.instanceSelector("takeObjectValueFrom:"),
-    takeStringValueFrom: objc.instanceSelector("takeStringValueFrom:"),
+    takeDoubleValueFrom: instanceSelector("takeDoubleValueFrom:"),
+    takeFloatValueFrom: instanceSelector("takeFloatValueFrom:"),
+    takeIntValueFrom: instanceSelector("takeIntValueFrom:"),
+    takeIntegerValueFrom: instanceSelector("takeIntegerValueFrom:"),
+    takeObjectValueFrom: instanceSelector("takeObjectValueFrom:"),
+    takeStringValueFrom: instanceSelector("takeStringValueFrom:"),
 
     // Formatting Text
-    alignment: objc.instanceProperty(),
-    font: objc.instanceProperty(),
-    formatter: objc.instanceProperty(),
-    baseWritingDirection: objc.instanceProperty(),
-    setFloatingPointFormat: objc.instanceSelector("setFloatingPointFormat:left:right:"), // Deprecated in Mac OS X v10.0
+    alignment: instanceProperty(),
+    font: instanceProperty(),
+    formatter: instanceProperty(),
+    baseWritingDirection: instanceProperty(),
+    setFloatingPointFormat: instanceSelector("setFloatingPointFormat:left:right:"), // Deprecated in Mac OS X v10.0
 
     // Managing the Field Editor
-    abortEditing: objc.instanceSelector("abortEditing"),
-    currentEditor: objc.instanceSelector("currentEditor"),
-    validateEditing: objc.instanceSelector("validateEditing"),
+    abortEditing: instanceSelector("abortEditing"),
+    currentEditor: instanceSelector("currentEditor"),
+    validateEditing: instanceSelector("validateEditing"),
 
     // Resizing the Control
-    calcSize: objc.instanceSelector("calcSize"),
-    sizeToFit: objc.instanceSelector("sizeToFit"),
+    calcSize: instanceSelector("calcSize"),
+    sizeToFit: instanceSelector("sizeToFit"),
 
     // Displaying a Cell
-    selectCell: objc.instanceSelector("selectCell:"),
-    drawCell: objc.instanceSelector("drawCell:"),
-    drawCellInside: objc.instanceSelector("drawCellInside:"),
-    updateCell: objc.instanceSelector("updateCell:"),
-    updateCellInside: objc.instanceSelector("updateCellInside:"),
+    selectCell: instanceSelector("selectCell:"),
+    drawCell: instanceSelector("drawCell:"),
+    drawCellInside: instanceSelector("drawCellInside:"),
+    updateCell: instanceSelector("updateCell:"),
+    updateCellInside: instanceSelector("updateCellInside:"),
 
     // Implementing the Target/action Mechanism
-    action: objc.instanceProperty(),
-    target: objc.instanceProperty(),
-    continuous: objc.instanceProperty({ get: "isContinuous" }),
-    sendActionTo: objc.instanceSelector("sendAction:to:"),
-    sendActionOn: objc.instanceSelector("sendActionOn:"),
+    action: instanceProperty(),
+    target: instanceProperty(),
+    continuous: instanceProperty({ get: "isContinuous" }),
+    sendActionTo: instanceSelector("sendAction:to:"),
+    sendActionOn: instanceSelector("sendActionOn:"),
 
     // Getting and Setting Tags
-    tag: objc.instanceProperty(),
+    tag: instanceProperty(),
 
     // Activating from the Keyboard
-    performClick: objc.instanceSelector("performClick:"),
-    refusesFirstResponder: objc.instanceSelector("refusesFirstResponder"),
-    setRefusesFirstResponder: objc.instanceSelector("setRefusesFirstResponder:"),
+    performClick: instanceSelector("performClick:"),
+    refusesFirstResponder: instanceSelector("refusesFirstResponder"),
+    setRefusesFirstResponder: instanceSelector("setRefusesFirstResponder:"),
 
     // Tracking the Mouse
-    mouseDown: objc.instanceSelector("mouseDown:"),
-    ignoresMultiClick: objc.instanceProperty(),
+    mouseDown: instanceSelector("mouseDown:"),
+    ignoresMultiClick: instanceProperty(),
 
     // Control Editing Notifications
-    controlTextDidBeginEditing: objc.instanceSelector("controlTextDidBeginEditing:"),  // delegate method
-    controlTextDidChange: objc.instanceSelector("controlTextDidChange:"),  // delegate method
-    controlTextDidEndEditing: objc.instanceSelector("controlTextDidEndEditing:"),  // delegate method
+    controlTextDidBeginEditing: instanceSelector("controlTextDidBeginEditing:"),  // delegate method
+    controlTextDidChange: instanceSelector("controlTextDidChange:"),  // delegate method
+    controlTextDidEndEditing: instanceSelector("controlTextDidEndEditing:"),  // delegate method
 
     // Supporting Constraint-Based Layout
-    invalidateIntrinsicContentSizeForCell: objc.instanceSelector("invalidateIntrinsicContentSizeForCell:")
+    invalidateIntrinsicContentSizeForCell: instanceSelector("invalidateIntrinsicContentSizeForCell:")
 
 }));
 
-
-var NSControlProxy;
-_exports.NSControlProxy = NSControlProxy = foundation.NSObject.extendClass("NSControlProxy", () => ({
+export let NSControlProxy = NSObject.extendClass("NSControlProxy", () => ({
     constructor: function(fn) {
-      objc.chainCtor (NSControlProxy, this, []);
+      chainCtor (NSControlProxy, this, []);
       this.fn = fn;
     },
 
-    proxyAction: objc.instanceSelector("action").
-                               returns( function() { return objc.sig.Void; }).
-			        params( function() { return [foundation.NSObject]; }).
+    proxyAction: instanceSelector("action").
+                               returns( function() { return sig.Void; }).
+			        params( function() { return [NSObject]; }).
 				  impl( function() { return this.fn(); })
 
 }));

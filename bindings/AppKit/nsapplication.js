@@ -1,182 +1,217 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+module objc_internal from '@objc_internal';
+
+import { instanceProperty, staticProperty, autoboxProperty, instanceSelector, staticSelector, staticCall } from '../objc';
+import { NSResponder } from '../foundation';
+import { NSApplicationDelegate } from 'nsapplicationdelegate';
+
 console.log("NSApplication");
-var NSApplication;
-_exports.NSApplication = NSApplication = foundation.NSResponder.extendClass("NSApplication", () => ({
+
+export let NSApplication = NSResponder.extendClass("NSApplication", () => ({
     // Getting the Application
-    sharedApplication: objc.staticProperty( { get: function() { return new NSApplication (objc.staticCall("NSApplication", "sharedApplication")); } } ),
+    //
+    sharedApplication: staticProperty({ get: () => new NSApplication(staticCall("NSApplication", "sharedApplication")) }),
 
     // Configuring Applications
-    applicationIconImage: objc.instanceSelector("applicationIconImage"),
-    setApplicationIconImage: objc.instanceSelector("setApplicationIconImage:"),
+    //
+    applicationIconImage: instanceProperty(),
 
-    delegate: objc.autoboxProperty(NSApplicationDelegate),
+    delegate: autoboxProperty(NSApplicationDelegate),
 
     // Launching Applications
-    finishLaunching: objc.instanceSelector("finishLaunching"),
+    //
+    finishLaunching: instanceSelector(),
 
     // Terminating Applications
-    terminate: objc.instanceSelector("terminate:"),
-    replyToApplicationShouldTerminate: objc.instanceSelector("replyToApplicationShouldTerminate:"),
+    //
+    terminate:                         instanceSelector("terminate:"),
+    replyToApplicationShouldTerminate: instanceSelector("replyToApplicationShouldTerminate:"),
 
     // Managing Active Status
-    isActive: objc.instanceSelector("isActive"),
-    activateIgnoringOtherApps: objc.instanceSelector("activateIgnoringOtherApps:"),
-    deactivate: objc.instanceSelector("deactivate"),
+    //
+    isActive:                  instanceProperty({set: null}), // read-only
+    activateIgnoringOtherApps: instanceSelector("activateIgnoringOtherApps:"),
+    deactivate:                instanceSelector(),
+
+    // Window Restoration
+    //
+    extendStateRestoration:   instanceSelector(),
+    completeStateRestoration: instanceSelector(),
+    restoreWindow:            instanceSelector("restoreWindowWithIdentifier:state:completionHandler:"),
 
     // Hiding Applications
-    hideOtherApplications: objc.instanceSelector("hideOtherApplications:"),
-    unhideAllApplications: objc.instanceSelector("unhideAllApplications:"),
+    //
+    hideOtherApplications: instanceSelector("hideOtherApplications:"),
+    unhideAllApplications: instanceSelector("unhideAllApplications:"),
 
     // Managing the Event Loop
-    isRunning: objc.instanceSelector("isRunning"),
-    run: objc.instanceSelector("run"),
-    stop: objc.instanceSelector("stop:"),
-    runModalForWindow: objc.instanceSelector("runModalForWindow:"),
-    stopModal: objc.instanceSelector("stopModal"),
-    stopModalWithCode: objc.instanceSelector("stopModalWithCode:"),
-    abortModal: objc.instanceSelector("abortModal"),
-    beginModalSessionForWindow: objc.instanceSelector("beginModalSessionForWindow:"),
-    runModalSession: objc.instanceSelector("runModalSession:"),
-    modalWindow: objc.instanceSelector("modalWindow"),
-    endModalSession: objc.instanceSelector("endModalSession:"),
-    sendEvent: objc.instanceSelector("sendEvent:"),
+    //
+    isRunning:         instanceProperty({ set: null }), // read-only
+    run:               instanceSelector("run"),
+    stop:              instanceSelector("stop:"),
+    runModal:          instanceSelector("runModalForWindow:"),
+    stopModal:         instanceSelector("stopModal"),
+    stopModalWithCode: instanceSelector("stopModalWithCode:"),
+    abortModal:        instanceSelector("abortModal"),
+    beginModalSession: instanceSelector("beginModalSessionForWindow:"),
+    runModalSession:   instanceSelector("runModalSession:"),
+    modalWindow:       instanceProperty({ set: null }), // read-only
+    endModalSession:   instanceSelector("endModalSession:"),
+    sendEvent:         instanceSelector("sendEvent:"),
 
     // Handling Events
-    currentEvent: objc.instanceSelector("currentEvent"),
-    nextEvent: objc.instanceSelector("nextEventMatchingMask:untilDate:inMode:dequeue:"),
-    discardEvents: objc.instanceSelector("discardEventsMatchingMask:beforeEvent:"),
+    //
+    currentEvent:  instanceSelector("currentEvent"),
+    nextEvent:     instanceSelector("nextEventMatchingMask:untilDate:inMode:dequeue:"),
+    discardEvents: instanceSelector("discardEventsMatchingMask:beforeEvent:"),
 
     // Posting Events
-    postEvent: objc.instanceSelector("postEvent:atStart:"),
+    //
+    postEvent: instanceSelector("postEvent:atStart:"),
 
     // Managing Sheets
-    beginSheet: objc.instanceSelector("beginSheet:modalForWindow:modalDelegate:didEndSelector:contextInfo:"),
-    endSheet: objc.instanceSelector("endSheet:"),
-    endSheetWithReturnCode: objc.instanceSelector("endSheet:returnCode:"),
+    //
+    beginSheet:             instanceSelector("beginSheet:modalForWindow:modalDelegate:didEndSelector:contextInfo:"),
+    endSheet:               instanceSelector("endSheet:"),
+    endSheetWithReturnCode: instanceSelector("endSheet:returnCode:"),
 
     // Managing Windows
-    keyWindow: objc.instanceSelector("keyWindow"),
-    mainWindow: objc.instanceSelector("mainWindow"),
-    windowWithWindowNumber: objc.instanceSelector("windowWithWindowNumber:"),
-    windows: objc.instanceSelector("windows"),
-    makeWindowsPerform: objc.instanceSelector("makeWindowsPerform:inOrder:"),
+    //
+    keyWindow:              instanceProperty({ set: null }), // read-only
+    mainWindow:             instanceProperty({ set: null }), // read-only
+    windowWithWindowNumber: instanceSelector("windowWithWindowNumber:"),
+    windows:                instanceProperty({ set: null }), // read-only
+    makeWindowsPerform:     instanceSelector("makeWindowsPerform:inOrder:"),
 
     // Minimizing Windows
-    miniaturizeAll: objc.instanceSelector("miniaturizeAll:"),
+    //
+    miniaturizeAll: instanceSelector("miniaturizeAll:"),
 
     // User Interface Layout Direction
-    userInterfaceLayoutDirection: objc.instanceSelector("userInterfaceLayoutDirection"),
+    //
+    userInterfaceLayoutDirection: instanceSelector("userInterfaceLayoutDirection"),
 
     // Hiding Windows
-    isHidden: objc.instanceSelector("isHidden"),
-    hide: objc.instanceSelector("hide:"),
-    unhide: objc.instanceSelector("unhide:"),
-    unhideWithoutActivation: objc.instanceSelector("unhideWithoutActivation"),
+    //
+    isHidden:                instanceProperty({ set: null }), // read-only
+    hide:                    instanceSelector("hide:"),
+    unhide:                  instanceSelector("unhide:"),
+    unhideWithoutActivation: instanceSelector(),
 
     // Updating Windows
-    updateWindows: objc.instanceSelector("updateWindows"),
-    setWindowsNeedUpdate: objc.instanceSelector("setWindowsNeedUpdate:"),
+    //
+    updateWindows:        instanceSelector(),
+    setWindowsNeedUpdate: instanceSelector("setWindowsNeedUpdate:"),
 
     // Managing Window Layers
-    preventWindowOrdering: objc.instanceSelector("preventWindowOrdering"),
-    arrangeInFront: objc.instanceSelector("arrangeInFront:"),
+    //
+    preventWindowOrdering: instanceSelector(),
+    arrangeInFront:        instanceSelector("arrangeInFront:"),
 
     // Accessing the Main Menu
-    mainMenu: objc.instanceSelector("mainMenu"),
-    setMainMenu: objc.instanceSelector("setMainMenu:"),
+    //
+    mainMenu:    instanceProperty(),
 
     // Managing the Window Menu
-    windowsMenu: objc.instanceSelector("windowsMenu"),
-    setWindowsMenu: objc.instanceSelector("setWindowsMenu:"),
-    addWindowsItem: objc.instanceSelector("addWindowsItem:title:filename:"),
-    changeWindowsItem: objc.instanceSelector("changeWindowsItem:title:filename:"),
-    removeWindowsItem: objc.instanceSelector("removeWindowsItem:"),
-    updateWindowsItem: objc.instanceSelector("updateWindowsItem:"),
+    //
+    windowsMenu:       instanceProperty(),
+    addWindowsItem:    instanceSelector("addWindowsItem:title:filename:"),
+    changeWindowsItem: instanceSelector("changeWindowsItem:title:filename:"),
+    removeWindowsItem: instanceSelector("removeWindowsItem:"),
+    updateWindowsItem: instanceSelector("updateWindowsItem:"),
 
     // Accessing the Dock Tile
-    dockTile: objc.instanceSelector("dockTile"),
+    //
+    dockTile: instanceSelector(),
 
     // Managing the Services Menu
-    registerServicesMenu: objc.instanceSelector("registerServicesMenuSendTypes:returnTypes:"),
-    servicesMenu: objc.instanceSelector("servicesMenu"),
-    setServicesMenu: objc.instanceSelector("setServicesMenu:"),
+    //
+    registerServicesMenu: instanceSelector("registerServicesMenuSendTypes:returnTypes:"),
+    servicesMenu:         instanceProperty(),
 
     // Providing Services
-    validRequestor: objc.instanceSelector("validRequestorForSendType:returnType:"),
-    servicesProvider: objc.instanceSelector("servicesProvider"),
-    setServicesProvider: objc.instanceSelector("setServicesProvider:"),
+    //
+    validRequestor:      instanceSelector("validRequestorForSendType:returnType:"),
+    servicesProvider:    instanceProperty(),
 
     // Managing Panels
-    orderFrontColorPanel: objc.instanceSelector("orderFrontColorPanel:"),
-    orderFrontStandardAboutPanel: objc.instanceSelector("orderFrontStandardAboutPanel:"),
-    orderFrontStandardAboutPanelWithOptions: objc.instanceSelector("orderFrontStandardAboutPanelWithOptions:"),
-    orderFrontCharacterPalette: objc.instanceSelector("orderFrontCharacterPalette:"),
-    runPageLayout: objc.instanceSelector("runPageLayout:"),
+    //
+    orderFrontColorPanel:                    instanceSelector("orderFrontColorPanel:"),
+    orderFrontStandardAboutPanel:            instanceSelector("orderFrontStandardAboutPanel:"),
+    orderFrontStandardAboutPanelWithOptions: instanceSelector("orderFrontStandardAboutPanelWithOptions:"),
+    orderFrontCharacterPalette:              instanceSelector("orderFrontCharacterPalette:"),
+    runPageLayout:                           instanceSelector("runPageLayout:"),
 
     // Displaying Help
-    showHelp: objc.instanceSelector("showHelp:"),
-    activateContextHelpMode: objc.instanceSelector("activateContextHelpMode:"),
-    helpMenu: objc.instanceSelector("helpMenu"),
-    setHelpMenu: objc.instanceSelector("setHelpMenu:"),
+    //
+    showHelp:                instanceSelector("showHelp:"),
+    activateContextHelpMode: instanceSelector("activateContextHelpMode:"),
+    helpMenu:                instanceProperty(),
 
     // Managing Threads
-    detachDrawingThread: objc.instanceSelector("detachDrawingThread:toTarget:withObject:"),
+    //
+    detachDrawingThread: staticSelector("detachDrawingThread:toTarget:withObject:"),
 
     // Posting Actions
-    tryToPerform: objc.instanceSelector("tryToPerform:with:"),
-    sendAction: objc.instanceSelector("sendAction:to:from:"),
-    targetForAction: objc.instanceSelector("targetForAction:"),
-    targetForActionToFrom: objc.instanceSelector("targetForAction:to:from:"),
+    //
+    tryToPerform:          instanceSelector("tryToPerform:with:"),
+    sendAction:            instanceSelector("sendAction:to:from:"),
+    targetForAction:       instanceSelector("targetForAction:"),
+    targetForActionToFrom: instanceSelector("targetForAction:to:from:"),
 
     // Drawing Windows
-    context: objc.instanceSelector("context"),
+    //
+    context: instanceSelector(),
 
     // Logging Exceptions
-    reportException: objc.instanceSelector("reportException:"),
+    //
+    reportException: instanceSelector("reportException:"),
 
     // Scripting
-    // FIXME application:delegateHandlesKey:: objc.instanceSelector("application:delegateHandlesKey:" // delegate method
-    orderedDocuments: objc.instanceSelector("orderedDocuments"),
-    orderedWindows: objc.instanceSelector("orderedWindows"),
+    //
+    // FIXME application:delegateHandlesKey:: instanceSelector("application:delegateHandlesKey:" // delegate method
+    orderedDocuments: instanceSelector(),
+    orderedWindows:   instanceSelector(),
 
     // Managing User Attention Requests
-    requestUserAttention: objc.instanceSelector("requestUserAttention:"),
-    cancelUserAttentionRequest: objc.instanceSelector("cancelUserAttentionRequest:"),
-    replyToOpenOrPrint: objc.instanceSelector("replyToOpenOrPrint:"),
+    //
+    requestUserAttention:       instanceSelector("requestUserAttention:"),
+    cancelUserAttentionRequest: instanceSelector("cancelUserAttentionRequest:"),
+    replyToOpenOrPrint:         instanceSelector("replyToOpenOrPrint:"),
 
     // Keyboard Accessibility
-    isFullKeyboardAccessEnabled: objc.instanceSelector("isFullKeyboardAccessEnabled"),
+    //
+    isFullKeyboardAccessEnabled: instanceSelector(),
 
     // Presentation Options
-    currentSystemPresentationOptions: objc.instanceSelector("currentSystemPresentationOptions"),
-    presentationOptions: objc.instanceSelector("presentationOptions"),
-    setPresentationOptions: objc.instanceSelector("setPresentationOptions:"),
+    //
+    currentSystemPresentationOptions: instanceProperty({ set: null }), // read-only
+    presentationOptions:              instanceProperty(),
 
     // Activation Policy
-    activationPolicy: objc.instanceSelector("activationPolicy"),
-    setActivationPolicy: objc.instanceSelector("setActivationPolicy:"),
-
-    // Deprecated
-    // FIXME
-    //application:printFiles:: objc.instanceSelector("application:printFiles:"  // delegate method Available in Mac OS X v10.3 through Mac OS X v10.5
-    //beginModalSessionForWindow:relativeToWindow:: objc.instanceSelector("beginModalSessionForWindow:relativeToWindow:" // Deprecated in Mac OS X v10.0
-    //runModalForWindow:relativeToWindow:: objc.instanceSelector("runModalForWindow:relativeToWindow:" // Deprecated in Mac OS X v10.0
+    //
+    activationPolicy: instanceProperty(),
 
     // Spotlight for Help
-    registerUserInterfaceItemSearchHandler: objc.instanceSelector("registerUserInterfaceItemSearchHandler:"),
-    unregisterUserInterfaceItemSearchHandler: objc.instanceSelector("unregisterUserInterfaceItemSearchHandler:"),
-    searchString: objc.instanceSelector("searchString:inUserInterfaceItemString:searchRange:foundRange:"),
+    //
+    registerUserInterfaceItemSearchHandler:   instanceSelector("registerUserInterfaceItemSearchHandler:"),
+    unregisterUserInterfaceItemSearchHandler: instanceSelector("unregisterUserInterfaceItemSearchHandler:"),
+    searchString:                             instanceSelector("searchString:inUserInterfaceItemString:searchRange:foundRange:"),
 
     // Managing Relaunch on Login
-    disableRelaunchOnLogin: objc.instanceSelector("disableRelaunchOnLogin"),
-    enableRelaunchOnLogin: objc.instanceSelector("enableRelaunchOnLogin"),
+    //
+    disableRelaunchOnLogin: instanceSelector(),
+    enableRelaunchOnLogin:  instanceSelector(),
 
     // Managing Remote Notifications
-    enabledRemoteNotificationTypes: objc.instanceSelector("enabledRemoteNotificationTypes"),
-    registerForRemoteNotificationTypes: objc.instanceSelector("registerForRemoteNotificationTypes:"),
-    unregisterForRemoteNotifications: objc.instanceSelector("unregisterForRemoteNotifications")
+    //
+    enabledRemoteNotificationTypes:     instanceProperty({ set: null }), // read-only
+    registerForRemoteNotificationTypes: instanceSelector("registerForRemoteNotificationTypes:"),
+    unregisterForRemoteNotifications:   instanceSelector("unregisterForRemoteNotifications"),
 
+    // Accessing Occlusion State
+    occlusionState: instanceProperty({ set: null }), // read-only
 }));
 console.log("<NSApplication");
 

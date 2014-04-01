@@ -1,42 +1,44 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSTableColumn;
-_exports.NSTableColumn = NSTableColumn = foundation.NSObject.extendClass("NSTableColumn", () => ({
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let NSTableColumn = NSObject.extendClass("NSTableColumn", () => ({
     // Creating an NSTableColumn
-    initWithIdentifier: objc.instanceSelector("initWithIdentifier:"),
+    initWithIdentifier: instanceSelector("initWithIdentifier:"),
 
     // Setting the NSTableView
-    tableView: objc.instanceProperty(),
+    tableView: instanceProperty(),
 
     // Controlling Size
-    width: objc.instanceProperty(),
-    minWidth: objc.instanceProperty(),
-    maxWidth: objc.instanceProperty(),
-    resizingMask: objc.instanceProperty(),
-    sizeToFit: objc.instanceSelector("sizeToFit"),
+    width: instanceProperty(),
+    minWidth: instanceProperty(),
+    maxWidth: instanceProperty(),
+    resizingMask: instanceProperty(),
+    sizeToFit: instanceSelector("sizeToFit"),
 
     // Setting Component Cells
-    headerCell: objc.instanceProperty(),
-    dataCell: objc.instanceProperty(),
-    dataCellForRow: objc.instanceSelector("dataCellForRow:"),
+    headerCell: instanceProperty(),
+    dataCell: instanceProperty(),
+    dataCellForRow: instanceSelector("dataCellForRow:"),
 
     // Setting the Identifier
-    identifier: objc.instanceProperty(),
+    identifier: instanceProperty(),
 
     // Controlling Editability
-    editable: objc.instanceProperty({ get: "isEditable" }),
+    editable: instanceProperty({ get: "isEditable" }),
 
     // Sorting
-    sortDescriptorPrototype: objc.instanceProperty(),
+    sortDescriptorPrototype: instanceProperty(),
 
     // Setting Column Visibility
-    hidden: objc.instanceProperty({ get: "isHidden" }),
+    hidden: instanceProperty({ get: "isHidden" }),
 
     // Setting Tool Tips
-    headerToolTip: objc.instanceProperty(),
+    headerToolTip: instanceProperty(),
 
     // Deprecated Methods
-    resizable: objc.instanceProperty({ get: "isResizable" }) // Deprecated in OS X v10.4
+    resizable: instanceProperty({ get: "isResizable" }) // Deprecated in OS X v10.4
 
 }));
 

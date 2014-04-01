@@ -1,8 +1,10 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { extendClass, createExtendClass } from '../objc';
+import { PirouetteObject, allocInstance } from '@objc_internal';
+
 // console.log("NSObject");
-var NSObject;
-_exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.PirouetteObject, () => ({
+export let NSObject = extendClass("NSObject", PirouetteObject, () => ({
 
     constructor: function (handle) {
       this.handle = handle;
@@ -13,7 +15,7 @@ _exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.Piroue
       }
 
       // then make sure to associate the handle to this object
-      objc_internal.PirouetteObject.setHandle.call(this, this.handle);
+      PirouetteObject.setHandle.call(this, this.handle);
     },
 
     toString: function () {
@@ -24,7 +26,7 @@ _exports.NSObject = NSObject = objc.extendClass("NSObject", objc_internal.Piroue
 
 NSObject.alloc = function() {
   //console.log ("NSObject.alloc(" + this._ck_register + ")");
-  return objc_internal.allocInstance (this._ck_register);
+  return allocInstance (this._ck_register);
 };
 
 NSObject.getTypeSignature = function() {
@@ -48,7 +50,7 @@ NSObject.newWith = function(newInfo) {
 };
 
 console.log("creating NSObject.extendClass");
-objc.createExtendClass(NSObject);
+createExtendClass(NSObject);
 
 /*
  @mixinProtocol: (p) -> new ck.MixinProtocolAttribute @, p

@@ -1,61 +1,63 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSApplicationDelegate;
-_exports.NSApplicationDelegate = NSApplicationDelegate = foundation.Protocol.extendClass ("NSApplicationDelegate", () => ({
+import { NSObject, Protocol } from '../foundation';
+import { optionalMethod, sig } from '../objc';
+
+export let NSApplicationDelegate = Protocol.extendClass ("NSApplicationDelegate", () => ({
 
   // Launching Applications
-  willFinishLaunching: objc.optionalMethod("applicationWillFinishLaunching:").returns(objc.sig.Void).params([NSObject/*should be NSDictionary*/]),
-  didFinishLaunching: objc.optionalMethod("applicationDidFinishLaunching:").returns(objc.sig.Void).params([NSObject/*should be NSDictionary*/]),
+  willFinishLaunching: optionalMethod("applicationWillFinishLaunching:").returns(sig.Void).params([NSObject/*should be NSDictionary*/]),
+  didFinishLaunching: optionalMethod("applicationDidFinishLaunching:").returns(sig.Void).params([NSObject/*should be NSDictionary*/]),
 
   // Terminating Applications
-  shouldTerminate: objc.optionalMethod("applicationShouldTerminate:"),
-  shouldTerminateAfterLastWindowClosed: objc.optionalMethod("applicationShouldTerminateAfterLastWindowClosed:"),
-  willTerminate: objc.optionalMethod("applicationWillTerminate:"),
+  shouldTerminate: optionalMethod("applicationShouldTerminate:"),
+  shouldTerminateAfterLastWindowClosed: optionalMethod("applicationShouldTerminateAfterLastWindowClosed:"),
+  willTerminate: optionalMethod("applicationWillTerminate:"),
 
   // Managing Active Status
-  willBecomeActive: objc.optionalMethod("applicationWillBecomeActive:"),
-  didBecomeActive: objc.optionalMethod("applicationDidBecomeActive:"),
-  willResignActive: objc.optionalMethod("applicationWillResignActive:"),
-  didResignActive: objc.optionalMethod("applicationDidResignActive:"),
+  willBecomeActive: optionalMethod("applicationWillBecomeActive:"),
+  didBecomeActive: optionalMethod("applicationDidBecomeActive:"),
+  willResignActive: optionalMethod("applicationWillResignActive:"),
+  didResignActive: optionalMethod("applicationDidResignActive:"),
 
   // Hiding Applications
-  willHide: objc.optionalMethod("applicationWillHide:"),
-  didHide: objc.optionalMethod("applicationDidHide:"),
-  willUnhide: objc.optionalMethod("applicationWillUnhide:"),
-  didUnhide: objc.optionalMethod("applicationDidUnhide:"),
+  willHide: optionalMethod("applicationWillHide:"),
+  didHide: optionalMethod("applicationDidHide:"),
+  willUnhide: optionalMethod("applicationWillUnhide:"),
+  didUnhide: optionalMethod("applicationDidUnhide:"),
 
   // Managing Windows
-  willUpdate: objc.optionalMethod("applicationWillUpdate:"),
-  didUpdate: objc.optionalMethod("applicationDidUpdate:"),
-  shouldHandleReopen: objc.optionalMethod("applicationShouldHandleReopen:hasVisibleWindows:"),
+  willUpdate: optionalMethod("applicationWillUpdate:"),
+  didUpdate: optionalMethod("applicationDidUpdate:"),
+  shouldHandleReopen: optionalMethod("applicationShouldHandleReopen:hasVisibleWindows:"),
 
   // Managing the Dock Menu
-  dockMenu: objc.optionalMethod("applicationDockMenu:"),
+  dockMenu: optionalMethod("applicationDockMenu:"),
 
   // Displaying Errors
-  willPresentError: objc.optionalMethod("application:willPresentError:"),
+  willPresentError: optionalMethod("application:willPresentError:"),
 
   // Managing the Screen
-  didChangeScreenParameters: objc.optionalMethod("applicationDidChangeScreenParameters:"),
+  didChangeScreenParameters: optionalMethod("applicationDidChangeScreenParameters:"),
 
   // Opening Files
-  openFile: objc.optionalMethod("application:openFile:"),
-  openFileWithoutUI: objc.optionalMethod("application:openFileWithoutUI:"),
-  openTempFile: objc.optionalMethod("application:openTempFile:"),
-  openFiles: objc.optionalMethod("application:openFiles:"),
-  openUntitledFile: objc.optionalMethod("applicationOpenUntitledFile:"),
-  shouldOpenUntitledFile: objc.optionalMethod("applicationShouldOpenUntitledFile:"),
+  openFile: optionalMethod("application:openFile:"),
+  openFileWithoutUI: optionalMethod("application:openFileWithoutUI:"),
+  openTempFile: optionalMethod("application:openTempFile:"),
+  openFiles: optionalMethod("application:openFiles:"),
+  openUntitledFile: optionalMethod("applicationOpenUntitledFile:"),
+  shouldOpenUntitledFile: optionalMethod("applicationShouldOpenUntitledFile:"),
 
   // Printing
-  printFile: objc.optionalMethod("application:printFile:"),
-  printFilesWithSettings: objc.optionalMethod("application:printFiles:withSettings:showPrintPanels:"),
+  printFile: optionalMethod("application:printFile:"),
+  printFilesWithSettings: optionalMethod("application:printFiles:withSettings:showPrintPanels:"),
 
   // Handling Push Notifications
-  didRegisterForRemoteNotificationsWithDeviceToken: objc.optionalMethod("application:didRegisterForRemoteNotificationsWithDeviceToken:"),
-  didFailToRegisterForRemoteNotificationsWithError: objc.optionalMethod("application:didFailToRegisterForRemoteNotificationsWithError:"),
-  didReceiveRemoteNotification: objc.optionalMethod("application:didReceiveRemoteNotification:"),
+  didRegisterForRemoteNotificationsWithDeviceToken: optionalMethod("application:didRegisterForRemoteNotificationsWithDeviceToken:"),
+  didFailToRegisterForRemoteNotificationsWithError: optionalMethod("application:didFailToRegisterForRemoteNotificationsWithError:"),
+  didReceiveRemoteNotification: optionalMethod("application:didReceiveRemoteNotification:"),
 
   // Application Restorable State
-  didDecodeRestorableState: objc.optionalMethod("application:didDecodeRestorableState:"),
-  willEncodeRestorableState: objc.optionalMethod("application:willEncodeRestorableState:")
+  didDecodeRestorableState: optionalMethod("application:didDecodeRestorableState:"),
+  willEncodeRestorableState: optionalMethod("application:willEncodeRestorableState:")
 }));

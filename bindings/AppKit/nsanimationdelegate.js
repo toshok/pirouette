@@ -1,14 +1,17 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-let NSAnimationDelegate = exports.NSAnimationDelegate = foundation.Protocol.extendClass ("NSAnimationDelegate", {
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
+export let NSAnimationDelegate = Protocol.extendClass ("NSAnimationDelegate", () => ({
   // Controlling and Monitoring an Animation
-  animationDidEnd: objc.optionalMethod(),
-  animationDidStop: objc.optionalMethod(),
-  animationShouldStart: objc.optionalMethod(),
-  valueForProgress: objc.optionalMethod(),
+  animationDidEnd:      optionalMethod(),
+  animationDidStop:     optionalMethod(),
+  animationShouldStart: optionalMethod(),
+  valueForProgress:     optionalMethod(),
 
   // Managing Progress Marks
-  reachedProgressMark: objc.optionalMethod()
-});
+  reachedProgressMark:  optionalMethod()
+}));
 
 console.log ("NSAnimationDelegate done, = " + NSAnimationDelegate._ck_register);

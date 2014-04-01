@@ -1,12 +1,9 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-"use strict";
+module objc_internal from '@objc_internal';
 
-let objc_internal = require("objc_internal"),
-    foundation = require("foundation");
+import { NSObject } from 'foundation';
 
-let _exports = exports;
-
-const sig = {
+export const sig = {
   Class:     function() { return "//"; },
   Selector:  function() { return ":"; },
   Char:      function() { return "c"; },
@@ -34,7 +31,6 @@ const sig = {
   CGAffineTransform: function() { return "{CGAffineTransform=ffffff}"; },
   CGContext: function() { return "{CGContext=}"; }
 };
-_exports.sig = sig;
 
 function typeSignature(types) {
   let getTypeSignature = function (t) {
@@ -46,16 +42,12 @@ function typeSignature(types) {
   return types.map(function(t) { return getTypeSignature(t); }).join('');
 };
 
-_exports.requireFramework = function requireFramework(framework) {
-};
-
-function selectorInvoker(sel) {
+export function selectorInvoker(sel) {
   let sel_invoke = objc_internal.selectorInvoker(sel);
   return function () {
     return sel_invoke.apply(this, [sel].concat(Array.prototype.slice.call(arguments)));
   };
 }
-_exports.selectorInvoker = selectorInvoker;
 
 function signatureFromTypeGetters(returnTypeGetter, paramTypesGetter) {
   let fsig = null;
@@ -67,7 +59,7 @@ function signatureFromTypeGetters(returnTypeGetter, paramTypesGetter) {
 }
 
 
-function instanceSelector (selector) {
+export function instanceSelector (selector) {
   //console.log ("adding instanceSelector for " + seletor);
   let instance_info = Object.create(null);
   instance_info.sel = selector;
@@ -139,12 +131,10 @@ function instanceSelector (selector) {
   };
   return instance_info;
 };
-_exports.instanceSelector = instanceSelector;
 
-function Attribute(obj) {
+export function Attribute(obj) {
   Attribute.add (obj, this);
 }
-_exports.Attribute = Attribute;
 
 Attribute.add = function (obj, attr) {
   if (!obj._ck_attributes)
@@ -158,7 +148,7 @@ Attribute.find = function(obj, attrType) {
   // return [ attr for (attr of obj._ck_attributes) if (attr instanceof attrType) ];
 };
 
-function RegisterAttribute(obj, name) {
+export function RegisterAttribute(obj, name) {
   //console.log ("In RegisterAttribute ctor");
   name = name || obj.name;
   Attribute.call(this, obj);
@@ -174,18 +164,16 @@ function RegisterAttribute(obj, name) {
 
   objc_internal.registerJSClass(obj, obj.prototype, obj._ck_register, superclass_name);
 };
-_exports.RegisterAttribute = RegisterAttribute;
 
-function SelectorAttribute(obj, sel_name, type_sig) {
+export function SelectorAttribute(obj, sel_name, type_sig) {
   //console.log ("In SelectorAttribute (" + sel_name + ", " + type_sig + ")");
   Attribute.call(this, obj);
   obj._ck_exported = true;
   obj._ck_sel = sel_name;
   obj._ck_typeSig = type_sig || "@@:";
 };
-_exports.SelectorAttribute = SelectorAttribute;
 /*
-class MixinProtocolAttribute extends Attribute {
+export class MixinProtocolAttribute extends Attribute {
   constructor(obj, protocol) {
     super(obj);
 
@@ -223,11 +211,9 @@ class MixinProtocolAttribute extends Attribute {
     }
   }
 }
-
-_exports.MixinProtocolAttribute = MixinProtocolAttribute;
 */
 
-function ConformsToProtocolAttribute(obj, protocol) {
+export function ConformsToProtocolAttribute(obj, protocol) {
   //console.log ("In ConformsToProtocolAttribute ctor");
   Attribute.call(this, obj);
   this.protocol = protocol;
@@ -276,14 +262,13 @@ ConformsToProtocolAttribute.doesObjectConformTo = function(obj, protocol) {
   // XXX ES6-port: this breaks traceur
   // return (conforms for conforms in (Attribute.find obj, ConformsToProtocolAttribute) when conforms.protocol is protocol).length > 0
 };
-_exports.ConformsToProtocolAttribute = ConformsToProtocolAttribute;
 
 // save ourselves some long lines with this function
 function does_not_conform_to(o, p) {
   return ConformsToProtocolAttribute.doesObjectConformTo(o, p);
 }
 
-_exports.override = function override () {
+export function override () {
   let override_info = Object.create(null);
   override_info.impl = function(fn) {
     override_info.body = fn;
@@ -317,7 +302,7 @@ _exports.override = function override () {
   return override_info;
 };
 
-_exports.staticSelector = function staticSelector (selector) {
+export function staticSelector (selector) {
   let static_info = {ck: {sel: selector, instance: false}};
   static_info.makeUIAppearance = function() {
     static_info.ck.uiappearance = true;
@@ -413,7 +398,7 @@ function optsToPropertyDesc (name, opts) {
       }
     }
     else {
-      console.log ("default getter " + name);
+      //console.log ("default getter " + name);
       getter = selectorInvoker(name);
     }
 
@@ -428,7 +413,7 @@ function optsToPropertyDesc (name, opts) {
       }
     }
     else {
-      console.log ("default setter");
+      //console.log ("default setter");
       setter = selectorInvoker("set" + name[0].toUpperCase() + name.slice(1) + ":");
     }
 
@@ -470,17 +455,15 @@ function addProperty (opts, instance) {
   return info;
 };
 
-function instanceProperty(opts) {
+export function instanceProperty(opts) {
   let info = addProperty(opts, true);
   return info;
 };
-_exports.instanceProperty = instanceProperty;
 
-function staticProperty(opts) {
+export function staticProperty(opts) {
   let info = addProperty(opts, false);
   return info;
 };
-_exports.staticProperty = staticProperty;
 
 function protocolMethod(selector, required) {
   let info = Object.create(null);
@@ -502,31 +485,29 @@ function protocolMethod(selector, required) {
   return info;
 }
 
-_exports.optionalMethod = function optionalMethod (selector) {
+export function optionalMethod (selector) {
   return protocolMethod (selector, false);
 };
 
-_exports.requiredMethod = function requiredMethod (selector) {
+export function requiredMethod (selector) {
   return protocolMethod (selector, true);
 };
 
-function optionalProperty(selector, accessors) {
+export function optionalProperty(selector, accessors) {
   let optional_info = { property: selector, tramp: args && args.tramp, sig: args && args.sig };
   optional_info.register = function(cls, jsprop) {
     cls.prototype[jsprop] = optional_info;
   };
   return optional_info;
 }
-_exports.optionalProperty = optionalProperty;
 
-function requiredProperty(selector, args) {
+export function requiredProperty(selector, args) {
   let required_info = { property: selector, required: true, tramp: args && args.tramp, sig: args && args.sig };
   required_info.register = function(cls, jsprop) {
     cls.prototype[jsprop] = required_info;
   };
   return required_info;
 }
-_exports.requiredProperty = requiredProperty;
 
 function __extends (child, parent) {
   let can_put = function(o, p) {
@@ -545,10 +526,9 @@ function __extends (child, parent) {
   return child;
 }
 
-function chainCtor(cls, self, args) {
+export function chainCtor(cls, self, args) {
   return cls.__super__.constructor.apply (self, args ? Array.prototype.slice.call(args) : []);
 }
-_exports.chainCtor = chainCtor;
 
 function createClass(name, baseType, description) {
   //console.log ("createClass 1 : " + name);
@@ -569,8 +549,9 @@ function createClass(name, baseType, description) {
       if (pname === "constructor") return; // we handled this above
 
       let info = description[pname];
-      if (info.register)
+      if (info.register) {
 	info.register(type_ctor, pname);
+      }
       else {
 	//console.log ("description for " + name + " contains unregisterable property " + pname + ", registering it on the prototype.");
 	Object.defineProperty(type_ctor.prototype, pname, { value: info, configurable: true, writable: true });
@@ -584,15 +565,13 @@ function createClass(name, baseType, description) {
 function registerClass(cls, name) {
   cls.name = name;
 
-  console.log("registering " + name);
-
   // register the class with objective-c
   new RegisterAttribute(cls, name);
 
   return cls;
 }
 
-function extendClass(name, baseType, description, protocols) {
+export function extendClass(name, baseType, description, protocols) {
   let ctor = createClass(name, baseType, description);
   if (protocols)
     protocols.forEach(function (p) {
@@ -602,17 +581,16 @@ function extendClass(name, baseType, description, protocols) {
   createExtendClass(ctor);
   return ctor;
 };
-_exports.extendClass = extendClass;
 
-function createExtendClass(ctor) {
+console.log("extendClass " + Object.prototype.toString.call(extendClass));
+export function createExtendClass(ctor) {
   ctor.extendClass = function(name, description, protocols) {
     return extendClass(name, ctor, description, protocols);
   };
 }
-_exports.createExtendClass = createExtendClass;
 
 let autoboxCount = 0;
-let autobox = _exports.autobox = function(obj, protocol) {
+export function autobox(obj, protocol) {
     // check if the object (or its constructor) conforms to the protocol.  if it does
     // then we can just use the object, without the proxy
     if (does_not_conform_to(obj, protocol) || does_not_conform_to(obj.constructor, protocol)) return obj;
@@ -658,7 +636,7 @@ let autobox = _exports.autobox = function(obj, protocol) {
     return new ProtocolProxy();
 };
 
-function autoboxProperty(protocolType) {
+export function autoboxProperty(protocolType) {
   let autobox_info = Object.create(null);
   autobox_info.protocolType = protocolType;
 
@@ -676,9 +654,8 @@ function autoboxProperty(protocolType) {
 
   return autobox_info;
 }
-_exports.autoboxProperty = autoboxProperty;
 
-function outlet (outletType) {
+export function outlet (outletType) {
   let outlet_info = Object.create(null);
 
   outlet_info.outletType = outletType;
@@ -706,9 +683,8 @@ function outlet (outletType) {
 
   return outlet_info;
 };
-_exports.outlet = outlet;
 
-function makeEnum(spec) {
+export function makeEnum(spec) {
   let addConstant = function(obj, jsprop, v) { return Object.defineProperty(obj, jsprop, { value: v, enumerable: true }); };
 
   let rv = Object.create(null);
@@ -718,4 +694,3 @@ function makeEnum(spec) {
   Object.freeze(rv);
   return rv;
 };
-_exports.makeEnum = makeEnum;

@@ -1,35 +1,36 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-console.log("NSRunLoop");
-var NSRunLoop;
-_exports.NSRunLoop = NSRunLoop = NSObject.extendClass("NSRunLoop", () => ({
+import { staticProperty, instanceProperty, instanceSelector, sig } from '../objc';
+import { NSObject } from 'nsobject';
+
+export let NSRunLoop = NSObject.extendClass("NSRunLoop", () => ({
 
     // Accessing Run Loops and Modes
-    currentRunLoop: objc.staticProperty ({ set: null }),
-    currentMode: objc.instanceProperty ({ set: null }),
-    limitDate: objc.instanceSelector("limitDateForMode:").
-                             returns( function() { return objc.sig.Void; }).
-			      params( function() { return [ objc.sig.NSString ]; }),
-    mainRunLoop: objc.staticProperty ({ set: null }),
-    getCFRunLoop: objc.instanceSelector("getCFRunLoop"),
+    currentRunLoop: staticProperty ({ set: null }),
+    currentMode: instanceProperty ({ set: null }),
+    limitDate: instanceSelector("limitDateForMode:").
+                             returns( function() { return sig.Void; }).
+			      params( function() { return [ sig.NSString ]; }),
+    mainRunLoop: staticProperty ({ set: null }),
+    getCFRunLoop: instanceSelector("getCFRunLoop"),
 
     // Managing Timers
-    addTimer: objc.instanceSelector("addTimer:forMode:"),
+    addTimer: instanceSelector("addTimer:forMode:"),
 
     // Managing Ports
-    addPort: objc.instanceSelector("addPort:forMode:"),
-    removePort: objc.instanceSelector("removePort:forMode:"),
+    addPort: instanceSelector("addPort:forMode:"),
+    removePort: instanceSelector("removePort:forMode:"),
 
     // Running a Loop
-    run: objc.instanceSelector("run"),
-    runMode: objc.instanceSelector("runMode:beforeDate:"),
-    runUntilDate: objc.instanceSelector("runUntilDate:"),
-    acceptInputForMode: objc.instanceSelector("acceptInputForMode:beforeDate:"),
+    run: instanceSelector("run"),
+    runMode: instanceSelector("runMode:beforeDate:"),
+    runUntilDate: instanceSelector("runUntilDate:"),
+    acceptInputForMode: instanceSelector("acceptInputForMode:beforeDate:"),
 
     // Scheduling and Canceling Messages
-    performSelector: objc.instanceSelector("performSelector:target:argument:order:modes:"),
-    cancelPerformSelector: objc.instanceSelector("cancelPerformSelector:target:argument:"),
-    cancelPerformSelectors: objc.instanceSelector("cancelPerformSelectorsWithTarget:")
+    performSelector: instanceSelector("performSelector:target:argument:order:modes:"),
+    cancelPerformSelector: instanceSelector("cancelPerformSelector:target:argument:"),
+    cancelPerformSelectors: instanceSelector("cancelPerformSelectorsWithTarget:")
 
 }));
 console.log ("<NSRunLoop");

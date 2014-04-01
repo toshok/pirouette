@@ -1,33 +1,35 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSColorList;
-_exports.NSColorList = NSColorList = foundation.NSObject.extendClass("NSColorList", () => ({
+import { instanceSelector, instanceProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let NSColorList = NSObject.extendClass("NSColorList", () => ({
 
     // Initializing an NSColorList Object
     //
-    initWithName:         objc.instanceSelector("initWithName:"),
-    initWithNameFromFile: objc.instanceSelector("initWithName:fromFile:"),
+    initWithName:         instanceSelector("initWithName:"),
+    initWithNameFromFile: instanceSelector("initWithName:fromFile:"),
 
     // Getting Color Lists
     //
-    availableColorLists: objc.staticSelector(),
-    colorListNamed:      objc.staticSelector("colorListNamed:"),
+    availableColorLists: staticSelector(),
+    colorListNamed:      staticSelector("colorListNamed:"),
 
     // Getting Color List Properties
     //
-    name:       objc.instanceProperty({ set: null }),
-    isEditable: objc.instanceProperty({ set: null }),
+    name:       instanceProperty({ set: null }),
+    isEditable: instanceProperty({ set: null }),
 
     // Managing Colors By Key
     //
-    allKeys:      objc.instanceProperty({ set: null }),
-    colorWithKey: objc.instanceSelector("colorWithKey:"),
-    insertColor:  objc.instanceSelector("insertColor:key:atIndex:"),
-    removeColor:  objc.instanceSelector("removeColorWithKey:"),
-    setColor:     objc.instanceSelector("setColor:forKey:"),
+    allKeys:      instanceProperty({ set: null }),
+    colorWithKey: instanceSelector("colorWithKey:"),
+    insertColor:  instanceSelector("insertColor:key:atIndex:"),
+    removeColor:  instanceSelector("removeColorWithKey:"),
+    setColor:     instanceSelector("setColor:forKey:"),
 
     // Writing and Removing Color-List Files
     //
-    removeFile:  objc.instanceSelector(),
-    writeToFile: objc.instanceSelector("writeToFile:")
+    removeFile:  instanceSelector(),
+    writeToFile: instanceSelector("writeToFile:")
 }));

@@ -1,20 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSWindowController;
-_exports.NSWindowController = NSWindowController = foundation.NSResponder.extendClass("NSWindowController", () => ({
+import { instanceProperty, instanceSelector, chainCtor } from '../objc';
+import { NSResponder } from '../foundation';
+
+export let NSWindowController = NSResponder.extendClass("NSWindowController", () => ({
   constructor: function (handle, arg2) {
     if (typeof (handle) === 'string') {
-      objc.chainCtor (NSWindowController, this, []);
+      chainCtor (NSWindowController, this, []);
       this.initWithWindowNibName (arg2);
     }
     else {
-      objc.chainCtor (NSWindowController, this, arguments);
+      chainCtor (NSWindowController, this, arguments);
     }
   },
 
-  window: objc.instanceProperty(),
+  window: instanceProperty(),
 
-  initWithWindow: objc.instanceSelector("initWithWindow:"),
-  initWithWindowNibName: objc.instanceSelector("initWithWindowNibName:")
+  initWithWindow: instanceSelector("initWithWindow:"),
+  initWithWindowNibName: instanceSelector("initWithWindowNibName:")
 
 }));

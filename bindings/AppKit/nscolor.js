@@ -1,151 +1,151 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
+import { staticSelector, staticProperty, instanceSelector, instanceProperty } from "../objc"
+import { NSObject } from '../foundation';
 
-var NSColor;
-_exports.NSColor = NSColor = foundation.NSObject.extendClass("NSColor", () => ({
-
+export let NSColor = NSObject.extendClass("NSColor", () => ({
     // Creating an NSColor Object from Component Values
     //
-    colorWithCalibratedHSBA:      objc.staticSelector("colorWithCalibratedHue:saturation:brightness:alpha:"),
-    colorWithCalibratedRGBA:      objc.staticSelector("colorWithCalibratedRed:green:blue:alpha:"),
-    colorWithCalibratedWhite:     objc.staticSelector("colorWithCalibratedWhite:alpha:"),
-    colorWithName:                objc.staticSelector("colorWithCatalogName:colorName:"),
-    colorWithDeviceCMYKA:         objc.staticSelector("colorWithDeviceCyan:magenta:yellow:black:alpha:"),
-    colorWithDeviceHSBA:          objc.staticSelector("colorWithDeviceHue:saturation:brightness:alpha:"),
-    colorWithDeviceRGBA:          objc.staticSelector("colorWithDeviceRed:green:blue:alpha:"),
-    colorWithDeviceWhite:         objc.staticSelector("colorWithDeviceWhite:alpha:"),
-    colorWithCIColor:             objc.staticSelector("colorWithCIColor:"),
-    colorWithColorSpace:          objc.staticSelector("colorWithColorSpace:components:count:"),
-    colorWithSRGBA:               objc.staticSelector("colorWithSRGBRed:green:blue:alpha:"),
-    colorWithGenericGamma22White: objc.staticSelector("colorWithGenericGamma22White:alpha:"),
-    colorWithHSBA:                objc.staticSelector("colorWithHue:saturation:brightness:alpha:"),
-    colorWithRGBA:                objc.staticSelector("colorWithRed:green:blue:alpha:"),
-    colorWithWhite:               objc.staticSelector("colorWithWhite:alpha:"),
+    colorWithCalibratedHSBA:      staticSelector("colorWithCalibratedHue:saturation:brightness:alpha:"),
+    colorWithCalibratedRGBA:      staticSelector("colorWithCalibratedRed:green:blue:alpha:"),
+    colorWithCalibratedWhite:     staticSelector("colorWithCalibratedWhite:alpha:"),
+    colorWithName:                staticSelector("colorWithCatalogName:colorName:"),
+    colorWithDeviceCMYKA:         staticSelector("colorWithDeviceCyan:magenta:yellow:black:alpha:"),
+    colorWithDeviceHSBA:          staticSelector("colorWithDeviceHue:saturation:brightness:alpha:"),
+    colorWithDeviceRGBA:          staticSelector("colorWithDeviceRed:green:blue:alpha:"),
+    colorWithDeviceWhite:         staticSelector("colorWithDeviceWhite:alpha:"),
+    colorWithCIColor:             staticSelector("colorWithCIColor:"),
+    colorWithColorSpace:          staticSelector("colorWithColorSpace:components:count:"),
+    colorWithSRGBA:               staticSelector("colorWithSRGBRed:green:blue:alpha:"),
+    colorWithGenericGamma22White: staticSelector("colorWithGenericGamma22White:alpha:"),
+    colorWithHSBA:                staticSelector("colorWithHue:saturation:brightness:alpha:"),
+    colorWithRGBA:                staticSelector("colorWithRed:green:blue:alpha:"),
+    colorWithWhite:               staticSelector("colorWithWhite:alpha:"),
 
     // Creating an NSColor with Preset Components
     //
-    blackColor:     objc.staticProperty({ set: null }),
-    blueColor:      objc.staticProperty({ set: null }),
-    brownColor:     objc.staticProperty({ set: null }),
-    clearColor:     objc.staticProperty({ set: null }),
-    cyanColor:      objc.staticProperty({ set: null }),
-    darkGrayColor:  objc.staticProperty({ set: null }),
-    grayColor:      objc.staticProperty({ set: null }),
-    greenColor:     objc.staticProperty({ set: null }),
-    lightGrayColor: objc.staticProperty({ set: null }),
-    magentaColor:   objc.staticProperty({ set: null }),
-    orangeColor:    objc.staticProperty({ set: null }),
-    purpleColor:    objc.staticProperty({ set: null }),
-    redColor:       objc.staticProperty({ set: null }),
-    whiteColor:     objc.staticProperty({ set: null }),
-    yellowColor:    objc.staticProperty({ set: null }),
+    blackColor:     staticProperty({ set: null }),
+    blueColor:      staticProperty({ set: null }),
+    brownColor:     staticProperty({ set: null }),
+    clearColor:     staticProperty({ set: null }),
+    cyanColor:      staticProperty({ set: null }),
+    darkGrayColor:  staticProperty({ set: null }),
+    grayColor:      staticProperty({ set: null }),
+    greenColor:     staticProperty({ set: null }),
+    lightGrayColor: staticProperty({ set: null }),
+    magentaColor:   staticProperty({ set: null }),
+    orangeColor:    staticProperty({ set: null }),
+    purpleColor:    staticProperty({ set: null }),
+    redColor:       staticProperty({ set: null }),
+    whiteColor:     staticProperty({ set: null }),
+    yellowColor:    staticProperty({ set: null }),
 
     // Working with Pattern Images
     //
-    colorWithPatternImage: objc.staticSelector("colorWithPatternImage:"),
-    patternImage: objc.instanceProperty({ set: null }),
+    colorWithPatternImage: staticSelector("colorWithPatternImage:"),
+    patternImage: instanceProperty({ set: null }),
 
     // Creating a System Color—an NSColor Whose Value Is Specified by User Preferences
     //
-    alternateSelectedControlColor:         objc.staticProperty({ set: null }),
-    alternateSelectedControlTextColor:     objc.staticProperty({ set: null }),
-    colorForControlTint:                   objc.staticSelector("colorForControlTint:"),
-    controlBackgroundColor:                objc.staticProperty({ set: null }),
-    controlColor:                          objc.staticProperty({ set: null }),
-    controlAlternatingRowBackgroundColors: objc.staticProperty({ set: null }),
-    controlHighlightColor:                 objc.staticProperty({ set: null }),
-    controlLightHighlightColor:            objc.staticProperty({ set: null }),
-    controlShadowColor:                    objc.staticProperty({ set: null }),
-    controlDarkShadowColor:                objc.staticProperty({ set: null }),
-    controlTextColor:                      objc.staticProperty({ set: null }),
-    currentControlTint:                    objc.staticProperty({ set: null }),
-    disabledControlTextColor:              objc.staticProperty({ set: null }),
-    gridColor:                             objc.staticProperty({ set: null }),
-    headerColor:                           objc.staticProperty({ set: null }),
-    headerTextColor:                       objc.staticProperty({ set: null }),
-    highlightColor:                        objc.staticProperty({ set: null }),
-    keyboardFocusIndicatorColor:           objc.staticProperty({ set: null }),
-    knobColor:                             objc.staticProperty({ set: null }),
-    scrollBarColor:                        objc.staticProperty({ set: null }),
-    secondarySelectedControlColor:         objc.staticProperty({ set: null }),
-    selectedControlColor:                  objc.staticProperty({ set: null }),
-    selectedControlTextColor:              objc.staticProperty({ set: null }),
-    selectedMenuItemColor:                 objc.staticProperty({ set: null }),
-    selectedMenuItemTextColor:             objc.staticProperty({ set: null }),
-    selectedTextBackgroundColor:           objc.staticProperty({ set: null }),
-    selectedTextColor:                     objc.staticProperty({ set: null }),
-    selectedKnobColor:                     objc.staticProperty({ set: null }),
-    shadowColor:                           objc.staticProperty({ set: null }),
-    textBackgroundColor:                   objc.staticProperty({ set: null }),
-    textColor:                             objc.staticProperty({ set: null }),
-    windowBackgroundColor:                 objc.staticProperty({ set: null }),
-    windowFrameColor:                      objc.staticProperty({ set: null }),
-    windowFrameTextColor:                  objc.staticProperty({ set: null }),
-    underPageBackgroundColor:              objc.staticProperty({ set: null }),
+    alternateSelectedControlColor:         staticProperty({ set: null }),
+    alternateSelectedControlTextColor:     staticProperty({ set: null }),
+    colorForControlTint:                   staticSelector("colorForControlTint:"),
+    controlBackgroundColor:                staticProperty({ set: null }),
+    controlColor:                          staticProperty({ set: null }),
+    controlAlternatingRowBackgroundColors: staticProperty({ set: null }),
+    controlHighlightColor:                 staticProperty({ set: null }),
+    controlLightHighlightColor:            staticProperty({ set: null }),
+    controlShadowColor:                    staticProperty({ set: null }),
+    controlDarkShadowColor:                staticProperty({ set: null }),
+    controlTextColor:                      staticProperty({ set: null }),
+    currentControlTint:                    staticProperty({ set: null }),
+    disabledControlTextColor:              staticProperty({ set: null }),
+    gridColor:                             staticProperty({ set: null }),
+    headerColor:                           staticProperty({ set: null }),
+    headerTextColor:                       staticProperty({ set: null }),
+    highlightColor:                        staticProperty({ set: null }),
+    keyboardFocusIndicatorColor:           staticProperty({ set: null }),
+    knobColor:                             staticProperty({ set: null }),
+    scrollBarColor:                        staticProperty({ set: null }),
+    secondarySelectedControlColor:         staticProperty({ set: null }),
+    selectedControlColor:                  staticProperty({ set: null }),
+    selectedControlTextColor:              staticProperty({ set: null }),
+    selectedMenuItemColor:                 staticProperty({ set: null }),
+    selectedMenuItemTextColor:             staticProperty({ set: null }),
+    selectedTextBackgroundColor:           staticProperty({ set: null }),
+    selectedTextColor:                     staticProperty({ set: null }),
+    selectedKnobColor:                     staticProperty({ set: null }),
+    shadowColor:                           staticProperty({ set: null }),
+    textBackgroundColor:                   staticProperty({ set: null }),
+    textColor:                             staticProperty({ set: null }),
+    windowBackgroundColor:                 staticProperty({ set: null }),
+    windowFrameColor:                      staticProperty({ set: null }),
+    windowFrameTextColor:                  staticProperty({ set: null }),
+    underPageBackgroundColor:              staticProperty({ set: null }),
 
     // Ignoring Alpha Components
     //
-    ignoresAlpha: objc.staticProperty(),
+    ignoresAlpha: staticProperty(),
 
     // Copying and Pasting
     //
-    colorFromPasteboard: objc.staticSelector("colorFromPasteboard:"),
-    writeToPasteboard: objc.instanceSelector("writeToPasteboard:"),
+    colorFromPasteboard: staticSelector("colorFromPasteboard:"),
+    writeToPasteboard: instanceSelector("writeToPasteboard:"),
 
     // Retrieving a Set of Components
     //
     // FIXME these APIs take CGFloat*'s.  we need to figure out a way to wrap them such that they
     // return either an array or populate an array or something.
-    //getCyan:magenta:yellow:black:alpha:: objc.instanceSelector()
-    //getHue:saturation:brightness:alpha:: objc.instanceSelector()
-    //getRed:green:blue:alpha:: objc.instanceSelector()
-    //getWhite:alpha:: objc.instanceSelector()
-    //getComponents:: objc.instanceSelector()
-    //numberOfComponents: objc.instanceSelector()
+    //getCyan:magenta:yellow:black:alpha:: instanceSelector()
+    //getHue:saturation:brightness:alpha:: instanceSelector()
+    //getRed:green:blue:alpha:: instanceSelector()
+    //getWhite:alpha:: instanceSelector()
+    //getComponents:: instanceSelector()
+    //numberOfComponents: instanceSelector()
 
     // Retrieving Individual Components
     //
-    alphaComponent:                objc.instanceProperty({ set: null }),
-    blackComponent:                objc.instanceProperty({ set: null }),
-    blueComponent:                 objc.instanceProperty({ set: null }),
-    brightnessComponent:           objc.instanceProperty({ set: null }),
-    catalogNameComponent:          objc.instanceProperty({ set: null }),
-    colorNameComponent:            objc.instanceProperty({ set: null }),
-    cyanComponent:                 objc.instanceProperty({ set: null }),
-    greenComponent:                objc.instanceProperty({ set: null }),
-    hueComponent:                  objc.instanceProperty({ set: null }),
-    localizedCatalogNameComponent: objc.instanceProperty({ set: null }),
-    localizedColorNameComponent:   objc.instanceProperty({ set: null }),
-    magentaComponent:              objc.instanceProperty({ set: null }),
-    redComponent:                  objc.instanceProperty({ set: null }),
-    saturationComponent:           objc.instanceProperty({ set: null }),
-    whiteComponent:                objc.instanceProperty({ set: null }),
-    yellowComponent:               objc.instanceProperty({ set: null }),
+    alphaComponent:                instanceProperty({ set: null }),
+    blackComponent:                instanceProperty({ set: null }),
+    blueComponent:                 instanceProperty({ set: null }),
+    brightnessComponent:           instanceProperty({ set: null }),
+    catalogNameComponent:          instanceProperty({ set: null }),
+    colorNameComponent:            instanceProperty({ set: null }),
+    cyanComponent:                 instanceProperty({ set: null }),
+    greenComponent:                instanceProperty({ set: null }),
+    hueComponent:                  instanceProperty({ set: null }),
+    localizedCatalogNameComponent: instanceProperty({ set: null }),
+    localizedColorNameComponent:   instanceProperty({ set: null }),
+    magentaComponent:              instanceProperty({ set: null }),
+    redComponent:                  instanceProperty({ set: null }),
+    saturationComponent:           instanceProperty({ set: null }),
+    whiteComponent:                instanceProperty({ set: null }),
+    yellowComponent:               instanceProperty({ set: null }),
 
     // Working with the Color Space
     //
-    colorSpaceName:                    objc.instanceProperty({ set: null }),
-    colorUsingColorSpaceName:          objc.instanceSelector("colorUsingColorSpaceName:"),
-    colorUsingColorSpaceNameAndDevice: objc.instanceSelector("colorUsingColorSpaceName:device:"),
-    colorSpace:                        objc.instanceProperty({ set: null }),
-    colorUsingColorSpace:              objc.instanceSelector("colorUsingColorSpace:"),
+    colorSpaceName:                    instanceProperty({ set: null }),
+    colorUsingColorSpaceName:          instanceSelector("colorUsingColorSpaceName:"),
+    colorUsingColorSpaceNameAndDevice: instanceSelector("colorUsingColorSpaceName:device:"),
+    colorSpace:                        instanceProperty({ set: null }),
+    colorUsingColorSpace:              instanceSelector("colorUsingColorSpace:"),
 
     // Changing the Color
     //
-    blendedColor:            objc.instanceSelector("blendedColorWithFraction:ofColor:"),
-    colorWithAlphaComponent: objc.instanceSelector("colorWithAlphaComponent:"),
-    highlightWithLevel:      objc.instanceSelector("highlightWithLevel:"),
-    shadowWithLevel:         objc.instanceSelector("shadowWithLevel:"),
+    blendedColor:            instanceSelector("blendedColorWithFraction:ofColor:"),
+    colorWithAlphaComponent: instanceSelector("colorWithAlphaComponent:"),
+    highlightWithLevel:      instanceSelector("highlightWithLevel:"),
+    shadowWithLevel:         instanceSelector("shadowWithLevel:"),
 
     // Converting Colors Between CGColors
     //
-    CGColor:          objc.instanceProperty({ set: null }),
-    colorWithCGColor: objc.staticSelector("colorWithCGColor:"),
+    CGColor:          instanceProperty({ set: null }),
+    colorWithCGColor: staticSelector("colorWithCGColor:"),
 
     // Drawing
     //
-    drawSwatchInRect: objc.instanceSelector("drawSwatchInRect:"),
-    set:              objc.instanceSelector(),
-    setFill:          objc.instanceSelector(),
-    setStroke:        objc.instanceSelector()
+    drawSwatchInRect: instanceSelector("drawSwatchInRect:"),
+    set:              instanceSelector(),
+    setFill:          instanceSelector(),
+    setStroke:        instanceSelector()
 
 }));

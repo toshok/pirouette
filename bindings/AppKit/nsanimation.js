@@ -1,44 +1,43 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-console.log (3.141593);
-let NSAnimation = exports.NSAnimation = foundation.NSObject.extendClass("NSAnimation", {
-								      /*
+import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+
+export let NSAnimation = NSObject.extendClass("NSAnimation", () => ({
     // Initializing an NSAnimation Object
-    initWithDuration: objc.instanceSelector("initWithDuration:animationCurve:"),
+    //
+    initWithDuration: instanceSelector("initWithDuration:animationCurve:"),
 
     // Configuring an Animation
-    setAnimationBlockingMode: objc.instanceSelector("setAnimationBlockingMode:"),
-    animationBlockingMode: objc.instanceSelector("animationBlockingMode"),
-    runLoopModesForAnimating: objc.instanceSelector("runLoopModesForAnimating"),
-    setAnimationCurve: objc.instanceSelector("setAnimationCurve:"),
-    animationCurve: objc.instanceSelector("animationCurve"),
-    setDuration: objc.instanceSelector("setDuration:"),
-    duration: objc.instanceSelector("duration"),
-    setFrameRate: objc.instanceSelector("setFrameRate:"),
-    frameRate: objc.instanceSelector("frameRate"),
-*/
+    //
+    animationBlockingMode:    instanceProperty(),
+    runLoopModesForAnimating: instanceProperty({ set: null }),
+    animationCurve:           instanceProperty(),
+    duration:                 instanceProperty(),
+    frameRate:                instanceProperty(),
+
     // Managing the Delegate
-    delegate: objc.autoboxProperty(NSAnimationDelegate),
-/*
+    //
+    delegate: autoboxProperty(NSAnimationDelegate),
+
     // Controlling and Monitoring an Animation
-    startAnimation: objc.instanceSelector("startAnimation"),
-    stopAnimation: objc.instanceSelector("stopAnimation"),
-    isAnimating: objc.instanceSelector("isAnimating"),
-    setCurrentProgress: objc.instanceSelector("setCurrentProgress:"),
-    currentProgress: objc.instanceSelector("currentProgress"),
-    currentValue: objc.instanceSelector("currentValue"),
+    //
+    startAnimation:  instanceSelector("startAnimation"),
+    stopAnimation:   instanceSelector("stopAnimation"),
+    isAnimating:     instanceProperty({ set: null }),
+    currentProgress: instanceProperty(),
+    currentValue:    instanceProperty({ set: null }),
 
     // Managing Progress Marks
-    addProgressMark: objc.instanceSelector("addProgressMark:"),
-    removeProgressMark: objc.instanceSelector("removeProgressMark:"),
-    setProgressMarks: objc.instanceSelector("setProgressMarks:"),
-    progressMarks: objc.instanceSelector("progressMarks"),
+    //
+    addProgressMark:    instanceSelector("addProgressMark:"),
+    removeProgressMark: instanceSelector("removeProgressMark:"),
+    progressMarks:      instanceProperty(),
 
     // Linking Animations Together
-    startWhenAnimationReachesProgress: objc.instanceSelector("startWhenAnimation:reachesProgress:"),
-    stopWhenAnimationReachesProgress: objc.instanceSelector("stopWhenAnimation:reachesProgress:"),
-    clearStartAnimation: objc.instanceSelector("clearStartAnimation"),
-    clearStopAnimation: objc.instanceSelector("clearStopAnimation")
-*/
-});
-console.log (6.28318);
+    //
+    startWhenAnimationReachesProgress: instanceSelector("startWhenAnimation:reachesProgress:"),
+    stopWhenAnimationReachesProgress:  instanceSelector("stopWhenAnimation:reachesProgress:"),
+    clearStartAnimation:               instanceSelector("clearStartAnimation"),
+    clearStopAnimation:                instanceSelector("clearStopAnimation")
+}));

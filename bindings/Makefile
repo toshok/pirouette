@@ -1,7 +1,5 @@
 TOP=..
 
-DEST_DIR=generated
-
 BOUND_FRAMEWORKS= \
 		  AppKit	\
 		  CoreAnimation \
@@ -310,34 +308,4 @@ FRAMEWORK_SOURCES_UIKit= \
 
 all::
 
-clean:
-	-rm -rf $(DEST_DIR)
-
-
-### you really shouldn't need to touch any of this stuff..
-
-DEST_EXTRA_FILES=$(EXTRA_FILES:%.js=$(DEST_DIR)/%.js)
-
-all:: $(DEST_EXTRA_FILES)
-
-define Framework
-$(eval FRAMEWORK_FILE_$(1) := $(shell echo $1 | tr "[:upper:]" "[:lower:]").js)
-$(eval FRAMEWORK_JS_FILE_$(1) := $(shell echo $1 | tr "[:upper:]" "[:lower:]").js)
-
-$(eval FRAMEWORK_SOURCES_$(1) ?= $(wildcard $(1)/*.js))
-
-$(DEST_DIR)/$(FRAMEWORK_JS_FILE_$(1)): $(FRAMEWORK_FILE_$(1)) $(FRAMEWORK_SOURCES_$(1))
-# the extra $(1) here is so that the coffeescript compiler still tries to compile the $(FRAMEWORK_FILE_$(1)).
-	@mkdir -p $(DEST_DIR)
-	@echo [GEN $(1)] && cat $(FRAMEWORK_FILE_$(1)) $(FRAMEWORK_SOURCES_$(1)) > $(DEST_DIR)/$(FRAMEWORK_JS_FILE_$(1)) 
-
-all:: $(DEST_DIR)/$(FRAMEWORK_JS_FILE_$(1))
-endef
-
-
-$(foreach framework,$(BOUND_FRAMEWORKS),$(eval $(call Framework,$(framework))))
-
-$(DEST_DIR)/%.js: %.js
-	@mkdir -p $(DEST_DIR)
-	@echo [GEN $<] && cp $< $@
-
+clean::

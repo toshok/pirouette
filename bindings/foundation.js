@@ -1,19 +1,15 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-"use strict";
 
-let objc = require("objc"),
-    objc_internal = require("objc_internal");
+// not yet
+//import "@framework Foundation";
 
-
-objc.requireFramework("Foundation");
-
-let _exports = exports;
-
-var NSComparisonResult;
-_exports.NSComparisonResult = NSComparisonResult = objc.makeEnum({
-    getTypeSignature: function() { return "i"; },
-
-    ascending: -1,
-    same:       0,
-    descending: 1
-});
+export { NSComparisonResult } from 'Foundation/enums';
+export { NSBundle } from 'Foundation/nsbundle';
+export { NSIndexPath } from 'Foundation/nsindexpath';
+export { NSObject } from 'Foundation/nsobject';
+export { NSPoint } from 'Foundation/nspoint';
+export { NSRect } from 'Foundation/nsrect';
+export { NSResponder } from 'Foundation/nsresponder';
+export { NSRunLoop } from 'Foundation/nsrunloop';
+export { NSSize } from 'Foundation/nssize';
+export { Protocol } from 'Foundation/protocol';

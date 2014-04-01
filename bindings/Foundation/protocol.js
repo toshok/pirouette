@@ -1,5 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { extendClass } from '../objc';
+
 /*
   @getTypeSignature: -> "@"
 
@@ -13,5 +15,4 @@
   @optionalProperty: (n,accessors) -> property: n, get: accessors?.get, set: accessors?.set
 */
 
-var Protocol;
-_exports.Protocol = Protocol = objc.extendClass("Protocol", Object);
+export let Protocol = extendClass("Protocol", Object);

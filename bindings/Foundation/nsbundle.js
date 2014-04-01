@@ -1,84 +1,86 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSBundle;
-_exports.NSBundle = NSBundle = NSObject.extendClass("NSBundle", () => ({
+import { staticSelector, staticProperty, instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from 'nsobject';
+
+export let NSBundle = NSObject.extendClass("NSBundle", () => ({
 
   // Initializing an NSBundle
-  bundleWithURL: objc.staticSelector("bundleWithURL:"),
-  bundleWithPath: objc.staticSelector("bundleWithPath:"),
-  initWithURL: objc.instanceSelector("initWithURL:"),
-  initWithPath: objc.instanceSelector("initWithPath:"),
+  bundleWithURL: staticSelector("bundleWithURL:"),
+  bundleWithPath: staticSelector("bundleWithPath:"),
+  initWithURL: instanceSelector("initWithURL:"),
+  initWithPath: instanceSelector("initWithPath:"),
 
   // Getting an NSBundle
-  bundleForClass: objc.staticSelector("bundleForClass:"),
-  bundleWithIdentifier: objc.staticSelector("bundleWithIdentifier:"),
-  mainBundle: objc.staticProperty(),
-  allBundles: objc.staticProperty(),
-  allFrameworks: objc.staticProperty(),
+  bundleForClass: staticSelector("bundleForClass:"),
+  bundleWithIdentifier: staticSelector("bundleWithIdentifier:"),
+  mainBundle: staticProperty(),
+  allBundles: staticProperty(),
+  allFrameworks: staticProperty(),
 
   // Getting a Bundled Class
-  classNamed: objc.instanceSelector("classNamed:"),
-  principalClass: objc.instanceSelector(),
+  classNamed: instanceSelector("classNamed:"),
+  principalClass: instanceSelector(),
 
   // Finding Resources
-  pathForResource: objc.instanceSelector("pathForResource:ofType:"),
-  //XXX pathForResourceInDirectory: objc.staticSelector("pathForResource:ofType:inDirectory:"),
-  pathForResourceInDirectory: objc.instanceSelector("pathForResource:ofType:inDirectory:"),
-  pathForResourceInDirectoryForLocalization: objc.instanceSelector("pathForResource:ofType:inDirectory:forLocalization:"),
+  pathForResource: instanceSelector("pathForResource:ofType:"),
+  //XXX pathForResourceInDirectory: staticSelector("pathForResource:ofType:inDirectory:"),
+  pathForResourceInDirectory: instanceSelector("pathForResource:ofType:inDirectory:"),
+  pathForResourceInDirectoryForLocalization: instanceSelector("pathForResource:ofType:inDirectory:forLocalization:"),
 
-  //XXX pathsForResourcesOfType: objc.staticSelector("pathsForResourcesOfType:inDirectory:"),
-  pathsForResourcesOfType: objc.instanceSelector("pathsForResourcesOfType:inDirectory:"),
-  pathsForResourcesOfTypeForLocalization: objc.instanceSelector("pathsForResourcesOfType:inDirectory:forLocalization:"),
+  //XXX pathsForResourcesOfType: staticSelector("pathsForResourcesOfType:inDirectory:"),
+  pathsForResourcesOfType: instanceSelector("pathsForResourcesOfType:inDirectory:"),
+  pathsForResourcesOfTypeForLocalization: instanceSelector("pathsForResourcesOfType:inDirectory:forLocalization:"),
 
-  URLForResource: objc.instanceSelector("URLForResource:withExtension:"),
-  URLForResourceInSubdirectory: objc.instanceSelector("URLForResource:withExtension:subdirectory:"),
-  URLForResourceForlocalization: objc.instanceSelector("URLForResource:withExtension:subdirectory:localization:"),
-  URLForResourceInBundleWithURL: objc.staticSelector("URLForResource:withExtension:subdirectory:inBundleWithURL:"),
+  URLForResource: instanceSelector("URLForResource:withExtension:"),
+  URLForResourceInSubdirectory: instanceSelector("URLForResource:withExtension:subdirectory:"),
+  URLForResourceForlocalization: instanceSelector("URLForResource:withExtension:subdirectory:localization:"),
+  URLForResourceInBundleWithURL: staticSelector("URLForResource:withExtension:subdirectory:inBundleWithURL:"),
 
-  URLsForResourcesWithExtension: objc.instanceSelector("URLsForResourcesWithExtension:subdirectory:"),
-  URLsForResourcesWithExtensionForLocalization: objc.instanceSelector("URLsForResourcesWithExtension:subdirectory:localization:"),
-  URLsForResourcesWithExtensionInBundleWithURL: objc.staticSelector("URLsForResourcesWithExtension:subdirectory:inBundleWithURL:"),
+  URLsForResourcesWithExtension: instanceSelector("URLsForResourcesWithExtension:subdirectory:"),
+  URLsForResourcesWithExtensionForLocalization: instanceSelector("URLsForResourcesWithExtension:subdirectory:localization:"),
+  URLsForResourcesWithExtensionInBundleWithURL: staticSelector("URLsForResourcesWithExtension:subdirectory:inBundleWithURL:"),
 
-  resourcePath: objc.instanceSelector(),
+  resourcePath: instanceSelector(),
 
   // Getting the Bundle Directory
-  bundleURL: objc.instanceProperty({ set: null }),
-  bundlePath: objc.instanceProperty({ set: null }),
+  bundleURL: instanceProperty({ set: null }),
+  bundlePath: instanceProperty({ set: null }),
 
   // Getting Bundle Information
-  bundleIdentifier: objc.instanceProperty({ set: null }),
-  infoDictionary: objc.instanceProperty({ set: null }),
-  objectForInfoDictionaryKey: objc.instanceSelector("objectForInfoDictionaryKey:"),
-  builtInPlugInsURL: objc.instanceProperty({ set: null }),
-  builtInPlugInsPath: objc.instanceProperty({ set: null }),
-  executableURL: objc.instanceProperty({ set: null }),
-  executablePath: objc.instanceProperty({ set: null }),
-  URLForAuxiliaryExecutable: objc.instanceSelector("URLForAuxiliaryExecutable:"),
-  pathForAuxiliaryExecutable: objc.instanceSelector("pathForAuxiliaryExecutable:"),
-  privateFrameworksURL: objc.instanceProperty({ set: null }),
-  privateFrameworksPath: objc.instanceProperty({ set: null }),
-  sharedFrameworksURL: objc.instanceProperty({ set: null }),
-  sharedFrameworksPath: objc.instanceProperty({ set: null }),
-  sharedSupportURL: objc.instanceProperty({ set: null }),
-  sharedSupportPath: objc.instanceProperty({ set: null }),
-  resourceURL: objc.instanceProperty({ set: null }),
+  bundleIdentifier: instanceProperty({ set: null }),
+  infoDictionary: instanceProperty({ set: null }),
+  objectForInfoDictionaryKey: instanceSelector("objectForInfoDictionaryKey:"),
+  builtInPlugInsURL: instanceProperty({ set: null }),
+  builtInPlugInsPath: instanceProperty({ set: null }),
+  executableURL: instanceProperty({ set: null }),
+  executablePath: instanceProperty({ set: null }),
+  URLForAuxiliaryExecutable: instanceSelector("URLForAuxiliaryExecutable:"),
+  pathForAuxiliaryExecutable: instanceSelector("pathForAuxiliaryExecutable:"),
+  privateFrameworksURL: instanceProperty({ set: null }),
+  privateFrameworksPath: instanceProperty({ set: null }),
+  sharedFrameworksURL: instanceProperty({ set: null }),
+  sharedFrameworksPath: instanceProperty({ set: null }),
+  sharedSupportURL: instanceProperty({ set: null }),
+  sharedSupportPath: instanceProperty({ set: null }),
+  resourceURL: instanceProperty({ set: null }),
 
   // Managing Localized Resources
-  localizedStringForKey: objc.instanceSelector("localizedStringForKey:value:table:"),
+  localizedStringForKey: instanceSelector("localizedStringForKey:value:table:"),
 
   // Loading a Bundle’s Code
-  executableArchitectures: objc.instanceProperty({ set: null }),
-  preflightAndReturnError: objc.instanceSelector("preflightAndReturnError:"),
-  load: objc.instanceSelector(),
-  loadAndReturnError: objc.instanceSelector("loadAndReturnError:"),
-  isLoaded: objc.instanceProperty({ set: null }),
-  unload: objc.instanceSelector(),
+  executableArchitectures: instanceProperty({ set: null }),
+  preflightAndReturnError: instanceSelector("preflightAndReturnError:"),
+  load: instanceSelector(),
+  loadAndReturnError: instanceSelector("loadAndReturnError:"),
+  isLoaded: instanceProperty({ set: null }),
+  unload: instanceSelector(),
 
   // Managing Localizations
-  preferredLocalizationsFromArray: objc.staticSelector("preferredLocalizationsFromArray:"),
-  preferredLocalizationsFromArrayForPreferences: objc.staticSelector("preferredLocalizationsFromArray:forPreferences:"),
-  localizations: objc.instanceProperty({ set: null }),
-  developmentLocalization: objc.instanceProperty({ set: null }),
-  preferredLocalizations: objc.instanceProperty({ set: null }),
-  localizedInfoDictionary: objc.instanceProperty({ set: null })
+  preferredLocalizationsFromArray: staticSelector("preferredLocalizationsFromArray:"),
+  preferredLocalizationsFromArrayForPreferences: staticSelector("preferredLocalizationsFromArray:forPreferences:"),
+  localizations: instanceProperty({ set: null }),
+  developmentLocalization: instanceProperty({ set: null }),
+  preferredLocalizations: instanceProperty({ set: null }),
+  localizedInfoDictionary: instanceProperty({ set: null })
 }));

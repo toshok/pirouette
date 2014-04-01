@@ -1,28 +1,30 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSTableViewDataSource;
-_exports.NSTableViewDataSource = NSTableViewDataSource = foundation.Protocol.extendClass("NSTableViewDataSource", () => ({
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
+export let NSTableViewDataSource = Protocol.extendClass("NSTableViewDataSource", () => ({
 
     // Getting Values
-    numberOfRows: objc.optionalMethod ("numberOfRowsInTableView:"),
-    objectValueFor: objc.optionalMethod ("tableView:objectValueForTableColumn:row:"),
+    numberOfRows: optionalMethod ("numberOfRowsInTableView:"),
+    objectValueFor: optionalMethod ("tableView:objectValueForTableColumn:row:"),
 
     // Setting Values
-    setObjectValue: objc.optionalMethod ("tableView:setObjectValue:forTableColumn:row:"),
+    setObjectValue: optionalMethod ("tableView:setObjectValue:forTableColumn:row:"),
 
     // Implementing Pasteboard Support
-    pasteboardWriterForRow: objc.optionalMethod ("tableView:pasteboardWriterForRow:"),
+    pasteboardWriterForRow: optionalMethod ("tableView:pasteboardWriterForRow:"),
 
     // Drag and Drop
-    acceptDrop: objc.optionalMethod ("tableView:acceptDrop:row:dropOperation:"),
-    namesOfPromisedFilesDroppedAtDestination: objc.optionalMethod ("tableView:namesOfPromisedFilesDroppedAtDestination:forDraggedRowsWithIndexes:"),
-    validateDrop: objc.optionalMethod ("tableView:validateDrop:proposedRow:proposedDropOperation:"),
-    writeRows: objc.optionalMethod ("tableView:writeRowsWithIndexes:toPasteboard:"),
-    draggingSessionWillBegin: objc.optionalMethod ("tableView:draggingSession:willBeginAtPoint:forRowIndexes:"),
-    updateDraggingItems: objc.optionalMethod ("tableView:updateDraggingItemsForDrag:"),
-    draggingSessionEnded: objc.optionalMethod ("tableView:draggingSession:endedAtPoint:operation:"),
+    acceptDrop: optionalMethod ("tableView:acceptDrop:row:dropOperation:"),
+    namesOfPromisedFilesDroppedAtDestination: optionalMethod ("tableView:namesOfPromisedFilesDroppedAtDestination:forDraggedRowsWithIndexes:"),
+    validateDrop: optionalMethod ("tableView:validateDrop:proposedRow:proposedDropOperation:"),
+    writeRows: optionalMethod ("tableView:writeRowsWithIndexes:toPasteboard:"),
+    draggingSessionWillBegin: optionalMethod ("tableView:draggingSession:willBeginAtPoint:forRowIndexes:"),
+    updateDraggingItems: optionalMethod ("tableView:updateDraggingItemsForDrag:"),
+    draggingSessionEnded: optionalMethod ("tableView:draggingSession:endedAtPoint:operation:"),
 
     // Sorting
-    sortDescriptorsChanged: objc.optionalMethod ("tableView:sortDescriptorsDidChange:")
+    sortDescriptorsChanged: optionalMethod ("tableView:sortDescriptorsDidChange:")
 
 }));

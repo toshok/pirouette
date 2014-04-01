@@ -1,13 +1,15 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSController;
-_exports.NSController = NSController = foundation.NSObject.extendClass("NSController", () => ({
+import { instanceSelector } from '../objc';
+import { NSObject } from "../foundation";
+
+export let NSController = NSObject.extendClass("NSController", () => ({
   // Managing Editing
-  objectDidBeginEditing: objc.instanceSelector("objectDidBeginEditing:"),
-  objectDidEndEditing: objc.instanceSelector("objectDidEndEditing:"),
-  commitEditing: objc.instanceSelector("commitEditing"),
-  commitEditingWithDelegate: objc.instanceSelector("commitEditingWithDelegate:didCommitSelector:contextInfo:"),
-  discardEditing: objc.instanceSelector("discardEditing"),
-  isEditing: objc.instanceSelector("isEditing")
+  objectDidBeginEditing: instanceSelector("objectDidBeginEditing:"),
+  objectDidEndEditing: instanceSelector("objectDidEndEditing:"),
+  commitEditing: instanceSelector("commitEditing"),
+  commitEditingWithDelegate: instanceSelector("commitEditingWithDelegate:didCommitSelector:contextInfo:"),
+  discardEditing: instanceSelector("discardEditing"),
+  isEditing: instanceSelector("isEditing")
 
 }));

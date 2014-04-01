@@ -1,52 +1,54 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSTableViewDelegate;
-_exports.NSTableViewDelegate = NSTableViewDelegate = foundation.Protocol.extendClass("NSTableViewDelegate", () => ({
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
+export let NSTableViewDelegate = Protocol.extendClass("NSTableViewDelegate", () => ({
 
     // Providing Views for Rows and Columns
-    viewFor: objc.optionalMethod ("tableView:viewForTableColumn:row:"),
-    viewForRow: objc.optionalMethod ("tableView:rowViewForRow:"),
+    viewFor: optionalMethod ("tableView:viewForTableColumn:row:"),
+    viewForRow: optionalMethod ("tableView:rowViewForRow:"),
 
     // Notification of Row Views Being Added or Removed.
-    addedRowView: objc.optionalMethod ("tableView:didAddRowView:forRow:"),
-    removedRowView: objc.optionalMethod ("tableView:didRemoveRowView:forRow:"),
+    addedRowView: optionalMethod ("tableView:didAddRowView:forRow:"),
+    removedRowView: optionalMethod ("tableView:didRemoveRowView:forRow:"),
 
     // Grouping Rows
-    isGroupRow: objc.optionalMethod ("tableView:isGroupRow:"),
+    isGroupRow: optionalMethod ("tableView:isGroupRow:"),
 
     // Providing Cells for Rows and Columns
-    willDisplayCell: objc.optionalMethod ("tableView:willDisplayCell:forTableColumn:row:"),
-    dataCellFor: objc.optionalMethod ("tableView:dataCellForTableColumn:row:"),
-    shouldShowCellExpansionFor: objc.optionalMethod ("tableView:shouldShowCellExpansionForTableColumn:row:"),
-    toolTipForCell: objc.optionalMethod ("tableView:toolTipForCell:rect:tableColumn:row:mouseLocation:"),
+    willDisplayCell: optionalMethod ("tableView:willDisplayCell:forTableColumn:row:"),
+    dataCellFor: optionalMethod ("tableView:dataCellForTableColumn:row:"),
+    shouldShowCellExpansionFor: optionalMethod ("tableView:shouldShowCellExpansionForTableColumn:row:"),
+    toolTipForCell: optionalMethod ("tableView:toolTipForCell:rect:tableColumn:row:mouseLocation:"),
 
     // Editing Cells
-    shouldEdit: objc.optionalMethod ("tableView:shouldEditTableColumn:row:"),
+    shouldEdit: optionalMethod ("tableView:shouldEditTableColumn:row:"),
 
     // Setting Row and Column Size
-    rowHeight: objc.optionalMethod ("tableView:heightOfRow:"),
-    sizeToFitWidth: objc.optionalMethod ("tableView:sizeToFitWidthOfColumn:"),
+    rowHeight: optionalMethod ("tableView:heightOfRow:"),
+    sizeToFitWidth: optionalMethod ("tableView:sizeToFitWidthOfColumn:"),
 
     // Selecting Rows
-    selectionShouldChange: objc.optionalMethod ("selectionShouldChangeInTableView:"),
-    shouldSelectRow: objc.optionalMethod ("tableView:shouldSelectRow:"),
-    selectionIndexesForProposedSelection: objc.optionalMethod ("tableView:selectionIndexesForProposedSelection:"),
-    shouldSelectTableColumn: objc.optionalMethod ("tableView:shouldSelectTableColumn:"),
-    selectionIsChanging: objc.optionalMethod ("tableViewSelectionIsChanging:"),
-    selectionChanged: objc.optionalMethod ("tableViewSelectionDidChange:"),
-    shouldTypeSelect: objc.optionalMethod ("tableView:shouldTypeSelectForEvent:withCurrentSearchString:"),
-    typeSelectString: objc.optionalMethod ("tableView:typeSelectStringForTableColumn:row:"),
-    nextTypeSelectMatch: objc.optionalMethod ("tableView:nextTypeSelectMatchFromRow:toRow:forString:"),
+    selectionShouldChange: optionalMethod ("selectionShouldChangeInTableView:"),
+    shouldSelectRow: optionalMethod ("tableView:shouldSelectRow:"),
+    selectionIndexesForProposedSelection: optionalMethod ("tableView:selectionIndexesForProposedSelection:"),
+    shouldSelectTableColumn: optionalMethod ("tableView:shouldSelectTableColumn:"),
+    selectionIsChanging: optionalMethod ("tableViewSelectionIsChanging:"),
+    selectionChanged: optionalMethod ("tableViewSelectionDidChange:"),
+    shouldTypeSelect: optionalMethod ("tableView:shouldTypeSelectForEvent:withCurrentSearchString:"),
+    typeSelectString: optionalMethod ("tableView:typeSelectStringForTableColumn:row:"),
+    nextTypeSelectMatch: optionalMethod ("tableView:nextTypeSelectMatchFromRow:toRow:forString:"),
 
     // Moving and Resizing Columns
-    shouldReorder: objc.optionalMethod ("tableView:shouldReorderColumn:toColumn:"),
-    draggedTableColumn: objc.optionalMethod ("tableView:didDragTableColumn:"),
-    columnMoved: objc.optionalMethod ("tableViewColumnDidMove:"),
-    columnResized: objc.optionalMethod ("tableViewColumnDidResize:"),
+    shouldReorder: optionalMethod ("tableView:shouldReorderColumn:toColumn:"),
+    draggedTableColumn: optionalMethod ("tableView:didDragTableColumn:"),
+    columnMoved: optionalMethod ("tableViewColumnDidMove:"),
+    columnResized: optionalMethod ("tableViewColumnDidResize:"),
 
     // Responding to Mouse Events
-    clickedTableColumn: objc.optionalMethod ("tableView:didClickTableColumn:"),
-    mouseDownInHeader: objc.optionalMethod ("tableView:mouseDownInHeaderOfTableColumn:"),
-    shouldTrackCell: objc.optionalMethod ("tableView:shouldTrackCell:forTableColumn:row:")
+    clickedTableColumn: optionalMethod ("tableView:didClickTableColumn:"),
+    mouseDownInHeader: optionalMethod ("tableView:mouseDownInHeaderOfTableColumn:"),
+    shouldTrackCell: optionalMethod ("tableView:shouldTrackCell:forTableColumn:row:")
 
 }));

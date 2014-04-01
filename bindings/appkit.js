@@ -1,49 +1,41 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-"use strict";
 
-let objc = require('objc'),
-    objc_internal = require('objc_internal'),
-    foundation = require("foundation");
+// not yet
+//import "@framework AppKit";
 
-objc.requireFramework("AppKit");
-
-let _exports = exports;
-
-console.log ("NSButtonType");
-let NSButtonType;
-_exports.NSButtonType = NSButtonType = objc.makeEnum({
-   MomentaryLightButton   : 0,
-   PushOnPushOffButton    : 1,
-   ToggleButton           : 2,
-   SwitchButton           : 3,
-   RadioButton            : 4,
-   MomentaryChangeButton  : 5,
-   OnOffButton            : 6,
-   MomentaryPushInButton  : 7,
-   MomentaryPushButton    : 0,
-   MomentaryLight         : 7
-});
-
-
-console.log ("NSBezelStyle");
-let NSBezelStyle;
-_exports.NSBezelStyle = NSBezelStyle = objc.makeEnum({
-   RoundedBezelStyle           : 1,
-   RegularSquareBezelStyle     : 2,
-   ThickSquareBezelStyle       : 3,
-   ThickerSquareBezelStyle     : 4,
-   DisclosureBezelStyle        : 5,
-   ShadowlessSquareBezelStyle  : 6,
-   CircularBezelStyle          : 7,
-   TexturedSquareBezelStyle    : 8,
-   HelpButtonBezelStyle        : 9,
-   SmallSquareBezelStyle       : 10,
-   TexturedRoundedBezelStyle   : 11,
-   RoundRectBezelStyle         : 12,
-   RecessedBezelStyle          : 13,
-   RoundedDisclosureBezelStyle : 14,
-   InlineBezelStyle            : 15,
-   SmallIconButtonBezelStyle   : 2
-});
-
-console.log ("appkit!");
+export { NSButtonType, NSBezelStyle } from 'AppKit/enums';
+export { NSActionCell }               from 'AppKit/nsactioncell';
+export { NSAlert }                    from 'AppKit/nsalert';
+export { NSAnimation }                from 'AppKit/nsanimation';
+export { NSAnimationContext }         from 'AppKit/nsanimationcontext';
+export { NSAnimationDelegate }        from 'AppKit/nsanimationdelegate';
+export { NSApplication }              from 'AppKit/nsapplication';
+export { NSApplicationDelegate }      from 'AppKit/nsapplicationdelegate';
+//export { NSArrayController }          from 'AppKit/nsarraycontroller';
+//export { NSATSTypesetter }            from 'AppKit/nsatstypesetter';
+export { NSBezierPath }               from 'AppKit/nsbezierpath';
+//export { NSBitmapImageRep }           from 'AppKit/nsbitmapimagerep';
+export { NSBox }                      from 'AppKit/nsbox';
+export { NSBrowser }                  from 'AppKit/nsbrowser';
+export { NSBrowserCell }              from 'AppKit/nsbrowsercell';
+export { NSButton }                   from 'AppKit/nsbutton';
+export { NSButtonCell }               from 'AppKit/nsbuttoncell';
+export { NSCell }                     from 'AppKit/nscell';
+//export { NSCIImageRep }               from 'AppKit/nsciimagerep';
+export { NSClipView }                 from 'AppKit/nsclipview';
+export { NSCollectionView }           from 'AppKit/nscollectionview';
+//export { NSCollectionViewItem }       from 'AppKit/nscollectionviewitem';
+export { NSColor }                    from 'AppKit/nscolor';
+export { NSColorList }                from 'AppKit/nscolorlist';
+//export { NSColorPanel }               from 'AppKit/nscolorpanel';
+export { NSControl }                  from 'AppKit/nscontrol';
+export { NSController }               from 'AppKit/nscontroller';
+export { NSTableCellView }            from 'AppKit/nstablecellview';
+export { NSTableColumn }              from 'AppKit/nstablecolumn';
+export { NSTableRowView }             from 'AppKit/nstablerowview';
+export { NSTableView }                from 'AppKit/nstableview';
+export { NSTableViewDataSource }      from 'AppKit/nstableviewdatasource';
+export { NSTableViewDelegate }        from 'AppKit/nstableviewdelegate';
+export { NSView }                     from 'AppKit/nsview';
+export { NSWindow }                   from 'AppKit/nswindow';
+export { NSWindowController }         from 'AppKit/nswindowcontroller';

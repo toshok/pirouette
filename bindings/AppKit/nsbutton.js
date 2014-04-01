@@ -1,46 +1,48 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSButton;
-_exports.NSButton = NSButton = NSControl.extendClass("NSButton", () => ({
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSControl, NSControlProxy } from 'nscontrol';
+
+export let NSButton = NSControl.extendClass("NSButton", () => ({
 
     // Configuring Buttons
-    buttonType: objc.instanceProperty(),
-
-    getPeriodicDelay: objc.instanceSelector("getPeriodicDelay:interval:"),
-    setPeriodicDelay: objc.instanceSelector("setPeriodicDelay:interval:"),
-
-    attributedTitle: objc.instanceProperty(),
-    attributedAlternateTitle: objc.instanceProperty(),
-    title: objc.instanceProperty(),
-    alternateTitle: objc.instanceProperty(),
-    sound: objc.instanceProperty(),
-
-    setTitleWithMnemonic: objc.instanceSelector("setTitleWithMnemonic:"), // Deprecated in OS X v10.8
+    //
+    buttonType:               instanceProperty({ get: null }),
+    getPeriodicDelay:         instanceSelector("getPeriodicDelay:interval:"),
+    setPeriodicDelay:         instanceSelector("setPeriodicDelay:interval:"),
+    alternateTitle:           instanceProperty(),
+    attributedTitle:          instanceProperty(),
+    attributedAlternateTitle: instanceProperty(),
+    title:                    instanceProperty(),
+    sound:                    instanceProperty(),
+    setTitleWithMnemonic:     instanceSelector("setTitleWithMnemonic:"), // Deprecated in OS X v10.8
 
     // Configuring Button Images
-    image: objc.instanceProperty(),
-    alternateImage: objc.instanceProperty(),
-    imagePosition: objc.instanceProperty(),
-    isBordered: objc.instanceProperty({ set: "setBordered:" }),
-    isTransparent: objc.instanceProperty({ set: "setTransparent:" }),
-    bezelStyle: objc.instanceProperty(),
-    showsBorderOnlyWhileMouseInside: objc.instanceProperty(),
+    //
+    image:                           instanceProperty(),
+    alternateImage:                  instanceProperty(),
+    imagePosition:                   instanceProperty(),
+    isBordered:                      instanceProperty({ set: "setBordered:" }),
+    isTransparent:                   instanceProperty({ set: "setTransparent:" }),
+    bezelStyle:                      instanceProperty(),
+    showsBorderOnlyWhileMouseInside: instanceProperty(),
 
     // Managing Button State
-    allowsMixedState: objc.instanceProperty(),
-    state: objc.instanceProperty(),
-
-    setNextState: objc.instanceSelector("setNextState"),
-    highlight: objc.instanceSelector("highlight:"),
+    //
+    allowsMixedState: instanceProperty(),
+    state:            instanceProperty(),
+    setNextState:     instanceSelector(),
+    highlight:        instanceSelector("highlight:"),
 
     // Accessing Key Equivalents
-    keyEquivalent: objc.instanceProperty(),
-    keyEquivalentModifierMask: objc.instanceProperty(),
+    //
+    keyEquivalent:             instanceProperty(),
+    keyEquivalentModifierMask: instanceProperty(),
 
     // Handling Keyboard Events
-    performKeyEquivalent: objc.instanceSelector("performKeyEquivalent:"),
-
-    clicked: objc.instanceProperty({
+    performKeyEquivalent: instanceSelector("performKeyEquivalent:"),
+    
+    clicked: instanceProperty({
       set: function (v) {
         if (v) {
 	  this.proxy = new NSControlProxy(v);

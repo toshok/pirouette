@@ -1,6 +1,6 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-function NSRect(x, y, width, height) {
+export function NSRect(x, y, width, height) {
   this.x = x;
   this.y = y;
   this.width = width;
@@ -10,5 +10,3 @@ function NSRect(x, y, width, height) {
 NSRect.getTypeSignature = function() {
   return "{CGRect={CGPoint=ff}{CGSize=ff}}";
 };
-
-_exports.NSRect = NSRect;

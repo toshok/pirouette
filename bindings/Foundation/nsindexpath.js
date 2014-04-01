@@ -1,34 +1,36 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSIndexPath;
-_exports.NSIndexPath = NSIndexPath = NSObject.extendClass("NSIndexPath", () => ({
+import { instanceSelector, staticSelector, instanceProperty, sig } from '../objc';
+import { NSObject } from 'nsobject'
+
+export let NSIndexPath = NSObject.extendClass("NSIndexPath", () => ({
 
     // Creating Index Paths
-    indexPathWithIndex: objc.staticSelector("indexPathWithIndex:"),
-    indexPathWithIndexes: objc.staticSelector ("indexPathWithIndexes:length:"),
-    initWithIndex: objc.instanceSelector("initWithIndex:")/*.
+    indexPathWithIndex: staticSelector("indexPathWithIndex:"),
+    indexPathWithIndexes: staticSelector ("indexPathWithIndexes:length:"),
+    initWithIndex: instanceSelector("initWithIndex:")/*.
                                  returns( function() { return NSIndexPath; } ).
-				  params( function() { return [ objc.sig.UInt ]; })*/,
-    initWithIndexes: objc.instanceSelector("initWithIndexes:length:")/*.
+				  params( function() { return [ sig.UInt ]; })*/,
+    initWithIndexes: instanceSelector("initWithIndexes:length:")/*.
                                    returns( function() { return NSIndexPath; } ),.
-			           params( function() { return [ (objc.sig.PointerTo objc.sig.UInt), objc.sig.UInt ])*/,
+			           params( function() { return [ (sig.PointerTo sig.UInt), sig.UInt ])*/,
 
     // Querying Index Paths
-    indexAtPosition: objc.instanceSelector("indexAtPosition:").
-                                   returns( function() { return objc.sig.UInt; } ).
-				    params( function() { return [ objc.sig.UInt ]; } ),
+    indexAtPosition: instanceSelector("indexAtPosition:").
+                                   returns( function() { return sig.UInt; } ).
+				    params( function() { return [ sig.UInt ]; } ),
 
-    indexPathByAddingIndex: objc.instanceSelector("indexPathByAddingIndex:")/*.
+    indexPathByAddingIndex: instanceSelector("indexPathByAddingIndex:")/*.
                                           returns( function() { return NSIndexPath; } ).
-					   params( function() { return [ objc.sig.UInt ]; })*/,
-    indexPathByRemovingLastIndex: objc.instanceSelector("indexPathByRemovingLastIndex")/*.
+					   params( function() { return [ sig.UInt ]; })*/,
+    indexPathByRemovingLastIndex: instanceSelector("indexPathByRemovingLastIndex")/*.
                                                 returns( function() { return NSIndexPath; } )*/,
 
-    length: objc.instanceProperty({ set: null }),
-    indexes: objc.instanceProperty({ set: null }),
+    length: instanceProperty({ set: null }),
+    indexes: instanceProperty({ set: null }),
 
     // Comparing Index Paths
-    compare: objc.instanceSelector("compare:")/*.
+    compare: instanceSelector("compare:")/*.
                            returns( function() { return NSComparisonResult; } ).
 			    params( function() { return [ NSIndexPath ]; } )*/
 

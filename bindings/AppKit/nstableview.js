@@ -1,181 +1,183 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSTableView;
-_exports.NSTableView = NSTableView = NSControl.extendClass("NSTableView", () => ({
+import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { NSControl } from 'nscontrol';
+
+export let NSTableView = NSControl.extendClass("NSTableView", () => ({
     // Creating the Displayed Views
-    makeViewWithIdentifier: objc.instanceSelector("makeViewWithIdentifier:owner:"),
-    rowViewAtRow: objc.instanceSelector("rowViewAtRow:makeIfNecessary:"),
-    viewAt: objc.instanceSelector("viewAtColumn:row:makeIfNecessary:"),
+    makeViewWithIdentifier: instanceSelector("makeViewWithIdentifier:owner:"),
+    rowViewAtRow: instanceSelector("rowViewAtRow:makeIfNecessary:"),
+    viewAt: instanceSelector("viewAtColumn:row:makeIfNecessary:"),
 
     // Setting the Data Source
-    dataSource: objc.autoboxProperty(NSTableViewDataSource),
+    dataSource: autoboxProperty(NSTableViewDataSource),
 
     // Loading Data
-    reloadData: objc.instanceSelector("reloadData"),
-    reloadDataFor: objc.instanceSelector("reloadDataForRowIndexes:columnIndexes:"),
+    reloadData: instanceSelector("reloadData"),
+    reloadDataFor: instanceSelector("reloadDataForRowIndexes:columnIndexes:"),
 
     // Using Views for Row and Column Content
-    beginUpdates: objc.instanceSelector("beginUpdates"),
-    endUpdates: objc.instanceSelector("endUpdates"),
-    columnForView: objc.instanceSelector("columnForView:"),
-    moveRowAt: objc.instanceSelector("moveRowAtIndex:toIndex:"),
-    insertRowsAt: objc.instanceSelector("insertRowsAtIndexes:withAnimation:"),
-    removeRowsAt: objc.instanceSelector("removeRowsAtIndexes:withAnimation:"),
-    rowForView: objc.instanceSelector("rowForView:"),
+    beginUpdates: instanceSelector("beginUpdates"),
+    endUpdates: instanceSelector("endUpdates"),
+    columnForView: instanceSelector("columnForView:"),
+    moveRowAt: instanceSelector("moveRowAtIndex:toIndex:"),
+    insertRowsAt: instanceSelector("insertRowsAtIndexes:withAnimation:"),
+    removeRowsAt: instanceSelector("removeRowsAtIndexes:withAnimation:"),
+    rowForView: instanceSelector("rowForView:"),
 
     // View-based Table Nib Registration
-    registerNib: objc.instanceSelector("registerNib:forIdentifier:"),
-    registeredNibsByIdentifier: objc.instanceSelector("registeredNibsByIdentifier"),
+    registerNib: instanceSelector("registerNib:forIdentifier:"),
+    registeredNibsByIdentifier: instanceSelector("registeredNibsByIdentifier"),
 
     // Target-action Behavior
-    doubleAction: objc.instanceSelector(),
-    clickedColumn: objc.instanceProperty({ set: null }),
-    clickedRow: objc.instanceProperty({ set: null }),
+    doubleAction: instanceSelector(),
+    clickedColumn: instanceProperty({ set: null }),
+    clickedRow: instanceProperty({ set: null }),
 
     // Configuring Behavior
-    allowsColumnReordering: objc.instanceSelector(),
-    allowsColumnResizing: objc.instanceSelector(),
-    allowsEmptySelection: objc.instanceSelector(),
-    allowsColumnSelection: objc.instanceSelector(),
+    allowsColumnReordering: instanceSelector(),
+    allowsColumnResizing: instanceSelector(),
+    allowsEmptySelection: instanceSelector(),
+    allowsColumnSelection: instanceSelector(),
 
     // Setting Display Attributes
-    intercellSpacing: objc.instanceSelector(),
-    rowHeight: objc.instanceSelector(),
-    backgroundColor: objc.instanceSelector(),
-    usesAlternatingRowBackgroundColors: objc.instanceSelector(),
-    selectionHighlightStyle: objc.instanceSelector(),
-    gridColor: objc.instanceSelector(),
-    gridStyleMask: objc.instanceSelector(),
+    intercellSpacing: instanceSelector(),
+    rowHeight: instanceSelector(),
+    backgroundColor: instanceSelector(),
+    usesAlternatingRowBackgroundColors: instanceSelector(),
+    selectionHighlightStyle: instanceSelector(),
+    gridColor: instanceSelector(),
+    gridStyleMask: instanceSelector(),
 
-    indicatorImage: objc.instanceSelector("indicatorImageInTableColumn:"),
-    setIndicatorImage: objc.instanceSelector("setIndicatorImage:inTableColumn:"),
+    indicatorImage: instanceSelector("indicatorImageInTableColumn:"),
+    setIndicatorImage: instanceSelector("setIndicatorImage:inTableColumn:"),
 
     // Getting and Setting Row Size Styles
-    effectiveRowSizeStyle: objc.instanceSelector("effectiveRowSizeStyle"),
-    rowSizeStyle: objc.instanceSelector(),
+    effectiveRowSizeStyle: instanceSelector("effectiveRowSizeStyle"),
+    rowSizeStyle: instanceSelector(),
 
     // Column Management
-    addTableColumn: objc.instanceSelector("addTableColumn:"),
-    removeTableColumn: objc.instanceSelector("removeTableColumn:"),
-    moveColumn: objc.instanceSelector("moveColumn:toColumn:"),
-    tableColumns: objc.instanceProperty({ set: null }),
-    columnWithIdentifier: objc.instanceSelector("columnWithIdentifier:"),
-    tableColumnWithIdentifier: objc.instanceSelector("tableColumnWithIdentifier:"),
+    addTableColumn: instanceSelector("addTableColumn:"),
+    removeTableColumn: instanceSelector("removeTableColumn:"),
+    moveColumn: instanceSelector("moveColumn:toColumn:"),
+    tableColumns: instanceProperty({ set: null }),
+    columnWithIdentifier: instanceSelector("columnWithIdentifier:"),
+    tableColumnWithIdentifier: instanceSelector("tableColumnWithIdentifier:"),
 
     // Selecting Columns and Rows
-    selectedColumn: objc.instanceProperty({ set: null }),
-    selectedColumnIndexes: objc.instanceProperty({ set: null }),
-    numberOfSelectedColumns: objc.instanceProperty({ set: null }),
-    selectedRow: objc.instanceProperty({ set: null }),
-    selectedRowIndexes: objc.instanceProperty({ set: null }),
-    numberOfSelectedRows: objc.instanceProperty({ set: null }),
-    selectColumnIndexes: objc.instanceSelector("selectColumnIndexes:byExtendingSelection:"),
-    deselectColumn: objc.instanceSelector("deselectColumn:"),
-    isColumnSelected: objc.instanceSelector("isColumnSelected:"),
-    selectRowIndexes: objc.instanceSelector("selectRowIndexes:byExtendingSelection:"),
-    deselectRow: objc.instanceSelector("deselectRow:"),
-    isRowSelected: objc.instanceSelector("isRowSelected:"),
-    selectAll: objc.instanceSelector("selectAll:"),
-    deselectAll: objc.instanceSelector("deselectAll:"),
+    selectedColumn: instanceProperty({ set: null }),
+    selectedColumnIndexes: instanceProperty({ set: null }),
+    numberOfSelectedColumns: instanceProperty({ set: null }),
+    selectedRow: instanceProperty({ set: null }),
+    selectedRowIndexes: instanceProperty({ set: null }),
+    numberOfSelectedRows: instanceProperty({ set: null }),
+    selectColumnIndexes: instanceSelector("selectColumnIndexes:byExtendingSelection:"),
+    deselectColumn: instanceSelector("deselectColumn:"),
+    isColumnSelected: instanceSelector("isColumnSelected:"),
+    selectRowIndexes: instanceSelector("selectRowIndexes:byExtendingSelection:"),
+    deselectRow: instanceSelector("deselectRow:"),
+    isRowSelected: instanceSelector("isRowSelected:"),
+    selectAll: instanceSelector("selectAll:"),
+    deselectAll: instanceSelector("deselectAll:"),
 
     // Enumerating Table Rows
-    enumerateAvailableRowViewsUsingBlock: objc.instanceSelector("enumerateAvailableRowViewsUsingBlock:"),
+    enumerateAvailableRowViewsUsingBlock: instanceSelector("enumerateAvailableRowViewsUsingBlock:"),
 
     // Managing Type Select
-    allowsTypeSelect: objc.instanceSelector("allowsTypeSelect"),
-    setAllowsTypeSelect: objc.instanceSelector("setAllowsTypeSelect:"),
+    allowsTypeSelect: instanceSelector("allowsTypeSelect"),
+    setAllowsTypeSelect: instanceSelector("setAllowsTypeSelect:"),
 
     // Getting and Setting Column Focus
-    focusedColumn: objc.instanceSelector("focusedColumn"),
-    setFocusedColumn: objc.instanceSelector("setFocusedColumn:"),
-    shouldFocusCell: objc.instanceSelector("shouldFocusCell:atColumn:row:"),
+    focusedColumn: instanceSelector("focusedColumn"),
+    setFocusedColumn: instanceSelector("setFocusedColumn:"),
+    shouldFocusCell: instanceSelector("shouldFocusCell:atColumn:row:"),
 
     // Table Dimensions
-    numberOfColumns: objc.instanceSelector("numberOfColumns"),
-    numberOfRows: objc.instanceSelector("numberOfRows"),
+    numberOfColumns: instanceSelector("numberOfColumns"),
+    numberOfRows: instanceSelector("numberOfRows"),
 
     // Displaying Cell
-    preparedCell: objc.instanceSelector("preparedCellAtColumn:row:"),
+    preparedCell: instanceSelector("preparedCellAtColumn:row:"),
 
     // Getting and Setting Floating Rows
-    floatsGroupRows: objc.instanceSelector("floatsGroupRows"),
-    setFloatsGroupRows: objc.instanceSelector("setFloatsGroupRows:"),
+    floatsGroupRows: instanceSelector("floatsGroupRows"),
+    setFloatsGroupRows: instanceSelector("setFloatsGroupRows:"),
 
     // Editing Cells
-    editColumn: objc.instanceSelector("editColumn:row:withEvent:select:"),
-    editedColumn: objc.instanceSelector("editedColumn"),
-    editedRow: objc.instanceSelector("editedRow"),
-    performClickOnCell: objc.instanceSelector("performClickOnCellAtColumn:row:"),
+    editColumn: instanceSelector("editColumn:row:withEvent:select:"),
+    editedColumn: instanceSelector("editedColumn"),
+    editedRow: instanceSelector("editedRow"),
+    performClickOnCell: instanceSelector("performClickOnCellAtColumn:row:"),
 
     // Setting Auxiliary Views
-    headerView: objc.instanceSelector(),
-    cornerView: objc.instanceSelector(),
+    headerView: instanceSelector(),
+    cornerView: instanceSelector(),
 
     // Layout Support
-    rectOfColumn: objc.instanceSelector("rectOfColumn:"),
-    rectOfRow: objc.instanceSelector("rectOfRow:"),
-    rowsInRect: objc.instanceSelector("rowsInRect:"),
-    columnIndexesInRect: objc.instanceSelector("columnIndexesInRect:"),
-    columnAtPoint: objc.instanceSelector("columnAtPoint:"),
-    rowAtPoint: objc.instanceSelector("rowAtPoint:"),
-    frameOfCell: objc.instanceSelector("frameOfCellAtColumn:row:"),
-    columnAutoresizingStyle: objc.instanceSelector(),
-    sizeLastColumnToFit: objc.instanceSelector("sizeLastColumnToFit"),
-    noteNumberOfRowsChanged: objc.instanceSelector("noteNumberOfRowsChanged"),
-    tile: objc.instanceSelector("tile"),
-    sizeToFit: objc.instanceSelector("sizeToFit"),
-    noteHeightOfRowsWithIndexesChanged: objc.instanceSelector("noteHeightOfRowsWithIndexesChanged:"),
-    columnsInRect: objc.instanceSelector("columnsInRect:"), // Deprecated in OS X v10.5
+    rectOfColumn: instanceSelector("rectOfColumn:"),
+    rectOfRow: instanceSelector("rectOfRow:"),
+    rowsInRect: instanceSelector("rowsInRect:"),
+    columnIndexesInRect: instanceSelector("columnIndexesInRect:"),
+    columnAtPoint: instanceSelector("columnAtPoint:"),
+    rowAtPoint: instanceSelector("rowAtPoint:"),
+    frameOfCell: instanceSelector("frameOfCellAtColumn:row:"),
+    columnAutoresizingStyle: instanceSelector(),
+    sizeLastColumnToFit: instanceSelector("sizeLastColumnToFit"),
+    noteNumberOfRowsChanged: instanceSelector("noteNumberOfRowsChanged"),
+    tile: instanceSelector("tile"),
+    sizeToFit: instanceSelector("sizeToFit"),
+    noteHeightOfRowsWithIndexesChanged: instanceSelector("noteHeightOfRowsWithIndexesChanged:"),
+    columnsInRect: instanceSelector("columnsInRect:"), // Deprecated in OS X v10.5
 
     // Drawing
-    drawRow: objc.instanceSelector("drawRow:clipRect:"),
-    drawGrid: objc.instanceSelector("drawGridInClipRect:"),
-    highlightSelection: objc.instanceSelector("highlightSelectionInClipRect:"),
-    drawBackground: objc.instanceSelector("drawBackgroundInClipRect:"),
+    drawRow: instanceSelector("drawRow:clipRect:"),
+    drawGrid: instanceSelector("drawGridInClipRect:"),
+    highlightSelection: instanceSelector("highlightSelectionInClipRect:"),
+    drawBackground: instanceSelector("drawBackgroundInClipRect:"),
 
     // Scrolling
-    scrollRowToVisible: objc.instanceSelector("scrollRowToVisible:"),
-    scrollColumnToVisible: objc.instanceSelector("scrollColumnToVisible:"),
+    scrollRowToVisible: instanceSelector("scrollRowToVisible:"),
+    scrollColumnToVisible: instanceSelector("scrollColumnToVisible:"),
 
     // Table Column State Persistence
-    autosaveName: objc.instanceSelector(),
-    autosaveTableColumns: objc.instanceSelector(),
+    autosaveName: instanceSelector(),
+    autosaveTableColumns: instanceSelector(),
 
     // Setting the Delegate
-    delegate: objc.autoboxProperty(NSTableViewDelegate),
+    delegate: autoboxProperty(NSTableViewDelegate),
 
     // Highlightable Column Headers
-    highlightedTableColumn: objc.instanceSelector(),
+    highlightedTableColumn: instanceSelector(),
 
     // Dragging
-    dragImageForRows: objc.instanceSelector("dragImageForRowsWithIndexes:tableColumns:event:offset:"),
-    canDragRows: objc.instanceSelector("canDragRowsWithIndexes:atPoint:"),
-    setDraggingSourceOperationMask: objc.instanceSelector("setDraggingSourceOperationMask:forLocal:"),
-    verticalMotionCanBeginDrag: objc.instanceSelector(),
-    draggingDestinationFeedbackStyle: objc.instanceSelector(),
-    setDropRow: objc.instanceSelector("setDropRow:dropOperation:"),
+    dragImageForRows: instanceSelector("dragImageForRowsWithIndexes:tableColumns:event:offset:"),
+    canDragRows: instanceSelector("canDragRowsWithIndexes:atPoint:"),
+    setDraggingSourceOperationMask: instanceSelector("setDraggingSourceOperationMask:forLocal:"),
+    verticalMotionCanBeginDrag: instanceSelector(),
+    draggingDestinationFeedbackStyle: instanceSelector(),
+    setDropRow: instanceSelector("setDropRow:dropOperation:"),
 
     // Sorting
-    sortDescriptors: objc.instanceSelector(),
+    sortDescriptors: instanceSelector(),
 
     // Text Delegate Methods
-    textShouldBeginEditing: objc.instanceSelector("textShouldBeginEditing:"),
-    textDidBeginEditing: objc.instanceSelector("textDidBeginEditing:"),
-    textDidChange: objc.instanceSelector("textDidChange:"),
-    textShouldEndEditing: objc.instanceSelector("textShouldEndEditing:"),
-    textDidEndEditing: objc.instanceSelector("textDidEndEditing:"),
+    textShouldBeginEditing: instanceSelector("textShouldBeginEditing:"),
+    textDidBeginEditing: instanceSelector("textDidBeginEditing:"),
+    textDidChange: instanceSelector("textDidChange:"),
+    textShouldEndEditing: instanceSelector("textShouldEndEditing:"),
+    textDidEndEditing: instanceSelector("textDidEndEditing:"),
 
     // Deprecated Methods
-    drawsGrid: objc.instanceSelector("drawsGrid"), // Deprecated in OS X v10.3
-    selectColumn: objc.instanceSelector("selectColumn:byExtendingSelection:"), // Deprecated in OS X v10.3
-    selectedColumnEnumerator: objc.instanceSelector("selectedColumnEnumerator"), // Deprecated in OS X v10.3
-    selectedRowEnumerator: objc.instanceSelector("selectedRowEnumerator"), // Deprecated in OS X v10.3
-    selectRow: objc.instanceSelector("selectRow:byExtendingSelection:"), // Deprecated in OS X v10.3
-    setDrawsGrid: objc.instanceSelector("setDrawsGrid:"), // Deprecated in OS X v10.3
-    autoresizesAllColumnsToFit: objc.instanceSelector("autoresizesAllColumnsToFit"), // Deprecated in OS X v10.4
-    dragImage: objc.instanceSelector("dragImageForRows:event:dragImageOffset:"), // Deprecated in OS X v10.4
-    setAutoresizesAllColumnsToFit: objc.instanceSelector("setAutoresizesAllColumnsToFit:"), // Deprecated in OS X v10.4
-    writeRows: objc.instanceSelector("tableView:writeRows:toPasteboard:")  // delegate method Deprecated in OS X v10.4
+    drawsGrid: instanceSelector("drawsGrid"), // Deprecated in OS X v10.3
+    selectColumn: instanceSelector("selectColumn:byExtendingSelection:"), // Deprecated in OS X v10.3
+    selectedColumnEnumerator: instanceSelector("selectedColumnEnumerator"), // Deprecated in OS X v10.3
+    selectedRowEnumerator: instanceSelector("selectedRowEnumerator"), // Deprecated in OS X v10.3
+    selectRow: instanceSelector("selectRow:byExtendingSelection:"), // Deprecated in OS X v10.3
+    setDrawsGrid: instanceSelector("setDrawsGrid:"), // Deprecated in OS X v10.3
+    autoresizesAllColumnsToFit: instanceSelector("autoresizesAllColumnsToFit"), // Deprecated in OS X v10.4
+    dragImage: instanceSelector("dragImageForRows:event:dragImageOffset:"), // Deprecated in OS X v10.4
+    setAutoresizesAllColumnsToFit: instanceSelector("setAutoresizesAllColumnsToFit:"), // Deprecated in OS X v10.4
+    writeRows: instanceSelector("tableView:writeRows:toPasteboard:")  // delegate method Deprecated in OS X v10.4
 }));
 
 NSTableView.newWithFrame = function(frame) {

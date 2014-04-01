@@ -1,341 +1,343 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSWindow;
-_exports.NSWindow = NSWindow = foundation.NSResponder.extendClass("NSWindow", () => ({
+import { instanceSelector, instanceProperty, staticSelector, autoboxProperty } from '../objc';
+import { NSResponder } from '../foundation';
+
+export let NSWindow = NSResponder.extendClass("NSWindow", () => ({
 
   // Creating Windows
-  initWithContentRect: objc.instanceSelector("initWithContentRect:styleMask:backing:defer:"),
-  initWithContentRectOnScreen: objc.instanceSelector("initWithContentRect:styleMask:backing:defer:screen:"),
+  initWithContentRect: instanceSelector("initWithContentRect:styleMask:backing:defer:"),
+  initWithContentRectOnScreen: instanceSelector("initWithContentRect:styleMask:backing:defer:screen:"),
 
   // Configuring Windows
-  styleMask: objc.instanceProperty(),
+  styleMask: instanceProperty(),
 
-  toggleFullScreen: objc.instanceSelector("toggleFullScreen:"),
-  worksWhenModal: objc.instanceSelector(),
-  alphaValue: objc.instanceProperty(),
+  toggleFullScreen: instanceSelector("toggleFullScreen:"),
+  worksWhenModal: instanceSelector(),
+  alphaValue: instanceProperty(),
 
-  backgroundColor: objc.instanceProperty(),
+  backgroundColor: instanceProperty(),
 
-  colorSpace: objc.instanceProperty(),
+  colorSpace: instanceProperty(),
 
-  contentView: objc.instanceProperty(),
+  contentView: instanceProperty(),
 
-  canHide: objc.instanceProperty(),
+  canHide: instanceProperty(),
 
-  isOnActiveSpace: objc.instanceSelector(),
-  hidesOnDeactivate: objc.instanceProperty(),
+  isOnActiveSpace: instanceSelector(),
+  hidesOnDeactivate: instanceProperty(),
 
-  collectionBehavior: objc.instanceProperty(),
+  collectionBehavior: instanceProperty(),
 
-  isOpaque: objc.instanceProperty({ set: "setOpaque:" }),
+  isOpaque: instanceProperty({ set: "setOpaque:" }),
 
-  hasShadow: objc.instanceProperty(),
+  hasShadow: instanceProperty(),
 
-  invalidateShadow: objc.instanceSelector(),
+  invalidateShadow: instanceSelector(),
 
   // these could/should be properties with the right accessor functions.
-  autorecalculatesContentBorderThickness:    objc.instanceSelector("autorecalculatesContentBorderThicknessForEdge:"),
-  setAutorecalculatesContentBorderThickness: objc.instanceSelector("setAutorecalculatesContentBorderThickness:forEdge:"),
-  contentBorderThickness: objc.instanceSelector("contentBorderThicknessForEdge:"),
-  setContentBorderThickness: objc.instanceSelector("setContentBorderThickness:forEdge:"),
+  autorecalculatesContentBorderThickness:    instanceSelector("autorecalculatesContentBorderThicknessForEdge:"),
+  setAutorecalculatesContentBorderThickness: instanceSelector("setAutorecalculatesContentBorderThickness:forEdge:"),
+  contentBorderThickness: instanceSelector("contentBorderThicknessForEdge:"),
+  setContentBorderThickness: instanceSelector("setContentBorderThickness:forEdge:"),
 
   // XXX we don't have NSWindowDelegate yet
-  //delegate: objc.autoboxProperty(NSWindowDelegate),
+  //delegate: autoboxProperty(NSWindowDelegate),
 
 
-  preventsApplicationTerminationWhenModal: objc.instanceProperty(),
+  preventsApplicationTerminationWhenModal: instanceProperty(),
 
-  canBeVisibleOnAllSpaces: objc.instanceProperty(), // Deprecated in OS X v10.5
+  canBeVisibleOnAllSpaces: instanceProperty(), // Deprecated in OS X v10.5
 
   // Accessing Window Information
-  defaultDepthLimit: objc.staticSelector(),
-  windowNumber: objc.instanceProperty({ set: null }), // read-only
+  defaultDepthLimit: staticSelector(),
+  windowNumber: instanceProperty({ set: null }), // read-only
 
-  windowNumbers: objc.staticSelector("windowNumbersWithOptions:"),
+  windowNumbers: staticSelector("windowNumbersWithOptions:"),
 
-  gState: objc.instanceProperty({ set: null }),
+  gState: instanceProperty({ set: null }),
 
-  canStoreColor: objc.instanceProperty({ set: null }),
+  canStoreColor: instanceProperty({ set: null }),
 
-  deviceDescription: objc.instanceProperty({ set: null }),
+  deviceDescription: instanceProperty({ set: null }),
 
 
-  canBecomeVisibleWithoutLogin: objc.instanceProperty(),
+  canBecomeVisibleWithoutLogin: instanceProperty(),
 
-  sharingType: objc.instanceProperty(),
+  sharingType: instanceProperty(),
 
-  backingType: objc.instanceProperty(),
+  backingType: instanceProperty(),
 
-  backingLocation: objc.instanceProperty({ set: null}),
+  backingLocation: instanceProperty({ set: null}),
 
-  preferredBackingLocation: objc.instanceProperty(),
+  preferredBackingLocation: instanceProperty(),
 
-  isOneShot: objc.instanceProperty(),
+  isOneShot: instanceProperty(),
 
-  depthLimit: objc.instanceProperty(),
+  depthLimit: instanceProperty(),
 
-  hasDynamicDepthLimit: objc.instanceProperty(),
+  hasDynamicDepthLimit: instanceProperty(),
 
   // Getting Layout Information
-  contentRectForFrameRect: objc.staticSelector("contentRectForFrameRect:styleMask:"),
-  frameRectForContentRect: objc.staticSelector("frameRectForContentRect:styleMask:"),
-  minFrameWidthWithTitle:  objc.staticSelector("minFrameWidthWithTitle:styleMask:"),
+  contentRectForFrameRectWithStyleMask: staticSelector("contentRectForFrameRect:styleMask:"),
+  frameRectForContentRectWithStyleMask: staticSelector("frameRectForContentRect:styleMask:"),
+  minFrameWidthWithTitleWithStyleMask:  staticSelector("minFrameWidthWithTitle:styleMask:"),
 
-  contentRectForFrameRect: objc.instanceSelector("contentRectForFrameRect:"),
-  frameRectForContentRect: objc.instanceSelector("frameRectForContentRect:"),
+  contentRectForFrameRect: instanceSelector("contentRectForFrameRect:"),
+  frameRectForContentRect: instanceSelector("frameRectForContentRect:"),
 
   // Managing Windows
-  drawers: objc.instanceProperty({ set: null }),
-  windowController: objc.instanceProperty(),
+  drawers: instanceProperty({ set: null }),
+  windowController: instanceProperty(),
 
   // Managing Sheets
-  attachedSheet: objc.instanceProperty({ set: null }),
-  isSheet: objc.instanceProperty({ set: null }),
+  attachedSheet: instanceProperty({ set: null }),
+  isSheet: instanceProperty({ set: null }),
 
   // Sizing Windows
-  frame:                objc.instanceProperty({ set: function(v) { this.setFrameAnimated (v, true, false); } }),
-  setFrameOrigin:       objc.instanceSelector("setFrameOrigin:"),
-  setFrameTopLeftPoint: objc.instanceSelector("setFrameTopLeftPoint:"),
-  constrainFrameRect:   objc.instanceSelector("constrainFrameRect:toScreen:"),
-  cascadeTopLeft:       objc.instanceSelector("cascadeTopLeftFromPoint:"),
-  setFrame:             objc.instanceSelector("setFrame:display:"),
-  setFrameAnimated:     objc.instanceSelector("setFrame:display:animate:"),
-  animationResizeTime:  objc.instanceSelector("animationResizeTime:"),
-  aspectRatio:          objc.instanceProperty(),
-  minSize:              objc.instanceProperty(),
-  maxSize:              objc.instanceProperty(),
-  isZoomed:             objc.instanceProperty({ set: null }),
-  performZoom:          objc.instanceSelector("performZoom:"),
-  zoom:                 objc.instanceSelector("zoom:"),
-  resizeFlags:          objc.instanceProperty({ set: null }),
-  showsResizeIndicator: objc.instanceProperty(),
-  resizeIncrements:     objc.instanceProperty(),
-  preservesContentDuringLiveResize: objc.instanceProperty(),
-  inLiveResize:         objc.instanceProperty({ set: null }),
+  frame:                instanceProperty({ set: function(v) { this.setFrameAnimated (v, true, false); } }),
+  setFrameOrigin:       instanceSelector("setFrameOrigin:"),
+  setFrameTopLeftPoint: instanceSelector("setFrameTopLeftPoint:"),
+  constrainFrameRect:   instanceSelector("constrainFrameRect:toScreen:"),
+  cascadeTopLeft:       instanceSelector("cascadeTopLeftFromPoint:"),
+  setFrame:             instanceSelector("setFrame:display:"),
+  setFrameAnimated:     instanceSelector("setFrame:display:animate:"),
+  animationResizeTime:  instanceSelector("animationResizeTime:"),
+  aspectRatio:          instanceProperty(),
+  minSize:              instanceProperty(),
+  maxSize:              instanceProperty(),
+  isZoomed:             instanceProperty({ set: null }),
+  performZoom:          instanceSelector("performZoom:"),
+  zoom:                 instanceSelector("zoom:"),
+  resizeFlags:          instanceProperty({ set: null }),
+  showsResizeIndicator: instanceProperty(),
+  resizeIncrements:     instanceProperty(),
+  preservesContentDuringLiveResize: instanceProperty(),
+  inLiveResize:         instanceProperty({ set: null }),
 
   // Sizing Content
-  contentAspectRatio:      objc.instanceProperty(),
-  setContentSize:          objc.instanceSelector("setContentSize:"),
-  contentMinSize:          objc.instanceProperty(),
-  contentMaxSize:          objc.instanceProperty(),
-  contentResizeIncrements: objc.instanceProperty(),
+  contentAspectRatio:      instanceProperty(),
+  setContentSize:          instanceSelector("setContentSize:"),
+  contentMinSize:          instanceProperty(),
+  contentMaxSize:          instanceProperty(),
+  contentResizeIncrements: instanceProperty(),
 
   // Managing Window Layers
-  visible:              objc.instanceProperty({ get: "isVisible", set: null }),
-  orderOut:             objc.instanceSelector("orderOut:"),
-  orderBack:            objc.instanceSelector("orderBack:"),
-  orderFront:           objc.instanceSelector("orderFront:"),
-  orderFrontRegardless: objc.instanceSelector(),
-  orderWindow:          objc.instanceSelector("orderWindow:relativeTo:"),
-  level:                objc.instanceProperty(),
+  visible:              instanceProperty({ get: "isVisible", set: null }),
+  orderOut:             instanceSelector("orderOut:"),
+  orderBack:            instanceSelector("orderBack:"),
+  orderFront:           instanceSelector("orderFront:"),
+  orderFrontRegardless: instanceSelector(),
+  orderWindow:          instanceSelector("orderWindow:relativeTo:"),
+  level:                instanceProperty(),
 
   // Managing Window Frames in User Defaults
-  removeFrame:          objc.staticSelector("removeFrameUsingName:"),
-  setFrame:             objc.instanceSelector("setFrameUsingName:"),
-  setFrameUsingName:    objc.instanceSelector("setFrameUsingName:force:"),
-  saveFrameUsingName:   objc.instanceSelector("saveFrameUsingName:"),
-  frameAutosaveName:    objc.instanceProperty(),
-  stringWithSavedFrame: objc.instanceSelector(),
-  setFrameFromString:   objc.instanceSelector("setFrameFromString:"),
+  removeFrame:            staticSelector("removeFrameUsingName:"),
+  setFrameUsingName:      instanceSelector("setFrameUsingName:"),
+  setFrameUsingNameForce: instanceSelector("setFrameUsingName:force:"),
+  saveFrameUsingName:     instanceSelector("saveFrameUsingName:"),
+  frameAutosaveName:      instanceProperty(),
+  stringWithSavedFrame:   instanceSelector(),
+  setFrameFromString:     instanceSelector("setFrameFromString:"),
 
   // Managing Key Status
-  isKeyWindow:          objc.instanceProperty({ set: null }),
-  canBecomeKeyWindow:   objc.instanceProperty({ set: null }),
-  makeKeyWindow:        objc.instanceSelector(),
-  makeKeyAndOrderFront: objc.instanceSelector("makeKeyAndOrderFront:"),
-  becomeKeyWindow:      objc.instanceSelector(),
-  resignKeyWindow:      objc.instanceSelector(),
+  isKeyWindow:          instanceProperty({ set: null }),
+  canBecomeKeyWindow:   instanceProperty({ set: null }),
+  makeKeyWindow:        instanceSelector(),
+  makeKeyAndOrderFront: instanceSelector("makeKeyAndOrderFront:"),
+  becomeKeyWindow:      instanceSelector(),
+  resignKeyWindow:      instanceSelector(),
 
   // Managing Main Status
-  isMainWindow:        objc.instanceProperty({ set: null }),
-  canBecomeMainWindow: objc.instanceProperty({ set: null }),
-  makeMainWindow:      objc.instanceSelector(),
-  becomeMainWindow:    objc.instanceSelector(),
-  resignMainWindow:    objc.instanceSelector(),
+  isMainWindow:        instanceProperty({ set: null }),
+  canBecomeMainWindow: instanceProperty({ set: null }),
+  makeMainWindow:      instanceSelector(),
+  becomeMainWindow:    instanceSelector(),
+  resignMainWindow:    instanceSelector(),
 
   // Managing Toolbars
-  toolbar:            objc.instanceProperty(),
-  toggleToolbarShown: objc.instanceSelector("toggleToolbarShown:"),
-  runToolbarCustomizationPalette: objc.instanceSelector("runToolbarCustomizationPalette:"),
+  toolbar:            instanceProperty(),
+  toggleToolbarShown: instanceSelector("toggleToolbarShown:"),
+  runToolbarCustomizationPalette: instanceSelector("runToolbarCustomizationPalette:"),
 
   // Managing Attached Windows
-  childWindows:      objc.instanceProperty({ set: null }),
-  addChildWindow:    objc.instanceSelector("addChildWindow:ordered:"),
-  removeChildWindow: objc.instanceSelector("removeChildWindow:"),
-  parentWindow:      objc.instanceProperty(),
+  childWindows:      instanceProperty({ set: null }),
+  addChildWindow:    instanceSelector("addChildWindow:ordered:"),
+  removeChildWindow: instanceSelector("removeChildWindow:"),
+  parentWindow:      instanceProperty(),
 
   // Managing Window Buffers
-  isFlushWindowDisabled: objc.instanceProperty({ set: null }),
-  enableFlushWindow:     objc.instanceSelector(),
-  disableFlushWindow:    objc.instanceSelector(),
-  flushWindow:           objc.instanceSelector(),
-  flushWindowIfNeeded:   objc.instanceSelector(),
+  isFlushWindowDisabled: instanceProperty({ set: null }),
+  enableFlushWindow:     instanceSelector(),
+  disableFlushWindow:    instanceSelector(),
+  flushWindow:           instanceSelector(),
+  flushWindowIfNeeded:   instanceSelector(),
 
   // Managing Default Buttons
-  defaultButtonCell:                        objc.instanceProperty(),
-  enableKeyEquivalentForDefaultButtonCell:  objc.instanceSelector(),
-  disableKeyEquivalentForDefaultButtonCell: objc.instanceSelector(),
+  defaultButtonCell:                        instanceProperty(),
+  enableKeyEquivalentForDefaultButtonCell:  instanceSelector(),
+  disableKeyEquivalentForDefaultButtonCell: instanceSelector(),
 
   // Managing Field Editors
-  fieldEditor: objc.instanceSelector("fieldEditor:forObject:"),
-  endEditing:  objc.instanceSelector("endEditingFor:"),
+  fieldEditor: instanceSelector("fieldEditor:forObject:"),
+  endEditing:  instanceSelector("endEditingFor:"),
 
   // Managing the Window Menu
-  excludedFromWindowsMenu: objc.instanceProperty({ get: "isExcludedFromWindowsMenu" }),
+  excludedFromWindowsMenu: instanceProperty({ get: "isExcludedFromWindowsMenu" }),
 
   // Managing Cursor Rectangles
-  areCursorRectsEnabled:        objc.instanceProperty({ set: null }),
-  enableCursorRects:            objc.instanceSelector(),
-  disableCursorRects:           objc.instanceSelector(),
-  discardCursorRects:           objc.instanceSelector(),
-  invalidateCursorRectsForView: objc.instanceSelector("invalidateCursorRectsForView:"),
-  resetCursorRects:             objc.instanceSelector(),
+  areCursorRectsEnabled:        instanceProperty({ set: null }),
+  enableCursorRects:            instanceSelector(),
+  disableCursorRects:           instanceSelector(),
+  discardCursorRects:           instanceSelector(),
+  invalidateCursorRectsForView: instanceSelector("invalidateCursorRectsForView:"),
+  resetCursorRects:             instanceSelector(),
 
   // Managing Title Bars
-  standardWindowButtonForStyleMask: objc.staticSelector("standardWindowButton:forStyleMask:"),
-  standardWindowButton:             objc.instanceSelector("standardWindowButton:"),
-  showsToolbarButton:               objc.instanceProperty(),
+  standardWindowButtonForStyleMask: staticSelector("standardWindowButton:forStyleMask:"),
+  standardWindowButton:             instanceSelector("standardWindowButton:"),
+  showsToolbarButton:               instanceProperty(),
 
   // Managing Tooltips
-  allowsToolTipsWhenApplicationIsInactive: objc.instanceProperty(),
+  allowsToolTipsWhenApplicationIsInactive: instanceProperty(),
 
   // Handling Events
-  menuChanged: objc.staticSelector("menuChanged:"),
-  currentEvent: objc.instanceSelector(),
-  nextEventMatchingMask: objc.instanceSelector("nextEventMatchingMask:"),
-  nextEventMatchingMaskUntilDate: objc.instanceSelector("nextEventMatchingMask:untilDate:inMode:dequeue:"),
-  discardEvents: objc.instanceSelector("discardEventsMatchingMask:beforeEvent:"),
-  postEvent: objc.instanceSelector("postEvent:atStart:"),
-  sendEvent: objc.instanceSelector("sendEvent:"),
-  tryToPerform: objc.instanceSelector("tryToPerform:with:"),
+  menuChanged: staticSelector("menuChanged:"),
+  currentEvent: instanceSelector(),
+  nextEventMatchingMask: instanceSelector("nextEventMatchingMask:"),
+  nextEventMatchingMaskUntilDate: instanceSelector("nextEventMatchingMask:untilDate:inMode:dequeue:"),
+  discardEvents: instanceSelector("discardEventsMatchingMask:beforeEvent:"),
+  postEvent: instanceSelector("postEvent:atStart:"),
+  sendEvent: instanceSelector("sendEvent:"),
+  tryToPerform: instanceSelector("tryToPerform:with:"),
 
   // Managing Responders
-  initialFirstResponder: objc.instanceProperty({ set: null }),
-  firstResponder: objc.instanceProperty({ set: null }),
-  setInitialFirstResponse: objc.instanceSelector("setInitialFirstResponder:"),
-  makeFirstResponder: objc.instanceSelector("makeFirstResponder:"),
+  initialFirstResponder: instanceProperty({ set: null }),
+  firstResponder: instanceProperty({ set: null }),
+  setInitialFirstResponse: instanceSelector("setInitialFirstResponder:"),
+  makeFirstResponder: instanceSelector("makeFirstResponder:"),
 
   // Managing the Key View Loop
-  selectKeyViewPrecedingView: objc.instanceSelector("selectKeyViewPrecedingView:"),
-  selectKeyViewFollowingView: objc.instanceSelector("selectKeyViewFollowingView:"),
-  selectPreviousKeyView: objc.instanceSelector("selectPreviousKeyView:"),
-  selectNextKeyView: objc.instanceSelector("selectNextKeyView:"),
-  keyViewSelectionDirection: objc.instanceProperty({ set: null }),
-  autorecalculatesKeyViewLoop: objc.instanceSelector(),
-  recalculateKeyViewLoop: objc.instanceSelector(),
-  setAutorecalculatesKeyViewLoop: objc.instanceSelector("setAutorecalculatesKeyViewLoop:"),
+  selectKeyViewPrecedingView: instanceSelector("selectKeyViewPrecedingView:"),
+  selectKeyViewFollowingView: instanceSelector("selectKeyViewFollowingView:"),
+  selectPreviousKeyView: instanceSelector("selectPreviousKeyView:"),
+  selectNextKeyView: instanceSelector("selectNextKeyView:"),
+  keyViewSelectionDirection: instanceProperty({ set: null }),
+  autorecalculatesKeyViewLoop: instanceSelector(),
+  recalculateKeyViewLoop: instanceSelector(),
+  setAutorecalculatesKeyViewLoop: instanceSelector("setAutorecalculatesKeyViewLoop:"),
 
   // Handling Keyboard Events
-  keyDown: objc.instanceSelector("keyDown:"),
+  keyDown: instanceSelector("keyDown:"),
 
   // Handling Mouse Events
-  acceptsMouseMovedEvents: objc.instanceProperty({ set: null }),
-  ignoresMouseEvents: objc.instanceProperty({ set: null }),
-  mouseLocationOutsideOfEventStream: objc.instanceProperty({ set: null }),
-  setAcceptsMouseMovedEvents: objc.instanceSelector("setAcceptsMouseMovedEvents"),
-  windowNumber: objc.staticSelector("windowNumberAtPoint:belowWindowWithWindowNumber:"),
+  acceptsMouseMovedEvents: instanceProperty({ set: null }),
+  ignoresMouseEvents: instanceProperty({ set: null }),
+  mouseLocationOutsideOfEventStream: instanceProperty({ set: null }),
+  setAcceptsMouseMovedEvents: instanceSelector("setAcceptsMouseMovedEvents"),
+  windowNumberAt: staticSelector("windowNumberAtPoint:belowWindowWithWindowNumber:"),
 
   // Handling Window Restoration
-  restorable: objc.instanceProperty({ get: "isRestorable" }),
-  restorationClass: objc.instanceProperty(),
-  disableSnapshotRestoration: objc.instanceSelector(),
-  enableSnapshotRestoration: objc.instanceSelector(),
+  restorable: instanceProperty({ get: "isRestorable" }),
+  restorationClass: instanceProperty(),
+  disableSnapshotRestoration: instanceSelector(),
+  enableSnapshotRestoration: instanceSelector(),
 
   // Bracketing Drawing Operations
-  cacheImageInRect: objc.instanceSelector("cacheImageInRect:"),
-  restoreCachedImage: objc.instanceSelector(),
-  discardCachedImage: objc.instanceSelector(),
+  cacheImageInRect: instanceSelector("cacheImageInRect:"),
+  restoreCachedImage: instanceSelector(),
+  discardCachedImage: instanceSelector(),
 
   // Drawing Windows
-  display: objc.instanceSelector(),
-  displayIfNeeded: objc.instanceSelector(),
-  viewsNeedDisplay: objc.instanceProperty(),
-  autodisplay: objc.instanceProperty({ get: "isAutodisplay" }),
-  useOptimizedDrawing: objc.instanceSelector("useOptimizedDrawing:"),
-  graphicsContext: objc.instanceProperty({ set: null }),
-  allowsConcurrentViewDrawing: objc.instanceProperty(),
+  display: instanceSelector(),
+  displayIfNeeded: instanceSelector(),
+  viewsNeedDisplay: instanceProperty(),
+  autodisplay: instanceProperty({ get: "isAutodisplay" }),
+  useOptimizedDrawing: instanceSelector("useOptimizedDrawing:"),
+  graphicsContext: instanceProperty({ set: null }),
+  allowsConcurrentViewDrawing: instanceProperty(),
 
   // Window Animation
-  animationBehavior: objc.instanceProperty(),
+  animationBehavior: instanceProperty(),
 
   // Updating Windows
-  disableScreenUpdatesUntilFlush: objc.instanceSelector(),
-  update: objc.instanceSelector(),
+  disableScreenUpdatesUntilFlush: instanceSelector(),
+  update: instanceSelector(),
 
   // Dragging Items
-  dragImage: objc.instanceSelector("dragImage:at:offset:event:pasteboard:source:slideBack:"),
-  registerForDraggedTypes: objc.instanceSelector("registerForDraggedTypes:"),
-  unregisterDraggedTypes: objc.instanceSelector(),
+  dragImage: instanceSelector("dragImage:at:offset:event:pasteboard:source:slideBack:"),
+  registerForDraggedTypes: instanceSelector("registerForDraggedTypes:"),
+  unregisterDraggedTypes: instanceSelector(),
 
   // Converting Coordinates
-  backingScaleFactor: objc.instanceProperty({ set: null }),
-  backingAlignedRect: objc.instanceSelector("backingAlignedRect:options:"),
-  convertRectFromBacking: objc.instanceSelector("convertRectFromBacking:"),
-  convertRectToBacking: objc.instanceSelector("convertRectToBacking:"),
-  convertRectToScreen: objc.instanceSelector("convertRectToScreen:"),
-  convertRectFromScreen: objc.instanceSelector("convertRectFromScreen:"),
-  convertBaseToScreen: objc.instanceSelector("convertBaseToScreen:"),
-  convertScreenToBase: objc.instanceSelector("convertScreenToBase:"),
-  userSpaceScaleFactor: objc.instanceProperty({ set: null }),
+  backingScaleFactor: instanceProperty({ set: null }),
+  backingAlignedRect: instanceSelector("backingAlignedRect:options:"),
+  convertRectFromBacking: instanceSelector("convertRectFromBacking:"),
+  convertRectToBacking: instanceSelector("convertRectToBacking:"),
+  convertRectToScreen: instanceSelector("convertRectToScreen:"),
+  convertRectFromScreen: instanceSelector("convertRectFromScreen:"),
+  convertBaseToScreen: instanceSelector("convertBaseToScreen:"),
+  convertScreenToBase: instanceSelector("convertScreenToBase:"),
+  userSpaceScaleFactor: instanceProperty({ set: null }),
 
   // Accessing Edited Status
-  documentEdited: objc.instanceProperty({ get: "isDocumentEdited" }),
+  documentEdited: instanceProperty({ get: "isDocumentEdited" }),
 
   // Managing Titles
-  title: objc.instanceProperty(),
-  setTitleWithRepresentedFilename: objc.instanceSelector("setTitleWithRepresentedFilename:"),
-  representedFilename: objc.instanceProperty(),
-  representedURL: objc.instanceProperty(),
+  title: instanceProperty(),
+  setTitleWithRepresentedFilename: instanceSelector("setTitleWithRepresentedFilename:"),
+  representedFilename: instanceProperty(),
+  representedURL: instanceProperty(),
 
   // Accessing Screen Information
-  screen: objc.instanceProperty({ set: null }),
-  deepestScreen: objc.instanceProperty({ set: null }),
-  displaysWhenScreenProfileChanges: objc.instanceProperty(),
+  screen: instanceProperty({ set: null }),
+  deepestScreen: instanceProperty({ set: null }),
+  displaysWhenScreenProfileChanges: instanceProperty(),
 
   // Moving Windows
-  movableByWindowBackground: objc.instanceProperty({ get: "isMovableByWindowBackground" }),
-  movable: objc.instanceProperty({ get: "isMovable" }),
-  center: objc.instanceProperty({ set: null }),
+  movableByWindowBackground: instanceProperty({ get: "isMovableByWindowBackground" }),
+  movable: instanceProperty({ get: "isMovable" }),
+  center: instanceProperty({ set: null }),
 
   // Closing Windows
-  performClose: objc.instanceSelector("performClose:"),
-  close: objc.instanceSelector(),
-  releasedWhenClosed: objc.instanceProperty({ get: "isReleasedWhenClosed" }),
+  performClose: instanceSelector("performClose:"),
+  close: instanceSelector(),
+  releasedWhenClosed: instanceProperty({ get: "isReleasedWhenClosed" }),
 
   // Minimizing Windows
-  isMiniaturized: objc.instanceProperty({ set: null }),
-  performMiniaturize: objc.instanceSelector("performMiniaturize:"),
-  miniaturize: objc.instanceSelector("miniaturize:"),
-  deminiaturize: objc.instanceSelector("deminiaturize:"),
-  miniwindowImage: objc.instanceProperty(),
-  miniwindowTitle: objc.instanceProperty(),
+  isMiniaturized: instanceProperty({ set: null }),
+  performMiniaturize: instanceSelector("performMiniaturize:"),
+  miniaturize: instanceSelector("miniaturize:"),
+  deminiaturize: instanceSelector("deminiaturize:"),
+  miniwindowImage: instanceProperty(),
+  miniwindowTitle: instanceProperty(),
 
   // Getting the Dock Tile
-  dockTile: objc.instanceProperty({ set: null }),
+  dockTile: instanceProperty({ set: null }),
 
   // Printing Windows
-  print: objc.instanceSelector("print:"),
-  dataWithEPS: objc.instanceSelector("dataWithEPSInsideRect:"),
-  dataWithPDF: objc.instanceSelector("dataWithPDFInsideRect:"),
+  print: instanceSelector("print:"),
+  dataWithEPS: instanceSelector("dataWithEPSInsideRect:"),
+  dataWithPDF: instanceSelector("dataWithPDFInsideRect:"),
 
   // Providing Services
-  validRequestor: objc.instanceSelector("validRequestorForSendType:returnType:"),
+  validRequestor: instanceSelector("validRequestorForSendType:returnType:"),
 
   // Working with Carbon
-  initWithWindowRef: objc.instanceSelector("initWithWindowRef:"),
-  windowRef: objc.instanceProperty({ set: null }),
+  initWithWindowRef: instanceSelector("initWithWindowRef:"),
+  windowRef: instanceProperty({ set: null }),
 
   // Triggering Constraint-Based Layout
-  updateConstraintsIfNeeded: objc.instanceSelector(),
-  layoutIfNeeded: objc.instanceSelector(),
+  updateConstraintsIfNeeded: instanceSelector(),
+  layoutIfNeeded: instanceSelector(),
 
   // Debugging Constraint-Based Layout
 
   // See Cocoa Autolayout Release Notes for more details on debugging constraint-based layout.
 
-  visualizeConstraints: objc.instanceSelector("visualizeConstraints:"),
+  visualizeConstraints: instanceSelector("visualizeConstraints:"),
 
   // Constraint-Based Layouts
-  anchorAttribute: objc.instanceSelector("anchorAttributeForOrientation:"),
-  setAnchorAttribute: objc.instanceSelector("setAnchorAttribute:forOrientation:")
+  anchorAttribute: instanceSelector("anchorAttributeForOrientation:"),
+  setAnchorAttribute: instanceSelector("setAnchorAttribute:forOrientation:")
 }));

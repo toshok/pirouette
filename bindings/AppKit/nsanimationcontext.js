@@ -1,21 +1,28 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var NSAnimationContext;
-_exports.NSAnimationContext = NSAnimationContext = foundation.NSObject.extendClass("NSAnimationContext", () => ({
+import { instanceSelector, instanceProperty, staticSelector, staticProperty } from '../objc';
+import { NSObject } from '../foundation';
+
+export let NSAnimationContext = NSObject.extendClass("NSAnimationContext", () => ({
     // Grouping Transactions
-    beginGrouping: objc.instanceSelector("beginGrouping"),
-    endGrouping: objc.instanceSelector("endGrouping"),
+    beginGrouping: instanceSelector("beginGrouping"),
+    endGrouping:   instanceSelector("endGrouping"),
 
     // Getting the Current Animation Context
-    currentContext: objc.instanceSelector("currentContext"),
+    //
+    currentContext: staticProperty({set: null}), // read-only
 
     // Animation Completion Handlers
-    setCompletionHandler: objc.instanceSelector("setCompletionHandler:"),
-    completionHandler: objc.instanceSelector("completionHandler"),
-    runAnimationGroup: objc.instanceSelector("runAnimationGroup:completionHandler:"),
+    //
+    completionHandler: instanceProperty(),
+    runAnimationGroup: staticSelector("runAnimationGroup:completionHandler:"),
 
     // Modifying the Animation Duration
-    duration: objc.instanceProperty(),
-    timingFunction: objc.instanceProperty()
+    //
+    duration:       instanceProperty(),
+    timingFunction: instanceProperty(),
 
+    // Implicit Animation
+    //
+    allowsImplicitAnimation: instanceProperty({set: null})
 }));

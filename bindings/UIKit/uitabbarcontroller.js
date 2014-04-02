@@ -1,21 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIViewController } from 'uiviewcontroller';
+
 //console.log("UITabBarController");
-var UITabBarController;
-_exports.UITabBarController = UITabBarController = UIViewController.extendClass ("UITabBarController", () => ({
+export let UITabBarController = UIViewController.extendClass ("UITabBarController", () => ({
 
     // Accessing the Tab Bar Controller Properties
-    delegate: objc.autoboxProperty(UITabBarControllerDelegate),
-    tabBar: objc.instanceProperty(),
+    delegate: autoboxProperty(UITabBarControllerDelegate),
+    tabBar: instanceProperty(),
 
     // Managing the View Controllers
-    setViewControllers: objc.instanceSelector("setViewControllers:animated:"),
-    viewControllers:   objc.instanceProperty({ set: function (v) { return this.setViewControllers(v, false); } }),
-    customizableViewControllers:   objc.instanceProperty(),
-    moreNavigationController:   objc.instanceProperty(),
+    setViewControllers: instanceSelector("setViewControllers:animated:"),
+    viewControllers:   instanceProperty({ set: function (v) { return this.setViewControllers(v, false); } }),
+    customizableViewControllers:   instanceProperty(),
+    moreNavigationController:   instanceProperty(),
 
     // Managing the Selected Tab
-    selectedViewController:   objc.instanceProperty(),
-    selectedIndex:   objc.instanceProperty()
+    selectedViewController:   instanceProperty(),
+    selectedIndex:   instanceProperty()
 
 }));

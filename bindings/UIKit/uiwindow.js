@@ -1,28 +1,30 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UIWindow");
-var UIWindow;
-_exports.UIWindow = UIWindow = UIView.extendClass ("UIWindow", () => ({
+export let UIWindow = UIView.extendClass ("UIWindow", () => ({
 
     // Configuring Windows
-    windowLevel: objc.instanceProperty(),
-    screen: objc.instanceProperty(),
-    rootViewController: objc.instanceProperty(),
+    windowLevel: instanceProperty(),
+    screen: instanceProperty(),
+    rootViewController: instanceProperty(),
 
     // Making Windows Key
-    keyWindow: objc.instanceProperty(),
-    makeKeyAndVisible: objc.instanceSelector("makeKeyAndVisible"),
-    becomeKeyWindow:   objc.instanceSelector("becomeKeyWindow"),
-    makeKeyWindow:     objc.instanceSelector("makeKeyWindow"),
-    resignKeyWindow:   objc.instanceSelector("resignKeyWindow"),
+    keyWindow: instanceProperty(),
+    makeKeyAndVisible: instanceSelector("makeKeyAndVisible"),
+    becomeKeyWindow:   instanceSelector("becomeKeyWindow"),
+    makeKeyWindow:     instanceSelector("makeKeyWindow"),
+    resignKeyWindow:   instanceSelector("resignKeyWindow"),
 
     // Converting Coordinates
-    convertPointToWindow:   objc.instanceSelector("convertPoint:toWindow:"),
-    convertPointFromWindow: objc.instanceSelector("convertPoint:fromWindow:"),
-    convertRectToWindow:    objc.instanceSelector("convertRect:toWindow:"),
-    convertRectFromWindow:  objc.instanceSelector("convertRect:fromWindow:"),
+    convertPointToWindow:   instanceSelector("convertPoint:toWindow:"),
+    convertPointFromWindow: instanceSelector("convertPoint:fromWindow:"),
+    convertRectToWindow:    instanceSelector("convertRect:toWindow:"),
+    convertRectFromWindow:  instanceSelector("convertRect:fromWindow:"),
 
     // Sending Events
-    sendEvent:              objc.instanceSelector("sendEvent:")
+    sendEvent:              instanceSelector("sendEvent:")
 
 }));

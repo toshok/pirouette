@@ -2,6 +2,9 @@
 
 //console.log("UIAppearance");
 
+import { requiredMethod, selectorInvoker, getTypeEncoding } from '../objc';
+import { Protocol } from '../foundation';
+
 let appearances = Object.create(null);
 
 function makeAppearance (sel, o /*, ...args */) {
@@ -11,7 +14,7 @@ function makeAppearance (sel, o /*, ...args */) {
   let args = Array.prototype.slice.call(arguments, 2);
 
   // kind of a hack to invoke the selector on the right object
-  appearance = objc.selectorInvoker(sel).apply(o, args);
+  appearance = selectorInvoker(sel).apply(o, args);
 
   // iterate over all keys in o's prototype, looking for ones whose values
   // have _ck_appearance = true set on them.
@@ -27,7 +30,7 @@ function makeAppearance (sel, o /*, ...args */) {
       // it's a property
       if (fn._ck_appearance)
         if (!fn._ck_typeEncoding)
-          fn._ck_typeEncoding = objc.getTypeEncoding(o, fn);
+          fn._ck_typeEncoding = getTypeEncoding(o, fn);
 	  if (fn === o.prototype.__lookupGetter__(key))
             appearance.__defineGetter__(key, fn);
           else
@@ -38,7 +41,7 @@ function makeAppearance (sel, o /*, ...args */) {
       fn = o.prototype[key];
       if (fn._ck_appearance) {
 	if (!fn._ck_typeEncoding)
-	  fn._ck_typeEncoding = objc.getTypeEncoding(o, fn);
+	  fn._ck_typeEncoding = getTypeEncoding(o, fn);
 	appearance[key] = fn;
       }
     }
@@ -48,11 +51,10 @@ function makeAppearance (sel, o /*, ...args */) {
   return appearance;
 };
 
-var UIAppearance;
-_exports.UIAppearance = UIAppearance = foundation.Protocol.extendClass("UIAppearance", () => ({
+export let UIAppearance = Protocol.extendClass("UIAppearance", () => ({
 
     // Appearance Methods
-    appearance:                objc.requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,
-    appearanceWhenContainedIn: objc.requiredMethod("appearanceWhenContainedIn:", { tramp: function () { return makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(Array.prototype.slice.call(arguments, 0))); } } )
+    appearance:                requiredMethod("appearance", { tramp: function () { return makeAppearance("appearance", this);  } }) ,
+    appearanceWhenContainedIn: requiredMethod("appearanceWhenContainedIn:", { tramp: function () { return makeAppearance.apply(null, ["appearanceWhenContainedIn", this].concat(Array.prototype.slice.call(arguments, 0))); } } )
 
 }));

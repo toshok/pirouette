@@ -1,23 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIManagedDocument");
-var UIManagedDocument;
-_exports.UIManagedDocument = UIManagedDocument = foundation.NSObject.extendClass ("UIManagedDocument", () => ({
+export let UIManagedDocument = NSObject.extendClass ("UIManagedDocument", () => ({
 
     // Managing the Core Data Stack
-    configurePersistentStoreCoordinator: objc.instanceSelector("configurePersistentStoreCoordinatorForURL:ofType:modelConfiguration:storeOptions:error:"),
-    persistentStoreType:                 objc.instanceSelector("persistentStoreTypeForFileType:"),
-    managedObjectContext: objc.instanceProperty(),
-    managedObjectModel: objc.instanceProperty(),
-    persistentStoreOptions: objc.instanceProperty(),
-    modelConfiguration: objc.instanceProperty(),
+    configurePersistentStoreCoordinator: instanceSelector("configurePersistentStoreCoordinatorForURL:ofType:modelConfiguration:storeOptions:error:"),
+    persistentStoreType:                 instanceSelector("persistentStoreTypeForFileType:"),
+    managedObjectContext: instanceProperty(),
+    managedObjectModel: instanceProperty(),
+    persistentStoreOptions: instanceProperty(),
+    modelConfiguration: instanceProperty(),
 
     // Customizing Read and Write Operations
-    readAdditionalContent:  objc.instanceSelector("readAdditionalContentFromURL:error:"),
-    additionalContent:      objc.instanceSelector("additionalContentForURL:error:"),
-    writeAdditionalContent: objc.instanceSelector("writeAdditionalContent:toURL:originalContentsURL:error:"),
+    readAdditionalContent:  instanceSelector("readAdditionalContentFromURL:error:"),
+    additionalContent:      instanceSelector("additionalContentForURL:error:"),
+    writeAdditionalContent: instanceSelector("writeAdditionalContent:toURL:originalContentsURL:error:"),
 
     // Naming the Persistent Store File
-    persistentStoreName: objc.staticSelector("persistentStoreName")
+    persistentStoreName: staticSelector("persistentStoreName")
 
 }));

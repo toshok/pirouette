@@ -1,25 +1,28 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIMenuController");
 var UIMenuController;
-_exports.UIMenuController = UIMenuController = foundation.NSObject.extendClass ("UIMenuController", () => ({
+export let UIMenuController = NSObject.extendClass ("UIMenuController", () => ({
 
     // Getting the Menu Controller Instance
-    sharedMenuController: objc.staticSelector("sharedMenuController"),
+    sharedMenuController: staticSelector("sharedMenuController"),
 
     // Showing and Hiding the Menu
-    menuVisible:    objc.instanceProperty(),
-    setMenuVisible: objc.instanceSelector("setMenuVisible:animated:"),
+    menuVisible:    instanceProperty(),
+    setMenuVisible: instanceSelector("setMenuVisible:animated:"),
 
     // Positioning the Menu
-    setTargetRect:    objc.instanceSelector("setTargetRect:inView:"),
-    menuFrame:        objc.instanceProperty(),
-    arrowDirection:   objc.instanceProperty(),
+    setTargetRect:    instanceSelector("setTargetRect:inView:"),
+    menuFrame:        instanceProperty(),
+    arrowDirection:   instanceProperty(),
 
     // Updating the Menu
-    update:           objc.instanceSelector("update"),
+    update:           instanceSelector("update"),
 
     // Customizing Menu Items
-    menuItems: objc.instanceProperty()
+    menuItems: instanceProperty()
 
 }));

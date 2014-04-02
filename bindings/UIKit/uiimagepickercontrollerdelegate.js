@@ -1,12 +1,14 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UIImagePickerControllerDelegate");
-var UIImagePickerControllerDelegate;
-_exports.UIImagePickerControllerDelegate = UIImagePickerControllerDelegate = foundation.Protocol.extendClass("UIImagePickerControllerDelegate", () => ({
+export let UIImagePickerControllerDelegate = Protocol.extendClass("UIImagePickerControllerDelegate", () => ({
 
     // Closing the Picker
-    didFinishPickingMediaWithInfo: objc.optionalMethod("imagePickerController:didFinishPickingMediaWithInfo:"),
-    didCancel:                     objc.optionalMethod("imagePickerControllerDidCancel:"),
-    didFinishPickingImage:         objc.optionalMethod("imagePickerController:didFinishPickingImage:editingInfo:") // Deprecated in iOS 3.0
+    didFinishPickingMediaWithInfo: optionalMethod("imagePickerController:didFinishPickingMediaWithInfo:"),
+    didCancel:                     optionalMethod("imagePickerControllerDidCancel:"),
+    didFinishPickingImage:         optionalMethod("imagePickerController:didFinishPickingImage:editingInfo:") // Deprecated in iOS 3.0
 
 }));

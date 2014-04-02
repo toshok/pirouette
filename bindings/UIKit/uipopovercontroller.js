@@ -1,31 +1,34 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+import { UIPopoverControllerDelegate } from 'uipopovercontrollerdelegate';
+
 //console.log("UIPopoverController");
-var UIPopoverController;
-_exports.UIPopoverController = UIPopoverController = foundation.NSObject.extendClass ("UIPopoverController", () => ({
+export let UIPopoverController = NSObject.extendClass ("UIPopoverController", () => ({
 
     // Initializing the Popover
-    initWithContentViewController: objc.instanceSelector("initWithContentViewController:"),
+    initWithContentViewController: instanceSelector("initWithContentViewController:"),
 
     // Configuring the Popover Attributes
-    setContentViewController: objc.instanceSelector("setContentViewController:animated:"),
-    setPopoverContentSize:    objc.instanceSelector("setPopoverContentSize:animated:"),
-    contentViewController: objc.instanceProperty({ set: function(v) { return this.setContentViewController(v, false); } }),
-    popoverContentSize: objc.instanceProperty({ set: function(v) { return this.setPopoverContentSize(v, false); } }),
-    passthroughViews: objc.instanceProperty(),
-    delegate: objc.autoboxProperty(UIPopoverControllerDelegate),
+    setContentViewController: instanceSelector("setContentViewController:animated:"),
+    setPopoverContentSize:    instanceSelector("setPopoverContentSize:animated:"),
+    contentViewController: instanceProperty({ set: function(v) { return this.setContentViewController(v, false); } }),
+    popoverContentSize: instanceProperty({ set: function(v) { return this.setPopoverContentSize(v, false); } }),
+    passthroughViews: instanceProperty(),
+    delegate: autoboxProperty(UIPopoverControllerDelegate),
 
     // Getting the Popover Attributes
-    popoverVisible: objc.instanceProperty(),
-    popoverArrowDirection: objc.instanceProperty(),
+    popoverVisible: instanceProperty(),
+    popoverArrowDirection: instanceProperty(),
 
     // Presenting and Dismissing the Popover
-    presentPopoverFromRect:          objc.instanceSelector("presentPopoverFromRect:inView:permittedArrowDirections:animated:"),
-    presentPopoverFromBarButtonItem: objc.instanceSelector("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:"),
-    dismissPopover:                  objc.instanceSelector("dismissPopoverAnimated:"),
+    presentPopoverFromRect:          instanceSelector("presentPopoverFromRect:inView:permittedArrowDirections:animated:"),
+    presentPopoverFromBarButtonItem: instanceSelector("presentPopoverFromBarButtonItem:permittedArrowDirections:animated:"),
+    dismissPopover:                  instanceSelector("dismissPopoverAnimated:"),
 
     // Customizing the Popover Appearance
-    popoverLayoutMargins: objc.instanceProperty(),
-    popoverBackgroundViewClass: objc.instanceProperty()
+    popoverLayoutMargins: instanceProperty(),
+    popoverBackgroundViewClass: instanceProperty()
 
 }));

@@ -1,13 +1,15 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-console.log("UIAccelerometer");
-var UIAccelerometer;
-_exports.UIAccelerometer = UIAccelerometer = foundation.NSObject.extendClass ("UIAccelerometer", () => ({
+import { instanceProperty, staticProperty, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+import { UIAccelerometerDelegate } from 'uiaccelerometerdelegate';
+
+export let UIAccelerometer = NSObject.extendClass ("UIAccelerometer", () => ({
 
   // Getting the Shared Accelerometer Object
-  sharedAccelerometer: objc.staticProperty(),
+  sharedAccelerometer: staticProperty(),
 
   // Accessing the Accelerometer Properties
-  updateInterval: objc.instanceProperty(),
-  delegate:       objc.autoboxProperty (UIAccelerometerDelegate)
+  updateInterval: instanceProperty(),
+  delegate:       autoboxProperty (UIAccelerometerDelegate)
 }));

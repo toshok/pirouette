@@ -1,11 +1,13 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector } from '../objc';
+import { UIViewController } from 'uiviewcontroller';
+
 //console.log("UIReferenceLibraryViewController");
-var UIReferenceLibraryViewController;
-_exports.UIReferenceLibraryViewController = UIReferenceLibraryViewController = UIViewController.extendClass ("UIReferenceLibraryViewController", () => ({
+export let UIReferenceLibraryViewController = UIViewController.extendClass ("UIReferenceLibraryViewController", () => ({
 
     // Creating Reference-Library View Controllers
-    dictionaryHasDefinitionForTerm: objc.staticSelector("dictionaryHasDefinitionForTerm:"),
-    initWithTerm:                    objc.instanceSelector("initWithTerm:")
+    dictionaryHasDefinitionForTerm: staticSelector("dictionaryHasDefinitionForTerm:"),
+    initWithTerm:                    instanceSelector("initWithTerm:")
 
 }));

@@ -1,17 +1,19 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIControl } from 'uicontrol';
+
 //console.log("UISwitch");
-var UISwitch;
-_exports.UISwitch = UISwitch = UIControl.extendClass ("UISwitch", () => ({
+export let UISwitch = UIControl.extendClass ("UISwitch", () => ({
 
     // Initializing the Switch Object
-    initWithFrame: objc.instanceSelector("initWithFrame:"),
+    initWithFrame: instanceSelector("initWithFrame:"),
 
     // Setting the Off/On State
-    on: objc.instanceProperty({ set: function (v) { return this.setOn(v, false); } }),
-    setOn: objc.instanceSelector("setOn:animated:"),
+    on: instanceProperty({ set: function (v) { return this.setOn(v, false); } }),
+    setOn: instanceSelector("setOn:animated:"),
 
     // Customizing the Appearance of the Switch
-    onTintColor: objc.instanceProperty()
+    onTintColor: instanceProperty()
 
 }));

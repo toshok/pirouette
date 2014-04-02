@@ -1,61 +1,63 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, staticProperty, instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIColor");
-var UIColor;
-_exports.UIColor = UIColor = foundation.NSObject.extendClass ("UIColor", () => ({
+export let UIColor = NSObject.extendClass ("UIColor", () => ({
 
     // Creating a UIColor Object from Component Values
-    colorWithWhite:          objc.staticSelector("colorWithWhite:alpha:"),
-    colorWithHSBA:           objc.staticSelector("colorWithHue:saturation:brightness:alpha:"),
-    colorWithRGBA:           objc.staticSelector("colorWithRed:green:blue:alpha:"),
-    colorWithCGColor:        objc.staticSelector("colorWithCGColor:"),
-    colorWithPatternImage:   objc.staticSelector("colorWithPatternImage:"),
-    colorWithCIColor:        objc.staticSelector("colorWithCIColor:"),
-    colorWithAlphaComponent: objc.staticSelector("colorWithAlphaComponent:"),
+    colorWithWhite:          staticSelector("colorWithWhite:alpha:"),
+    colorWithHSBA:           staticSelector("colorWithHue:saturation:brightness:alpha:"),
+    colorWithRGBA:           staticSelector("colorWithRed:green:blue:alpha:"),
+    colorWithCGColor:        staticSelector("colorWithCGColor:"),
+    colorWithPatternImage:   staticSelector("colorWithPatternImage:"),
+    colorWithCIColor:        staticSelector("colorWithCIColor:"),
+    colorWithAlphaComponent: staticSelector("colorWithAlphaComponent:"),
 
     // Initializing a UIColor Object
-    initWithWhite:            objc.instanceSelector("initWithWhite:alpha:"),
-    initWithHSBA:             objc.instanceSelector("initWithHue:saturation:brightness:alpha:"),
-    initWithRGBA:             objc.instanceSelector("initWithRed:green:blue:alpha:"),
-    initWithCGColor:          objc.instanceSelector("initWithCGColor:"),
-    initWithPatternImage:     objc.instanceSelector("initWithPatternImage:"),
-    initWithCIColor:          objc.instanceSelector("initWithCIColor:"),
+    initWithWhite:            instanceSelector("initWithWhite:alpha:"),
+    initWithHSBA:             instanceSelector("initWithHue:saturation:brightness:alpha:"),
+    initWithRGBA:             instanceSelector("initWithRed:green:blue:alpha:"),
+    initWithCGColor:          instanceSelector("initWithCGColor:"),
+    initWithPatternImage:     instanceSelector("initWithPatternImage:"),
+    initWithCIColor:          instanceSelector("initWithCIColor:"),
 
     // Creating a UIColor with Preset Component Values
-    blackColor:           objc.staticProperty({ set : null }), // readonly
-    darkGrayColor:        objc.staticProperty({ set : null }), // readonly
-    lightGrayColor:       objc.staticProperty({ set : null }), // readonly
-    whiteColor:           objc.staticProperty({ set : null }), // readonly
-    grayColor:            objc.staticProperty({ set : null }), // readonly
-    redColor:             objc.staticProperty({ set : null }), // readonly
-    greenColor:           objc.staticProperty({ set : null }), // readonly
-    blueColor:            objc.staticProperty({ set : null }), // readonly
-    cyanColor:            objc.staticProperty({ set : null }), // readonly
-    yellowColor:          objc.staticProperty({ set : null }), // readonly
-    magentaColor:         objc.staticProperty({ set : null }), // readonly
-    orangeColor:          objc.staticProperty({ set : null }), // readonly
-    purpleColor:          objc.staticProperty({ set : null }), // readonly
-    brownColor:           objc.staticProperty({ set : null }), // readonly
-    clearColor:           objc.staticProperty({ set : null }), // readonly
+    blackColor:           staticProperty({ set : null }), // readonly
+    darkGrayColor:        staticProperty({ set : null }), // readonly
+    lightGrayColor:       staticProperty({ set : null }), // readonly
+    whiteColor:           staticProperty({ set : null }), // readonly
+    grayColor:            staticProperty({ set : null }), // readonly
+    redColor:             staticProperty({ set : null }), // readonly
+    greenColor:           staticProperty({ set : null }), // readonly
+    blueColor:            staticProperty({ set : null }), // readonly
+    cyanColor:            staticProperty({ set : null }), // readonly
+    yellowColor:          staticProperty({ set : null }), // readonly
+    magentaColor:         staticProperty({ set : null }), // readonly
+    orangeColor:          staticProperty({ set : null }), // readonly
+    purpleColor:          staticProperty({ set : null }), // readonly
+    brownColor:           staticProperty({ set : null }), // readonly
+    clearColor:           staticProperty({ set : null }), // readonly
 
     // System Colors
-    lightTextColor:                    objc.staticProperty({ set : null }), // readonly
-    darkTextColor:                     objc.staticProperty({ set : null }), // readonly
-    groupTableViewBackgroundColor:     objc.staticProperty({ set : null }), // readonly
-    viewFlipsideBackgroundColor:       objc.staticProperty({ set : null }), // readonly
-    scrollViewTexturedBackgroundColor: objc.staticProperty({ set : null }), // readonly
-    underPageBackgroundColor:          objc.staticProperty({ set : null }), // readonly
+    lightTextColor:                    staticProperty({ set : null }), // readonly
+    darkTextColor:                     staticProperty({ set : null }), // readonly
+    groupTableViewBackgroundColor:     staticProperty({ set : null }), // readonly
+    viewFlipsideBackgroundColor:       staticProperty({ set : null }), // readonly
+    scrollViewTexturedBackgroundColor: staticProperty({ set : null }), // readonly
+    underPageBackgroundColor:          staticProperty({ set : null }), // readonly
 
     // Retrieving Color Information
-    CGColor:         objc.instanceProperty(),
-    CIColor:         objc.instanceProperty(),
-    getHSBA:         objc.instanceSelector("getHue:saturation:brightness:alpha:"),
-    getRGBA:         objc.instanceSelector("getRed:green:blue:alpha:"),
-    getWhite:        objc.instanceSelector("getWhite:alpha:"),
+    CGColor:         instanceProperty(),
+    CIColor:         instanceProperty(),
+    getHSBA:         instanceSelector("getHue:saturation:brightness:alpha:"),
+    getRGBA:         instanceSelector("getRed:green:blue:alpha:"),
+    getWhite:        instanceSelector("getWhite:alpha:"),
 
     // Drawing Operations
-    set:                      objc.instanceSelector("set"),
-    setFill:                  objc.instanceSelector("setFill"),
-    setStroke:                objc.instanceSelector("setStroke")
+    set:                      instanceSelector("set"),
+    setFill:                  instanceSelector("setFill"),
+    setStroke:                instanceSelector("setStroke")
 
 }));

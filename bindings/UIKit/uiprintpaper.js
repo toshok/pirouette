@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIPrintPaper");
-var UIPrintPaper;
-_exports.UIPrintPaper = UIPrintPaper = foundation.NSObject.extendClass ("UIPrintPaper", () => ({
+export let UIPrintPaper = NSObject.extendClass ("UIPrintPaper", () => ({
 
     // Getting the Paper Size and the Printing Area
-    paperSize: objc.instanceProperty(),
-    printableRect: objc.instanceProperty(),
+    paperSize: instanceProperty(),
+    printableRect: instanceProperty(),
 
     // Obtaining the Best Paper Size for Printing
-    bestPaperForPageSize: objc.staticSelector("bestPaperForPageSize:withPapersFromArray:")
+    bestPaperForPageSize: staticSelector("bestPaperForPageSize:withPapersFromArray:")
 
 }));

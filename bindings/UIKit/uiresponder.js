@@ -1,40 +1,42 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIResponder");
-var UIResponder;
-_exports.UIResponder = UIResponder = foundation.NSObject.extendClass ("UIResponder", () => ({
+export let UIResponder = NSObject.extendClass ("UIResponder", () => ({
 
     // Managing the Responder Chain
-    nextResponder:           objc.instanceProperty(),
-    isFirstResponder:        objc.instanceProperty(),
-    canBecomeFirstResponder: objc.instanceProperty(),
-    becomeFirstResponder:    objc.instanceSelector(),
-    canResignFirstResponder: objc.instanceProperty(),
-    resignFirstResponder:    objc.instanceSelector(),
+    nextResponder:           instanceProperty(),
+    isFirstResponder:        instanceProperty(),
+    canBecomeFirstResponder: instanceProperty(),
+    becomeFirstResponder:    instanceSelector(),
+    canResignFirstResponder: instanceProperty(),
+    resignFirstResponder:    instanceSelector(),
 
     // Managing Input Views
-    inputView: objc.instanceProperty(),
-    inputAccessoryView: objc.instanceProperty(),
-    reloadInputViews: objc.instanceSelector(),
+    inputView: instanceProperty(),
+    inputAccessoryView: instanceProperty(),
+    reloadInputViews: instanceSelector(),
 
     // Responding to Touch Events
-    touchesBegan:     objc.instanceSelector("touchesBegan:withEvent:"),
-    touchesMoved:     objc.instanceSelector("touchesMoved:withEvent:"),
-    touchesEnded:     objc.instanceSelector("touchesEnded:withEvent:"),
-    touchesCancelled: objc.instanceSelector("touchesCancelled:withEvent:"),
+    touchesBegan:     instanceSelector("touchesBegan:withEvent:"),
+    touchesMoved:     instanceSelector("touchesMoved:withEvent:"),
+    touchesEnded:     instanceSelector("touchesEnded:withEvent:"),
+    touchesCancelled: instanceSelector("touchesCancelled:withEvent:"),
 
     // Responding to Motion Events
-    motionBegan:     objc.instanceSelector("motionBegan:withEvent:"),
-    motionEnded:     objc.instanceSelector("motionEnded:withEvent:"),
-    motionCancelled: objc.instanceSelector("motionCancelled:withEvent:"),
+    motionBegan:     instanceSelector("motionBegan:withEvent:"),
+    motionEnded:     instanceSelector("motionEnded:withEvent:"),
+    motionCancelled: instanceSelector("motionCancelled:withEvent:"),
 
     // Responding to Remote-Control Events
-    remoteControlReceived: objc.instanceSelector("remoteControlReceivedWithEvent:"),
+    remoteControlReceived: instanceSelector("remoteControlReceivedWithEvent:"),
 
     // Getting the Undo Manager
-    undoManager: objc.instanceProperty(),
+    undoManager: instanceProperty(),
 
     // Validating Commands
-    canPerformAction: objc.instanceSelector("canPerformAction:withSender:")
+    canPerformAction: instanceSelector("canPerformAction:withSender:")
 
 }));

@@ -1,42 +1,44 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIScrollView } from 'uiscrollview';
+
 //console.log("UITextView");
-var UITextView;
-_exports.UITextView = UITextView = UIScrollView.extendClass ("UITextView", () => ({
+export let UITextView = UIScrollView.extendClass ("UITextView", () => ({
 
     // Initialization
-    initWithFrame:  objc.instanceSelector("initWithFrame:textContainer:"),
+    initWithFrame:  instanceSelector("initWithFrame:textContainer:"),
 
     // Configuring the Text Attributes
-    text: objc.instanceProperty(),
-    font: objc.instanceProperty(),
-    textColor: objc.instanceProperty(),
-    editable: objc.instanceProperty(),
-    dataDetectorTypes: objc.instanceProperty(),
-    textAlignment: objc.instanceProperty(),
-    hasText: objc.instanceSelector("hasText"),
+    text: instanceProperty(),
+    font: instanceProperty(),
+    textColor: instanceProperty(),
+    editable: instanceProperty(),
+    dataDetectorTypes: instanceProperty(),
+    textAlignment: instanceProperty(),
+    hasText: instanceSelector("hasText"),
 
     // Working with the Selection
-    selectedRange: objc.instanceProperty(),
-    scrollRangeToVisible: objc.instanceSelector("scrollRangeToVisible:"),
+    selectedRange: instanceProperty(),
+    scrollRangeToVisible: instanceSelector("scrollRangeToVisible:"),
 
     // Accessing the Delegate
-    //@autoboxProperty "delegate", UITextViewDelegate
+    delegate: autoboxProperty(UITextViewDelegate),
 
     // Replacing the System Input Views
-    inputView: objc.instanceProperty(),
-    inputAccessoryView: objc.instanceProperty(),
+    inputView: instanceProperty(),
+    inputAccessoryView: instanceProperty(),
 
     // UITextInputTraits Protocol
     // Managing the Keyboard Behavior
-    autocapitalizationType: objc.instanceProperty(),
-    autocorrectionType: objc.instanceProperty(),
-    spellCheckingType: objc.instanceProperty(),
-    enablesReturnKeyAutomatically: objc.instanceProperty(),
-    keyboardAppearance: objc.instanceProperty(),
-    keyboardType: objc.instanceProperty(),
-    returnKeyType: objc.instanceProperty(),
-    secureTextEntry: objc.instanceProperty()
+    autocapitalizationType: instanceProperty(),
+    autocorrectionType: instanceProperty(),
+    spellCheckingType: instanceProperty(),
+    enablesReturnKeyAutomatically: instanceProperty(),
+    keyboardAppearance: instanceProperty(),
+    keyboardType: instanceProperty(),
+    returnKeyType: instanceProperty(),
+    secureTextEntry: instanceProperty()
     // end UITextInputTraits Protocol
 
     // XXX ES6-port

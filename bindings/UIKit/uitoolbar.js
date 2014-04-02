@@ -1,22 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, sig } from '../objc';
+import { NSObject } from '../foundation';
+import { UIView } from 'uiview';
+
 //console.log("UIToolbar");
-var UIToolbar;
-_exports.UIToolbar = UIToolbar = UIView.extendClass ("UIToolbar", () => ({
+export let UIToolbar = UIView.extendClass ("UIToolbar", () => ({
 
     // Configuring the Toolbar
-    barStyle: objc.instanceProperty(),
-    translucent: objc.instanceProperty(),
+    barStyle: instanceProperty(),
+    translucent: instanceProperty(),
 
     // Configuring Toolbar Items
-    items: objc.instanceProperty({ set: function(v) { return this.setItems (v, false); } }),
-    setItems: objc.instanceSelector("setItems:animated:").
-                            returns( function() { return objc.sig.Void; }).
-			     params( function(v) { return [ foundation.NSObject, objc.sig.Bool ]; }), // XXX param 1 is actually an array, we should have a objc.sig.NSArray for that
+    items: instanceProperty({ set: function(v) { return this.setItems (v, false); } }),
+    setItems: instanceSelector("setItems:animated:").
+                            returns( function() { return sig.Void; }).
+			     params( function(v) { return [ NSObject, sig.Bool ]; }), // XXX param 1 is actually an array, we should have a sig.NSArray for that
 
     // Customizing Appearance
-    backgroundImage:    objc.instanceSelector("backgroundImageForToolbarPosition:barMetrics:"),
-    setBackgroundImage: objc.instanceSelector("setBackgroundImage:forToolbarPosition:barMetrics:"),
-    tintColor: objc.instanceProperty()
+    backgroundImage:    instanceSelector("backgroundImageForToolbarPosition:barMetrics:"),
+    setBackgroundImage: instanceSelector("setBackgroundImage:forToolbarPosition:barMetrics:"),
+    tintColor: instanceProperty()
 
 }));

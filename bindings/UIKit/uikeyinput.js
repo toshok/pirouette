@@ -1,15 +1,17 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { requiredMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UIKeyInput");
-var UIKeyInput;
-_exports.UIKeyInput = UIKeyInput = foundation.Protocol.extendClass("UIKeyInput", () => ({
+export let UIKeyInput = Protocol.extendClass("UIKeyInput", () => ({
 
     // XXX ES6-port
     // @mixinProtocol UITextInputTraits
 
     // Inserting and Deleting Text
-    insertText:     objc.requiredMethod("insertText:"),
-    deleteBackward: objc.requiredMethod("deleteBackward"),
-    hasText:        objc.requiredMethod("hasText")
+    insertText:     requiredMethod("insertText:"),
+    deleteBackward: requiredMethod("deleteBackward"),
+    hasText:        requiredMethod("hasText")
 
 }));

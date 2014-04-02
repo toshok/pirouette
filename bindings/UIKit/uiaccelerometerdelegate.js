@@ -2,9 +2,11 @@
 
 console.log("UIAccelerometerDelegate");
 
-var UIAccelerometerDelegate;
-_exports.UIAccelerometerDelegate = UIAccelerometerDelegate = foundation.Protocol.extendClass("UIAccelerometerDelegate", () => ({
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
 
-  didAccelerate:  objc.optionalMethod("accelerometer:didAccelerate:")  // Deprecated in iOS 5.0
+export let UIAccelerometerDelegate = Protocol.extendClass("UIAccelerometerDelegate", () => ({
+
+  didAccelerate:  optionalMethod("accelerometer:didAccelerate:")  // Deprecated in iOS 5.0
 
 }));

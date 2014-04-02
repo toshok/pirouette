@@ -1,20 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UIActivityIndicatorView");
-var UIActivityIndicatorView;
-_exports.UIActivityIndicatorView = UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", () => ({
+export let UIActivityIndicatorView = UIView.extendClass ("UIActivityIndicatorView", () => ({
 
   // Initializing an Activity Indicator
-  initWithActivityIndicatorStyle: objc.instanceSelector("initWithActivityIndicatorStyle:"),
+  initWithActivityIndicatorStyle: instanceSelector("initWithActivityIndicatorStyle:"),
 
   // Managing an Activity Indicator
-  startAnimating:   objc.instanceSelector("startAnimating"),
-  stopAnimating:    objc.instanceSelector("stopAnimating"),
-  isAnimating:      objc.instanceSelector("isAnimating"),
-  hidesWhenStopped: objc.instanceProperty(),
+  startAnimating:   instanceSelector("startAnimating"),
+  stopAnimating:    instanceSelector("stopAnimating"),
+  isAnimating:      instanceSelector("isAnimating"),
+  hidesWhenStopped: instanceProperty(),
 
   // Configuring the Activity Indicator Appearance
-  activityIndicatorViewStyle: objc.instanceProperty(),
-  color: objc.instanceProperty()
+  activityIndicatorViewStyle: instanceProperty(),
+  color: instanceProperty()
 
 }));

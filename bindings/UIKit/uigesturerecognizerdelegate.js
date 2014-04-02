@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UIGestureRecognizerDelegate");
-var UIGestureRecognizerDelegate;
-_exports.UIGestureRecognizerDelegate = UIGestureRecognizerDelegate = foundation.Protocol.extendClass("UIGestureRecognizerDelegate", () => ({
+export let UIGestureRecognizerDelegate = Protocol.extendClass("UIGestureRecognizerDelegate", () => ({
 
     // Regulating Gesture Recognition
-    shouldBegin:        objc.optionalMethod("gestureRecognizerShouldBegin:"),
-    shouldReceiveTouch: objc.optionalMethod("gestureRecognizer:shouldReceiveTouch:"),
+    shouldBegin:        optionalMethod("gestureRecognizerShouldBegin:"),
+    shouldReceiveTouch: optionalMethod("gestureRecognizer:shouldReceiveTouch:"),
 
     // Controlling Simultaneous Gesture Recognition
-    shouldRecognizeSimultaneouslyWithGestureRecognizer: objc.optionalMethod("gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:")
+    shouldRecognizeSimultaneouslyWithGestureRecognizer: optionalMethod("gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:")
 
 }));

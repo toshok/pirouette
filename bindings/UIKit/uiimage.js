@@ -1,48 +1,50 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIImage");
-var UIImage;
-_exports.UIImage = UIImage = foundation.NSObject.extendClass ("UIImage", () => ({
+export let UIImage = NSObject.extendClass ("UIImage", () => ({
 
     // Cached Image Loading Routines
-    imageNamed: objc.staticSelector("imageNamed:"),
+    imageNamed: staticSelector("imageNamed:"),
 
     // Creating New Images
-    imageWithContentsOfFile:          objc.staticSelector("imageWithContentsOfFile:"),
-    imageWithData:                    objc.staticSelector("imageWithData:"),
-    imageWithCGImage:                 objc.staticSelector("imageWithCGImage:"),
-    imageWithCGImageScaleOrientation: objc.staticSelector("imageWithCGImage:scale:orientation:"),
-    imageWithCIImage:                 objc.staticSelector("imageWithCIImage:"),
-    animatedImageNamed:               objc.staticSelector("animatedImageNamed:duration:"),
-    animatedImageWithImages:          objc.staticSelector("animatedImageWithImages:duration:"),
-    animatedResizableImageNamed:      objc.staticSelector("animatedResizableImageNamed:capInsets:duration:"),
-    resizableImage:                   objc.instanceSelector("resizableImageWithCapInsets:"),
-    stretchableImage:                 objc.instanceSelector("stretchableImageWithLeftCapWidth:topCapHeight:"), // Deprecated in iOS 5.0
+    imageWithContentsOfFile:          staticSelector("imageWithContentsOfFile:"),
+    imageWithData:                    staticSelector("imageWithData:"),
+    imageWithCGImage:                 staticSelector("imageWithCGImage:"),
+    imageWithCGImageScaleOrientation: staticSelector("imageWithCGImage:scale:orientation:"),
+    imageWithCIImage:                 staticSelector("imageWithCIImage:"),
+    animatedImageNamed:               staticSelector("animatedImageNamed:duration:"),
+    animatedImageWithImages:          staticSelector("animatedImageWithImages:duration:"),
+    animatedResizableImageNamed:      staticSelector("animatedResizableImageNamed:capInsets:duration:"),
+    resizableImage:                   instanceSelector("resizableImageWithCapInsets:"),
+    stretchableImage:                 instanceSelector("stretchableImageWithLeftCapWidth:topCapHeight:"), // Deprecated in iOS 5.0
 
     // Initializing Images
-    initWithContentsOfFile:          objc.instanceSelector("initWithContentsOfFile:"),
-    initWithData:                    objc.instanceSelector("initWithData:"),
-    initWithCGImage:                 objc.instanceSelector("initWithCGImage:"),
-    initWithCGImageScaleOrientation: objc.instanceSelector("initWithCGImage:scale:orientation:"),
-    initWithCIImage:                 objc.instanceSelector("initWithCIImage:"),
+    initWithContentsOfFile:          instanceSelector("initWithContentsOfFile:"),
+    initWithData:                    instanceSelector("initWithData:"),
+    initWithCGImage:                 instanceSelector("initWithCGImage:"),
+    initWithCGImageScaleOrientation: instanceSelector("initWithCGImage:scale:orientation:"),
+    initWithCIImage:                 instanceSelector("initWithCIImage:"),
 
     // Image Attributes
-    imageOrientation: objc.instanceProperty(),
-    size: objc.instanceProperty(),
-    scale: objc.instanceProperty(),
-    CGImage: objc.instanceProperty(),
-    CIImage: objc.instanceProperty(),
-    images: objc.instanceProperty(),
-    duration: objc.instanceProperty(),
-    capInsets: objc.instanceProperty(),
-    leftCapWidth: objc.instanceProperty(), // Deprecated in iOS 5.0
-    topCapHeight: objc.instanceProperty(), // Deprecated in iOS 5.0
+    imageOrientation: instanceProperty(),
+    size: instanceProperty(),
+    scale: instanceProperty(),
+    CGImage: instanceProperty(),
+    CIImage: instanceProperty(),
+    images: instanceProperty(),
+    duration: instanceProperty(),
+    capInsets: instanceProperty(),
+    leftCapWidth: instanceProperty(), // Deprecated in iOS 5.0
+    topCapHeight: instanceProperty(), // Deprecated in iOS 5.0
 
     // Drawing Images
-    drawAtPoint:          objc.instanceSelector("drawAtPoint:"),
-    drawAtPointWithBlend: objc.instanceSelector("drawAtPoint:blendMode:alpha:"),
-    drawInRect:           objc.instanceSelector("drawInRect:"),
-    drawInRectWithBlend:  objc.instanceSelector("drawInRect:blendMode:alpha:"),
-    drawAsPatternInRect:  objc.instanceSelector("drawAsPatternInRect:")
+    drawAtPoint:          instanceSelector("drawAtPoint:"),
+    drawAtPointWithBlend: instanceSelector("drawAtPoint:blendMode:alpha:"),
+    drawInRect:           instanceSelector("drawInRect:"),
+    drawInRectWithBlend:  instanceSelector("drawInRect:blendMode:alpha:"),
+    drawAsPatternInRect:  instanceSelector("drawAsPatternInRect:")
 
 }));

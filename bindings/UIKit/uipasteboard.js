@@ -1,50 +1,52 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, staticSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIPasteboard");
-var UIPasteboard;
-_exports.UIPasteboard = UIPasteboard = foundation.NSObject.extendClass ("UIPasteboard", () => ({
+export let UIPasteboard = NSObject.extendClass ("UIPasteboard", () => ({
 
     // Getting and Removing Pasteboards
-    generalPasteboard:        objc.staticSelector("generalPasteboard"),
-    pasteboardWithName:       objc.staticSelector("pasteboardWithName:create:"),
-    pasteboardWithUniqueName: objc.staticSelector("pasteboardWithUniqueName"),
-    removePasteboardWithName: objc.staticSelector("removePasteboardWithName:"),
+    generalPasteboard:        staticSelector("generalPasteboard"),
+    pasteboardWithName:       staticSelector("pasteboardWithName:create:"),
+    pasteboardWithUniqueName: staticSelector("pasteboardWithUniqueName"),
+    removePasteboardWithName: staticSelector("removePasteboardWithName:"),
 
     // Getting and Setting Pasteboard Attributes
-    name: objc.instanceProperty(),
-    persistent: objc.instanceProperty(),
-    changeCount: objc.instanceProperty(),
+    name: instanceProperty(),
+    persistent: instanceProperty(),
+    changeCount: instanceProperty(),
 
     // Determining Types of Single Pasteboard Items
-    pasteboardTypes:         objc.instanceSelector("pasteboardTypes"),
-    containsPasteboardTypes: objc.instanceSelector("containsPasteboardTypes:"),
+    pasteboardTypes:         instanceSelector("pasteboardTypes"),
+    containsPasteboardTypes: instanceSelector("containsPasteboardTypes:"),
 
     // Getting and Setting Single Pasteboard Items
-    dataForPasteboardType:      objc.instanceSelector("dataForPasteboardType:"),
-    valueForPasteboardType:     objc.instanceSelector("valueForPasteboardType:"),
-    setData:                    objc.instanceSelector("setData:forPasteboardType:"),
-    setValue:                   objc.instanceSelector("setValue:forPasteboardType:"),
+    dataForPasteboardType:      instanceSelector("dataForPasteboardType:"),
+    valueForPasteboardType:     instanceSelector("valueForPasteboardType:"),
+    setData:                    instanceSelector("setData:forPasteboardType:"),
+    setValue:                   instanceSelector("setValue:forPasteboardType:"),
 
     // Determining the Types of Multiple Pasteboard Items
-    pasteboardTypesForItemSet:        objc.instanceSelector("pasteboardTypesForItemSet:"),
-    itemSetWithPasteboardTypes:       objc.instanceSelector("itemSetWithPasteboardTypes:"),
-    containsPasteboardTypesInItemSet: objc.instanceSelector("containsPasteboardTypes:inItemSet:"),
-    numberOfItems: objc.instanceProperty(),
+    pasteboardTypesForItemSet:        instanceSelector("pasteboardTypesForItemSet:"),
+    itemSetWithPasteboardTypes:       instanceSelector("itemSetWithPasteboardTypes:"),
+    containsPasteboardTypesInItemSet: instanceSelector("containsPasteboardTypes:inItemSet:"),
+    numberOfItems: instanceProperty(),
 
     // Getting and Setting Multiple Pasteboard Items
-    dataForPasteboardTypeInItemSet:   objc.instanceSelector("dataForPasteboardType:inItemSet:"),
-    valuesForPasteboardTypeInItemSet: objc.instanceSelector("valuesForPasteboardType:inItemSet:"),
-    addItems:                         objc.instanceSelector("addItems:"),
-    items: objc.instanceProperty(),
+    dataForPasteboardTypeInItemSet:   instanceSelector("dataForPasteboardType:inItemSet:"),
+    valuesForPasteboardTypeInItemSet: instanceSelector("valuesForPasteboardType:inItemSet:"),
+    addItems:                         instanceSelector("addItems:"),
+    items: instanceProperty(),
 
     // Getting and Setting Pasteboard Items of Standard Data Types
-    string: objc.instanceProperty(),
-    strings: objc.instanceProperty(),
-    image: objc.instanceProperty(),
-    images: objc.instanceProperty(),
-    URL: objc.instanceProperty(),
-    URLs: objc.instanceProperty(),
-    color: objc.instanceProperty(),
-    colors: objc.instanceProperty()
+    string: instanceProperty(),
+    strings: instanceProperty(),
+    image: instanceProperty(),
+    images: instanceProperty(),
+    URL: instanceProperty(),
+    URLs: instanceProperty(),
+    color: instanceProperty(),
+    colors: instanceProperty()
 
 }));

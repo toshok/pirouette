@@ -1,36 +1,39 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+import { UIGestureRecognizerDelegate } from 'uigesturerecognizerdelegate';
+
 //console.log("UIGestureRecognizer");
-var UIGestureRecognizer;
-_exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => ({
+export let UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => ({
 
     // Initializing a Gesture Recognizer
-    initWithTarget: objc.instanceSelector("initWithTarget:action:"),
+    initWithTarget: instanceSelector("initWithTarget:action:"),
 
     // Adding and Removing Targets and Actions
-    addTarget:             objc.instanceSelector("addTarget:action:"),
-    removeTarget:          objc.instanceSelector("removeTarget:action:"),
+    addTarget:             instanceSelector("addTarget:action:"),
+    removeTarget:          instanceSelector("removeTarget:action:"),
 
     // Getting the Touches and Location of a Gesture
-    locationInView:        objc.instanceSelector("locationInView:"),
-    locationOfTouchInView: objc.instanceSelector("locationOfTouch:inView:"),
-    numberOfTouches:       objc.instanceSelector("numberOfTouches"),
+    locationInView:        instanceSelector("locationInView:"),
+    locationOfTouchInView: instanceSelector("locationOfTouch:inView:"),
+    numberOfTouches:       instanceSelector("numberOfTouches"),
 
     // Getting the Recognizer’s State and View
-    state: objc.instanceProperty(),
-    view: objc.instanceProperty(),
-    enabled: objc.instanceProperty(),
+    state: instanceProperty(),
+    view: instanceProperty(),
+    enabled: instanceProperty(),
 
     // Canceling and Delaying Touches
-    cancelsTouchesInView: objc.instanceProperty(),
-    delaysTouchesBegan: objc.instanceProperty(),
-    delaysTouchesEnded: objc.instanceProperty(),
+    cancelsTouchesInView: instanceProperty(),
+    delaysTouchesBegan: instanceProperty(),
+    delaysTouchesEnded: instanceProperty(),
 
     // Specifying Dependencies Between Gesture Recognizers
-    requireGestureRecognizerToFail: objc.instanceSelector("requireGestureRecognizerToFail:"),
+    requireGestureRecognizerToFail: instanceSelector("requireGestureRecognizerToFail:"),
 
     // Setting and Getting the Delegate
-    delegate: objc.autoboxProperty(UIGestureRecognizerDelegate),
+    delegate: autoboxProperty(UIGestureRecognizerDelegate),
 
     // Methods For Subclasses
 
@@ -40,13 +43,13 @@ _exports.UIGestureRecognizer = UIGestureRecognizer = foundation.NSObject.extendC
     // merely use concrete subclasses of UIGestureRecognizer must never
     // call these methods (except for those noted).
 
-    touchesBegan:                      objc.instanceSelector("touchesBegan:withEvent:"),
-    touchesMoved:                      objc.instanceSelector("touchesMoved:withEvent:"),
-    touchesEnded:                      objc.instanceSelector("touchesEnded:withEvent:"),
-    touchesCancelled:                  objc.instanceSelector("touchesCancelled:withEvent:"),
-    reset:                             objc.instanceSelector("reset"),
-    ignoreTouch:                       objc.instanceSelector("ignoreTouch:forEvent:"),
-    canBePreventedByGestureRecognizer: objc.instanceSelector("canBePreventedByGestureRecognizer:"),
-    canPreventGestureRecognizer:       objc.instanceSelector("canPreventGestureRecognizer:")
+    touchesBegan:                      instanceSelector("touchesBegan:withEvent:"),
+    touchesMoved:                      instanceSelector("touchesMoved:withEvent:"),
+    touchesEnded:                      instanceSelector("touchesEnded:withEvent:"),
+    touchesCancelled:                  instanceSelector("touchesCancelled:withEvent:"),
+    reset:                             instanceSelector("reset"),
+    ignoreTouch:                       instanceSelector("ignoreTouch:forEvent:"),
+    canBePreventedByGestureRecognizer: instanceSelector("canBePreventedByGestureRecognizer:"),
+    canPreventGestureRecognizer:       instanceSelector("canPreventGestureRecognizer:")
 
 }));

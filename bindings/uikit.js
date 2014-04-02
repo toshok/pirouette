@@ -1,152 +1,126 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-"use strict";
 
-let objc = require("objc"),
-    objc_internal = require("objc_internal"),
-    foundation = require("foundation"),
-    coreAnimation = require("coreanimation"),
-    ck = require("coffeekit");
+// not yet
+//import "@framework UIKit";
 
-objc.requireFramework("UIKit");
+export { UITableViewStyle, UITableViewCellStyle, UIButtonType, UITextAlignment, UIControlState, UIBarStyle, UIDataDetectorType, UIBarButtonItemStyle, UIBarButtonSystemItem, UIControlEvent, UIPopoverArrowDirection, UIUserInterfaceIdiom } from 'UIKit/enums';
+export { UIAcceleration } from 'UIKit/uiacceleration';
+export { UIAccelerometer } from 'UIKit/uiaccelerometer';
+export { UIAccelerometerDelegate } from 'UIKit/uiaccelerometerdelegate';
+export { UIAccessibilityElement } from 'UIKit/uiaccessibilityelement';
+export { UIActionSheet } from 'UIKit/uiactionsheet';
+export { UIActionSheetDelegate } from 'UIKit/uiactionsheetdelegate';
+export { UIActivityIndicatorView } from 'UIKit/uiactivityindicatorview';
+export { UIAlertView } from 'UIKit/uialertview';
+export { UIAlertViewDelegate } from 'UIKit/uialertviewdelegate';
+export { UIAppearance } from 'UIKit/uiappearance';
+export { UIApplication } from 'UIKit/uiapplication';
+export { UIApplicationDelegate } from 'UIKit/uiapplicationdelegate';
+export { UIBarButtonItem } from 'UIKit/uibarbuttonitem';
+export { UIBarItem } from 'UIKit/uibaritem';
+export { UIBezierPath } from 'UIKit/uibezierpath';
+export { UIButton } from 'UIKit/uibutton';
+export { UICanvasView } from 'UIKit/uicanvasview';
+export { UIColor } from 'UIKit/uicolor';
+export { UIControl } from 'UIKit/uicontrol';
+export { UIDatePicker } from 'UIKit/uidatepicker';
+export { UIDevice } from 'UIKit/uidevice';
+export { UIDocument } from 'UIKit/uidocument';
+export { UIDocumentInteractionController } from 'UIKit/uidocumentinteractioncontroller';
+export { UIDocumentInteractionControllerDelegate } from 'UIKit/uidocumentinteractioncontrollerdelegate';
+export { UIEdgeInsets } from 'UIKit/uiedgeinsets';
+export { UIEvent } from 'UIKit/uievent';
+export { UIFont } from 'UIKit/uifont';
+export { UIGestureRecognizer } from 'UIKit/uigesturerecognizer';
+export { UIGestureRecognizerDelegate } from 'UIKit/uigesturerecognizerdelegate';
+export { UIImage } from 'UIKit/uiimage';
+export { UIImagePickerController } from 'UIKit/uiimagepickercontroller';
+export { UIImagePickerControllerDelegate } from 'UIKit/uiimagepickercontrollerdelegate';
+export { UIImageView } from 'UIKit/uiimageview';
+export { UIKeyInput } from 'UIKit/uikeyinput';
+export { UILabel } from 'UIKit/uilabel';
+export { UILongPressGestureRecognizer } from 'UIKit/uilongpressgesturerecognizer';
+export { UILocalizedIndexCollation } from 'UIKit/uilocalizedindexcollation';
+export { UILocalNotification } from 'UIKit/uilocalnotification';
+export { UILongPressGestureRecognizer } from 'UIKit/uilongpressgesturerecognizer';
+export { UIManagedDocument } from 'UIKit/uimanageddocument';
+export { UIMarkupTextPrintFormatter } from 'UIKit/uimarkuptextprintformatter';
+export { UIMenuController } from 'UIKit/uimenucontroller';
+export { UIMenuItem } from 'UIKit/uimenuitem';
+export { UINavigationBar } from 'UIKit/uinavigationbar';
+export { UINavigationBarDelegate } from 'UIKit/uinavigationbardelegate';
+export { UINavigationController } from 'UIKit/uinavigationcontroller';
+export { UINavigationControllerDelegate } from 'UIKit/uinavigationcontrollerdelegate';
+export { UINavigationItemControllerDelegate } from 'UIKit/uinavigationitem';
+export { UINib } from 'UIKit/uinib';
+export { UIOffset } from 'UIKit/uioffset';
+export { UIPageViewController } from 'UIKit/uipageviewcontroller';
+export { UIPageViewControllerDelegate } from 'UIKit/uipageviewcontrollerdelegate';
+export { UIPanGestureRecognizer } from 'UIKit/uipangesturerecognizer';
+export { UIPasteboard } from 'UIKit/uipasteboard';
+export { UIPickerView } from 'UIKit/uipickerview';
+export { UIPickerViewDelegate } from 'UIKit/uipickerviewdelegate';
+export { UIPinchGestureRecognizer } from 'UIKit/uipinchGestureRecognizer';
+export { UIPopoverBackgroundView } from 'UIKit/uipopoverbackgroundview';
+export { UIPopoverController } from 'UIKit/uipopovercontroller';
+export { UIPopoverControllerDelegate } from 'UIKit/uipopovercontrollerdelegate';
+export { UIPrintFormatter } from 'UIKit/uiprintformatter';
+export { UIPrintInfo } from 'UIKit/uiprintinfo';
+export { UIPrintInteractionController } from 'UIKit/uiprintinteractioncontroller';
+export { UIPrintInteractionControllerDelegate } from 'UIKit/uiprintinteractioncontrollerdelegate';
+export { UIPrintPageRenderer } from 'UIKit/uiprintpagerenderer';
+export { UIPrintPaper } from 'UIKit/uiprintpaper';
+export { UIProgressView } from 'UIKit/uiprogressview';
+export { UIReferenceLibraryViewController } from 'UIKit/uireferencelibraryviewcontroller';
+export { UIResponder } from 'UIKit/uiresponder';
+export { UIRotationGestureRecognizer } from 'UIKit/uirotationgesturerecognizer';
+export { UIScreen } from 'UIKit/uiscreen';
+export { UIScreenMode } from 'UIKit/uiscreenmode';
+export { UIScrollView } from 'UIKit/uiscrollview';
+export { UIScrollViewDelegate } from 'UIKit/uiscrollviewdelegate';
+export { UISearchBar } from 'UIKit/uisearchbar';
+export { UISearchDisplayController } from 'UIKit/uisearchdisplaycontroller';
+export { UISearchDisplayDelegate } from 'UIKit/uisearchdisplaydelegate';
+export { UISegmentedControl } from 'UIKit/uisegmentedcontrol';
+export { UISimpleTextPrintFormatter } from 'UIKit/uisimpletextprintformatter';
+export { UISlider } from 'UIKit/uislider';
+export { UISplitViewController } from 'UIKit/uisplitviewcontroller';
+export { UIStepper } from 'UIKit/uistepper';
+export { UIStoryboard } from 'UIKit/uistoryboard';
+export { UIStoryboardPopoverSegue } from 'UIKit/uistoryboardpopoversegue';
+export { UIStoryboardSegue } from 'UIKit/uistoryboardsegue';
+export { UISwipeGestureRecognizer } from 'UIKit/uiswipegesturerecognizer';
+export { UISwitch } from 'UIKit/uiswitch';
+export { UITabbar } from 'UIKit/uitabbar';
+export { UITabBarController } from 'UIKit/uitabbarcontroller';
+export { UITabBarControllerDelegate } from 'UIKit/uitabbarcontrollerdelegate';
+export { UITabBarDelegate } from 'UIKit/uitabbardelegate';
+export { UITabBarItem } from 'UIKit/uitabbaritem';
+export { UITableView } from 'UIKit/uitableview';
+export { UITableViewCell } from 'UIKit/uitableviewcell';
+export { UITableViewController } from 'UIKit/uitableviewcontroller';
+export { UITableViewDataSource } from 'UIKit/uitableviewdatasource';
+export { UITableViewDelegate } from 'UIKit/uitableviewdelegate';
+export { UITapGestureRecognizer } from 'UIKit/uitapgesturerecognizer';
+export { UITextField } from 'UIKit/uitextfield';
+export { UITextFieldDelegate } from 'UIKit/uitextfielddelegate';
+export { UITextInput } from 'UIKit/uitextinput';
+export { UITextInputMode } from 'UIKit/uitextinputmode';
+export { UITextInputStringTokenizer } from 'UIKit/uitextinputstringtokenizer';
+export { UITextInputTraits } from 'UIKit/uitextinputtraits';
+export { UITextPosition } from 'UIKit/uitextposition';
+export { UITextRange } from 'UIKit/uitextrange';
+export { UITextView } from 'UIKit/uitextview';
+export { UITextViewDelegate } from 'UIKit/uitextviewdelegate';
+export { UIToolbar } from 'UIKit/uitoolbar';
+export { UITouch } from 'UIKit/uitouch';
+export { UIVideoEditorController } from 'UIKit/uivideoeditorcontroller';
+export { UIVideoEditorControllerDelegate } from 'UIKit/uivideoeditorcontrollerdelegate';
+export { UIView } from 'UIKit/uiview';
+export { UIViewController } from 'UIKit/uiviewcontroller';
+export { UIViewPrintFormatter } from 'UIKit/uiviewprintformatter';
+export { UIWebView } from 'UIKit/uiwebview';
+export { UIWebViewDelegate } from 'UIKit/uiwebviewdelegate';
+export { UIWindow } from 'UIKit/uiwindow';
 
-let _exports = exports;
 
-let UITableViewStyle;
-_exports.UITableViewStyle = UITableViewStyle = objc.makeEnum({
-    plain: 0,
-    grouped: 1
-});
-
-
-let UITableViewCellStyle;
-_exports.UITableViewCellStyle = UITableViewCellStyle = objc.makeEnum({
-   value1: 0,
-   value2: 1,
-   subtitle: 2
-});
-
-let UIButtonType;
-_exports.UIButtonType = UIButtonType = objc.makeEnum({
-   custom: 0,
-   roundedRect: 1,
-   detailDisclosure: 2,
-   infoLight: 3,
-   infoDark: 4,
-   contactAdd: 5
-});
-
-let UITextAlignment;
-_exports.UITextAlignment = UITextAlignment = objc.makeEnum({
-   left: 0,
-   center: 1,
-   right: 2
-});
-
-let UIControlState;
-_exports.UIControlState = UIControlState = objc.makeEnum({
-   normal               : 0,
-   highlighted          : 1 << 0,
-   disabled             : 1 << 1,
-   selected             : 1 << 2,
-   application          : 0x00FF0000,
-   reserved             : 0xFF000000
-});
-
-let UIBarStyle;
-_exports.UIBarStyle = UIBarStyle = objc.makeEnum({
-   default          : 0,
-   black            : 1,
-
-   blackOpaque      : 1, // Deprecated
-   blackTranslucent : 2  //Deprecated
-});
-
-
-let UIDataDetectorType;
-_exports.UIDataDetectorType = UIDataDetectorType = objc.makeEnum({
-   phoneNumber   : 1 << 0,
-   link          : 1 << 1,
-   address       : 1 << 2,
-   calendarEvent : 1 << 3,
-   none          : 0,
-   all           : ~0
-});
-
-
-let UIBarButtonItemStye;
-_exports.UIBarButtonItemStyle = UIBarButtonItemStye = objc.makeEnum({
-   plain: 0,
-   bordered: 1,
-   done: 2
-});
-
-let UIBarButtonSystemItem;
-_exports.UIBarButtonSystemItem = UIBarButtonSystemItem = objc.makeEnum({
-   done: 0,
-   cancel: 1,
-   edit: 2,
-   save: 3,
-   add: 4,
-   flexibleSpace: 5,
-   fixedSpace: 6,
-   compose: 7,
-   reply: 8,
-   action: 9,
-   organize: 10,
-   bookmarks: 11,
-   search: 12,
-   refresh: 13,
-   stop: 14,
-   camera: 15,
-   trash: 16,
-   play: 17,
-   pause: 18,
-   rewind: 19,
-   fastForward: 20,
-   undo: 21,        // iOS 3.0 and later
-   redo: 22,        // iOS 3.0 and later
-   pageCurl: 23     // iOS 4.0 and later
-});
-
-
-let UIControlEvent;
-_exports.UIControlEvent = UIControlEvent = objc.makeEnum({
-   TouchDown           : 1 <<  0,
-   TouchDownRepeat     : 1 <<  1,
-   TouchDragInside     : 1 <<  2,
-   TouchDragOutside    : 1 <<  3,
-   TouchDragEnter      : 1 <<  4,
-   TouchDragExit       : 1 <<  5,
-   TouchUpInside       : 1 <<  6,
-   TouchUpOutside      : 1 <<  7,
-   TouchCancel         : 1 <<  8,
-
-   ValueChanged        : 1 << 12,
-
-   EditingDidBegin     : 1 << 16,
-   EditingChanged      : 1 << 17,
-   EditingDidEnd       : 1 << 18,
-   EditingDidEndOnExit : 1 << 19,
-
-   AllTouchEvents      : 0x00000FFF,
-   AllEditingEvents    : 0x000F0000,
-   ApplicationReserved : 0x0F000000,
-   SystemReserved      : 0xF0000000,
-   AllEvents           : 0xFFFFFFFF
-});
-
-let UIPopoverArrowDirection;
-_exports.UIPopoverArrowDirection = UIPopoverArrowDirection = objc.makeEnum({
-   up:       1 << 0,
-   down:     1 << 1,
-   left:     1 << 2,
-   right:    1 << 3,
-   any:      (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3),
-   unknown: ~0
-});
-
-let UIUserInterfaceIdiom;
-_exports.UIUserInterfaceIdiom = UIUserInterfaceIdiom = objc.makeEnum({
-   phone: 0,
-   pad: 1
-});

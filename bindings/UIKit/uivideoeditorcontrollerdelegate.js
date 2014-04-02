@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UIVideoEditorControllerDelegate");
-var UIVideoEditorControllerDelegate;
-_exports.UIVideoEditorControllerDelegate = UIVideoEditorControllerDelegate = foundation.Protocol.extendClass("UIVideoEditorControllerDelegate", () => ({
+export let UIVideoEditorControllerDelegate = Protocol.extendClass("UIVideoEditorControllerDelegate", () => ({
 
     // Closing the Video Editor
-    didSaveEditedVideoToPath: objc.optionalMethod("videoEditorController:didSaveEditedVideoToPath:"),
-    didCancel:                objc.optionalMethod("videoEditorControllerDidCancel:"),
+    didSaveEditedVideoToPath: optionalMethod("videoEditorController:didSaveEditedVideoToPath:"),
+    didCancel:                optionalMethod("videoEditorControllerDidCancel:"),
 
     // Handling Errors
-    didFailWithError:         objc.optionalMethod("videoEditorController:didFailWithError:")
+    didFailWithError:         optionalMethod("videoEditorController:didFailWithError:")
 
 }));

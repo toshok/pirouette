@@ -1,56 +1,59 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
+import { UIView } from 'uiview';
+//import { UISearchBarDelegate } from 'uisearchbardelegate';
+
 //console.log("UISearchBar");
-var UISearchBar;
-_exports.UISearchBar = UISearchBar = UIView.extendClass ("UISearchBar", () => ({
+export let UISearchBar = UIView.extendClass ("UISearchBar", () => ({
 
     // Text Content
-    placeholder: objc.instanceProperty(),
-    prompt: objc.instanceProperty(),
-    text: objc.instanceProperty(),
+    placeholder: instanceProperty(),
+    prompt: instanceProperty(),
+    text: instanceProperty(),
 
     // Display Attributes
-    barStyle: objc.instanceProperty(),
-    tintColor: objc.instanceProperty(),
-    translucent: objc.instanceProperty(),
+    barStyle: instanceProperty(),
+    tintColor: instanceProperty(),
+    translucent: instanceProperty(),
 
     // Text Input Properties
-    autocapitalizationType: objc.instanceProperty(),
-    autocorrectionType: objc.instanceProperty(),
-    keyboardType: objc.instanceProperty(),
-    spellCheckingType: objc.instanceProperty(),
+    autocapitalizationType: instanceProperty(),
+    autocorrectionType: instanceProperty(),
+    keyboardType: instanceProperty(),
+    spellCheckingType: instanceProperty(),
 
     // Button Configuration
-    showsBookmarkButton: objc.instanceProperty(),
-    showsCancelButton: objc.instanceProperty({ set: function (v) { return this.setShowsCancelButton (v, false); } }),
-    setShowsCancelButton: objc.instanceSelector("setShowsCancelButton:animated:"),
-    showsSearchResultsButton: objc.instanceProperty(),
-    searchResultsButtonSelected: objc.instanceProperty(),
+    showsBookmarkButton: instanceProperty(),
+    showsCancelButton: instanceProperty({ set: function (v) { return this.setShowsCancelButton (v, false); } }),
+    setShowsCancelButton: instanceSelector("setShowsCancelButton:animated:"),
+    showsSearchResultsButton: instanceProperty(),
+    searchResultsButtonSelected: instanceProperty(),
 
     // Scope Buttons
-    scopeButtonTitles: objc.instanceProperty(),
-    selectedScopeButtonIndex: objc.instanceProperty(),
-    showsScopeBar: objc.instanceProperty(),
+    scopeButtonTitles: instanceProperty(),
+    selectedScopeButtonIndex: instanceProperty(),
+    showsScopeBar: instanceProperty(),
 
     // Delegate
-    delegate: objc.autoboxProperty(UISearchBar),
+    //XXX delegate: autoboxProperty(UISearchBarDelegate),
 
     // Customizing Appearance
-    imageForSearchBarIcon:                 objc.instanceSelector("imageForSearchBarIcon:state:"),
-    setImageForSearchBarIcon:              objc.instanceSelector("setImage:forSearchBarIcon:state:"),
-    positionAdjustmentForSearchBarIcon:    objc.instanceSelector("positionAdjustmentForSearchBarIcon:"),
-    setPositionAdjustmentForSearchBarIcon: objc.instanceSelector("setPositionAdjustment:forSearchBarIcon:"),
-    scopeBarButtonBackgroundImage:         objc.instanceSelector("scopeBarButtonBackgroundImageForState:"),
-    setScopeBarButtonBackgroundImage:      objc.instanceSelector("setScopeBarButtonBackgroundImage:forState:"),
-    scopeBarButtonDividerImage:            objc.instanceSelector("scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:"),
-    setScopeBarButtonDividerImage:         objc.instanceSelector("setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:"),
-    scopeBarButtonTitleTextAttributes:     objc.instanceSelector("scopeBarButtonTitleTextAttributesForState:"),
-    setScopeBarButtonTitleTextAttributes:  objc.instanceSelector("setScopeBarButtonTitleTextAttributes:forState:"),
-    searchFieldBackgroundImage:            objc.instanceSelector("searchFieldBackgroundImageForState:"),
-    setSearchFieldBackgroundImage:         objc.instanceSelector("setSearchFieldBackgroundImage:forState:"),
-    backgroundImage: objc.instanceProperty(),
-    scopeBarBackgroundImage: objc.instanceProperty(),
-    searchFieldBackgroundPositionAdjustment: objc.instanceProperty(),
-    searchTextPositionAdjustment: objc.instanceProperty()
+    imageForSearchBarIcon:                 instanceSelector("imageForSearchBarIcon:state:"),
+    setImageForSearchBarIcon:              instanceSelector("setImage:forSearchBarIcon:state:"),
+    positionAdjustmentForSearchBarIcon:    instanceSelector("positionAdjustmentForSearchBarIcon:"),
+    setPositionAdjustmentForSearchBarIcon: instanceSelector("setPositionAdjustment:forSearchBarIcon:"),
+    scopeBarButtonBackgroundImage:         instanceSelector("scopeBarButtonBackgroundImageForState:"),
+    setScopeBarButtonBackgroundImage:      instanceSelector("setScopeBarButtonBackgroundImage:forState:"),
+    scopeBarButtonDividerImage:            instanceSelector("scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:"),
+    setScopeBarButtonDividerImage:         instanceSelector("setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:"),
+    scopeBarButtonTitleTextAttributes:     instanceSelector("scopeBarButtonTitleTextAttributesForState:"),
+    setScopeBarButtonTitleTextAttributes:  instanceSelector("setScopeBarButtonTitleTextAttributes:forState:"),
+    searchFieldBackgroundImage:            instanceSelector("searchFieldBackgroundImageForState:"),
+    setSearchFieldBackgroundImage:         instanceSelector("setSearchFieldBackgroundImage:forState:"),
+    backgroundImage: instanceProperty(),
+    scopeBarBackgroundImage: instanceProperty(),
+    searchFieldBackgroundPositionAdjustment: instanceProperty(),
+    searchTextPositionAdjustment: instanceProperty()
 
 }));

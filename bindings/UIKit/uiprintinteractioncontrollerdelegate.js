@@ -1,23 +1,26 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { Protocol } from '../foundation';
+import { optionalMethod } from '../objc';
+
 console.log("UIPrintInteractionControllerDelegte");
-var UIPrintInteractionControllerDelegate;
-_exports.UIPrintInteractionControllerDelegate = UIPrintInteractionControllerDelegate = foundation.Protocol.extendClass("UIPrintInteractionControllerDelegate", () => ({
+
+export let UIPrintInteractionControllerDelegate = Protocol.extendClass("UIPrintInteractionControllerDelegate", () => ({
 
     // Returning a Parent View Controller
-    parentViewController: objc.optionalMethod("printInteractionControllerParentViewController:"),
+    parentViewController: optionalMethod("printInteractionControllerParentViewController:"),
 
     // Choosing a Paper Size for the Print Job
-    choosePaper:          objc.optionalMethod("printInteractionController:choosePaper:"),
+    choosePaper:          optionalMethod("printInteractionController:choosePaper:"),
 
     // Responding to the Presentation and Dismissal of the Printing Interface
-    willPresentPrinterOptions: objc.optionalMethod("printInteractionControllerWillPresentPrinterOptions:"),
-    didPresentPrinterOptions:  objc.optionalMethod("printInteractionControllerDidPresentPrinterOptions:"),
-    willDismissPrinterOptions: objc.optionalMethod("printInteractionControllerWillDismissPrinterOptions:"),
-    didDismissPrinterOptions:  objc.optionalMethod("printInteractionControllerDidDismissPrinterOptions:"),
+    willPresentPrinterOptions: optionalMethod("printInteractionControllerWillPresentPrinterOptions:"),
+    didPresentPrinterOptions:  optionalMethod("printInteractionControllerDidPresentPrinterOptions:"),
+    willDismissPrinterOptions: optionalMethod("printInteractionControllerWillDismissPrinterOptions:"),
+    didDismissPrinterOptions:  optionalMethod("printInteractionControllerDidDismissPrinterOptions:"),
 
     // Responding to the Start and End of a Print Job
-    willStartJob: objc.optionalMethod("printInteractionControllerWillStartJob:"),
-    didFinishJob: objc.optionalMethod("printInteractionControllerDidFinishJob:"),
+    willStartJob: optionalMethod("printInteractionControllerWillStartJob:"),
+    didFinishJob: optionalMethod("printInteractionControllerDidFinishJob:"),
 
 }));

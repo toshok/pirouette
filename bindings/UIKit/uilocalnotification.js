@@ -1,24 +1,26 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UILocalNotification");
-var UILocalNotification;
-_exports.UILocalNotification = UILocalNotification = foundation.NSObject.extendClass ("UILocalNotification", () => ({
+export let UILocalNotification = NSObject.extendClass ("UILocalNotification", () => ({
 
     // Scheduling a Local Notification
-    fireDate: objc.instanceProperty(),
-    timeZone: objc.instanceProperty(),
-    repeatInterval: objc.instanceProperty(),
-    repeatCalendar: objc.instanceProperty(),
+    fireDate: instanceProperty(),
+    timeZone: instanceProperty(),
+    repeatInterval: instanceProperty(),
+    repeatCalendar: instanceProperty(),
 
     // Composing the Alert
-    alertBody: objc.instanceProperty(),
-    alertAction: objc.instanceProperty(),
-    hasAction: objc.instanceProperty(),
-    alertLaunchImage: objc.instanceProperty(),
+    alertBody: instanceProperty(),
+    alertAction: instanceProperty(),
+    hasAction: instanceProperty(),
+    alertLaunchImage: instanceProperty(),
 
     // Configuring Other Parts of the Notification
-    applicationIconBadgeNumber: objc.instanceProperty(),
-    soundName: objc.instanceProperty(),
-    userInfo: objc.instanceProperty()
+    applicationIconBadgeNumber: instanceProperty(),
+    soundName: instanceProperty(),
+    userInfo: instanceProperty()
 
 }));

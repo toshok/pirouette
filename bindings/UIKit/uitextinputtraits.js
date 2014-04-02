@@ -1,21 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { requiredProperty } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UITextInputTraits");
-var UITextInputTraits;
-_exports.UITextInputTraits = UITextInputTraits = foundation.Protocol.extendClass("UITextInputTraits", () => ({
+export let UITextInputTraits = Protocol.extendClass("UITextInputTraits", () => ({
 
     // we don't want NSObjectProtocol, I'm pretty sure..  too much underlying stuff we don't want to expose.
     // so let's leave it at that.
     // @mixinProtocol foundation.NSObjectProtocol
 
     // Managing the Keyboard Behavior
-    autocapitalizationType:        objc.requiredProperty("autocapitalizationType"),
-    autocorrectionType:            objc.requiredProperty("autocorrectionType"),
-    spellCheckingType:             objc.requiredProperty("spellCheckingType"),
-    enablesReturnKeyAutomatically: objc.requiredProperty("enablesReturnKeyAutomatically"),
-    keyboardAppearance:            objc.requiredProperty("keyboardAppearance"),
-    keyboardType:                  objc.requiredProperty("keyboardType"),
-    returnKeyType:                 objc.requiredProperty("returnKeyType"),
-    secureTextEntry:               objc.requiredProperty("secureTextEntry")
+    autocapitalizationType:        requiredProperty("autocapitalizationType"),
+    autocorrectionType:            requiredProperty("autocorrectionType"),
+    spellCheckingType:             requiredProperty("spellCheckingType"),
+    enablesReturnKeyAutomatically: requiredProperty("enablesReturnKeyAutomatically"),
+    keyboardAppearance:            requiredProperty("keyboardAppearance"),
+    keyboardType:                  requiredProperty("keyboardType"),
+    returnKeyType:                 requiredProperty("returnKeyType"),
+    secureTextEntry:               requiredProperty("secureTextEntry")
 
 }));

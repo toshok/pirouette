@@ -1,11 +1,13 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIScreenMode");
-var UIScreenMode;
-_exports.UIScreenMode = UIScreenMode = foundation.NSObject.extendClass ("UIScreenMode", () => ({
+export let UIScreenMode = NSObject.extendClass ("UIScreenMode", () => ({
 
     // Accessing the Screen Mode Attributes
-    size: objc.instanceProperty(),
-    pixelAspectRatio: objc.instanceProperty()
+    size: instanceProperty(),
+    pixelAspectRatio: instanceProperty()
 
 }));

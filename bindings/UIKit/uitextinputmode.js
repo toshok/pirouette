@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UITextInputMode");
-var UITextInputMode;
-_exports.UITextInputMode = UITextInputMode = foundation.NSObject.extendClass ("UITextInputMode", () => ({
+export let UITextInputMode = NSObject.extendClass ("UITextInputMode", () => ({
 
     // Getting the Current and Active Text-Input Modes
-    currentInputMode: objc.staticSelector("currentInputMode"),
-    activeInputModes: objc.staticSelector("activeInputModes"),
+    currentInputMode: staticSelector("currentInputMode"),
+    activeInputModes: staticSelector("activeInputModes"),
 
     // Getting the Primary Language
-    primaryLanguage: objc.instanceProperty()
+    primaryLanguage: instanceProperty()
 
 }));

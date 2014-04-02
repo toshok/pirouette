@@ -1,40 +1,42 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIControl } from 'uicontrol';
+
 //console.log("UISlider");
-var UISlider;
-_exports.UISlider = UISlider = UIControl.extendClass ("UISlider", () => ({
+export let UISlider = UIControl.extendClass ("UISlider", () => ({
 
     // Accessing the Slider’s Value
-    value: objc.instanceProperty({ set: function(v) { return this.setValue(v, false); } }),
-    setValue: objc.instanceSelector("setValue:animated:"),
+    value: instanceProperty({ set: function(v) { return this.setValue(v, false); } }),
+    setValue: instanceSelector("setValue:animated:"),
 
     // Accessing the Slider’s Value Limits
-    minimumValue: objc.instanceProperty(),
-    maximumValue: objc.instanceProperty(),
+    minimumValue: instanceProperty(),
+    maximumValue: instanceProperty(),
 
     // Modifying the Slider’s Behavior
-    continuous: objc.instanceProperty(),
+    continuous: instanceProperty(),
 
     // Changing the Slider’s Appearance
-    minimumTrackImage:    objc.instanceSelector("minimumTrackImageForState:"),
-    setMinimumTrackImage: objc.instanceSelector("setMinimumTrackImage:forState:"),
-    maximumTrackImage:    objc.instanceSelector("maximumTrackImageForState:"),
-    setMaximumTrackImage: objc.instanceSelector("setMaximumTrackImage:forState:"),
-    thumbImage:           objc.instanceSelector("thumbImageForState:"),
-    setThumbImage:        objc.instanceSelector("setThumbImage:forState:"),
-    currentMaximumTrackImage: objc.instanceProperty(),
-    currentThumbImage: objc.instanceProperty(),
-    minimumValueImage: objc.instanceProperty(),
-    maximumValueImage: objc.instanceProperty(),
-    currentMinimumTrackImage: objc.instanceProperty(),
-    minimumTrackTintColor: objc.instanceProperty().makeUIAppearance(),
-    maximumTrackTintColor: objc.instanceProperty().makeUIAppearance(),
-    thumbTintColor: objc.instanceProperty().makeUIAppearance(),
+    minimumTrackImage:    instanceSelector("minimumTrackImageForState:"),
+    setMinimumTrackImage: instanceSelector("setMinimumTrackImage:forState:"),
+    maximumTrackImage:    instanceSelector("maximumTrackImageForState:"),
+    setMaximumTrackImage: instanceSelector("setMaximumTrackImage:forState:"),
+    thumbImage:           instanceSelector("thumbImageForState:"),
+    setThumbImage:        instanceSelector("setThumbImage:forState:"),
+    currentMaximumTrackImage: instanceProperty(),
+    currentThumbImage: instanceProperty(),
+    minimumValueImage: instanceProperty(),
+    maximumValueImage: instanceProperty(),
+    currentMinimumTrackImage: instanceProperty(),
+    minimumTrackTintColor: instanceProperty().makeUIAppearance(),
+    maximumTrackTintColor: instanceProperty().makeUIAppearance(),
+    thumbTintColor: instanceProperty().makeUIAppearance(),
 
     // Overrides for Subclasses
-    maximumValueImageRect: objc.instanceSelector("maximumValueImageRectForBounds:"),
-    minimumValueImageRect: objc.instanceSelector("minimumValueImageRectForBounds:"),
-    trackRect:             objc.instanceSelector("trackRectForBounds:"),
-    thumbRect:             objc.instanceSelector("thumbRectForBounds:trackRect:value:")
+    maximumValueImageRect: instanceSelector("maximumValueImageRectForBounds:"),
+    minimumValueImageRect: instanceSelector("minimumValueImageRectForBounds:"),
+    trackRect:             instanceSelector("trackRectForBounds:"),
+    thumbRect:             instanceSelector("thumbRectForBounds:trackRect:value:")
 
 }));

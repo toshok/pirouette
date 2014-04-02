@@ -1,41 +1,44 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+import { UIWebViewDelegate } from 'uiwebviewdelegate';
+
 //console.log("UIWebView");
-var UIWebView;
-_exports.UIWebView = UIWebView = UIView.extendClass ("UIWebView", () => ({
+export let UIWebView = UIView.extendClass ("UIWebView", () => ({
 
     // Setting the Delegate
-    delegate: objc.autoboxProperty(UIWebViewDelegate),
+    delegate: autoboxProperty(UIWebViewDelegate),
 
     // Loading Content
-    loadData:       objc.instanceSelector("loadData:MIMEType:textEncodingName:baseURL:"),
-    loadHTMLString: objc.instanceSelector("loadHTMLString:baseURL:"),
-    loadRequest:    objc.instanceSelector("loadRequest:"),
-    stopLoading:    objc.instanceSelector("stopLoading"),
-    reload:         objc.instanceSelector("reload"),
-    loading: objc.instanceProperty(),
-    request: objc.instanceProperty(),
+    loadData:       instanceSelector("loadData:MIMEType:textEncodingName:baseURL:"),
+    loadHTMLString: instanceSelector("loadHTMLString:baseURL:"),
+    loadRequest:    instanceSelector("loadRequest:"),
+    stopLoading:    instanceSelector("stopLoading"),
+    reload:         instanceSelector("reload"),
+    loading: instanceProperty(),
+    request: instanceProperty(),
 
     // Moving Back and Forward
-    goBack:    objc.instanceSelector("goBack"),
-    goForward: objc.instanceSelector("goForward"),
-    canGoBack: objc.instanceProperty(),
-    canGoForward: objc.instanceProperty(),
+    goBack:    instanceSelector("goBack"),
+    goForward: instanceSelector("goForward"),
+    canGoBack: instanceProperty(),
+    canGoForward: instanceProperty(),
 
     // Setting Web Content Properties
-    scalesPageToFit: objc.instanceProperty(),
-    scrollView: objc.instanceProperty(),
-    detectsPhoneNumbers: objc.instanceProperty(), // Deprecated in iOS 3.0
+    scalesPageToFit: instanceProperty(),
+    scrollView: instanceProperty(),
+    detectsPhoneNumbers: instanceProperty(), // Deprecated in iOS 3.0
 
     // Running JavaScript
-    stringByEvaluatingJavaScriptFromString: objc.instanceSelector("stringByEvaluatingJavaScriptFromString:"),
+    stringByEvaluatingJavaScriptFromString: instanceSelector("stringByEvaluatingJavaScriptFromString:"),
 
     // Detecting Types of Data
-    dataDetectorTypes: objc.instanceProperty(),
+    dataDetectorTypes: instanceProperty(),
 
     // Managing Media Playback
-    allowsInlineMediaPlayback: objc.instanceProperty(),
-    mediaPlaybackRequiresUserAction: objc.instanceProperty(),
-    mediaPlaybackAllowsAirPlay: objc.instanceProperty()
+    allowsInlineMediaPlayback: instanceProperty(),
+    mediaPlaybackRequiresUserAction: instanceProperty(),
+    mediaPlaybackAllowsAirPlay: instanceProperty()
 
 }));

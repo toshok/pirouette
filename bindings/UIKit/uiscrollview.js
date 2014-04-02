@@ -1,52 +1,55 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var UIScrollView;
-_exports.UIScrollView = UIScrollView = UIView.extendClass ("UIScrollView", () => ({
+import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
+import { UIView } from 'uiview';
+import { UIScrollViewDelegate } from 'uiscrollviewdelegate';
+
+export let UIScrollView = UIView.extendClass ("UIScrollView", () => ({
 
     // Managing the Display of Content
-    setContentOffset: objc.instanceSelector("setContentOffset:animated:"),
-    contentOffset: objc.instanceProperty({ set: function(v) { return this.setContentOffset (v, false); } }),
-    contentSize: objc.instanceProperty(),
-    contentInset: objc.instanceProperty(),
+    setContentOffset: instanceSelector("setContentOffset:animated:"),
+    contentOffset: instanceProperty({ set: function(v) { return this.setContentOffset (v, false); } }),
+    contentSize: instanceProperty(),
+    contentInset: instanceProperty(),
 
     // Managing Scrolling
-    scrollRectToVisible:              objc.instanceSelector("scrollRectToVisible:animated:"),
-    touchesShouldBegin:               objc.instanceSelector("touchesShouldBegin:withEvent:inContentView:"),
-    touchesShouldCancelInContentView: objc.instanceSelector("touchesShouldCancelInContentView:"),
-    scrollEnabled: objc.instanceProperty(),
-    directionalLockEnabled: objc.instanceProperty(),
-    scrollsToTop: objc.instanceProperty(),
-    pagingEnabled: objc.instanceProperty(),
-    bounces: objc.instanceProperty(),
-    alwaysBounceVertical: objc.instanceProperty(),
-    alwaysBounceHorizontal: objc.instanceProperty(),
-    canCancelContentTouches: objc.instanceProperty(),
-    delaysContentTouches: objc.instanceProperty(),
-    decelerationRate: objc.instanceProperty(),
-    dragging: objc.instanceProperty(),
-    tracking: objc.instanceProperty(),
-    decelerating: objc.instanceProperty(),
+    scrollRectToVisible:              instanceSelector("scrollRectToVisible:animated:"),
+    touchesShouldBegin:               instanceSelector("touchesShouldBegin:withEvent:inContentView:"),
+    touchesShouldCancelInContentView: instanceSelector("touchesShouldCancelInContentView:"),
+    scrollEnabled: instanceProperty(),
+    directionalLockEnabled: instanceProperty(),
+    scrollsToTop: instanceProperty(),
+    pagingEnabled: instanceProperty(),
+    bounces: instanceProperty(),
+    alwaysBounceVertical: instanceProperty(),
+    alwaysBounceHorizontal: instanceProperty(),
+    canCancelContentTouches: instanceProperty(),
+    delaysContentTouches: instanceProperty(),
+    decelerationRate: instanceProperty(),
+    dragging: instanceProperty(),
+    tracking: instanceProperty(),
+    decelerating: instanceProperty(),
 
     // Managing the Scroll Indicator
-    indicatorStyle: objc.instanceProperty(),
-    scrollIndicatorInsets: objc.instanceProperty(),
-    showsHorizontalScrollIndicator: objc.instanceProperty(),
-    showsVerticalScrollIndicator: objc.instanceProperty(),
-    flashScrollIndicators: objc.instanceSelector("flashScrollIndicators"),
+    indicatorStyle: instanceProperty(),
+    scrollIndicatorInsets: instanceProperty(),
+    showsHorizontalScrollIndicator: instanceProperty(),
+    showsVerticalScrollIndicator: instanceProperty(),
+    flashScrollIndicators: instanceSelector("flashScrollIndicators"),
 
     // Zooming and Panning
-    zoomToRect:   objc.instanceSelector("zoomToRect:animated:"),
-    setZoomScale: objc.instanceSelector("setZoomScale:animated:"),
-    panGestureRecognizer: objc.instanceProperty(),
-    pinchGestureRecognizer: objc.instanceProperty(),
-    zoomScale: objc.instanceProperty({ set: function (v) { return this.setZoomScale(v, false); } }),
-    maximumZoomScale: objc.instanceProperty(),
-    minimumZoomScale: objc.instanceProperty(),
-    zoomBouncing: objc.instanceProperty(),
-    zooming: objc.instanceProperty(),
-    bouncesZoom: objc.instanceProperty(),
+    zoomToRect:   instanceSelector("zoomToRect:animated:"),
+    setZoomScale: instanceSelector("setZoomScale:animated:"),
+    panGestureRecognizer: instanceProperty(),
+    pinchGestureRecognizer: instanceProperty(),
+    zoomScale: instanceProperty({ set: function (v) { return this.setZoomScale(v, false); } }),
+    maximumZoomScale: instanceProperty(),
+    minimumZoomScale: instanceProperty(),
+    zoomBouncing: instanceProperty(),
+    zooming: instanceProperty(),
+    bouncesZoom: instanceProperty(),
 
     // Managing the Delegate
-    delegate: objc.autoboxProperty(UIScrollViewDelegate)
+    delegate: autoboxProperty(UIScrollViewDelegate)
 
 }));

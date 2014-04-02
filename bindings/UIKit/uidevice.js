@@ -1,40 +1,42 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { NSObject } from '../foundation';
+import { staticProperty, instanceProperty, instanceSelector } from '../objc';
+
 //console.log("UIDevice");
-var UIDevice;
-_exports.UIDevice = UIDevice = foundation.NSObject.extendClass ("UIDevice", () => ({
+export let UIDevice = NSObject.extendClass ("UIDevice", () => ({
 
     // Getting the Shared Device Instance
-    currentDevice:                                objc.staticProperty({ set: null }),
+    currentDevice:                                staticProperty({ set: null }),
 
     // Determining the Available Features
-    multitaskingSupported:                              objc.instanceProperty(),
+    multitaskingSupported:                              instanceProperty(),
 
     // Identifying the Device and Operating System
-    name:                              objc.instanceProperty(),
-    systemName:                              objc.instanceProperty(),
-    systemVersion:                              objc.instanceProperty(),
-    model:                              objc.instanceProperty(),
-    localizedModel:                              objc.instanceProperty(),
-    userInterfaceIdiom:                              objc.instanceProperty(),
-    uniqueIdentifier:                              objc.instanceProperty(), // Deprecated in iOS 5.0
+    name:                              instanceProperty(),
+    systemName:                              instanceProperty(),
+    systemVersion:                              instanceProperty(),
+    model:                              instanceProperty(),
+    localizedModel:                              instanceProperty(),
+    userInterfaceIdiom:                              instanceProperty(),
+    uniqueIdentifier:                              instanceProperty(), // Deprecated in iOS 5.0
 
     // Getting the Device Orientation
-    orientation:                              objc.instanceProperty(),
-    generatesDeviceOrientationNotifications:                              objc.instanceProperty(),
-    beginGeneratingDeviceOrientationNotifications: objc.instanceSelector("beginGeneratingDeviceOrientationNotifications"),
-    endGeneratingDeviceOrientationNotifications:   objc.instanceSelector("endGeneratingDeviceOrientationNotifications"),
+    orientation:                              instanceProperty(),
+    generatesDeviceOrientationNotifications:                              instanceProperty(),
+    beginGeneratingDeviceOrientationNotifications: instanceSelector("beginGeneratingDeviceOrientationNotifications"),
+    endGeneratingDeviceOrientationNotifications:   instanceSelector("endGeneratingDeviceOrientationNotifications"),
 
     // Getting the Device Battery State
-    batteryLevel:                              objc.instanceProperty(),
-    batteryMonitoringEnabled:                              objc.instanceProperty(),
-    batteryState:                              objc.instanceProperty(),
+    batteryLevel:                              instanceProperty(),
+    batteryMonitoringEnabled:                              instanceProperty(),
+    batteryState:                              instanceProperty(),
 
     // Using the Proximity Sensor
-    proximityMonitoringEnabled:                              objc.instanceProperty(),
-    proximityState:                              objc.instanceProperty(),
+    proximityMonitoringEnabled:                              instanceProperty(),
+    proximityState:                              instanceProperty(),
 
     // Playing Input Clicks
-    playInputClick:                                objc.instanceSelector("playInputClick")
+    playInputClick:                                instanceSelector("playInputClick")
 
 }));

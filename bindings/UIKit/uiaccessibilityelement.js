@@ -1,24 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 console.log("UIAccessibilityElement");
 
-var UIAccessibilityElement;
-_exports.UIAccessibilityElement = UIAccessibilityElement = foundation.NSObject.extendClass ("UIAccessibilityElement", () => ({
-
+export let UIAccessibilityElement = NSObject.extendClass ("UIAccessibilityElement", () => ({
   // Creating an Accessibility Element
-  initWithAccessibilityContainer: objc.instanceSelector("initWithAccessibilityContainer:"),
+  initWithAccessibilityContainer: instanceSelector("initWithAccessibilityContainer:"),
 
   // Accessing the Containing View
-  accessibilityContainer: objc.instanceProperty(),
+  accessibilityContainer: instanceProperty(),
 
   // Determining Accessibility
-  isAccessibilityElement: objc.instanceProperty(),
+  isAccessibilityElement: instanceProperty(),
 
   // Accessing the Attributes of an Accessibility Element
-  accessibilityLabel: objc.instanceProperty(),
-  accessibilityHint: objc.instanceProperty(),
-  accessibilityValue: objc.instanceProperty(),
-  accessibilityFrame: objc.instanceProperty(),
-  accessibilityTraits: objc.instanceProperty()
+  accessibilityLabel: instanceProperty(),
+  accessibilityHint: instanceProperty(),
+  accessibilityValue: instanceProperty(),
+  accessibilityFrame: instanceProperty(),
+  accessibilityTraits: instanceProperty()
 
 }));

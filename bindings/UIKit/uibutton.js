@@ -1,58 +1,61 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector, instanceProperty } from '../objc';
+import { UIControl, UIControlProxy } from 'uicontrol';
+import { UIControlState, UIControlEvent } from 'enums';
+
 console.log ("UIButton");
-var UIButton;
-_exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => ({
+export let UIButton = UIControl.extendClass ("UIButton", () => ({
 
   // Creating Buttons
-  buttonWithType:                     objc.staticSelector("buttonWithType:"),
+  buttonWithType:                     staticSelector("buttonWithType:"),
 
   // Configuring Button Title
-  titleLabel:                         objc.instanceProperty(),
-  reversesTitleShadowWhenHighlighted: objc.instanceProperty(),
-  setTitle:            		      objc.instanceSelector("setTitle:forState:"),
-  getTitle:            		      objc.instanceSelector("titleForState:"),
-  setTitleColor:       		      objc.instanceSelector("setTitleColor:forState:").makeUIAppearance(),
-  getTitleColor:       		      objc.instanceSelector("titleColorForState:").makeUIAppearance(),
-  setTitleShadowColor: 		      objc.instanceSelector("setTitleShadowColor:forState:"),
-  getTitleShadowColor: 		      objc.instanceSelector("titleShadowColorForState:"),
+  titleLabel:                         instanceProperty(),
+  reversesTitleShadowWhenHighlighted: instanceProperty(),
+  setTitle:            		      instanceSelector("setTitle:forState:"),
+  getTitle:            		      instanceSelector("titleForState:"),
+  setTitleColor:       		      instanceSelector("setTitleColor:forState:").makeUIAppearance(),
+  getTitleColor:       		      instanceSelector("titleColorForState:").makeUIAppearance(),
+  setTitleShadowColor: 		      instanceSelector("setTitleShadowColor:forState:"),
+  getTitleShadowColor: 		      instanceSelector("titleShadowColorForState:"),
 
-  font:              objc.instanceProperty(), // Deprecated in iOS 3.0
-  lineBreakMode:     objc.instanceProperty(), // Deprecated in iOS 3.0
-  titleShadowOffset: objc.instanceProperty(), // Deprecated in iOS 3.0
+  font:              instanceProperty(), // Deprecated in iOS 3.0
+  lineBreakMode:     instanceProperty(), // Deprecated in iOS 3.0
+  titleShadowOffset: instanceProperty(), // Deprecated in iOS 3.0
 
   // Configuring Button Presentation
-  adjustsImageWhenHighlighted: objc.instanceProperty(),
-  adjustsImageWhenDisabled:    objc.instanceProperty(),
-  showsTouchWhenHighlighted:   objc.instanceProperty(),
+  adjustsImageWhenHighlighted: instanceProperty(),
+  adjustsImageWhenDisabled:    instanceProperty(),
+  showsTouchWhenHighlighted:   instanceProperty(),
 
-  setBackgroundImage:  objc.instanceSelector("setBackgroundImage:forState:"),
-  getBbackgroundImage: objc.instanceSelector("backgroundImageForState:"),
-  setImage:            objc.instanceSelector("setImage:forState:"),
-  getImage:            objc.instanceSelector("imageForState:"),
-  tintColor:           objc.instanceProperty().makeUIAppearance(),
+  setBackgroundImage:  instanceSelector("setBackgroundImage:forState:"),
+  getBbackgroundImage: instanceSelector("backgroundImageForState:"),
+  setImage:            instanceSelector("setImage:forState:"),
+  getImage:            instanceSelector("imageForState:"),
+  tintColor:           instanceProperty().makeUIAppearance(),
 
   // Configuring Edge Insets
-  contentEdgeInsets:   objc.instanceProperty(),
-  titleEdgeInsets:     objc.instanceProperty(),
-  imageEdgeInsets:     objc.instanceProperty(),
+  contentEdgeInsets:   instanceProperty(),
+  titleEdgeInsets:     instanceProperty(),
+  imageEdgeInsets:     instanceProperty(),
 
   // Getting the Current State
-  buttonType:              objc.instanceProperty(),
-  currentTitle:            objc.instanceProperty(),
-  currentTitleColor:       objc.instanceProperty(),
-  currentTitleShadowColor: objc.instanceProperty(),
-  currentImage:            objc.instanceProperty(),
-  currentBackgroundImage:  objc.instanceProperty(),
-  imageView:               objc.instanceProperty(),
+  buttonType:              instanceProperty(),
+  currentTitle:            instanceProperty(),
+  currentTitleColor:       instanceProperty(),
+  currentTitleShadowColor: instanceProperty(),
+  currentImage:            instanceProperty(),
+  currentBackgroundImage:  instanceProperty(),
+  imageView:               instanceProperty(),
 
   // Getting Dimensions
-  backgroundRectForBounds: objc.instanceSelector("backgroundRectForBounds:"),
-  contentRectForBounds:    objc.instanceSelector("contentRectForBounds:"),
-  titleRectForContentRect: objc.instanceSelector("titleRectForContentRect:"),
-  imageRectForContentRect: objc.instanceSelector("imageRectForContentRect:"),
+  backgroundRectForBounds: instanceSelector("backgroundRectForBounds:"),
+  contentRectForBounds:    instanceSelector("contentRectForBounds:"),
+  titleRectForContentRect: instanceSelector("titleRectForContentRect:"),
+  imageRectForContentRect: instanceSelector("imageRectForContentRect:"),
 
-  clicked: objc.instanceProperty({
+  clicked: instanceProperty({
 				 set: function (v) {
 				   if (v) {
 				     this.proxy = new UIControlProxy(v);
@@ -66,7 +69,7 @@ _exports.UIButton = UIButton = UIControl.extendClass ("UIButton", () => ({
   }),
 
   // handle accessors for normal state
-  title: objc.instanceProperty({
+  title: instanceProperty({
       set: function (v) { this.setTitle(v, UIControlState.normal); },
       get: function () { return this.getTitle(UIControlState.normal); }
   })

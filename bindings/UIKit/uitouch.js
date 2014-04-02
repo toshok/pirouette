@@ -1,21 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log "UITouch"
-var UITouch;
-_exports.UITouch = UITouch = foundation.NSObject.extendClass ("UITouch", () => ({
+export let UITouch = NSObject.extendClass ("UITouch", () => ({
 
     // Getting the Location of Touches
-    locationInView:         objc.instanceSelector("locationInView:"),
-    previousLocationInView: objc.instanceSelector("previousLocationInView:"),
-    view: objc.instanceProperty(),
-    window: objc.instanceProperty(),
+    locationInView:         instanceSelector("locationInView:"),
+    previousLocationInView: instanceSelector("previousLocationInView:"),
+    view: instanceProperty(),
+    window: instanceProperty(),
 
     // Getting Touch Attributes
-    tapCount: objc.instanceProperty(),
-    timestamp: objc.instanceProperty(),
-    phase: objc.instanceProperty(),
+    tapCount: instanceProperty(),
+    timestamp: instanceProperty(),
+    phase: instanceProperty(),
 
     // Getting a Touch Object’s Gesture Recognizers
-    gestureRecognizers: objc.instanceProperty()
+    gestureRecognizers: instanceProperty()
 
 }));

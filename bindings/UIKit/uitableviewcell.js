@@ -1,74 +1,76 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UITableViewCell");
-var UITableViewCell;
-_exports.UITableViewCell = UITableViewCell = UIView.extendClass ("UITableViewCell", () => ({
+export let UITableViewCell = UIView.extendClass ("UITableViewCell", () => ({
 
     // Initializing a UITableViewCell Object
-    initWithStyle: objc.instanceSelector("initWithStyle:reuseIdentifier:"),
-    initWithFrame:  objc.instanceSelector("initWithFrame:reuseIdentifier:"), // Deprecated in iOS 3.0
+    initWithStyle: instanceSelector("initWithStyle:reuseIdentifier:"),
+    initWithFrame:  instanceSelector("initWithFrame:reuseIdentifier:"), // Deprecated in iOS 3.0
 
     // Reusing Cells
-    reuseIdentifier: objc.instanceProperty(),
-    prepareForReuse: objc.instanceSelector("prepareForReuse"),
+    reuseIdentifier: instanceProperty(),
+    prepareForReuse: instanceSelector("prepareForReuse"),
 
     // Managing Text as Cell Content
-    textLabel: objc.instanceProperty({ set: null }),
-    detailTextLabel: objc.instanceProperty({ set: null }),
-    font: objc.instanceProperty(), // Deprecated in iOS 3.0
-    lineBreakMode: objc.instanceProperty(), // Deprecated in iOS 3.0
-    selectedTextColor: objc.instanceProperty(), // Deprecated in iOS 3.0
-    text: objc.instanceProperty(), // Deprecated in iOS 3.0
-    textAlignment: objc.instanceProperty(), // Deprecated in iOS 3.0
-    textColor: objc.instanceProperty(), // Deprecated in iOS 3.0
+    textLabel: instanceProperty({ set: null }),
+    detailTextLabel: instanceProperty({ set: null }),
+    font: instanceProperty(), // Deprecated in iOS 3.0
+    lineBreakMode: instanceProperty(), // Deprecated in iOS 3.0
+    selectedTextColor: instanceProperty(), // Deprecated in iOS 3.0
+    text: instanceProperty(), // Deprecated in iOS 3.0
+    textAlignment: instanceProperty(), // Deprecated in iOS 3.0
+    textColor: instanceProperty(), // Deprecated in iOS 3.0
 
     // Managing Images as Cell Content
-    imageView: objc.instanceProperty(),
-    image: objc.instanceProperty(), // Deprecated in iOS 3.0
-    selectedImage: objc.instanceProperty(), // Deprecated in iOS 3.0
+    imageView: instanceProperty(),
+    image: instanceProperty(), // Deprecated in iOS 3.0
+    selectedImage: instanceProperty(), // Deprecated in iOS 3.0
 
     // Accessing Views of the Cell Object
-    contentView: objc.instanceProperty(),
-    backgroundView: objc.instanceProperty(),
-    selectedBackgroundView: objc.instanceProperty(),
-    multipleSelectionBackgroundView: objc.instanceProperty(),
+    contentView: instanceProperty(),
+    backgroundView: instanceProperty(),
+    selectedBackgroundView: instanceProperty(),
+    multipleSelectionBackgroundView: instanceProperty(),
 
     // Managing Accessory Views
-    accessoryType: objc.instanceProperty(),
-    accessoryView: objc.instanceProperty(),
-    editingAccessoryType: objc.instanceProperty(),
-    editingAccessoryView: objc.instanceProperty(),
-    hidesAccessoryWhenEditing: objc.instanceProperty(), // Deprecated in iOS 3.0
+    accessoryType: instanceProperty(),
+    accessoryView: instanceProperty(),
+    editingAccessoryType: instanceProperty(),
+    editingAccessoryView: instanceProperty(),
+    hidesAccessoryWhenEditing: instanceProperty(), // Deprecated in iOS 3.0
 
     // Managing Cell Selection and Highlighting
-    setSelected:    objc.instanceSelector("setSelected:animated:"),
-    setHighlighted: objc.instanceSelector("setHighlighted:animated:"),
-    selected: objc.instanceProperty({ set: function(v) { return this.setSelected (v, false); } }),
-    selectionStyle: objc.instanceProperty(),
-    highlighted: objc.instanceProperty({ set: function(v) { return this.setHighlighted (v, false); } }),
+    setSelected:    instanceSelector("setSelected:animated:"),
+    setHighlighted: instanceSelector("setHighlighted:animated:"),
+    selected: instanceProperty({ set: function(v) { return this.setSelected (v, false); } }),
+    selectionStyle: instanceProperty(),
+    highlighted: instanceProperty({ set: function(v) { return this.setHighlighted (v, false); } }),
 
     // Editing the Cell
-    setEditing: objc.instanceSelector("setEditing:animated:"),
-    editing: objc.instanceProperty({ set: function(v) { return this.setEditing (v, false); } }),
-    editingStyle: objc.instanceProperty(),
-    showingDeleteConfirmation: objc.instanceProperty(),
-    showsReorderControl: objc.instanceProperty(),
+    setEditing: instanceSelector("setEditing:animated:"),
+    editing: instanceProperty({ set: function(v) { return this.setEditing (v, false); } }),
+    editingStyle: instanceProperty(),
+    showingDeleteConfirmation: instanceProperty(),
+    showsReorderControl: instanceProperty(),
 
     // Adjusting to State Transitions
-    willTransitionToState: objc.instanceSelector("willTransitionToState:"),
-    didTransitionToState:  objc.instanceSelector("didTransitionToState:"),
+    willTransitionToState: instanceSelector("willTransitionToState:"),
+    didTransitionToState:  instanceSelector("didTransitionToState:"),
 
     // Managing Content Indentation
-    indentationLevel: objc.instanceProperty(),
-    indentationWidth: objc.instanceProperty(),
-    shouldIndentWhileEditing: objc.instanceProperty(),
+    indentationLevel: instanceProperty(),
+    indentationWidth: instanceProperty(),
+    shouldIndentWhileEditing: instanceProperty(),
 
     // Managing Targets and Actions
 
     // These properties are deprecated as of iOS 3.0. Instead, use the tableView:commitEditingStyle:forRowAtIndexPath: method of the UITableViewDataSource protocol or the tableView:accessoryButtonTappedForRowWithIndexPath: method of the UITableViewDelegate protocol.
 
-    accessoryAction: objc.instanceProperty(), // Deprecated in iOS 3.0
-    editAction: objc.instanceProperty(), // Deprecated in iOS 3.0
-    target: objc.instanceProperty(), // Deprecated in iOS 3.0
+    accessoryAction: instanceProperty(), // Deprecated in iOS 3.0
+    editAction: instanceProperty(), // Deprecated in iOS 3.0
+    target: instanceProperty() // Deprecated in iOS 3.0
 
 }));

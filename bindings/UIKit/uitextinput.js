@@ -1,58 +1,60 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod, requiredMethod, requiredProperty } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UITextInput");
-var UITextInput;
-_exports.UITextInput = UITextInput = foundation.Protocol.extendClass("UITextInput", () => ({
+export let UITextInput = Protocol.extendClass("UITextInput", () => ({
 
     // Replacing and Returning Text
-    textInRange:  objc.requiredMethod("textInRange:"),
-    replaceRange: objc.requiredMethod("replaceRange:withText:"),
+    textInRange:  requiredMethod("textInRange:"),
+    replaceRange: requiredMethod("replaceRange:withText:"),
 
     // Working with Marked and Selected Text
-    selectedTextRange:          objc.requiredProperty("selectedTextRange"),
-    markedTextRange:            objc.requiredProperty("markedTextRange"),
-    markedTextStyle:            objc.requiredProperty("markedTextStyle"),
-    setMarkedTextSelectedRange: objc.requiredMethod("setMarkedText:selectedRange:"),
-    unmarkText:                 objc.requiredMethod("unmarkText"),
-    selectionAffinity:          objc.optionalMethod("selectionAffinity"),
+    selectedTextRange:          requiredProperty("selectedTextRange"),
+    markedTextRange:            requiredProperty("markedTextRange"),
+    markedTextStyle:            requiredProperty("markedTextStyle"),
+    setMarkedTextSelectedRange: requiredMethod("setMarkedText:selectedRange:"),
+    unmarkText:                 requiredMethod("unmarkText"),
+    selectionAffinity:          optionalMethod("selectionAffinity"),
 
     // Computing Text Ranges and Text Positions
-    textRangeFromPosition:           objc.requiredMethod("textRangeFromPosition:toPosition:"),
-    positionFromPosition:            objc.requiredMethod("positionFromPosition:offset:"),
-    positionFromPositionInDirection: objc.requiredMethod("positionFromPosition:inDirection:offset:"),
-    beginningOfDocument:             objc.requiredProperty("beginningOfDocument"),
-    endOfDocument:                   objc.requiredProperty("endOfDocument"),
+    textRangeFromPosition:           requiredMethod("textRangeFromPosition:toPosition:"),
+    positionFromPosition:            requiredMethod("positionFromPosition:offset:"),
+    positionFromPositionInDirection: requiredMethod("positionFromPosition:inDirection:offset:"),
+    beginningOfDocument:             requiredProperty("beginningOfDocument"),
+    endOfDocument:                   requiredProperty("endOfDocument"),
 
     // Evaluating Text Positions
-    comparePosition:    objc.requiredMethod("comparePosition:toPosition:"),
-    offsetFromPosition: objc.requiredMethod("offsetFromPosition:toPosition:"),
+    comparePosition:    requiredMethod("comparePosition:toPosition:"),
+    offsetFromPosition: requiredMethod("offsetFromPosition:toPosition:"),
 
     // Determining Layout and Writing Direction
-    positionWithinRange:               objc.optionalMethod("positionWithinRange:farthestInDirection:"),
-    characterRangeByExtendingPosition: objc.requiredMethod("characterRangeByExtendingPosition:inDirection:"),
-    baseWritingDirectionForPosition:   objc.requiredMethod("baseWritingDirectionForPosition:inDirection:"),
-    setBaseWritingDirection:           objc.requiredMethod("setBaseWritingDirection:forRange:"),
+    positionWithinRange:               optionalMethod("positionWithinRange:farthestInDirection:"),
+    characterRangeByExtendingPosition: requiredMethod("characterRangeByExtendingPosition:inDirection:"),
+    baseWritingDirectionForPosition:   requiredMethod("baseWritingDirectionForPosition:inDirection:"),
+    setBaseWritingDirection:           requiredMethod("setBaseWritingDirection:forRange:"),
 
     // Geometry and Hit-Testing Methods
-    firstRectForRange:                 objc.requiredMethod("firstRectForRange:"),
-    caretRectForPosition:              objc.requiredMethod("caretRectForPosition:"),
-    closestPositionToPoint:            objc.requiredMethod("closestPositionToPoint:"),
-    closestPositionToPointWithinRange: objc.requiredMethod("closestPositionToPoint:withinRange:"),
-    characterRangeAtPoint:             objc.requiredMethod("characterRangeAtPoint:"),
+    firstRectForRange:                 requiredMethod("firstRectForRange:"),
+    caretRectForPosition:              requiredMethod("caretRectForPosition:"),
+    closestPositionToPoint:            requiredMethod("closestPositionToPoint:"),
+    closestPositionToPointWithinRange: requiredMethod("closestPositionToPoint:withinRange:"),
+    characterRangeAtPoint:             requiredMethod("characterRangeAtPoint:"),
 
     // Text Input Delegate and Text Input Tokenizer
-    inputDelegate: objc.requiredProperty("inputDelegate"),
-    tokenizer:     objc.requiredProperty("tokenizer"),
+    inputDelegate: requiredProperty("inputDelegate"),
+    tokenizer:     requiredProperty("tokenizer"),
 
     // Returning Text Styling Information
-    textStylingAtPosition: objc.optionalMethod("textStylingAtPosition:inDirection:"),
+    textStylingAtPosition: optionalMethod("textStylingAtPosition:inDirection:"),
 
     // Reconciling Text Position and Character Offset
-    positionWithinRangeAtCharacterOffset: objc.optionalMethod("positionWithinRange:atCharacterOffset:"),
-    characterOffsetOfPosition: objc.optionalMethod("characterOffsetOfPosition:withinRange:"),
+    positionWithinRangeAtCharacterOffset: optionalMethod("positionWithinRange:atCharacterOffset:"),
+    characterOffsetOfPosition: optionalMethod("characterOffsetOfPosition:withinRange:"),
 
     // Returning the Text Input View
-    textInputView: objc.optionalMethod("textInputView")
+    textInputView: optionalMethod("textInputView")
 
     // XXX ES6-port
     //@mixinProtocol UIKeyInput

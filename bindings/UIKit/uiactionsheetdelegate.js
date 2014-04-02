@@ -1,18 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-console.log("UIActionSheetDelegate");
-var UIActionSheetDelegate;
-_exports.UIActionSheetDelegate = UIActionSheetDelegate = foundation.Protocol.extendClass("UIActionSheetDelegate", () => ({
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
 
+export let UIActionSheetDelegate = Protocol.extendClass("UIActionSheetDelegate", () => ({
   // Responding to Actions
-  clickedButton:  objc.optionalMethod("actionSheet:clickedButtonAtIndex:"),
+  clickedButton:  optionalMethod("actionSheet:clickedButtonAtIndex:"),
 
   // Customizing Behavior
-  willPresent: objc.optionalMethod("willPresentActionSheet:"),
-  didPresent:  objc.optionalMethod("didPresentActionSheet:"),
-  willDismiss: objc.optionalMethod("actionSheet:willDismissWithButtonIndex:"),
-  didDismiss:  objc.optionalMethod("actionSheet:didDismissWithButtonIndex:"),
+  willPresent: optionalMethod("willPresentActionSheet:"),
+  didPresent:  optionalMethod("didPresentActionSheet:"),
+  willDismiss: optionalMethod("actionSheet:willDismissWithButtonIndex:"),
+  didDismiss:  optionalMethod("actionSheet:didDismissWithButtonIndex:"),
 
   // Canceling
-  cancel:      objc.optionalMethod("actionSheetCancel:")
+  cancel:      optionalMethod("actionSheetCancel:")
 }));

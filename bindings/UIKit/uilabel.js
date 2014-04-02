@@ -1,36 +1,38 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UILabel");
-var UILabel;
-_exports.UILabel = UILabel = UIView.extendClass ("UILabel", () => ({
+export let UILabel = UIView.extendClass ("UILabel", () => ({
 
     // Accessing the Text Attributes
-    text: objc.instanceProperty(),
-    font: objc.instanceProperty(),
-    textColor: objc.instanceProperty(),
-    textAlignment: objc.instanceProperty(),
-    lineBreakMode: objc.instanceProperty(),
-    enabled: objc.instanceProperty(),
+    text: instanceProperty(),
+    font: instanceProperty(),
+    textColor: instanceProperty(),
+    textAlignment: instanceProperty(),
+    lineBreakMode: instanceProperty(),
+    enabled: instanceProperty(),
 
     // Sizing the Label’s Text
-    adjustsFontSizeToFitWidth: objc.instanceProperty(),
-    baselineAdjustment: objc.instanceProperty(),
-    minimumFontSize: objc.instanceProperty(),
-    numberOfLines: objc.instanceProperty(),
+    adjustsFontSizeToFitWidth: instanceProperty(),
+    baselineAdjustment: instanceProperty(),
+    minimumFontSize: instanceProperty(),
+    numberOfLines: instanceProperty(),
 
     // Managing Highlight Values
-    highlightedTextColor: objc.instanceProperty(),
-    highlighted: objc.instanceProperty(),
+    highlightedTextColor: instanceProperty(),
+    highlighted: instanceProperty(),
 
     // Drawing a Shadow
-    shadowColor: objc.instanceProperty(),
-    shadowOffset: objc.instanceProperty(),
+    shadowColor: instanceProperty(),
+    shadowOffset: instanceProperty(),
 
     // Drawing and Positioning Overrides
-    textRect:       objc.instanceSelector("textRectForBounds:limitedToNumberOfLines:"),
-    drawTextInRect: objc.instanceSelector("drawTextInRect:"),
+    textRect:       instanceSelector("textRectForBounds:limitedToNumberOfLines:"),
+    drawTextInRect: instanceSelector("drawTextInRect:"),
 
     // Setting and Getting Attributes
-    userInteractionEnabled: objc.instanceProperty()
+    userInteractionEnabled: instanceProperty()
 
 }));

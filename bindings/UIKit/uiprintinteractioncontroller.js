@@ -1,35 +1,38 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+import { UIPrintInteractionControllerDelegate } from 'uiprintinteractioncontrollerdelegate';
+
 //console.log("UIPrintInteractionController");
-var UIPrintPageInteractionController;
-_exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", () => ({
+export let UIPrintPageInteractionController = NSObject.extendClass ("UIPrintPageInteractionController", () => ({
 
     // Getting the Shared Controller Instance
-    sharedPrintController: objc.staticSelector("sharedPrintController"),
+    sharedPrintController: staticSelector("sharedPrintController"),
 
     // Determining Printability
-    isPrintingAvailable:   objc.staticSelector("isPrintingAvailable"),
-    canPrintData:          objc.staticSelector("canPrintData:"),
-    canPrintURL:           objc.staticSelector("canPrintURL:"),
-    printableUTIs:         objc.staticSelector("printableUTIs"),
+    isPrintingAvailable:   staticSelector("isPrintingAvailable"),
+    canPrintData:          staticSelector("canPrintData:"),
+    canPrintURL:           staticSelector("canPrintURL:"),
+    printableUTIs:         staticSelector("printableUTIs"),
 
     // Providing the Source of Printable Content
-    printingItem: objc.instanceProperty(),
-    printingItems: objc.instanceProperty(),
-    printPageRenderer: objc.instanceProperty(),
-    printFormatter: objc.instanceProperty(),
+    printingItem: instanceProperty(),
+    printingItems: instanceProperty(),
+    printPageRenderer: instanceProperty(),
+    printFormatter: instanceProperty(),
 
     // Presenting the Printing User Interface
-    present:                  objc.instanceSelector("presentAnimated:completionHandler:"),
-    presentFromBarButtonItem: objc.instanceSelector("presentFromBarButtonItem:animated:completionHandler:"),
-    presentFromRect:          objc.instanceSelector("presentFromRect:inView:animated:completionHandler:"),
-    dismiss:                  objc.instanceSelector("dismissAnimated:"),
+    present:                  instanceSelector("presentAnimated:completionHandler:"),
+    presentFromBarButtonItem: instanceSelector("presentFromBarButtonItem:animated:completionHandler:"),
+    presentFromRect:          instanceSelector("presentFromRect:inView:animated:completionHandler:"),
+    dismiss:                  instanceSelector("dismissAnimated:"),
 
     // Accessing Print-Job Information
-    printInfo: objc.instanceProperty(),
-    printPaper: objc.instanceProperty(),
-    showsPageRange: objc.instanceProperty(),
+    printInfo: instanceProperty(),
+    printPaper: instanceProperty(),
+    showsPageRange: instanceProperty(),
 
     // Assigning the Delegate
-    delegate: objc.autoboxProperty(UIPrintInteractionControllerDelegate)
+    delegate: autoboxProperty(UIPrintInteractionControllerDelegate)
 }));

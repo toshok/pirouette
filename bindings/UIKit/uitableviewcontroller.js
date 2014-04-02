@@ -1,18 +1,21 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, sig } from '../objc';
+import { NSObject } from '../foundation';
+import { UIViewController } from 'uiviewcontroller';
+
 //console.log("UITableViewController");
-var UITableViewController;
-_exports.UITableViewController = UITableViewController = UIViewController.extendClass ("UITableViewController", () => ({
+export let UITableViewController = UIViewController.extendClass ("UITableViewController", () => ({
 
     // Initializing the UITableViewController Object
-    initWithStyle: objc.instanceSelector("initWithStyle:").
-				  returns( function () { return foundation.NSObject; /* should be UITableViewController */ }).
-				  params( function () { return [ objc.sig.Int ]; }),
+    initWithStyle: instanceSelector("initWithStyle:").
+				  returns( function () { return NSObject; /* should be UITableViewController */ }).
+				  params( function () { return [ sig.Int ]; }),
 
     // Getting the Table View
-    tableView: objc.instanceProperty(),
+    tableView: instanceProperty(),
 
     // Configuring the Table Behavior
-    clearsSelectionOnViewWillAppear: objc.instanceProperty()
+    clearsSelectionOnViewWillAppear: instanceProperty()
 
 }));

@@ -1,20 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 console.log("UITextViewDelegate");
-var UITextViewDelegate;
-_exports.UITextViewDelegate = UITextViewDelegate = foundation.Protocol.extendClass("UITextViewDelegate", () => ({
+export let UITextViewDelegate = Protocol.extendClass("UITextViewDelegate", () => ({
 
     // Responding to Editing Notifications
-    shouldBeginEditing: objc.optionalMethod("textViewShouldBeginEditing:"),
-    didBeginEditing:    objc.optionalMethod("textViewDidBeginEditing:"),
-    shouldEndEditing:   objc.optionalMethod("textViewShouldEndEditing:"),
-    didEndEditing:      objc.optionalMethod("textViewDidEndEditing:"),
+    shouldBeginEditing: optionalMethod("textViewShouldBeginEditing:"),
+    didBeginEditing:    optionalMethod("textViewDidBeginEditing:"),
+    shouldEndEditing:   optionalMethod("textViewShouldEndEditing:"),
+    didEndEditing:      optionalMethod("textViewDidEndEditing:"),
 
     // Responding to Text Changes
-    shouldChangeText:   objc.optionalMethod("textView:shouldChangeTextInRange:replacementText:"),
-    didChangeText:      objc.optionalMethod("textViewDidChange:"),
+    shouldChangeText:   optionalMethod("textView:shouldChangeTextInRange:replacementText:"),
+    didChangeText:      optionalMethod("textViewDidChange:"),
 
     // Responding to Selection Changes
-    didChangeSelection: objc.optionalMethod("textViewDidChangeSelection:")
+    didChangeSelection: optionalMethod("textViewDidChangeSelection:")
 
 }));

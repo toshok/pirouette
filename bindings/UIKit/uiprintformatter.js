@@ -1,24 +1,26 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIPrintFormatter");
-var UIPrintFormatter;
-_exports.UIPrintFormatter = UIPrintFormatter = foundation.NSObject.extendClass ("UIPrintFormatter", () => ({
+export let UIPrintFormatter = NSObject.extendClass ("UIPrintFormatter", () => ({
 
     // Laying Out the Content
-    contentInsets: objc.instanceProperty(),
-    maximumContentHeight: objc.instanceProperty(),
-    maximumContentWidth: objc.instanceProperty(),
+    contentInsets: instanceProperty(),
+    maximumContentHeight: instanceProperty(),
+    maximumContentWidth: instanceProperty(),
 
     // Managing Pagination
-    startPage: objc.instanceProperty(),
-    pageCount: objc.instanceProperty(),
+    startPage: instanceProperty(),
+    pageCount: instanceProperty(),
 
     // Drawing the Content
-    drawInRectForPageAtIndex:    objc.instanceSelector("drawInRect:forPageAtIndex:"),
-    rectForPageAtIndex:          objc.instanceSelector("rectForPageAtIndex:"),
+    drawInRectForPageAtIndex:    instanceSelector("drawInRect:forPageAtIndex:"),
+    rectForPageAtIndex:          instanceSelector("rectForPageAtIndex:"),
 
     // Communicating with the Page Renderer
-    removeFromPrintPageRenderer: objc.instanceSelector("removeFromPrintPageRenderer"),
-    printPageRenderer: objc.instanceProperty()
+    removeFromPrintPageRenderer: instanceSelector("removeFromPrintPageRenderer"),
+    printPageRenderer: instanceProperty()
 
 }));

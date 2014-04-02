@@ -1,23 +1,26 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { UIViewController } from 'uiviewcontroller';
+import { UIPageViewControllerDelegate } from 'uipageviewcontrollerdelegate';
+
 //console.log("UIPageViewController");
-var UIPageViewController;
-_exports.UIPageViewController = UIPageViewController = UIViewController.extendClass ("UIPageViewController", () => ({
+export let UIPageViewController = UIViewController.extendClass ("UIPageViewController", () => ({
 
     // Creating Page View Controllers
-    initWithTransitionStyle: objc.instanceSelector("initWithTransitionStyle:navigationOrientation:options:"),
-    dataSource: objc.instanceProperty(),
-    delegate: objc.autoboxProperty(UIPageViewControllerDelegate),
+    initWithTransitionStyle: instanceSelector("initWithTransitionStyle:navigationOrientation:options:"),
+    dataSource: instanceProperty(),
+    delegate: autoboxProperty(UIPageViewControllerDelegate),
 
     // Providing Content
-    setViewControllers: objc.instanceSelector("setViewControllers:direction:animated:completion:"),
-    viewControllers: objc.instanceProperty({ set: function(v) { return this.setViewControllers(v, false, null); } }),
-    gestureRecognizers: objc.instanceProperty(),
+    setViewControllers: instanceSelector("setViewControllers:direction:animated:completion:"),
+    viewControllers: instanceProperty({ set: function(v) { return this.setViewControllers(v, false, null); } }),
+    gestureRecognizers: instanceProperty(),
 
     // Display Options
-    navigationOrientation: objc.instanceProperty(),
-    spineLocation: objc.instanceProperty(),
-    transitionStyle: objc.instanceProperty(),
-    doubleSided: objc.instanceProperty()
+    navigationOrientation: instanceProperty(),
+    spineLocation: instanceProperty(),
+    transitionStyle: instanceProperty(),
+    doubleSided: instanceProperty()
 
 }));

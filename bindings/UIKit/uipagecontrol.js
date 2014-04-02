@@ -1,19 +1,21 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIControl } from 'uicontrol';
+
 //console.log("UIPageControl");
-var UIPageControl;
-_exports.UIPageControl = UIPageControl = UIControl.extendClass ("UIPageControl", () => ({
+export let UIPageControl = UIControl.extendClass ("UIPageControl", () => ({
 
     // Managing the Page Navigation
-    currentPage: objc.instanceProperty(),
-    numberOfPages: objc.instanceProperty(),
-    hidesForSinglePage: objc.instanceProperty(),
+    currentPage: instanceProperty(),
+    numberOfPages: instanceProperty(),
+    hidesForSinglePage: instanceProperty(),
 
     // Updating the Page Display
-    defersCurrentPageDisplay:         objc.instanceProperty(),
-    updateCurrentPageDisplay: objc.instanceSelector("updateCurrentPageDisplay"),
+    defersCurrentPageDisplay:         instanceProperty(),
+    updateCurrentPageDisplay: instanceSelector("updateCurrentPageDisplay"),
 
     // Resizing the Control
-    sizeForNumberOfPages: objc.instanceSelector("sizeForNumberOfPages:")
+    sizeForNumberOfPages: instanceSelector("sizeForNumberOfPages:")
 
 }));

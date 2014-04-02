@@ -1,32 +1,35 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { UIPickerViewDelegate } from 'uipickerviewdelegate';
+import { UIView } from 'uiview';
+
 //console.log("UIPickerView");
-var UIPickerView;
-_exports.UIPickerView = UIPickerView = UIView.extendClass ("UIPickerView", () => ({
+export let UIPickerView = UIView.extendClass ("UIPickerView", () => ({
 
     // Getting the Dimensions of the View Picker
-    numberOfRowsInComponent: objc.instanceSelector("numberOfRowsInComponent:"),
-    rowSizeForComponent:     objc.instanceSelector("rowSizeForComponent:"),
-    numberOfComponents: objc.instanceProperty(),
+    numberOfRowsInComponent: instanceSelector("numberOfRowsInComponent:"),
+    rowSizeForComponent:     instanceSelector("rowSizeForComponent:"),
+    numberOfComponents: instanceProperty(),
 
     // Reloading the View Picker
-    reloadAllComponents:     objc.instanceSelector("reloadAllComponents"),
-    reloadComponent:         objc.instanceSelector("reloadComponent:"),
+    reloadAllComponents:     instanceSelector("reloadAllComponents"),
+    reloadComponent:         instanceSelector("reloadComponent:"),
 
     // Selecting Rows in the View Picker
-    selectRow:               objc.instanceSelector("selectRow:inComponent:animated:"),
-    selectedRow:             objc.instanceSelector("selectedRowInComponent:"),
+    selectRow:               instanceSelector("selectRow:inComponent:animated:"),
+    selectedRow:             instanceSelector("selectedRowInComponent:"),
 
     // Returning the View for a Row and Component
-    viewForRowInComponent:   objc.instanceSelector("viewForRow:forComponent:"),
+    viewForRowInComponent:   instanceSelector("viewForRow:forComponent:"),
 
     // Specifying the Delegate
-    delegate: objc.autoboxProperty(UIPickerViewDelegate),
+    delegate: autoboxProperty(UIPickerViewDelegate),
 
     // Specifying the Data Source
-    dataSource: objc.instanceProperty(),
+    dataSource: instanceProperty(),
 
     // Managing the Appearance of the Picker View
-    showsSelectionIndicator: objc.instanceProperty()
+    showsSelectionIndicator: instanceProperty()
 
 }));

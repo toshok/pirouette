@@ -1,20 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 console.log("UIAlertViewDelegate");
-var UIAlertViewDelegate;
-_exports.UIAlertViewDelegate = UIAlertViewDelegate = foundation.Protocol.extendClass("UIAlertViewDelegate", () => ({
+export let UIAlertViewDelegate = Protocol.extendClass("UIAlertViewDelegate", () => ({
 
   // Responding to Actions
-  clickedButton:                objc.optionalMethod("alertView:clickedButtonAtIndex:"),
+  clickedButton:                optionalMethod("alertView:clickedButtonAtIndex:"),
 
   // Customizing Behavior
-  shouldEnableFirstOtherButton: objc.optionalMethod("alertViewShouldEnableFirstOtherButton:"),
-  willPresent:                  objc.optionalMethod("willPresentAlertView:"),
-  didPresent:                   objc.optionalMethod("didPresentAlertView:"),
-  willDismiss:                  objc.optionalMethod("alertView:willDismissWithButtonIndex:"),
-  didDismiss:                   objc.optionalMethod("alertView:didDismissWithButtonIndex:"),
+  shouldEnableFirstOtherButton: optionalMethod("alertViewShouldEnableFirstOtherButton:"),
+  willPresent:                  optionalMethod("willPresentAlertView:"),
+  didPresent:                   optionalMethod("didPresentAlertView:"),
+  willDismiss:                  optionalMethod("alertView:willDismissWithButtonIndex:"),
+  didDismiss:                   optionalMethod("alertView:didDismissWithButtonIndex:"),
 
   // Canceling
-  cancel:                       objc.optionalMethod("alertViewCancel:")
+  cancel:                       optionalMethod("alertViewCancel:")
 
 }));

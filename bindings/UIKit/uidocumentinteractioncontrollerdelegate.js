@@ -1,28 +1,30 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UIDocumentInteractionControllerDelegate");
-var UIDocumentInteractionControllerDelegate;
-_exports.UIDocumentInteractionControllerDelegate = UIDocumentInteractionControllerDelegate = foundation.Protocol.extendClass("UIDocumentInteractionControllerDelegate", () => ({
+export let UIDocumentInteractionControllerDelegate = Protocol.extendClass("UIDocumentInteractionControllerDelegate", () => ({
 
     // Configuring the Parent View Controller
-    viewControllerForPreview: objc.optionalMethod("documentInteractionControllerViewControllerForPreview:"),
-    viewForPreview:           objc.optionalMethod("documentInteractionControllerViewForPreview:"),
-    rectForPreview:           objc.optionalMethod("documentInteractionControllerRectForPreview:"),
+    viewControllerForPreview: optionalMethod("documentInteractionControllerViewControllerForPreview:"),
+    viewForPreview:           optionalMethod("documentInteractionControllerViewForPreview:"),
+    rectForPreview:           optionalMethod("documentInteractionControllerRectForPreview:"),
 
     // Presenting the User Interface
-    willBeginPreview:         objc.optionalMethod("documentInteractionControllerWillBeginPreview:"),
-    didEndPreview:            objc.optionalMethod("documentInteractionControllerDidEndPreview:"),
-    willPresentOptionsMenu:   objc.optionalMethod("documentInteractionControllerWillPresentOptionsMenu:"),
-    didDismissOptionsMenu:    objc.optionalMethod("documentInteractionControllerDidDismissOptionsMenu:"),
-    willPresentOpenInMenu:    objc.optionalMethod("documentInteractionControllerWillPresentOpenInMenu:"),
-    didDismissOpenInMenu:     objc.optionalMethod("documentInteractionControllerDidDismissOpenInMenu:"),
+    willBeginPreview:         optionalMethod("documentInteractionControllerWillBeginPreview:"),
+    didEndPreview:            optionalMethod("documentInteractionControllerDidEndPreview:"),
+    willPresentOptionsMenu:   optionalMethod("documentInteractionControllerWillPresentOptionsMenu:"),
+    didDismissOptionsMenu:    optionalMethod("documentInteractionControllerDidDismissOptionsMenu:"),
+    willPresentOpenInMenu:    optionalMethod("documentInteractionControllerWillPresentOpenInMenu:"),
+    didDismissOpenInMenu:     optionalMethod("documentInteractionControllerDidDismissOpenInMenu:"),
 
     // Opening Files
-    willBeginSendingToApplication: objc.optionalMethod("documentInteractionController:willBeginSendingToApplication:"),
-    didEndSendingToApplication:    objc.optionalMethod("documentInteractionController:didEndSendingToApplication:"),
+    willBeginSendingToApplication: optionalMethod("documentInteractionController:willBeginSendingToApplication:"),
+    didEndSendingToApplication:    optionalMethod("documentInteractionController:didEndSendingToApplication:"),
 
     // Managing Actions
-    canPerformAction:         objc.optionalMethod("documentInteractionController:canPerformAction:"),
-    performAction:            objc.optionalMethod("documentInteractionController:performAction:")
+    canPerformAction:         optionalMethod("documentInteractionController:canPerformAction:"),
+    performAction:            optionalMethod("documentInteractionController:performAction:")
 
 }));

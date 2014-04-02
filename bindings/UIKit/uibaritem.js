@@ -1,20 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UIBarItem");
-var UIBarItem;
-_exports.UIBarItem = UIBarItem = UIView.extendClass ("UIBarItem", () => ({
+export let UIBarItem = UIView.extendClass ("UIBarItem", () => ({
 
     // Getting and Setting Properties
-    enabled: objc.instanceProperty(),
-    image: objc.instanceProperty(),
-    landscapeImagePhone: objc.instanceProperty(),
-    imageInsets: objc.instanceProperty(),
-    landscapeImagePhoneInsets: objc.instanceProperty(),
-    title: objc.instanceProperty(),
-    tag: objc.instanceProperty(),
+    enabled: instanceProperty(),
+    image: instanceProperty(),
+    landscapeImagePhone: instanceProperty(),
+    imageInsets: instanceProperty(),
+    landscapeImagePhoneInsets: instanceProperty(),
+    title: instanceProperty(),
+    tag: instanceProperty(),
 
     // Customizing Appearance
-    setTitleTextAttributes: objc.instanceSelector("setTitleTextAttributes:forState:"),
-    getTitleTextAttributes: objc.instanceSelector("titleTextAttributesForState:")
+    setTitleTextAttributes: instanceSelector("setTitleTextAttributes:forState:"),
+    getTitleTextAttributes: instanceSelector("titleTextAttributesForState:")
 
 }));

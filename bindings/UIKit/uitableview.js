@@ -1,80 +1,84 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIScrollView } from 'uiscrollview';
+import { UITableViewDataSource } from 'uitableviewdatasource';
+import { UITableViewDelegate } from 'uitableviewdelegate';
+
 //console.log("UITableView");
-var UITableView;
-_exports.UITableView = UITableView = UIScrollView.extendClass ("UITableView", () => ({
+export let UITableView = UIScrollView.extendClass ("UITableView", () => ({
 
     // Initializing a UITableView Object
-    initWithFrame: objc.instanceSelector("initWithFrame:style:"),
+    initWithFrame: instanceSelector("initWithFrame:style:"),
 
     // Configuring a Table View
-    dequeueReusableCellWithIdentifier: objc.instanceSelector("dequeueReusableCellWithIdentifier:"),
-    numberOfRowsInSection:             objc.instanceSelector("numberOfRowsInSection:"),
-    numberOfSections:                  objc.instanceSelector("numberOfSections"),
-    style: objc.instanceProperty(),
-    rowHeight: objc.instanceProperty(),
-    separatorStyle: objc.instanceProperty(),
-    separatorColor: objc.instanceProperty(),
-    backgroundView: objc.instanceProperty(),
-    tableHeaderView: objc.instanceProperty(),
-    tableFooterView: objc.instanceProperty(),
-    sectionHeaderHeight: objc.instanceProperty(),
-    sectionFooterHeight: objc.instanceProperty(),
-    sectionIndexMinimumDisplayRowCount: objc.instanceProperty(),
+    dequeueReusableCellWithIdentifier: instanceSelector("dequeueReusableCellWithIdentifier:"),
+    numberOfRowsInSection:             instanceSelector("numberOfRowsInSection:"),
+    numberOfSections:                  instanceSelector("numberOfSections"),
+    style: instanceProperty(),
+    rowHeight: instanceProperty(),
+    separatorStyle: instanceProperty(),
+    separatorColor: instanceProperty(),
+    backgroundView: instanceProperty(),
+    tableHeaderView: instanceProperty(),
+    tableFooterView: instanceProperty(),
+    sectionHeaderHeight: instanceProperty(),
+    sectionFooterHeight: instanceProperty(),
+    sectionIndexMinimumDisplayRowCount: instanceProperty(),
 
     // Accessing Cells and Sections
-    cellForRowAtIndexPath:    objc.instanceSelector("cellForRowAtIndexPath:"),
-    indexPathForCell:         objc.instanceSelector("indexPathForCell:"),
-    indexPathForRowAtPoint:   objc.instanceSelector("indexPathForRowAtPoint:"),
-    indexPathsForRowsInRect:  objc.instanceSelector("indexPathsForRowsInRect:"),
-    visibleCells:             objc.instanceSelector("visibleCells"),
-    indexPathsForVisibleRows: objc.instanceSelector("indexPathsForVisibleRows"),
+    cellForRowAtIndexPath:    instanceSelector("cellForRowAtIndexPath:"),
+    indexPathForCell:         instanceSelector("indexPathForCell:"),
+    indexPathForRowAtPoint:   instanceSelector("indexPathForRowAtPoint:"),
+    indexPathsForRowsInRect:  instanceSelector("indexPathsForRowsInRect:"),
+    visibleCells:             instanceSelector("visibleCells"),
+    indexPathsForVisibleRows: instanceSelector("indexPathsForVisibleRows"),
 
     // Scrolling the Table View
-    scrollToRowAtIndexPath:                     objc.instanceSelector("scrollToRowAtIndexPath:atScrollPosition:animated:"),
-    scrollToNearestSelectedRowAtScrollPosition: objc.instanceSelector("scrollToNearestSelectedRowAtScrollPosition:animated:"),
+    scrollToRowAtIndexPath:                     instanceSelector("scrollToRowAtIndexPath:atScrollPosition:animated:"),
+    scrollToNearestSelectedRowAtScrollPosition: instanceSelector("scrollToNearestSelectedRowAtScrollPosition:animated:"),
 
     // Managing Selections
-    indexPathForSelectedRow:   objc.instanceSelector("indexPathForSelectedRow"),
-    indexPathsForSelectedRows: objc.instanceSelector("indexPathsForSelectedRows"),
-    selectRowAtIndexPath:      objc.instanceSelector("selectRowAtIndexPath:animated:scrollPosition:"),
-    deselectRowAtIndexPath:    objc.instanceSelector("deselectRowAtIndexPath:animated:"),
-    allowsSelection: objc.instanceProperty(),
-    allowsMultipleSelection: objc.instanceProperty(),
-    allowsSelectionDuringEditing: objc.instanceProperty(),
-    allowsMultipleSelectionDuringEditing: objc.instanceProperty(),
+    indexPathForSelectedRow:   instanceSelector("indexPathForSelectedRow"),
+    indexPathsForSelectedRows: instanceSelector("indexPathsForSelectedRows"),
+    selectRowAtIndexPath:      instanceSelector("selectRowAtIndexPath:animated:scrollPosition:"),
+    deselectRowAtIndexPath:    instanceSelector("deselectRowAtIndexPath:animated:"),
+    allowsSelection: instanceProperty(),
+    allowsMultipleSelection: instanceProperty(),
+    allowsSelectionDuringEditing: instanceProperty(),
+    allowsMultipleSelectionDuringEditing: instanceProperty(),
 
     // Inserting, Deleting, and Moving Rows and Sections
-    beginUpdates:           objc.instanceSelector("beginUpdates"),
-    endUpdates:             objc.instanceSelector("endUpdates"),
-    insertRowsAtIndexPaths: objc.instanceSelector("insertRowsAtIndexPaths:withRowAnimation:"),
-    deleteRowsAtIndexPaths: objc.instanceSelector("deleteRowsAtIndexPaths:withRowAnimation:"),
-    moveRowAtIndexPath:     objc.instanceSelector("moveRowAtIndexPath:toIndexPath:"),
-    insertSections:         objc.instanceSelector("insertSections:withRowAnimation:"),
-    deleteSections:         objc.instanceSelector("deleteSections:withRowAnimation:"),
-    moveSection:            objc.instanceSelector("moveSection:toSection:"),
+    beginUpdates:           instanceSelector("beginUpdates"),
+    endUpdates:             instanceSelector("endUpdates"),
+    insertRowsAtIndexPaths: instanceSelector("insertRowsAtIndexPaths:withRowAnimation:"),
+    deleteRowsAtIndexPaths: instanceSelector("deleteRowsAtIndexPaths:withRowAnimation:"),
+    moveRowAtIndexPath:     instanceSelector("moveRowAtIndexPath:toIndexPath:"),
+    insertSections:         instanceSelector("insertSections:withRowAnimation:"),
+    deleteSections:         instanceSelector("deleteSections:withRowAnimation:"),
+    moveSection:            instanceSelector("moveSection:toSection:"),
 
     // Managing the Editing of Table Cells
-    editing: objc.instanceProperty({ set: function(v) { return this.setEditing(v, false); } }),
-    setEditing: objc.instanceSelector("setEditing:animated:"),
+    editing: instanceProperty({ set: function(v) { return this.setEditing(v, false); } }),
+    setEditing: instanceSelector("setEditing:animated:"),
 
     // Reloading the Table View
-    reloadData:               objc.instanceSelector("reloadData"),
-    reloadRowsAtIndexPaths:   objc.instanceSelector("reloadRowsAtIndexPaths:withRowAnimation:"),
-    reloadSections:           objc.instanceSelector("reloadSections:withRowAnimation:"),
-    reloadSectionIndexTitles: objc.instanceSelector("reloadSectionIndexTitles"),
+    reloadData:               instanceSelector("reloadData"),
+    reloadRowsAtIndexPaths:   instanceSelector("reloadRowsAtIndexPaths:withRowAnimation:"),
+    reloadSections:           instanceSelector("reloadSections:withRowAnimation:"),
+    reloadSectionIndexTitles: instanceSelector("reloadSectionIndexTitles"),
 
     // Accessing Drawing Areas of the Table View
-    rectForSection:         objc.instanceSelector("rectForSection:"),
-    rectForRowAtIndexPath:  objc.instanceSelector("rectForRowAtIndexPath:"),
-    rectForFooterInSection: objc.instanceSelector("rectForFooterInSection:"),
-    rectForHeaderInSection: objc.instanceSelector("rectForHeaderInSection:"),
+    rectForSection:         instanceSelector("rectForSection:"),
+    rectForRowAtIndexPath:  instanceSelector("rectForRowAtIndexPath:"),
+    rectForFooterInSection: instanceSelector("rectForFooterInSection:"),
+    rectForHeaderInSection: instanceSelector("rectForHeaderInSection:"),
 
     // Registering Nib Objects for Cell Reuse
-    registerNibForCellReuseIdentifier: objc.instanceSelector("registerNib:forCellReuseIdentifier:"),
+    registerNibForCellReuseIdentifier: instanceSelector("registerNib:forCellReuseIdentifier:"),
 
     // Managing the Delegate and the Data Source
-    dataSource: objc.autoboxProperty(UITableViewDataSource),
-    delegate: objc.autoboxProperty(UITableViewDelegate)
+    dataSource: autoboxProperty(UITableViewDataSource),
+    delegate: autoboxProperty(UITableViewDelegate)
 
 }));

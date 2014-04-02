@@ -1,39 +1,41 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIFont");
-var UIFont;
-_exports.UIFont = UIFont = foundation.NSObject.extendClass ("UIFont", () => ({
+export let UIFont = NSObject.extendClass ("UIFont", () => ({
 
     // Creating Arbitrary Fonts
-    fontWithName: objc.staticSelector("fontWithName:size:"),
-    fontWithSize:  objc.instanceSelector("fontWithSize:"),
+    fontWithName: staticSelector("fontWithName:size:"),
+    fontWithSize:  instanceSelector("fontWithSize:"),
 
     // Creating System Fonts
-    systemFontOfSize:       objc.staticSelector("systemFontOfSize:"),
-    boldSystemFontOfSize:   objc.staticSelector("boldSystemFontOfSize:"),
-    italicSystemFontOfSize: objc.staticSelector("italicSystemFontOfSize:"),
+    systemFontOfSize:       staticSelector("systemFontOfSize:"),
+    boldSystemFontOfSize:   staticSelector("boldSystemFontOfSize:"),
+    italicSystemFontOfSize: staticSelector("italicSystemFontOfSize:"),
 
     // Getting the Available Font Names
-    familyNames:            objc.instanceSelector("familyNames"),
-    fontNamesForFamilyName: objc.instanceSelector("fontNamesForFamilyName:"),
+    familyNames:            instanceSelector("familyNames"),
+    fontNamesForFamilyName: instanceSelector("fontNamesForFamilyName:"),
 
     // Getting Font Name Attributes
-    familyName: objc.instanceProperty(),
-    fontName: objc.instanceProperty(),
+    familyName: instanceProperty(),
+    fontName: instanceProperty(),
 
     // Getting Font Metrics
-    pointSize: objc.instanceProperty(),
-    ascender: objc.instanceProperty(),
-    descender: objc.instanceProperty(),
-    capHeight: objc.instanceProperty(),
-    xHeight: objc.instanceProperty(),
-    lineHeight: objc.instanceProperty(),
-    leading: objc.instanceProperty(), // Deprecated in iOS 4.0
+    pointSize: instanceProperty(),
+    ascender: instanceProperty(),
+    descender: instanceProperty(),
+    capHeight: instanceProperty(),
+    xHeight: instanceProperty(),
+    lineHeight: instanceProperty(),
+    leading: instanceProperty(), // Deprecated in iOS 4.0
 
     // Getting System Font Information
-    labelFontSize:       objc.staticSelector("labelFontSize"),
-    buttonFontSize:      objc.staticSelector("buttonFontSize"),
-    smallSystemFontSize: objc.staticSelector("smallSystemFontSize"),
-    systemFontSize:      objc.staticSelector("systemFontSize")
+    labelFontSize:       staticSelector("labelFontSize"),
+    buttonFontSize:      staticSelector("buttonFontSize"),
+    smallSystemFontSize: staticSelector("smallSystemFontSize"),
+    systemFontSize:      staticSelector("systemFontSize")
 
 }));

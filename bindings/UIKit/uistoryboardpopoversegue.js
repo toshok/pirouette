@@ -1,10 +1,12 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty } from '../objc';
+import { UIStoryboardSegue } from 'uistoryboardsegue';
+
 //console.log("UIStoryboardPopoverSegue");
-var UIStoryboardPopoverSegue;
-_exports.UIStoryboardPopoverSegue = UIStoryboardPopoverSegue = UIStoryboardSegue.extendClass ("UIStoryboardPopoverSegue", () => ({
+export let UIStoryboardPopoverSegue = UIStoryboardSegue.extendClass ("UIStoryboardPopoverSegue", () => ({
 
     // Accessing the Segue Attributes
-    popoverController: objc.instanceProperty()
+    popoverController: instanceProperty()
 
 }));

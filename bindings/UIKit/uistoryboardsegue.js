@@ -1,18 +1,20 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIStoryboardSegue");
-var UIStoryboardSegue;
-_exports.UIStoryboardSegue = UIStoryboardSegue = foundation.NSObject.extendClass ("UIStoryboardSegue", () => ({
+export let UIStoryboardSegue = NSObject.extendClass ("UIStoryboardSegue", () => ({
 
     // Initializing a Storyboard Segue
-    initWithIdentifier: objc.instanceSelector("initWithIdentifier:source:destination:"),
+    initWithIdentifier: instanceSelector("initWithIdentifier:source:destination:"),
 
     // Accessing the Segue Attributes
-    sourceViewController: objc.instanceProperty(),
-    destinationViewController: objc.instanceProperty(),
-    identifier: objc.instanceProperty(),
+    sourceViewController: instanceProperty(),
+    destinationViewController: instanceProperty(),
+    identifier: instanceProperty(),
 
     // Performing the Segue
-    perform: objc.instanceSelector("perform")
+    perform: instanceSelector("perform")
 
 }));

@@ -1,15 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { UIBarItem } from 'uibaritem';
+import { UIControlProxy1 } from 'uicontrol';
+
 //console.log("UIBarButtonItem");
-var UIBarButtonItem;
-_exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", () => ({
+export let UIBarButtonItem = UIBarItem.extendClass ("UIBarButtonItem", () => ({
 
     // Initializing an Item
-    initWithCustomView:          objc.instanceSelector("initWithCustomView:"),
-    initWithBarButtonSystemItem: objc.instanceSelector("initWithBarButtonSystemItem:target:action:"),
-    initWithImage:               objc.instanceSelector("initWithImage:style:target:action:"),
-    initWithTitle:               objc.instanceSelector("initWithTitle:style:target:action:"),
-    initWithImageAndLandscape:   objc.instanceSelector("initWithImage:landscapeImagePhone:style:target:action:"),
+    initWithCustomView:          instanceSelector("initWithCustomView:"),
+    initWithBarButtonSystemItem: instanceSelector("initWithBarButtonSystemItem:target:action:"),
+    initWithImage:               instanceSelector("initWithImage:style:target:action:"),
+    initWithTitle:               instanceSelector("initWithTitle:style:target:action:"),
+    initWithImageAndLandscape:   instanceSelector("initWithImage:landscapeImagePhone:style:target:action:"),
 
     initWithClickHandler: function (title,style,click) {
       this.proxy = new UIControlProxy1(click);
@@ -17,34 +20,34 @@ _exports.UIBarButtonItem = UIBarButtonItem = UIBarItem.extendClass ("UIBarButton
     },
 
     // Getting and Setting Properties
-    target: objc.instanceProperty(),
-    action: objc.instanceProperty(),
-    style: objc.instanceProperty(),
-    possibleTitles: objc.instanceProperty(),
-    width: objc.instanceProperty(),
-    customView: objc.instanceProperty(),
+    target: instanceProperty(),
+    action: instanceProperty(),
+    style: instanceProperty(),
+    possibleTitles: instanceProperty(),
+    width: instanceProperty(),
+    customView: instanceProperty(),
 
-    tintColor: objc.instanceProperty().makeUIAppearance(),
+    tintColor: instanceProperty().makeUIAppearance(),
 
-    getBackButtonBackgroundImage:                      objc.instanceSelector("backButtonBackgroundImageForState:barMetrics:").makeUIAppearance(),
-    setBackButtonBackgroundImage:                      objc.instanceSelector("setBackButtonBackgroundImage:forState:barMetrics:").makeUIAppearance(),
+    getBackButtonBackgroundImage:                      instanceSelector("backButtonBackgroundImageForState:barMetrics:").makeUIAppearance(),
+    setBackButtonBackgroundImage:                      instanceSelector("setBackButtonBackgroundImage:forState:barMetrics:").makeUIAppearance(),
 
-    getBackButtonTitlePositionAdjustment:              objc.instanceSelector("backButtonTitlePositionAdjustmentForBarMetrics:").makeUIAppearance(),
-    setBackButtonTitlePositionAdjustment:              objc.instanceSelector("setBackButtonTitlePositionAdjustment:forBarMetrics:").makeUIAppearance(),
+    getBackButtonTitlePositionAdjustment:              instanceSelector("backButtonTitlePositionAdjustmentForBarMetrics:").makeUIAppearance(),
+    setBackButtonTitlePositionAdjustment:              instanceSelector("setBackButtonTitlePositionAdjustment:forBarMetrics:").makeUIAppearance(),
 
-    getBackButtonBackgroundVerticalPositionAdjustment: objc.instanceSelector("backButtonBackgroundVerticalPositionAdjustmentForBarMetrics:").makeUIAppearance(),
-    setBackButtonBackgroundVerticalPositionAdjustment: objc.instanceSelector("setBackButtonBackgroundVerticalPositionAdjustment:forBarMetrics:").makeUIAppearance(),
+    getBackButtonBackgroundVerticalPositionAdjustment: instanceSelector("backButtonBackgroundVerticalPositionAdjustmentForBarMetrics:").makeUIAppearance(),
+    setBackButtonBackgroundVerticalPositionAdjustment: instanceSelector("setBackButtonBackgroundVerticalPositionAdjustment:forBarMetrics:").makeUIAppearance(),
 
-    getBackgroundVerticalPositionAdjustment:           objc.instanceSelector("backgroundVerticalPositionAdjustmentForBarMetrics:").makeUIAppearance(),
-    setBackgroundVerticalPositionAdjustment:           objc.instanceSelector("setBackgroundVerticalPositionAdjustment:forBarMetrics:").makeUIAppearance(),
+    getBackgroundVerticalPositionAdjustment:           instanceSelector("backgroundVerticalPositionAdjustmentForBarMetrics:").makeUIAppearance(),
+    setBackgroundVerticalPositionAdjustment:           instanceSelector("setBackgroundVerticalPositionAdjustment:forBarMetrics:").makeUIAppearance(),
 
-    getBackgroundImage:                                objc.instanceSelector("backgroundImageForState:barMetrics:").makeUIAppearance(),
-    setBackgroundImage:                                objc.instanceSelector("setBackgroundImage:forState:barMetrics:").makeUIAppearance(),
+    getBackgroundImage:                                instanceSelector("backgroundImageForState:barMetrics:").makeUIAppearance(),
+    setBackgroundImage:                                instanceSelector("setBackgroundImage:forState:barMetrics:").makeUIAppearance(),
 
-    getTitlePositionAdjustment:                        objc.instanceSelector("titlePositionAdjustmentForBarMetrics:").makeUIAppearance(),
-    setTitlePositionAdjustment:                        objc.instanceSelector("setTitlePositionAdjustment:forBarMetrics:").makeUIAppearance(),
+    getTitlePositionAdjustment:                        instanceSelector("titlePositionAdjustmentForBarMetrics:").makeUIAppearance(),
+    setTitlePositionAdjustment:                        instanceSelector("setTitlePositionAdjustment:forBarMetrics:").makeUIAppearance(),
 
-    clicked: objc.instanceProperty({
+    clicked: instanceProperty({
         set: function (v) {
           if (v) {
             this.proxy = new UIControlProxy1(v);

@@ -1,60 +1,63 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-//console.log("UIControl");
-var UIControl;
-_exports.UIControl = UIControl = UIView.extendClass ("UIControl", () => ({
+import { instanceSelector, instanceProperty, chainCtor, sig } from '../objc';
+import { NSObject } from '../foundation';
+import { UIView } from 'uiview';
 
+//console.log("UIControl");
+
+export let UIControl = UIView.extendClass ("UIControl", () => ({
     // Preparing and Sending Action Messages
-    sendAction:                  objc.instanceSelector("sendAction:to:forEvent:"),
-    sendActionsForControlEvents: objc.instanceSelector("sendActionsForControlEvents:"),
-    addTarget:                   objc.instanceSelector("addTarget:action:forControlEvents:"),
-    removeTarget:                objc.instanceSelector("removeTarget:action:forControlEvents:"),
-    actionsForTarget:            objc.instanceSelector("actionsForTarget:forControlEvent:"),
+    sendAction:                  instanceSelector("sendAction:to:forEvent:"),
+    sendActionsForControlEvents: instanceSelector("sendActionsForControlEvents:"),
+    addTarget:                   instanceSelector("addTarget:action:forControlEvents:"),
+    removeTarget:                instanceSelector("removeTarget:action:forControlEvents:"),
+    actionsForTarget:            instanceSelector("actionsForTarget:forControlEvent:"),
 
     // FIXME these two should be properties
-    allTargets:                  objc.instanceSelector("allTargets"),
-    allControlEvents:            objc.instanceSelector("allControlEvents"),
+    allTargets:                  instanceSelector("allTargets"),
+    allControlEvents:            instanceSelector("allControlEvents"),
 
     // Setting and Getting Control Attributes
-    state:            objc.instanceProperty(),
-    enabled:            objc.instanceProperty(),
-    selected:            objc.instanceProperty(),
-    highlighted:            objc.instanceProperty(),
-    contentVerticalAlignment:            objc.instanceProperty(),
-    contentHorizontalAlignment:            objc.instanceProperty(),
+    state:            instanceProperty(),
+    enabled:            instanceProperty(),
+    selected:            instanceProperty(),
+    highlighted:            instanceProperty(),
+    contentVerticalAlignment:            instanceProperty(),
+    contentHorizontalAlignment:            instanceProperty(),
 
     // Tracking Touches and Redrawing Controls
-    beginTrackingWithTouch:      objc.instanceSelector("beginTrackingWithTouch:withEvent:"),
-    continueTrackingWithTouch:   objc.instanceSelector("continueTrackingWithTouch:withEvent:"),
-    endTrackingWithTouch:        objc.instanceSelector("endTrackingWithTouch:withEvent:"),
-    cancelTrackingWithEvent:     objc.instanceSelector("cancelTrackingWithEvent:"),
+    beginTrackingWithTouch:      instanceSelector("beginTrackingWithTouch:withEvent:"),
+    continueTrackingWithTouch:   instanceSelector("continueTrackingWithTouch:withEvent:"),
+    endTrackingWithTouch:        instanceSelector("endTrackingWithTouch:withEvent:"),
+    cancelTrackingWithEvent:     instanceSelector("cancelTrackingWithEvent:"),
 
-    tracking:            objc.instanceProperty(),
-    touchInside:            objc.instanceProperty()
+    tracking:            instanceProperty(),
+    touchInside:            instanceProperty()
 }));
 
-let UIControlProxy = foundation.NSObject.extendClass ("UIControlProxy", () => ({
+export let UIControlProxy = NSObject.extendClass ("UIControlProxy", () => ({
 
     constructor: function (fn) {
-      objc.chainCtor (UIControlProxy, this);
+      chainCtor (UIControlProxy, this);
       this.fn = fn;
     },
 
-    proxyAction: objc.instanceSelector("action").
-                               returns( function() { return objc.sig.Void; }).
+    proxyAction: instanceSelector("action").
+                               returns( function() { return sig.Void; }).
 				params( function() { return []; }).
 				  impl( function() { this.fn(); } )
 }));
 
-let UIControlProxy1 = foundation.NSObject.extendClass("UIControlProxy1", () => ({
+export let UIControlProxy1 = NSObject.extendClass("UIControlProxy1", () => ({
 
     constructor: function (fn) {
-      objc.chainCtor (UIControlProxy1, this);
+      chainCtor (UIControlProxy1, this);
       this.fn = fn;
     },
 
-    proxyAction: objc.instanceSelector("action").
-                               returns( function() { return objc.sig.Void; }).
-				params( function() { return [foundation.NSObject]; }).
+    proxyAction: instanceSelector("action").
+                               returns( function() { return sig.Void; }).
+				params( function() { return [NSObject]; }).
 				  impl( function(v) { this.fn(v); } )
 }));

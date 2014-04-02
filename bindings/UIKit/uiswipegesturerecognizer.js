@@ -1,11 +1,13 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty } from '../objc';
+import { UIGestureRecognizer } from 'uigesturerecognizer';
+
 //console.log "UISwipeGestureRecognizer"
-var UISwipeGestureRecognizer;
-_exports.UISwipeGestureRecognizer = UISwipeGestureRecognizer = UIGestureRecognizer.extendClass ("UISwipeGestureRecognizer", () => ({
+export let UISwipeGestureRecognizer = UIGestureRecognizer.extendClass ("UISwipeGestureRecognizer", () => ({
 
     // Configuring the Gesture
-    direction: objc.instanceProperty(),
-    numberOfTouchesRequired: objc.instanceProperty()
+    direction: instanceProperty(),
+    numberOfTouchesRequired: instanceProperty()
 
 }));

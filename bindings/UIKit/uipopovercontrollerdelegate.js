@@ -1,11 +1,14 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 console.log("UIPopoverControllerDelegate");
-var UIPopoverControllerDelegate;
-_exports.UIPopoverControllerDelegate = UIPopoverControllerDelegate = foundation.Protocol.extendClass("UIPopoverControllerDelegate", () => ({
+
+export let UIPopoverControllerDelegate = Protocol.extendClass("UIPopoverControllerDelegate", () => ({
 
     // Managing the Popover’s Dismissal
-    shouldDismissPopover: objc.optionalMethod("popoverControllerShouldDismissPopover:"),
-    didDismissPopover:    objc.optionalMethod("popoverControllerDidDismissPopover:")
+    shouldDismissPopover: optionalMethod("popoverControllerShouldDismissPopover:"),
+    didDismissPopover:    optionalMethod("popoverControllerDidDismissPopover:")
 
 }));

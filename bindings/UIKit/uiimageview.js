@@ -1,28 +1,30 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UIImageView");
-var UIImageView;
-_exports.UIImageView = UIImageView = UIView.extendClass ("UIImageView", () => ({
+export let UIImageView = UIView.extendClass ("UIImageView", () => ({
 
     // Initializing a UIImageView Object
-    initWithImage:                    objc.instanceSelector("initWithImage:"),
-    initWithImageAndHighlightedImage: objc.instanceSelector("initWithImage:highlightedImage:"),
+    initWithImage:                    instanceSelector("initWithImage:"),
+    initWithImageAndHighlightedImage: instanceSelector("initWithImage:highlightedImage:"),
 
     // Image Data
-    image: objc.instanceProperty(),
-    highlightedImage: objc.instanceProperty(),
+    image: instanceProperty(),
+    highlightedImage: instanceProperty(),
 
     // Animating Images
-    animationImages: objc.instanceProperty(),
-    highlightedAnimationImages: objc.instanceProperty(),
-    animationDuration: objc.instanceProperty(),
-    animationRepeatCount: objc.instanceProperty(),
-    startAnimating:   objc.instanceSelector("startAnimating"),
-    stopAnimating:    objc.instanceSelector("stopAnimating"),
-    isAnimating:      objc.instanceSelector("isAnimating"),
+    animationImages: instanceProperty(),
+    highlightedAnimationImages: instanceProperty(),
+    animationDuration: instanceProperty(),
+    animationRepeatCount: instanceProperty(),
+    startAnimating:   instanceSelector("startAnimating"),
+    stopAnimating:    instanceSelector("stopAnimating"),
+    isAnimating:      instanceSelector("isAnimating"),
 
     // Setting and Getting Attributes
-    userInteractionEnabled: objc.instanceProperty(),
-    highlighted: objc.instanceProperty()
+    userInteractionEnabled: instanceProperty(),
+    highlighted: instanceProperty()
 
 }));

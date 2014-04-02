@@ -1,22 +1,24 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIEvent");
-var UIEvent;
-_exports.UIEvent = UIEvent = foundation.NSObject.extendClass ("UIEvent", () => ({
+export let UIEvent = NSObject.extendClass ("UIEvent", () => ({
 
     // Getting the Touches for an Event
-    allTouches:       objc.instanceSelector("allTouches"),
-    touchesForView:   objc.instanceSelector("touchesForView:"),
-    touchesForWindow: objc.instanceSelector("touchesForWindow:"),
+    allTouches:       instanceSelector("allTouches"),
+    touchesForView:   instanceSelector("touchesForView:"),
+    touchesForWindow: instanceSelector("touchesForWindow:"),
 
     // Getting Event Attributes
-    timestamp: objc.instanceProperty(),
+    timestamp: instanceProperty(),
 
     // Getting the Event Type
-    type: objc.instanceProperty(),
-    subtype: objc.instanceProperty(),
+    type: instanceProperty(),
+    subtype: instanceProperty(),
 
     // Getting the Touches for a Gesture Recognizer
-    touchesForGestureRecognizer: objc.instanceSelector("touchesForGestureRecognizer:")
+    touchesForGestureRecognizer: instanceSelector("touchesForGestureRecognizer:")
 
 }));

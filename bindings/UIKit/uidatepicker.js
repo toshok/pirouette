@@ -1,23 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIControl } from 'uicontrol';
+
 //console.log("UIDatePicker");
-var UIDatePicker;
-_exports.UIDatePicker = UIDatePicker = UIControl.extendClass ("UIDatePicker", () => ({
+export let UIDatePicker = UIControl.extendClass ("UIDatePicker", () => ({
 
     // Managing the Date and Calendar
-    calendar:  objc.instanceProperty(),
-    date:      objc.instanceProperty(),
-    setDate:   objc.instanceSelector("setDate:animated:"),
-    timeZone:  objc.instanceProperty(),
-    locale:    objc.instanceProperty(), // Deprecated in iOS 5.0
+    calendar:  instanceProperty(),
+    date:      instanceProperty(),
+    setDate:   instanceSelector("setDate:animated:"),
+    timeZone:  instanceProperty(),
+    locale:    instanceProperty(), // Deprecated in iOS 5.0
 
     // Configuring the Date Picker Mode
-    datePickerMode:  objc.instanceProperty(),
+    datePickerMode:  instanceProperty(),
 
     // Configuring Temporal Attributes
-    maximumDate:  objc.instanceProperty(),
-    minimumDate:  objc.instanceProperty(),
-    minuteInterval:  objc.instanceProperty(),
-    countDownDuration:  objc.instanceProperty()
+    maximumDate:  instanceProperty(),
+    minimumDate:  instanceProperty(),
+    minuteInterval:  instanceProperty(),
+    countDownDuration:  instanceProperty()
 
 }));

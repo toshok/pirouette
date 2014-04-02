@@ -1,16 +1,19 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, staticSelector } from '../objc';
+import { UINavigationController } from 'uinavigationcontroller';
+import { UIVideoEditorControllerDelegate } from 'uivideoeditorcontrollerdelegate';
+
 //console.log("UIVideoEditorController");
-var UIVideoEditorController;
-_exports.UIVideoEditorController = UIVideoEditorController = UINavigationController.extendClass ("UIVideoEditorController", () => ({
+export let UIVideoEditorController = UINavigationController.extendClass ("UIVideoEditorController", () => ({
 
     // Determining Editing Availability
-    canEditVideoAtPath: objc.staticSelector("canEditVideoAtPath:"),
+    canEditVideoAtPath: staticSelector("canEditVideoAtPath:"),
 
     // Configuring the Editor
-    delegate: objc.autoboxProperty(UIVideoEditorControllerDelegate),
-    videoMaximumDuration: objc.instanceProperty(),
-    videoPath: objc.instanceProperty(),
-    videoQuality: objc.instanceProperty()
+    delegate: autoboxProperty(UIVideoEditorControllerDelegate),
+    videoMaximumDuration: instanceProperty(),
+    videoPath: instanceProperty(),
+    videoQuality: instanceProperty()
 
 }));

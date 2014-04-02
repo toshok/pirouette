@@ -1,19 +1,22 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIPrintInfo");
-var UIPrintPageInteractionController;
-_exports.UIPrintPageInteractionController = UIPrintPageInteractionController = foundation.NSObject.extendClass ("UIPrintPageInteractionController", () => ({
+
+export let UIPrintPageInteractionController = NSObject.extendClass ("UIPrintPageInteractionController", () => ({
 
     // Creating a UIPrintInfo Object
-    printInfo:               objc.staticSelector("printInfo"),
-    printInfoWithDictionary: objc.staticSelector("printInfoWithDictionary:"),
-    dictionaryRepresentation: objc.instanceSelector("dictionaryRepresentation"),
+    printInfo:               staticSelector("printInfo"),
+    printInfoWithDictionary: staticSelector("printInfoWithDictionary:"),
+    dictionaryRepresentation: instanceSelector("dictionaryRepresentation"),
 
     // Getting and Setting Print-Job Attributes
-    duplex: objc.instanceProperty(),
-    jobName: objc.instanceProperty(),
-    orientation: objc.instanceProperty(),
-    outputType: objc.instanceProperty(),
-    printerID: objc.instanceProperty()
+    duplex: instanceProperty(),
+    jobName: instanceProperty(),
+    orientation: instanceProperty(),
+    outputType: instanceProperty(),
+    printerID: instanceProperty()
 
 }));

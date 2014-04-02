@@ -1,19 +1,21 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UILocalizedIndexCollation");
-var UILocalizedIndexCollation;
-_exports.UILocalizedIndexCollation = UILocalizedIndexCollation = foundation.NSObject.extendClass ("UILocalizedIndexCollation", () => ({
+export let UILocalizedIndexCollation = NSObject.extendClass ("UILocalizedIndexCollation", () => ({
 
     // Getting the Shared Instance
-    currentCollation:    objc.staticSelector("currentCollation"),
+    currentCollation:    staticSelector("currentCollation"),
 
     // Preparing the for Sections and Section Indexes
-    sectionForObject:     objc.instanceSelector("sectionForObject:collationStringSelector:"),
-    sortedArrayFromArray: objc.instanceSelector("sortedArrayFromArray:collationStringSelector:"),
+    sectionForObject:     instanceSelector("sectionForObject:collationStringSelector:"),
+    sortedArrayFromArray: instanceSelector("sortedArrayFromArray:collationStringSelector:"),
 
     // Providing Section Index Data to the Table View
-    sectionTitles: objc.instanceProperty(),
-    sectionIndexTitles: objc.instanceProperty(),
-    sectionForSectionIndexTitleAtIndex: objc.instanceSelector("sectionForSectionIndexTitleAtIndex:")
+    sectionTitles: instanceProperty(),
+    sectionIndexTitles: instanceProperty(),
+    sectionForSectionIndexTitleAtIndex: instanceSelector("sectionForSectionIndexTitleAtIndex:")
 
 }));

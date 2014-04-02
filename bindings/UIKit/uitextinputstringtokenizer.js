@@ -1,10 +1,12 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log "UITextInputStringTokenizer"
-var UITextInputStringTokenizer;
-_exports.UITextInputStringTokenizer = UITextInputStringTokenizer = foundation.NSObject.extendClass ("UITextInputStringTokenizer", () => ({
+export let UITextInputStringTokenizer = NSObject.extendClass ("UITextInputStringTokenizer", () => ({
 
     // Initializing a Tokenizer
-    initWithTextInput: objc.instanceSelector("initWithTextInput:")
+    initWithTextInput: instanceSelector("initWithTextInput:")
 
 }));

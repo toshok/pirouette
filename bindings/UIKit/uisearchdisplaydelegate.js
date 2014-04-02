@@ -1,27 +1,29 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UISearchDisplayDelegate");
-var UISearchDisplayDelegate;
-_exports.UISearchDisplayDelegate = UISearchDisplayDelegate = foundation.Protocol.extendClass("UISearchDisplayDelegate", () => ({
+export let UISearchDisplayDelegate = Protocol.extendClass("UISearchDisplayDelegate", () => ({
 
     // Search State Change
-    willBeginSearch: objc.optionalMethod("searchDisplayControllerWillBeginSearch:"),
-    didBeginSearch:  objc.optionalMethod("searchDisplayControllerDidBeginSearch:"),
-    willEndSearch:   objc.optionalMethod("searchDisplayControllerWillEndSearch:"),
-    didEndSearch:    objc.optionalMethod("searchDisplayControllerDidEndSearch:"),
+    willBeginSearch: optionalMethod("searchDisplayControllerWillBeginSearch:"),
+    didBeginSearch:  optionalMethod("searchDisplayControllerDidBeginSearch:"),
+    willEndSearch:   optionalMethod("searchDisplayControllerWillEndSearch:"),
+    didEndSearch:    optionalMethod("searchDisplayControllerDidEndSearch:"),
 
     // Loading and Unloading the Table View
-    didLoadSearchResultsTableView:    objc.optionalMethod("searchDisplayController:didLoadSearchResultsTableView:"),
-    willUnloadSearchResultsTableView: objc.optionalMethod("searchDisplayController:willUnloadSearchResultsTableView:"),
+    didLoadSearchResultsTableView:    optionalMethod("searchDisplayController:didLoadSearchResultsTableView:"),
+    willUnloadSearchResultsTableView: optionalMethod("searchDisplayController:willUnloadSearchResultsTableView:"),
 
     // Showing and Hiding the Table View
-    willShowSearchResultsTableView: objc.optionalMethod("searchDisplayController:willShowSearchResultsTableView:"),
-    didShowSearchResultsTableView:  objc.optionalMethod("searchDisplayController:didShowSearchResultsTableView:"),
-    willHideSearchResultsTableView: objc.optionalMethod("searchDisplayController:willHideSearchResultsTableView:"),
-    didHideSearchResultsTableView:  objc.optionalMethod("searchDisplayController:didHideSearchResultsTableView:"),
+    willShowSearchResultsTableView: optionalMethod("searchDisplayController:willShowSearchResultsTableView:"),
+    didShowSearchResultsTableView:  optionalMethod("searchDisplayController:didShowSearchResultsTableView:"),
+    willHideSearchResultsTableView: optionalMethod("searchDisplayController:willHideSearchResultsTableView:"),
+    didHideSearchResultsTableView:  optionalMethod("searchDisplayController:didHideSearchResultsTableView:"),
 
     // Responding to Changes in Search Criteria
-    shouldReloadTableForSearchString: objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchString:"),
-    shouldReloadTableForSearchScope:  objc.optionalMethod("searchDisplayController:shouldReloadTableForSearchScope:")
+    shouldReloadTableForSearchString: optionalMethod("searchDisplayController:shouldReloadTableForSearchString:"),
+    shouldReloadTableForSearchScope:  optionalMethod("searchDisplayController:shouldReloadTableForSearchScope:")
 
 }));

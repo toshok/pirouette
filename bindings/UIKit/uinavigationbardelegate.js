@@ -1,15 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UINavigationBarDelegate");
-var UINavigationBarDelegate;
-_exports.UINavigationBarDelegate = UINavigationBarDelegate = foundation.Protocol.extendClass("UINavigationBarDelegate", () => ({
+
+export let UINavigationBarDelegate = Protocol.extendClass("UINavigationBarDelegate", () => ({
 
     // Pushing Items
-    shouldPushItem: objc.optionalMethod("navigationBar:shouldPushItem:"),
-    didPushItem:    objc.optionalMethod("navigationBar:didPushItem:"),
+    shouldPushItem: optionalMethod("navigationBar:shouldPushItem:"),
+    didPushItem:    optionalMethod("navigationBar:didPushItem:"),
 
     // Popping Items
-    shouldPopItem:  objc.optionalMethod("navigationBar:shouldPopItem:"),
-    didPopItem:     objc.optionalMethod("navigationBar:didPopItem:")
+    shouldPopItem:  optionalMethod("navigationBar:shouldPopItem:"),
+    didPopItem:     optionalMethod("navigationBar:didPopItem:")
 
 }));

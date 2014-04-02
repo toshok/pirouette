@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticSelector, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UINib");
-var UINib;
-_exports.UINib = UINib = foundation.NSObject.extendClass ("UINib", () => ({
+export let UINib = NSObject.extendClass ("UINib", () => ({
 
     // Creating a Nib Object
-    nibWithNibName: objc.staticSelector("nibWithNibName:bundle:"),
-    nibWithData:    objc.staticSelector("nibWithData:bundle:"),
+    nibWithNibName: staticSelector("nibWithNibName:bundle:"),
+    nibWithData:    staticSelector("nibWithData:bundle:"),
 
     // Instantiating a Nib
-    instantiateWithOwner: objc.instanceSelector("instantiateWithOwner:options:")
+    instantiateWithOwner: instanceSelector("instantiateWithOwner:options:")
 
 }));

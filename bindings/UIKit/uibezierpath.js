@@ -1,55 +1,57 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
 //console.log("UIBezierPath");
-var UIBezierPath;
-_exports.UIBezierPath = UIBezierPath = foundation.NSObject.extendClass ("UIBezierPath", () => ({
+export let UIBezierPath = NSObject.extendClass ("UIBezierPath", () => ({
 
     // Creating a UIBezierPath Object
-    bezierPath:                                 objc.instanceSelector("bezierPath"),
-    bezierPathWithRect:                         objc.instanceSelector("bezierPathWithRect:"),
-    bezierPathWithOvalInRect:                   objc.instanceSelector("bezierPathWithOvalInRect:"),
-    bezierPathWithRoundedRect:                  objc.instanceSelector("bezierPathWithRoundedRect:cornerRadius:"),
-    bezierPathWithRoundedRectByRoundingCorners: objc.instanceSelector("bezierPathWithRoundedRect:byRoundingCorners:cornerRadii:"),
-    bezierPathWithArc:                          objc.instanceSelector("bezierPathWithArcCenter:radius:startAngle:endAngle:clockwise:"),
-    bezierPathWithCGPath:                       objc.instanceSelector("bezierPathWithCGPath:"),
+    bezierPath:                                 instanceSelector("bezierPath"),
+    bezierPathWithRect:                         instanceSelector("bezierPathWithRect:"),
+    bezierPathWithOvalInRect:                   instanceSelector("bezierPathWithOvalInRect:"),
+    bezierPathWithRoundedRect:                  instanceSelector("bezierPathWithRoundedRect:cornerRadius:"),
+    bezierPathWithRoundedRectByRoundingCorners: instanceSelector("bezierPathWithRoundedRect:byRoundingCorners:cornerRadii:"),
+    bezierPathWithArc:                          instanceSelector("bezierPathWithArcCenter:radius:startAngle:endAngle:clockwise:"),
+    bezierPathWithCGPath:                       instanceSelector("bezierPathWithCGPath:"),
 
     // Constructing a Path
-    moveToPoint:      objc.instanceSelector("moveToPoint:"),
-    addLineToPoint:   objc.instanceSelector("addLineToPoint:"),
-    addArc:           objc.instanceSelector("addArcWithCenter:radius:startAngle:endAngle:clockwise:"),
-    addCurve:         objc.instanceSelector("addCurveToPoint:controlPoint1:controlPoint2:"),
-    addQuadCurve:     objc.instanceSelector("addQuadCurveToPoint:controlPoint:"),
-    closePath:        objc.instanceSelector("closePath"),
-    removeAllPoints:  objc.instanceSelector("removeAllPoints"),
-    appendPath:       objc.instanceSelector("appendPath:"),
-    CGPath: objc.instanceProperty(),
-    currentPoint: objc.instanceProperty(),
+    moveToPoint:      instanceSelector("moveToPoint:"),
+    addLineToPoint:   instanceSelector("addLineToPoint:"),
+    addArc:           instanceSelector("addArcWithCenter:radius:startAngle:endAngle:clockwise:"),
+    addCurve:         instanceSelector("addCurveToPoint:controlPoint1:controlPoint2:"),
+    addQuadCurve:     instanceSelector("addQuadCurveToPoint:controlPoint:"),
+    closePath:        instanceSelector("closePath"),
+    removeAllPoints:  instanceSelector("removeAllPoints"),
+    appendPath:       instanceSelector("appendPath:"),
+    CGPath: instanceProperty(),
+    currentPoint: instanceProperty(),
 
     // Accessing Drawing Properties
-    lineWidth: objc.instanceProperty(),
-    lineCapStyle: objc.instanceProperty(),
-    lineJoinStyle: objc.instanceProperty(),
-    miterLimit: objc.instanceProperty(),
-    flatness: objc.instanceProperty(),
-    usesEvenOddFillRule: objc.instanceProperty(),
-    setLineDash:      objc.instanceSelector("setLineDash:count:phase:"),
-    getLineDash:      objc.instanceSelector("getLineDash:count:phase:"),
+    lineWidth: instanceProperty(),
+    lineCapStyle: instanceProperty(),
+    lineJoinStyle: instanceProperty(),
+    miterLimit: instanceProperty(),
+    flatness: instanceProperty(),
+    usesEvenOddFillRule: instanceProperty(),
+    setLineDash:      instanceSelector("setLineDash:count:phase:"),
+    getLineDash:      instanceSelector("getLineDash:count:phase:"),
 
     // Drawing Paths
-    fill:                objc.instanceSelector("fill"),
-    fillWithBlendMode:   objc.instanceSelector("fillWithBlendMode:alpha:"),
-    stroke:              objc.instanceSelector("stroke"),
-    strokeWithBlendMode: objc.instanceSelector("strokeWithBlendMode:alpha:"),
+    fill:                instanceSelector("fill"),
+    fillWithBlendMode:   instanceSelector("fillWithBlendMode:alpha:"),
+    stroke:              instanceSelector("stroke"),
+    strokeWithBlendMode: instanceSelector("strokeWithBlendMode:alpha:"),
 
     // Clipping Paths
-    addClip:             objc.instanceSelector("addClip"),
+    addClip:             instanceSelector("addClip"),
 
     // Hit Detection
-    containsPoint:    objc.instanceSelector("containsPoint:"),
-    empty: objc.instanceProperty(),
-    bounds: objc.instanceProperty(),
+    containsPoint:    instanceSelector("containsPoint:"),
+    empty: instanceProperty(),
+    bounds: instanceProperty(),
 
     // Applying Transformations
-    applyTransform:   objc.instanceSelector("applyTransform:")
+    applyTransform:   instanceSelector("applyTransform:")
 
 }));

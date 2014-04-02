@@ -1,14 +1,14 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-//console.log("UIAcceleration");
-var UIAcceleration;
+import { instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
 
-_exports.UIAcceleration = UIAcceleration = foundation.NSObject.extendClass ("UIAcceleration", () => ({
+export let UIAcceleration = NSObject.extendClass ("UIAcceleration", () => ({
 
   // Accessing the Acceleration Values
-  x: objc.instanceProperty(),
-  y: objc.instanceProperty(),
-  z: objc.instanceProperty(),
-  timestamp: objc.instanceProperty()
+  x: instanceProperty(),
+  y: instanceProperty(),
+  z: instanceProperty(),
+  timestamp: instanceProperty()
 
 }));

@@ -1,32 +1,35 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceSelector, instanceProperty, staticSelector, autoboxProperty } from '../objc';
+import { UIDocumentInteractionControllerDelegate } from 'uidocumentinteractioncontrollerdelegate';
+import { NSObject } from '../foundation';
+
 //console.log("UIDocumentInteractionController");
-var UIDocumentInteractionController;
-_exports.UIDocumentInteractionController = UIDocumentInteractionController = foundation.NSObject.extendClass ("UIDocumentInteractionController", () => ({
+export let UIDocumentInteractionController = NSObject.extendClass ("UIDocumentInteractionController", () => ({
 
     // Creating the Document Interaction Controller
-    interactionControllerWithURL:       objc.staticSelector("interactionControllerWithURL:"),
+    interactionControllerWithURL:       staticSelector("interactionControllerWithURL:"),
 
     // Presenting and Dismissing a Document Preview
-    presentPreview:                      objc.instanceSelector("presentPreviewAnimated:"),
-    dismissPreview:                      objc.instanceSelector("dismissPreviewAnimated:"),
+    presentPreview:                      instanceSelector("presentPreviewAnimated:"),
+    dismissPreview:                      instanceSelector("dismissPreviewAnimated:"),
 
     // Presenting and Dismissing Menus
-    presentOptionsMenuFromRect:          objc.instanceSelector("presentOptionsMenuFromRect:inView:animated:"),
-    presentOptionsMenuFromBarButtonItem: objc.instanceSelector("presentOptionsMenuFromBarButtonItem:animated:"),
-    presentOpenInMenuFromRect:           objc.instanceSelector("presentOpenInMenuFromRect:inView:animated:"),
-    presentOpenInMenuFromBarButtonItem:  objc.instanceSelector("presentOpenInMenuFromBarButtonItem:animated:"),
-    dismissMenu:                         objc.instanceSelector("dismissMenuAnimated:"),
+    presentOptionsMenuFromRect:          instanceSelector("presentOptionsMenuFromRect:inView:animated:"),
+    presentOptionsMenuFromBarButtonItem: instanceSelector("presentOptionsMenuFromBarButtonItem:animated:"),
+    presentOpenInMenuFromRect:           instanceSelector("presentOpenInMenuFromRect:inView:animated:"),
+    presentOpenInMenuFromBarButtonItem:  instanceSelector("presentOpenInMenuFromBarButtonItem:animated:"),
+    dismissMenu:                         instanceSelector("dismissMenuAnimated:"),
 
     // Accessing the Target Document’s Attributes
-    URL: objc.instanceProperty(),
-    UTI: objc.instanceProperty(),
-    name: objc.instanceProperty(),
-    icons: objc.instanceProperty(),
-    annotation: objc.instanceProperty(),
+    URL: instanceProperty(),
+    UTI: instanceProperty(),
+    name: instanceProperty(),
+    icons: instanceProperty(),
+    annotation: instanceProperty(),
 
     // Accessing the Controller Attributes
-    gestureRecognizers: objc.instanceProperty(),
-    delegate: objc.autoboxProperty(UIDocumentInteractionControllerDelegate)
+    gestureRecognizers: instanceProperty(),
+    delegate: autoboxProperty(UIDocumentInteractionControllerDelegate)
 
 }));

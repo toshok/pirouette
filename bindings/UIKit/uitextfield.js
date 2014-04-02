@@ -1,64 +1,67 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIControl } from 'uicontrol';
+import { UITextFieldDelegate } from 'uitextfielddelegate';
+
 //console.log("UITextField");
-var UITextField;
-_exports.UITextField = UITextField = UIControl.extendClass ("UITextField", () => ({
+export let UITextField = UIControl.extendClass ("UITextField", () => ({
 
     // Accessing the Text Attributes
-    text: objc.instanceProperty(),
-    placeholder: objc.instanceProperty(),
-    font: objc.instanceProperty(),
-    textColor: objc.instanceProperty(),
-    textAlignment: objc.instanceProperty(),
+    text: instanceProperty(),
+    placeholder: instanceProperty(),
+    font: instanceProperty(),
+    textColor: instanceProperty(),
+    textAlignment: instanceProperty(),
 
     // Sizing the Text Field’s Text
-    adjustsFontSizeToFitWidth: objc.instanceProperty(),
-    minimumFontSize: objc.instanceProperty(),
+    adjustsFontSizeToFitWidth: instanceProperty(),
+    minimumFontSize: instanceProperty(),
 
     // Managing the Editing Behavior
-    editing: objc.instanceProperty(),
-    clearsOnBeginEditing: objc.instanceProperty(),
+    editing: instanceProperty(),
+    clearsOnBeginEditing: instanceProperty(),
 
     // Setting the View’s Background Appearance
-    borderStyle: objc.instanceProperty(),
-    background: objc.instanceProperty(),
-    disabledBackground: objc.instanceProperty(),
+    borderStyle: instanceProperty(),
+    background: instanceProperty(),
+    disabledBackground: instanceProperty(),
 
     // Managing Overlay Views
-    clearButtonMode: objc.instanceProperty(),
-    leftView: objc.instanceProperty(),
-    leftViewMode: objc.instanceProperty(),
-    rightView: objc.instanceProperty(),
-    rightViewMode: objc.instanceProperty(),
+    clearButtonMode: instanceProperty(),
+    leftView: instanceProperty(),
+    leftViewMode: instanceProperty(),
+    rightView: instanceProperty(),
+    rightViewMode: instanceProperty(),
 
     // Accessing the Delegate
-    delegate: objc.autoboxProperty(UITextFieldDelegate),
+    delegate: autoboxProperty(UITextFieldDelegate),
 
     // Drawing and Positioning Overrides
-    textRect:              objc.instanceSelector("textRectForBounds:"),
-    drawTextInRect:        objc.instanceSelector("drawTextInRect:"),
-    placeholderRect:       objc.instanceSelector("placeholderRectForBounds:"),
-    drawPlaceholderInRect: objc.instanceSelector("drawPlaceholderInRect:"),
-    borderRect:            objc.instanceSelector("borderRectForBounds:"),
-    editingRect:           objc.instanceSelector("editingRectForBounds:"),
-    clearButtonRect:       objc.instanceSelector("clearButtonRectForBounds:"),
-    leftViewRect:          objc.instanceSelector("leftViewRectForBounds:"),
-    rightViewRect:         objc.instanceSelector("rightViewRectForBounds:"),
+    textRect:              instanceSelector("textRectForBounds:"),
+    drawTextInRect:        instanceSelector("drawTextInRect:"),
+    placeholderRect:       instanceSelector("placeholderRectForBounds:"),
+    drawPlaceholderInRect: instanceSelector("drawPlaceholderInRect:"),
+    borderRect:            instanceSelector("borderRectForBounds:"),
+    editingRect:           instanceSelector("editingRectForBounds:"),
+    clearButtonRect:       instanceSelector("clearButtonRectForBounds:"),
+    leftViewRect:          instanceSelector("leftViewRectForBounds:"),
+    rightViewRect:         instanceSelector("rightViewRectForBounds:"),
 
     // Replacing the System Input Views
-    inputView: objc.instanceProperty(),
-    inputAccessoryView: objc.instanceProperty(),
+    inputView: instanceProperty(),
+    inputAccessoryView: instanceProperty(),
 
     // UITextInputTraits Protocol
     // Managing the Keyboard Behavior
-    autocapitalizationType: objc.instanceProperty(),
-    autocorrectionType: objc.instanceProperty(),
-    spellCheckingType: objc.instanceProperty(),
-    enablesReturnKeyAutomatically: objc.instanceProperty(),
-    keyboardAppearance: objc.instanceProperty(),
-    keyboardType: objc.instanceProperty(),
-    returnKeyType: objc.instanceProperty(),
-    secureTextEntry: objc.instanceProperty()
+    autocapitalizationType: instanceProperty(),
+    autocorrectionType: instanceProperty(),
+    spellCheckingType: instanceProperty(),
+    enablesReturnKeyAutomatically: instanceProperty(),
+    keyboardAppearance: instanceProperty(),
+    keyboardType: instanceProperty(),
+    returnKeyType: instanceProperty(),
+    secureTextEntry: instanceProperty()
     // end UITextInputTraits Protocol
 
 }));

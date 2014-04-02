@@ -1,7 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIEdgeInsets");
-function UIEdgeInsets(top, left, bottom, right) {
+export function UIEdgeInsets(top, left, bottom, right) {
   this.top = top;
   this.left = left;
   this.bottom = bottom;

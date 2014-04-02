@@ -1,16 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("UITabBarControllerDelegate");
-var UITabBarControllerDelegate;
-_exports.UITabBarControllerDelegate = UITabBarControllerDelegate = foundation.Protocol.extendClass("UITabBarControllerDelegate", () => ({
+export let UITabBarControllerDelegate = Protocol.extendClass("UITabBarControllerDelegate", () => ({
 
     // Managing Tab Bar Selections
-    shouldSelectViewController:          objc.optionalMethod("tabBarController:shouldSelectViewController:"),
-    didSelectViewController:             objc.optionalMethod("tabBarController:didSelectViewController:"),
+    shouldSelectViewController:          optionalMethod("tabBarController:shouldSelectViewController:"),
+    didSelectViewController:             optionalMethod("tabBarController:didSelectViewController:"),
 
     // Managing Tab Bar Customizations
-    willBeginCustomizingViewControllers: objc.optionalMethod("tabBarController:willBeginCustomizingViewControllers:"),
-    willEndCustomizingViewControllers:   objc.optionalMethod("tabBarController:willEndCustomizingViewControllers:changed:"),
-    didEndCustomizingViewControllers:    objc.optionalMethod("tabBarController:didEndCustomizingViewControllers:changed:")
+    willBeginCustomizingViewControllers: optionalMethod("tabBarController:willBeginCustomizingViewControllers:"),
+    willEndCustomizingViewControllers:   optionalMethod("tabBarController:willEndCustomizingViewControllers:changed:"),
+    didEndCustomizingViewControllers:    optionalMethod("tabBarController:didEndCustomizingViewControllers:changed:")
 
 }));

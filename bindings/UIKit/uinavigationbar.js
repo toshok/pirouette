@@ -1,30 +1,33 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
+import { UINavigationBarDelegate } from 'uinavigationbardelegate';
+import { UIView } from 'uiview';
+
 //console.log("UINavigationBar");
-var UINavigationBar;
-_exports.UINavigationBar = UINavigationBar = UIView.extendClass ("UINavigationBar", () => ({
+export let UINavigationBar = UIView.extendClass ("UINavigationBar", () => ({
 
     // Configuring Navigation Bars
-    barStyle: objc.instanceProperty(),
-    translucent: objc.instanceProperty(),
+    barStyle: instanceProperty(),
+    translucent: instanceProperty(),
 
     // Assigning the Delegate
-    delegate: objc.autoboxProperty(UINavigationBarDelegate),
+    delegate: autoboxProperty(UINavigationBarDelegate),
 
     // Pushing and Popping Items
-    pushNavigationItem: objc.instanceSelector("pushNavigationItem:animated:"),
-    popNavigationItem:  objc.instanceSelector("popNavigationItemAnimated:"),
-    setItems:           objc.instanceSelector("setItems:animated:"),
-    items: objc.instanceProperty({ set: function(v) { return this.setItems(v, false); } }),
-    topItem: objc.instanceProperty(),
-    backItem: objc.instanceProperty(),
+    pushNavigationItem: instanceSelector("pushNavigationItem:animated:"),
+    popNavigationItem:  instanceSelector("popNavigationItemAnimated:"),
+    setItems:           instanceSelector("setItems:animated:"),
+    items: instanceProperty({ set: function(v) { return this.setItems(v, false); } }),
+    topItem: instanceProperty(),
+    backItem: instanceProperty(),
 
     // Customizing the Bar Appearance
-    backgroundImage:                    objc.instanceSelector("backgroundImageForBarMetrics:"),
-    setBackgroundImage:                 objc.instanceSelector("setBackgroundImage:forBarMetrics:"),
-    titleVerticalPositionAdjustment:    objc.instanceSelector("titleVerticalPositionAdjustmentForBarMetrics:"),
-    setTitleVerticalPositionAdjustment: objc.instanceSelector("setTitleVerticalPositionAdjustment:forBarMetrics:"),
-    tintColor: objc.instanceProperty(),
-    titleTextAttributes: objc.instanceProperty()
+    backgroundImage:                    instanceSelector("backgroundImageForBarMetrics:"),
+    setBackgroundImage:                 instanceSelector("setBackgroundImage:forBarMetrics:"),
+    titleVerticalPositionAdjustment:    instanceSelector("titleVerticalPositionAdjustmentForBarMetrics:"),
+    setTitleVerticalPositionAdjustment: instanceSelector("setTitleVerticalPositionAdjustment:forBarMetrics:"),
+    tintColor: instanceProperty(),
+    titleTextAttributes: instanceProperty()
 
 }));

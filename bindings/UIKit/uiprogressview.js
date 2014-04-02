@@ -1,21 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIView } from 'uiview';
+
 //console.log("UIProgressView");
-var UIProgressView;
-_exports.UIProgressView = UIProgressView = UIView.extendClass ("UIProgressView", () => ({
+export let UIProgressView = UIView.extendClass ("UIProgressView", () => ({
 
     // Initializing the UIProgressView Object
-    initWithProgressViewStyle: objc.instanceSelector("initWithProgressViewStyle:"),
+    initWithProgressViewStyle: instanceSelector("initWithProgressViewStyle:"),
 
     // Managing the Progress Bar
-    progress: objc.instanceProperty({ set: function (v) { return this.setProgress(v, false); } }),
-    setProgress: objc.instanceSelector("setProgress:animated:"),
+    progress: instanceProperty({ set: function (v) { return this.setProgress(v, false); } }),
+    setProgress: instanceSelector("setProgress:animated:"),
 
     // Configuring the Progress Bar
-    progressViewStyle: objc.instanceProperty(),
-    progressTintColor: objc.instanceProperty(),
-    progressImage: objc.instanceProperty(),
-    trackTintColor: objc.instanceProperty(),
-    trackImage: objc.instanceProperty()
+    progressViewStyle: instanceProperty(),
+    progressTintColor: instanceProperty(),
+    progressImage: instanceProperty(),
+    trackTintColor: instanceProperty(),
+    trackImage: instanceProperty()
 
 }));

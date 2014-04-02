@@ -1,90 +1,94 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { staticProperty, selectorInvoker, autoboxProperty, instanceProperty, instanceSelector } from '../objc';
+import { UIResponder } from 'uiresponder';
+import { UIApplicationDelegate } from 'uiapplicationdelegate';
+import { UIApplicationMain } from '@objc_internal';
+
 //console.log("UIApplication");
-var UIApplication;
-_exports.UIApplication = UIApplication = UIResponder.extendClass ("UIApplication", () => ({
+export let UIApplication = UIResponder.extendClass ("UIApplication", () => ({
 
     // Getting the Application Instance
 
-    sharedApplication: objc.staticProperty({ set: null, get: function () { return objc.selectorInvoker("sharedApplication").call(UIApplication); } }),
+    sharedApplication: staticProperty({ set: null, get: function () { return selectorInvoker("sharedApplication").call(UIApplication); } }),
 
     // Setting and Getting the Delegate
-    delegate: objc.autoboxProperty(UIApplicationDelegate),
+    delegate: autoboxProperty(UIApplicationDelegate),
 
     // Getting Application Windows
-    keyWindow: objc.instanceProperty({ set: null }), // readonly
-    windows: objc.instanceProperty({ set: null }), // readonly
+    keyWindow: instanceProperty({ set: null }), // readonly
+    windows: instanceProperty({ set: null }), // readonly
 
     // Controlling and Handling Events
-    sendEvent:                      objc.instanceSelector("sendEvent:"),
-    sendAction:                     objc.instanceSelector("sendAction:to:from:forEvent:"),
-    beginIgnoringInteractionEvents: objc.instanceSelector("beginIgnoringInteractionEvents"),
-    endIgnoringInteractionEvents:   objc.instanceSelector("endIgnoringInteractionEvents"),
+    sendEvent:                      instanceSelector("sendEvent:"),
+    sendAction:                     instanceSelector("sendAction:to:from:forEvent:"),
+    beginIgnoringInteractionEvents: instanceSelector("beginIgnoringInteractionEvents"),
+    endIgnoringInteractionEvents:   instanceSelector("endIgnoringInteractionEvents"),
 
-    isIgnoringInteractionEvents: objc.instanceProperty({ set: null }), // readonly
+    isIgnoringInteractionEvents: instanceProperty({ set: null }), // readonly
 
-    applicationSupportsShakeToEdit: objc.instanceProperty(),
-    proximitySensingEnabled: objc.instanceProperty({ get: "isProximitySensingEnabled" }), //  property Deprecated in iOS 3.0
+    applicationSupportsShakeToEdit: instanceProperty(),
+    proximitySensingEnabled: instanceProperty({ get: "isProximitySensingEnabled" }), //  property Deprecated in iOS 3.0
 
     // Opening a URL Resource
-    openURL:    objc.instanceSelector("openURL:"),
-    canOpenURL: objc.instanceSelector("canOpenURL:"),
+    openURL:    instanceSelector("openURL:"),
+    canOpenURL: instanceSelector("canOpenURL:"),
 
     // Registering for Remote Notifications
-    registerForRemoteNotificationTypes: objc.instanceSelector("registerForRemoteNotificationTypes:"),
-    unregisterForRemoteNotifications:   objc.instanceSelector("unregisterForRemoteNotifications"),
-    enableRemoteNotificationTypes:      objc.instanceSelector("enableRemoteNotificationTypes"),
+    registerForRemoteNotificationTypes: instanceSelector("registerForRemoteNotificationTypes:"),
+    unregisterForRemoteNotifications:   instanceSelector("unregisterForRemoteNotifications"),
+    enableRemoteNotificationTypes:      instanceSelector("enableRemoteNotificationTypes"),
 
     // Managing Application Activity
-    idleTimerDisabled: objc.instanceProperty({ get: "isIdleTimerDisabled" }),
+    idleTimerDisabled: instanceProperty({ get: "isIdleTimerDisabled" }),
 
     // Managing Background Execution
-    applicationState: objc.instanceProperty({ set: null }), // readonly
-    backgroundTimeRemaining: objc.instanceProperty({ set: null }),
+    applicationState: instanceProperty({ set: null }), // readonly
+    backgroundTimeRemaining: instanceProperty({ set: null }),
 
-    beginBackgroundTaskWithExpirationHandler: objc.instanceSelector("beginBackgroundTaskWithExpirationHandler:"),
-    endBackgroundTask:                        objc.instanceSelector("endBackgroundTask:"),
-    setKeepAliveTimeoutWithHandler:           objc.instanceSelector("setKeepAliveTimeout:handler:"),
-    clearKeepAliveTimeout:                    objc.instanceSelector("clearKeepAliveTimeout"),
+    beginBackgroundTaskWithExpirationHandler: instanceSelector("beginBackgroundTaskWithExpirationHandler:"),
+    endBackgroundTask:                        instanceSelector("endBackgroundTask:"),
+    setKeepAliveTimeoutWithHandler:           instanceSelector("setKeepAliveTimeout:handler:"),
+    clearKeepAliveTimeout:                    instanceSelector("clearKeepAliveTimeout"),
 
     // Registering for Local Notifications
-    scheduleLocalNotification:   objc.instanceSelector("scheduleLocalNotification:"),
-    presentLocalNotificationNow: objc.instanceSelector("presentLocalNotificationNow:"),
-    cancelLocalNotification:     objc.instanceSelector("cancelLocalNotification:"),
-    cancelAllLocalNotification:  objc.instanceSelector("cancelAllLocalNotification:"),
+    scheduleLocalNotification:   instanceSelector("scheduleLocalNotification:"),
+    presentLocalNotificationNow: instanceSelector("presentLocalNotificationNow:"),
+    cancelLocalNotification:     instanceSelector("cancelLocalNotification:"),
+    cancelAllLocalNotification:  instanceSelector("cancelAllLocalNotification:"),
 
-    scheduledLocalNotifications: objc.instanceProperty(),
+    scheduledLocalNotifications: instanceProperty(),
 
     // Determining the Availability of Protected Content
-    protectedDataAvailable: objc.instanceProperty({ get: "isProtectedDataAvailable", set: null }), // readonly
+    protectedDataAvailable: instanceProperty({ get: "isProtectedDataAvailable", set: null }), // readonly
 
     // Registering for Remote Control Events
-    beginReceivingRemoteControlEvents: objc.instanceSelector("beginReceivingRemoteControlEvents"),
-    endReceivingRemoteControlEvents: objc.instanceSelector("endReceivingRemoteControlEvents"),
+    beginReceivingRemoteControlEvents: instanceSelector("beginReceivingRemoteControlEvents"),
+    endReceivingRemoteControlEvents: instanceSelector("endReceivingRemoteControlEvents"),
 
     // Managing Status Bar Orientation
 
-    setStatusBarOrientation: objc.instanceSelector("setStatusBarOrientation:animated:"),
-    statusBarOrientation:        objc.instanceProperty({ set: function (v) { return this.setStatusBarOrientation(v, false); } }),
-    statusBarOrientationAnimationDuration:        objc.instanceProperty({ set: null }), // readonly
+    setStatusBarOrientation: instanceSelector("setStatusBarOrientation:animated:"),
+    statusBarOrientation:        instanceProperty({ set: function (v) { return this.setStatusBarOrientation(v, false); } }),
+    statusBarOrientationAnimationDuration:        instanceProperty({ set: null }), // readonly
 
     // Controlling Application Appearance
-    setStatusBarHidden: objc.instanceSelector("setStatusBarHidden:withAnimation:"),
-    statusBarHidden:   objc.instanceProperty({ get: "isStatusBarHidden", set: function (v) { return this.setStatusBarHidden(v, false); } }),
+    setStatusBarHidden: instanceSelector("setStatusBarHidden:withAnimation:"),
+    statusBarHidden:   instanceProperty({ get: "isStatusBarHidden", set: function (v) { return this.setStatusBarHidden(v, false); } }),
 
-    setStatusBarStyle: objc.instanceSelector("setStatusBarStyle:withAnimation:"),
-    statusBarStyle:  objc.instanceProperty({ set: function (v) { return this.setStatusBarStyle(v, false); } }),
-    statusBarFrame:  objc.instanceProperty({ set: null }),
+    setStatusBarStyle: instanceSelector("setStatusBarStyle:withAnimation:"),
+    statusBarStyle:  instanceProperty({ set: function (v) { return this.setStatusBarStyle(v, false); } }),
+    statusBarFrame:  instanceProperty({ set: null }),
 
-    networkActivityIndicatorVisible: objc.instanceProperty({ get: "isNetworkActivityIndicatorVisible" }),
-    applicationIconBadgeNumber: objc.instanceProperty(),
-    userInterfaceLayoutDirection: objc.instanceProperty({ set: null }), // readonly
+    networkActivityIndicatorVisible: instanceProperty({ get: "isNetworkActivityIndicatorVisible" }),
+    applicationIconBadgeNumber: instanceProperty(),
+    userInterfaceLayoutDirection: instanceProperty({ set: null }), // readonly
 
     // Setting the Icon of a Newsstand Application
-    setNewsstandIconImage: objc.instanceSelector("setNewsstandIconImage:")
+    setNewsstandIconImage: instanceSelector("setNewsstandIconImage:")
 
 }));
 
 UIApplication.main = function (args, principalClassName, delegateClassName) {
-  return objc_internal.UIApplicationMain(args, principalClassName, delegateClassName);
+  return UIApplicationMain(args, principalClassName, delegateClassName);
 };

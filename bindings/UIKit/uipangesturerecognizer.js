@@ -1,16 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIGestureRecognizer } from 'uigesturerecognizer';
+
 //console.log("UIPanGestureRecognizer");
-var UIPanGestureRecognizer;
-_exports.UIPanGestureRecognizer = UIPanGestureRecognizer = UIGestureRecognizer.extendClass ("UIPanGestureRecognizer", () => ({
+export let UIPanGestureRecognizer = UIGestureRecognizer.extendClass ("UIPanGestureRecognizer", () => ({
 
     // Configuring the Gesture Recognizer
-    maximumNumberOfTouches: objc.instanceProperty(),
-    minimumNumberOfTouches: objc.instanceProperty(),
+    maximumNumberOfTouches: instanceProperty(),
+    minimumNumberOfTouches: instanceProperty(),
 
     // Tracking the Location and Velocity of the Gesture
-    translationInView:    objc.instanceSelector("translationInView:"),
-    setTranslationInView: objc.instanceSelector("setTranslation:inView:"),
-    velocityInView:       objc.instanceSelector("velocityInView:")
+    translationInView:    instanceSelector("translationInView:"),
+    setTranslationInView: instanceSelector("setTranslation:inView:"),
+    velocityInView:       instanceSelector("velocityInView:")
 
 }));

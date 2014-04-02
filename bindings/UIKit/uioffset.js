@@ -1,7 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 //console.log("UIOffset");
-function UIOffset(horizontal, vertical) {
+export function UIOffset(horizontal, vertical) {
   this.horizontal = horizontal;
   this.vertical = vertical;
 }

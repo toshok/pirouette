@@ -1,130 +1,133 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-//console.log("UIView");
-var UIView;
-_exports.UIView = UIView = UIResponder.extendClass ("UIView", () => ({
+import { instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+import { UIResponder } from 'uiresponder';
 
-    initWithFrame:    objc.instanceSelector("initWithFrame:").
-                            returns( function() { return foundation.NSObject; /* XXX should be UIView */}).
-			     params( function() { return [ foundation.NSRect ]; }),
+//console.log("UIView");
+export let UIView = UIResponder.extendClass ("UIView", () => ({
+
+    initWithFrame:    instanceSelector("initWithFrame:").
+                            returns( function() { return NSObject; /* XXX should be UIView */}).
+			     params( function() { return [ NSRect ]; }),
 
     // Configuring a View’s Visual Appearance
-    layerClass:      objc.staticSelector(),
-    backgroundColor: objc.instanceProperty(),
-    hidden: objc.instanceProperty(),
-    alpha: objc.instanceProperty(),
-    opaque: objc.instanceProperty(),
-    clipsToBounds: objc.instanceProperty(),
-    clearsContextBeforeDrawing: objc.instanceProperty(),
-    layer: objc.instanceProperty(),
+    layerClass:      staticSelector(),
+    backgroundColor: instanceProperty(),
+    hidden: instanceProperty(),
+    alpha: instanceProperty(),
+    opaque: instanceProperty(),
+    clipsToBounds: instanceProperty(),
+    clearsContextBeforeDrawing: instanceProperty(),
+    layer: instanceProperty(),
 
     // Configuring the Event-Related Behavior
-    userInteractionEnabled: objc.instanceProperty(),
-    multipleTouchEnabled: objc.instanceProperty(),
-    exclusiveTouch: objc.instanceProperty(),
+    userInteractionEnabled: instanceProperty(),
+    multipleTouchEnabled: instanceProperty(),
+    exclusiveTouch: instanceProperty(),
 
     // Configuring the Bounds and Frame Rectangles
-    frame: objc.instanceProperty(),
-    bounds: objc.instanceProperty(),
-    center: objc.instanceProperty(),
-    transform: objc.instanceProperty(),
+    frame: instanceProperty(),
+    bounds: instanceProperty(),
+    center: instanceProperty(),
+    transform: instanceProperty(),
 
     // Configuring the Resizing Behavior
-    sizeThatFits: objc.instanceSelector("sizeThatFits:"),
-    sizeToFit:    objc.instanceSelector("sizeToFit"),
-    autoresizingMask: objc.instanceProperty(),
-    autoresizesSubviews: objc.instanceProperty(),
-    contentMode: objc.instanceProperty(),
-    contentStretch: objc.instanceProperty(),
+    sizeThatFits: instanceSelector("sizeThatFits:"),
+    sizeToFit:    instanceSelector("sizeToFit"),
+    autoresizingMask: instanceProperty(),
+    autoresizesSubviews: instanceProperty(),
+    contentMode: instanceProperty(),
+    contentStretch: instanceProperty(),
 
     // Managing the View Hierarchy
-    addSubview:                               objc.instanceSelector("addSubview:"),
+    addSubview:                               instanceSelector("addSubview:"),
     addSubviews: function (...subviews) {
       for (var i = 0, e = subviews.length; i < e; i ++)
 	this.addSubview (subviews[i]);
     },
-    bringSubviewToFront:                      objc.instanceSelector("bringSubviewToFront:"),
-    sendSubviewToBack:                        objc.instanceSelector("sendSubviewToBack:"),
-    removeFromSuperview:                      objc.instanceSelector("removeFromSuperview"),
-    insertSubviewAtIndex:                     objc.instanceSelector("insertSubview:atIndex:"),
-    insertSubviewAboveSubview:                objc.instanceSelector("insertSubview:aboveSubview:"),
-    insertSubviewBelowSubview:                objc.instanceSelector("insertSubview:belowSubview:"),
-    exchangeSubviewAtIndexWithSubviewAtIndex: objc.instanceSelector("exchangeSubviewAtIndex:withSubviewAtIndex:"),
-    isDescendantOfView:                       objc.instanceSelector("isDescendantOfView:"),
-    superview: objc.instanceProperty(),
-    subviews: objc.instanceProperty(),
-    window: objc.instanceProperty(),
+    bringSubviewToFront:                      instanceSelector("bringSubviewToFront:"),
+    sendSubviewToBack:                        instanceSelector("sendSubviewToBack:"),
+    removeFromSuperview:                      instanceSelector("removeFromSuperview"),
+    insertSubviewAtIndex:                     instanceSelector("insertSubview:atIndex:"),
+    insertSubviewAboveSubview:                instanceSelector("insertSubview:aboveSubview:"),
+    insertSubviewBelowSubview:                instanceSelector("insertSubview:belowSubview:"),
+    exchangeSubviewAtIndexWithSubviewAtIndex: instanceSelector("exchangeSubviewAtIndex:withSubviewAtIndex:"),
+    isDescendantOfView:                       instanceSelector("isDescendantOfView:"),
+    superview: instanceProperty(),
+    subviews: instanceProperty(),
+    window: instanceProperty(),
 
     // Laying out Subviews
-    layoutSubviews: objc.instanceSelector("layoutSubviews"),
-    setNeedsLayout: objc.instanceSelector("setNeedsLayout"),
-    layoutIfNeeded: objc.instanceSelector("layoutIfNeeded"),
+    layoutSubviews: instanceSelector("layoutSubviews"),
+    setNeedsLayout: instanceSelector("setNeedsLayout"),
+    layoutIfNeeded: instanceSelector("layoutIfNeeded"),
 
     // Drawing and Updating the View
-    drawRect:              objc.instanceSelector("drawRect:"),
-    setNeedsDisplay:       objc.instanceSelector("setNeedsDisplay"),
-    setNeedsDisplayInRect: objc.instanceSelector("setNeedsDisplayInRect:"),
-    contentScaleFactor: objc.instanceProperty(),
+    drawRect:              instanceSelector("drawRect:"),
+    setNeedsDisplay:       instanceSelector("setNeedsDisplay"),
+    setNeedsDisplayInRect: instanceSelector("setNeedsDisplayInRect:"),
+    contentScaleFactor: instanceProperty(),
 
     // Formatting Printed View Content
-    viewPrintFormatter:            objc.instanceSelector("viewPrintFormatter"),
-    drawRectForViewPrintFormatter: objc.instanceSelector("drawRect:forViewPrintFormatter:"),
+    viewPrintFormatter:            instanceSelector("viewPrintFormatter"),
+    drawRectForViewPrintFormatter: instanceSelector("drawRect:forViewPrintFormatter:"),
 
     // Managing Gesture Recognizers
-    addGestureRecognizer:    objc.instanceSelector("addGestureRecognizer:"),
-    removeGestureRecognizer: objc.instanceSelector("removeGestureRecognizer:"),
-    gestureRecognizers: objc.instanceProperty(),
+    addGestureRecognizer:    instanceSelector("addGestureRecognizer:"),
+    removeGestureRecognizer: instanceSelector("removeGestureRecognizer:"),
+    gestureRecognizers: instanceProperty(),
 
     // Animating Views with Blocks
-    animateWithDurationDelayCompletion: objc.instanceSelector("animateWithDuration:delay:options:animations:completion:"),
-    animateWithDurationCompletion:      objc.instanceSelector("animateWithDuration:animations:completion:"),
-    animateWithDuration:                objc.instanceSelector("animateWithDuration:animations:"),
-    transitionWithViewDelayCompletion:  objc.instanceSelector("transitionWithView:duration:options:animations:completion:"),
-    transitionFromViewCompletion:       objc.instanceSelector("transitionFromView:toView:duration:options:completion:"),
+    animateWithDurationDelayCompletion: instanceSelector("animateWithDuration:delay:options:animations:completion:"),
+    animateWithDurationCompletion:      instanceSelector("animateWithDuration:animations:completion:"),
+    animateWithDuration:                instanceSelector("animateWithDuration:animations:"),
+    transitionWithViewDelayCompletion:  instanceSelector("transitionWithView:duration:options:animations:completion:"),
+    transitionFromViewCompletion:       instanceSelector("transitionFromView:toView:duration:options:completion:"),
 
     // Animating Views
     // Use of the methods in this section is discouraged in iOS 4 and later. Use the block-based animation methods instead.
 
-    beginAnimationsWithContext: objc.instanceSelector("beginAnimations:context:"),
-    commitAnimations:                   objc.instanceSelector("commitAnimations"),
-    setAnimationStartDate:              objc.instanceSelector("setAnimationStartDate:"),
-    setAnimationsEnabled:               objc.instanceSelector("setAnimationsEnabled:"),
-    setAnimationDelegate:               objc.instanceSelector("setAnimationDelegate:"),
-    setAnimationWillStartSelector:      objc.instanceSelector("setAnimationWillStartSelector:"),
-    setAnimationDidStopSelector:        objc.instanceSelector("setAnimationDidStopSelector:"),
-    setAnimationDuration:               objc.instanceSelector("setAnimationDuration:"),
-    setAnimationDelay:                  objc.instanceSelector("setAnimationDelay:"),
-    setAnimationCurve:                  objc.instanceSelector("setAnimationCurve:"),
-    setAnimationRepeatCount:            objc.instanceSelector("setAnimationRepeatCount:"),
-    setAnimationRepeatAutoreverses:     objc.instanceSelector("setAnimationRepeatAutoreverses:"),
-    setAnimationBeginsFromCurrentState: objc.instanceSelector("setAnimationBeginsFromCurrentState:"),
-    setAnimationTransitionForView:      objc.instanceSelector("setAnimationTransition:forView:cache:"),
-    areAnimationsEnabled:               objc.instanceSelector("areAnimationsEnabled"),
+    beginAnimationsWithContext: instanceSelector("beginAnimations:context:"),
+    commitAnimations:                   instanceSelector("commitAnimations"),
+    setAnimationStartDate:              instanceSelector("setAnimationStartDate:"),
+    setAnimationsEnabled:               instanceSelector("setAnimationsEnabled:"),
+    setAnimationDelegate:               instanceSelector("setAnimationDelegate:"),
+    setAnimationWillStartSelector:      instanceSelector("setAnimationWillStartSelector:"),
+    setAnimationDidStopSelector:        instanceSelector("setAnimationDidStopSelector:"),
+    setAnimationDuration:               instanceSelector("setAnimationDuration:"),
+    setAnimationDelay:                  instanceSelector("setAnimationDelay:"),
+    setAnimationCurve:                  instanceSelector("setAnimationCurve:"),
+    setAnimationRepeatCount:            instanceSelector("setAnimationRepeatCount:"),
+    setAnimationRepeatAutoreverses:     instanceSelector("setAnimationRepeatAutoreverses:"),
+    setAnimationBeginsFromCurrentState: instanceSelector("setAnimationBeginsFromCurrentState:"),
+    setAnimationTransitionForView:      instanceSelector("setAnimationTransition:forView:cache:"),
+    areAnimationsEnabled:               instanceSelector("areAnimationsEnabled"),
 
     // Identifying the View at Runtime
-    viewWithTag:          objc.instanceSelector("viewWithTag:"),
-    tag: objc.instanceProperty(),
+    viewWithTag:          instanceSelector("viewWithTag:"),
+    tag: instanceProperty(),
 
     // Converting Between View Coordinate Systems
-    convertPointToView:   objc.instanceSelector("convertPoint:toView:"),
-    convertPointFromView: objc.instanceSelector("convertPoint:fromView:"),
-    convertRectToView:    objc.instanceSelector("convertRect:toView:"),
-    convertRectFromView:  objc.instanceSelector("convertRect:fromView:"),
+    convertPointToView:   instanceSelector("convertPoint:toView:"),
+    convertPointFromView: instanceSelector("convertPoint:fromView:"),
+    convertRectToView:    instanceSelector("convertRect:toView:"),
+    convertRectFromView:  instanceSelector("convertRect:fromView:"),
 
     // Hit Testing in a View
-    hitTestWithEvent:     objc.instanceSelector("hitTest:withEvent:"),
-    pointInsideWithEvent: objc.instanceSelector("pointInside:withEvent:"),
+    hitTestWithEvent:     instanceSelector("hitTest:withEvent:"),
+    pointInsideWithEvent: instanceSelector("pointInside:withEvent:"),
 
     // Ending a View Editing Session
-    endEditing:           objc.instanceSelector("endEditing:"),
+    endEditing:           instanceSelector("endEditing:"),
 
     // Observing View-Related Changes
-    didAddSubview:        objc.instanceSelector("didAddSubview:"),
-    willRemoveSubview:    objc.instanceSelector("willRemoveSubview:"),
-    willMoveToSuperview:  objc.instanceSelector("willMoveToSuperview:"),
-    didMoveToSuperview:   objc.instanceSelector("didMoveToSuperview"),
-    willMoveToWindow:     objc.instanceSelector("willMoveToWindow:"),
-    didMoveToWindow:      objc.instanceSelector("didMoveToWindow")
+    didAddSubview:        instanceSelector("didAddSubview:"),
+    willRemoveSubview:    instanceSelector("willRemoveSubview:"),
+    willMoveToSuperview:  instanceSelector("willMoveToSuperview:"),
+    didMoveToSuperview:   instanceSelector("didMoveToSuperview"),
+    willMoveToWindow:     instanceSelector("willMoveToWindow:"),
+    didMoveToWindow:      instanceSelector("didMoveToWindow")
 
     // XXX ES6-port
     //@mixinProtocol UIAppearance

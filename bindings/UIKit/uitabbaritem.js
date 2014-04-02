@@ -1,23 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { instanceProperty, instanceSelector } from '../objc';
+import { UIBarItem } from 'uibaritem';
+
 //console.log("UITabBarItem");
-var UITabBarItem;
-_exports.UITabBarItem = UITabBarItem = UIBarItem.extendClass ("UITabBarItem", () => ({
+export let UITabBarItem = UIBarItem.extendClass ("UITabBarItem", () => ({
 
     // Initializing a Item
-    initWithTabBarSystemItem: objc.instanceSelector("initWithTabBarSystemItem:tag:"),
-    initWithTitle:            objc.instanceSelector("initWithTitle:image:tag:"),
+    initWithTabBarSystemItem: instanceSelector("initWithTabBarSystemItem:tag:"),
+    initWithTitle:            instanceSelector("initWithTitle:image:tag:"),
 
     // Getting and Setting Properties
-    badgeValue: objc.instanceProperty(),
+    badgeValue: instanceProperty(),
 
     // Managing the Finished Selected Image
-    finishedSelectedImage:    objc.instanceSelector("finishedSelectedImage"),
-    finishedUnselectedImage:  objc.instanceSelector("finishedUnselectedImage"),
-    setFinishedSelectedImage: objc.instanceSelector("setFinishedSelectedImage:withFinishedUnselectedImage:"),
+    finishedSelectedImage:    instanceSelector("finishedSelectedImage"),
+    finishedUnselectedImage:  instanceSelector("finishedUnselectedImage"),
+    setFinishedSelectedImage: instanceSelector("setFinishedSelectedImage:withFinishedUnselectedImage:"),
 
     // Customizing Appearance
-    titlePositionAdjustment:    objc.instanceSelector("titlePositionAdjustment"),
-    setTitlePositionAdjustment: objc.instanceSelector("setTitlePositionAdjustment:")
+    titlePositionAdjustment:    instanceSelector("titlePositionAdjustment"),
+    setTitlePositionAdjustment: instanceSelector("setTitlePositionAdjustment:")
 
 }));

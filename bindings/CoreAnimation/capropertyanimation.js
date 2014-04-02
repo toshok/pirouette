@@ -1,17 +1,19 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAPropertyAnimation;
-_exports.CAPropertyAnimation = CAPropertyAnimation = CAAnimation.extendClass("CAPropertyAnimation", () => ({
+import { instanceProperty, staticSelector } from '../objc';
+import { CAAnimation } from 'caanimation';
+
+export let CAPropertyAnimation = CAAnimation.extendClass("CAPropertyAnimation", () => ({
 
     // Animated Key Path
-    keyPath: objc.instanceProperty(),
+    keyPath: instanceProperty(),
 
     // Property Value Calculation Behavior
-    cumulative: objc.instanceProperty(),
-    additive: objc.instanceProperty(),
-    valueFunction: objc.instanceProperty(),
+    cumulative: instanceProperty(),
+    additive: instanceProperty(),
+    valueFunction: instanceProperty(),
 
     // Creating an Animation
-    animationWithKeyPath: objc.staticSelector("animationWithKeyPath:")
+    animationWithKeyPath: staticSelector("animationWithKeyPath:")
 
 }));

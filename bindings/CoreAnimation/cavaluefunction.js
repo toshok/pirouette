@@ -1,12 +1,14 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAValueFunction;
-_exports.CAValueFunction = CAValueFunction = foundation.NSObject.extendClass("CAValueFunction", () => ({
+import { instanceProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CAValueFunction = NSObject.extendClass("CAValueFunction", () => ({
 
     // Getting Value Function Properties
-    name: objc.instanceProperty(),
+    name: instanceProperty(),
 
     // Creating and Initializing Value Functions
-    functionWithName: objc.staticSelector("functionWithName:")
+    functionWithName: staticSelector("functionWithName:")
 
 }));

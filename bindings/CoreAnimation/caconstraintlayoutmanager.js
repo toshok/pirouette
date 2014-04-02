@@ -1,9 +1,11 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAConstraintLayoutManager;
-_exports.CAConstraintLayoutManager = CAConstraintLayoutManager = foundation.NSObject.extendClass("CAConstraintLayoutManager", () => ({
+import { staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CAConstraintLayoutManager = NSObject.extendClass("CAConstraintLayoutManager", () => ({
 
     // Creating the Layout Manager
-    layoutManager: objc.staticSelector("layoutManager")
+    layoutManager: staticSelector("layoutManager")
 
 }));

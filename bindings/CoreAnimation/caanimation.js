@@ -1,23 +1,26 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAAnimation;
-_exports.CAAnimation = CAAnimation = foundation.NSObject.extendClass("CAAnimation", () => ({
+import { instanceProperty, instanceSelector, staticSelector, autoboxProperty } from '../objc';
+import { NSObject } from '../foundation';
+import { CAAnimationDelegate } from 'caanimationdelegate';
+
+export let CAAnimation = NSObject.extendClass("CAAnimation", () => ({
 
     // Archiving Properties
-    shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:"),
+    shouldArchiveValueForKey: instanceSelector("shouldArchiveValueForKey:"),
 
     // Providing Default Values for Properties
-    defaultValueForKey: objc.staticSelector("defaultValueForKey:"),
+    defaultValueForKey: staticSelector("defaultValueForKey:"),
 
     // Creating an Animation
-    animation: objc.staticSelector("animation"),
+    animation: staticSelector("animation"),
 
     // Animation Attributes
-    removedOnCompletion: objc.instanceProperty(),
-    isRemovedOnCompletion: objc.instanceSelector("isRemovedOnCompletion"),
-    timingFunction: objc.instanceProperty(),
+    removedOnCompletion: instanceProperty(),
+    isRemovedOnCompletion: instanceSelector("isRemovedOnCompletion"),
+    timingFunction: instanceProperty(),
 
     // Getting and Setting the Delegate
-    delegate: objc.autoboxProperty(CAAnimationDelegate)
+    delegate: autoboxProperty(CAAnimationDelegate)
 
 }));

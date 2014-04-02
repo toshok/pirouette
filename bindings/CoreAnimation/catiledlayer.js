@@ -1,15 +1,17 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CATiledLayer;
-_exports.CATiledLayer = CATiledLayer = CALayer.extendClass("CATiledLayer", () => ({
+import { staticSelector, instanceProperty } from '../objc';
+import { CALayer } from 'calayer';
+
+export let CATiledLayer = CALayer.extendClass("CATiledLayer", () => ({
 
     // Visual Fade
-    fadeDuration: objc.staticSelector("fadeDuration"),
+    fadeDuration: staticSelector("fadeDuration"),
 
     // Levels of Detail
-    levelsOfDetail: objc.instanceProperty(),
-    levelsOfDetailBias: objc.instanceProperty(),
+    levelsOfDetail: instanceProperty(),
+    levelsOfDetailBias: instanceProperty(),
 
     // Layer Tile Size
-    tileSize: objc.instanceProperty()
+    tileSize: instanceProperty()
 }));

@@ -1,17 +1,19 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CATransition;
-_exports.CATransition = CATransition = foundation.NSObject.extendClass("CATransition", () => ({
+import { instanceProperty } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CATransition = NSObject.extendClass("CATransition", () => ({
 
   // Transition Start and End Point
-  startProgress: objc.instanceProperty(),
-  endProgress: objc.instanceProperty(),
+  startProgress: instanceProperty(),
+  endProgress: instanceProperty(),
 
   // Transition Properties
-  type: objc.instanceProperty(),
-  subtype: objc.instanceProperty(),
+  type: instanceProperty(),
+  subtype: instanceProperty(),
 
   // Custom Transition Filter
-  filter: objc.instanceProperty()
+  filter: instanceProperty()
 
 }));

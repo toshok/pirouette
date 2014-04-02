@@ -1,22 +1,24 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAShapeLayer;
-_exports.CAShapeLayer = CAShapeLayer = CALayer.extendClass("CAShapeLayer", () => ({
+import { instanceProperty } from '../objc';
+import { CALayer } from 'calayer';
+
+export let CAShapeLayer = CALayer.extendClass("CAShapeLayer", () => ({
 
     // Specifying the Shape Path
-    path: objc.instanceProperty(),
+    path: instanceProperty(),
 
     // Accessing Shape Style Properties
-    fillColor: objc.instanceProperty(),
-    fillRule: objc.instanceProperty(),
-    lineCap: objc.instanceProperty(),
-    lineDashPattern: objc.instanceProperty(),
-    lineDashPhase: objc.instanceProperty(),
-    lineJoin: objc.instanceProperty(),
-    lineWidth: objc.instanceProperty(),
-    miterLimit: objc.instanceProperty(),
-    strokeColor: objc.instanceProperty(),
-    strokeStart: objc.instanceProperty(),
-    strokeEnd: objc.instanceProperty()
+    fillColor: instanceProperty(),
+    fillRule: instanceProperty(),
+    lineCap: instanceProperty(),
+    lineDashPattern: instanceProperty(),
+    lineDashPhase: instanceProperty(),
+    lineJoin: instanceProperty(),
+    lineWidth: instanceProperty(),
+    miterLimit: instanceProperty(),
+    strokeColor: instanceProperty(),
+    strokeStart: instanceProperty(),
+    strokeEnd: instanceProperty()
 
 }));

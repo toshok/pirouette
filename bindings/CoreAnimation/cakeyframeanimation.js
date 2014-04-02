@@ -1,23 +1,25 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAKeyFrameAnimation;
-_exports.CAKeyFrameAnimation = CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", () => ({
+import { instanceProperty } from '../objc';
+import { CAAnimation } from 'caanimation';
+
+export let CAKeyFrameAnimation = CAAnimation.extendClass("CAKeyFrameAnimation", () => ({
 
     // Providing Keyframe Values
-    path: objc.instanceProperty(),
-    values: objc.instanceProperty(),
+    path: instanceProperty(),
+    values: instanceProperty(),
 
     // Keyframe Timing
-    keyTimes: objc.instanceProperty(),
-    timingFunctions: objc.instanceProperty(),
-    calculationMode: objc.instanceProperty(),
+    keyTimes: instanceProperty(),
+    timingFunctions: instanceProperty(),
+    calculationMode: instanceProperty(),
 
     // Rotation Mode Attribute
-    rotationMode: objc.instanceProperty(),
+    rotationMode: instanceProperty(),
 
     // Cubic Mode Attributes
-    tensionValues: objc.instanceProperty(),
-    continuityValues: objc.instanceProperty(),
-    biasValues: objc.instanceProperty()
+    tensionValues: instanceProperty(),
+    continuityValues: instanceProperty(),
+    biasValues: instanceProperty()
 
 }));

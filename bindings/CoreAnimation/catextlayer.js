@@ -1,19 +1,21 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CATextLayer;
-_exports.CATextLayer = CATextLayer = CALayer.extendClass("CATextLayer", () => ({
+import { instanceProperty } from '../objc';
+import { CALayer } from 'calayer';
+
+export let CATextLayer = CALayer.extendClass("CATextLayer", () => ({
 
     // Getting and Setting the Text
-    string: objc.instanceProperty(),
+    string: instanceProperty(),
 
     // Text Visual Properties
-    font: objc.instanceProperty(),
-    fontSize: objc.instanceProperty(),
-    foregroundColor: objc.instanceProperty(),
+    font: instanceProperty(),
+    fontSize: instanceProperty(),
+    foregroundColor: instanceProperty(),
 
     // Text Alignment and Truncation
-    wrapped: objc.instanceProperty(),
-    alignmentMode: objc.instanceProperty(),
-    truncationMode: objc.instanceProperty()
+    wrapped: instanceProperty(),
+    alignmentMode: instanceProperty(),
+    truncationMode: instanceProperty()
 
 }));

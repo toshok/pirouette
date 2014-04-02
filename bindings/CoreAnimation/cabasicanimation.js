@@ -1,11 +1,13 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CABasicAnimation;
-_exports.CABasicAnimation = CABasicAnimation = CAAnimation.extendClass("CABasicAnimation", () => ({
+import { instanceProperty } from '../objc';
+import { CAAnimation } from 'caanimation';
+
+export let CABasicAnimation = CAAnimation.extendClass("CABasicAnimation", () => ({
 
     // Interpolation Values
-    fromValue: objc.instanceProperty(),
-    toValue: objc.instanceProperty(),
-    byValue: objc.instanceProperty()
+    fromValue: instanceProperty(),
+    toValue: instanceProperty(),
+    byValue: instanceProperty()
 
 }));

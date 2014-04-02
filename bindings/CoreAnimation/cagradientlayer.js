@@ -1,13 +1,15 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAGradientLayer;
-_exports.CAGradientLayer = CAGradientLayer = CALayer.extendClass("CAGradientLayer", () => ({
+import { instanceProperty } from '../objc';
+import { CALayer } from 'calayer';
+
+export let CAGradientLayer = CALayer.extendClass("CAGradientLayer", () => ({
 
     // Gradient Style Properties
-    colors: objc.instanceProperty(),
-    locations: objc.instanceProperty(),
-    endPoint: objc.instanceProperty(),
-    startPoint: objc.instanceProperty(),
-    type: objc.instanceProperty()
+    colors: instanceProperty(),
+    locations: instanceProperty(),
+    endPoint: instanceProperty(),
+    startPoint: instanceProperty(),
+    type: instanceProperty()
 
 }));

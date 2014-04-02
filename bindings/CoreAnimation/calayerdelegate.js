@@ -1,14 +1,16 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+import { optionalMethod } from '../objc';
+import { Protocol } from '../foundation';
+
 //console.log("CALayerDelegate");
-var CALayerDelegate;
-_exports.CALayerDelegate = CALayerDelegate = foundation.Protocol.extendClass("CALayerDelegate", () => ({
+export let CALayerDelegate = Protocol.extendClass("CALayerDelegate", () => ({
 
     // Providing Layer Content
-    displayLayer:   objc.optionalMethod("displayLayer"),
-    drawLayer:      objc.optionalMethod("drawLayer:inContext:"),
+    displayLayer:   optionalMethod("displayLayer"),
+    drawLayer:      optionalMethod("drawLayer:inContext:"),
 
     // Actions
-    actionForLayer: objc.optionalMethod("actionForLayer:forKey:")
+    actionForLayer: optionalMethod("actionForLayer:forKey:")
 
 }));

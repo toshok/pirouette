@@ -1,25 +1,27 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CARenderer;
-_exports.CARenderer = CARenderer = foundation.NSObject.extendClass("CARenderer", () => ({
+import { instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CARenderer = NSObject.extendClass("CARenderer", () => ({
 
     // Rendered Layer
-    layer: objc.instanceProperty(),
+    layer: instanceProperty(),
 
     // Renderer Geometry
-    bounds: objc.instanceProperty(),
+    bounds: instanceProperty(),
 
     // Create a New Renderer
-    rendererWithCGLContext: objc.staticSelector("rendererWithCGLContext:options:"),
+    rendererWithCGLContext: staticSelector("rendererWithCGLContext:options:"),
 
     // Render a Frame
-    beginFrameAtTime: objc.instanceSelector("beginFrameAtTime:timeStamp:"),
+    beginFrameAtTime: instanceSelector("beginFrameAtTime:timeStamp:"),
 
-    updateBounds: objc.instanceSelector("updateBounds"),
-    addUpdateRect: objc.instanceSelector("addUpdateRect:"),
+    updateBounds: instanceSelector("updateBounds"),
+    addUpdateRect: instanceSelector("addUpdateRect:"),
 
-    render: objc.instanceSelector("render"),
-    nextFrameTime: objc.instanceSelector("nextFrameTime"),
-    endFrame: objc.instanceSelector("endFrame")
+    render: instanceSelector("render"),
+    nextFrameTime: instanceSelector("nextFrameTime"),
+    endFrame: instanceSelector("endFrame")
 
 }));

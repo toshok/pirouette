@@ -1,54 +1,56 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAEmitterCell;
-_exports.CAEmitterCell = CAEmitterCell = foundation.NSObject.extendClass("CAEmitterCell", () => ({
+import { instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CAEmitterCell = NSObject.extendClass("CAEmitterCell", () => ({
 
     // Creating and Initializing an Emitter Cell
-    emitterCell: objc.staticSelector("emitterCell"),
+    emitterCell: staticSelector(),
 
     // Providing Emitter Cell Content
-    contents: objc.instanceProperty(),
-    contentsRect: objc.instanceProperty(),
-    emitterCells: objc.instanceProperty(),
+    contents: instanceProperty(),
+    contentsRect: instanceProperty(),
+    emitterCells: instanceProperty(),
 
     // Setting Emitter Cell Visual Attributes
-    enabled: objc.instanceProperty(),
-    color: objc.instanceProperty(),
-    redRange: objc.instanceProperty(),
-    greenRange: objc.instanceProperty(),
-    blueRange: objc.instanceProperty(),
-    alphaRange: objc.instanceProperty(),
-    redSpeed: objc.instanceProperty(),
-    greenSpeed: objc.instanceProperty(),
-    blueSpeed: objc.instanceProperty(),
-    alphaSpeed: objc.instanceProperty(),
-    magnificationFilter: objc.instanceProperty(),
-    minificationFilter: objc.instanceProperty(),
-    minificationFilterBias: objc.instanceProperty(),
-    scale: objc.instanceProperty(),
-    scaleRange: objc.instanceProperty(),
-    name: objc.instanceProperty(),
-    style: objc.instanceProperty(),
+    enabled: instanceProperty(),
+    color: instanceProperty(),
+    redRange: instanceProperty(),
+    greenRange: instanceProperty(),
+    blueRange: instanceProperty(),
+    alphaRange: instanceProperty(),
+    redSpeed: instanceProperty(),
+    greenSpeed: instanceProperty(),
+    blueSpeed: instanceProperty(),
+    alphaSpeed: instanceProperty(),
+    magnificationFilter: instanceProperty(),
+    minificationFilter: instanceProperty(),
+    minificationFilterBias: instanceProperty(),
+    scale: instanceProperty(),
+    scaleRange: instanceProperty(),
+    name: instanceProperty(),
+    style: instanceProperty(),
 
     // Emitter Cell Motion Attributes
-    spin: objc.instanceProperty(),
-    spinRange: objc.instanceProperty(),
-    emissionLatitude: objc.instanceProperty(),
-    emissionLongitude: objc.instanceProperty(),
-    emissionRange: objc.instanceProperty(),
+    spin: instanceProperty(),
+    spinRange: instanceProperty(),
+    emissionLatitude: instanceProperty(),
+    emissionLongitude: instanceProperty(),
+    emissionRange: instanceProperty(),
 
     // Emission Cell Temporal Attributes
-    lifetime: objc.instanceProperty(),
-    lifetimeRange: objc.instanceProperty(),
-    birthRate: objc.instanceProperty(),
-    scaleSpeed: objc.instanceProperty(),
-    velocity: objc.instanceProperty(),
-    velocityRange: objc.instanceProperty(),
-    xAcceleration: objc.instanceProperty(),
-    yAcceleration: objc.instanceProperty(),
-    zAcceleration: objc.instanceProperty(),
+    lifetime: instanceProperty(),
+    lifetimeRange: instanceProperty(),
+    birthRate: instanceProperty(),
+    scaleSpeed: instanceProperty(),
+    velocity: instanceProperty(),
+    velocityRange: instanceProperty(),
+    xAcceleration: instanceProperty(),
+    yAcceleration: instanceProperty(),
+    zAcceleration: instanceProperty(),
 
     // Key-Value Coding Extensions
-    defaultValueForKey: objc.staticSelector("defaultValueForKey:"),
-    shouldArchiveValueForKey: objc.instanceSelector("shouldArchiveValueForKey:")
+    defaultValueForKey: staticSelector("defaultValueForKey:"),
+    shouldArchiveValueForKey: instanceSelector("shouldArchiveValueForKey:")
 }));

@@ -1,25 +1,27 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CADisplayLink;
-_exports.CADisplayLink = CADisplayLink = foundation.NSObject.extendClass("CADisplayLink", () => ({
+import { chainCtor, instanceProperty, instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CADisplayLink = NSObject.extendClass("CADisplayLink", () => ({
     constructor: function (handle) {
       if (!handle) throw "use CADisplayLink.displayLink instead of new CADisplayLink";
 
-      objc.chainCtor (CADisplayLink, this, arguments);
+      chainCtor (CADisplayLink, this, arguments);
     },
 
     // Creating Instances
-    displayLink: objc.staticSelector("displayLinkWithTarget:selector:"),
+    displayLink: staticSelector("displayLinkWithTarget:selector:"),
 
     // Scheduling the Display Link to Send Notifications
-    addToRunLoop: objc.instanceSelector("addToRunLoop:forMode:"),
-    removeFromRunLoop: objc.instanceSelector("removeFromRunLoop:forMode:"),
-    invalidate: objc.instanceSelector("invalidate"),
+    addToRunLoop: instanceSelector("addToRunLoop:forMode:"),
+    removeFromRunLoop: instanceSelector("removeFromRunLoop:forMode:"),
+    invalidate: instanceSelector("invalidate"),
 
     // Configuring the Display Link
-    duration: objc.instanceProperty(),
-    frameInterval: objc.instanceProperty(),
-    paused: objc.instanceProperty(),
-    timestamp: objc.instanceProperty()
+    duration: instanceProperty(),
+    frameInterval: instanceProperty(),
+    paused: instanceProperty(),
+    timestamp: instanceProperty()
 
 }));

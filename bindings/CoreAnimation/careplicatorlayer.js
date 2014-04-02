@@ -1,21 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CAReplicationLayer;
-_exports.CAReplicationLayer = CAReplicationLayer = CALayer.extendClass("CAReplicationLayer", () => ({
+import { instanceProperty } from '../objc';
+import { CALayer } from 'calayer';
+
+export let CAReplicationLayer = CALayer.extendClass("CAReplicationLayer", () => ({
 
     // Setting Instance Display Properties
-    instanceCount: objc.instanceProperty(),
-    instanceDelay: objc.instanceProperty(),
-    instanceTransform: objc.instanceProperty(),
+    instanceCount: instanceProperty(),
+    instanceDelay: instanceProperty(),
+    instanceTransform: instanceProperty(),
 
     // Modifying Instance Layer Geometry
-    preservesDepth: objc.instanceProperty(),
+    preservesDepth: instanceProperty(),
 
     // Accessing Instance Color Values
-    instanceColor: objc.instanceProperty(),
-    instanceRedOffset: objc.instanceProperty(),
-    instanceGreenOffset: objc.instanceProperty(),
-    instanceBlueOffset: objc.instanceProperty(),
-    instanceAlphaOffset: objc.instanceProperty()
+    instanceColor: instanceProperty(),
+    instanceRedOffset: instanceProperty(),
+    instanceGreenOffset: instanceProperty(),
+    instanceBlueOffset: instanceProperty(),
+    instanceAlphaOffset: instanceProperty()
 
 }));

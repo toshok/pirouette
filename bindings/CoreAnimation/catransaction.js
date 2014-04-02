@@ -1,29 +1,31 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var CATransaction;
-_exports.CATransaction = CATransaction = foundation.NSObject.extendClass("CATransaction", () => ({
+import { staticProperty, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let CATransaction = foundation.NSObject.extendClass("CATransaction", () => ({
 
     // Creating and Committing Transactions
-    begin: objc.staticSelector("begin"),
-    commit: objc.staticSelector("commit"),
-    flush: objc.staticSelector("flush"),
+    begin: staticSelector("begin"),
+    commit: staticSelector("commit"),
+    flush: staticSelector("flush"),
 
     // Overriding Animation Duration and Timing
-    animationDuration: objc.staticProperty(),
-    animationTimingFunction: objc.staticProperty(),
+    animationDuration: staticProperty(),
+    animationTimingFunction: staticProperty(),
 
     // Temporarily Disabling Property Animations
-    disableAction: objc.staticProperty(),
+    disableAction: staticProperty(),
 
     // Getting and Setting Completion Block Objects
-    completionBlock: objc.staticProperty(),
+    completionBlock: staticProperty(),
 
     // Managing Concurrency
-    lock: objc.staticSelector("lock"),
-    unlock: objc.staticSelector("unlock"),
+    lock: staticSelector("lock"),
+    unlock: staticSelector("unlock"),
 
     // Getting and Setting Transaction Properties
-    setValue: objc.staticSelector("setValue:forKey:"),
-    valueForKey: objc.staticSelector("valueForKey:")
+    setValue: staticSelector("setValue:forKey:"),
+    valueForKey: staticSelector("valueForKey:")
 
 }));

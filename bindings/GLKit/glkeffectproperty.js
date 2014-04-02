@@ -1,4 +1,4 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKEffectProperty;
-_exports.GLKEffectProperty = GLKEffectProperty = foundation.NSObject.extendClass ("GLKEffectProperty", {});
+import { NSObject } from '../foundation';
+export let GLKEffectProperty = NSObject.extendClass ("GLKEffectProperty", {});

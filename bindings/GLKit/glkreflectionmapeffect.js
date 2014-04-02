@@ -1,13 +1,15 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKReflectionMapEffect;
-_exports.GLKReflectionMapEffect = GLKReflectionMapEffect = GLKBaseEffect.extendClass ("GLKReflectionMapEffect", () => ({
+import { instanceProperty, instanceSelector } from '../objc';
+import { GLKBaseEffect } from 'glkbaseeffect';
+
+export let GLKReflectionMapEffect = GLKBaseEffect.extendClass ("GLKReflectionMapEffect", () => ({
 
     // Preparing the Reflection Effect
-    prepareToDraw: objc.instanceSelector("prepareToDraw"),
+    prepareToDraw: instanceSelector("prepareToDraw"),
 
     // Effect Properties
-    textureCubeMap: objc.instanceProperty(),
-    matrix: objc.instanceProperty()
+    textureCubeMap: instanceProperty(),
+    matrix: instanceProperty()
 
 }));

@@ -1,25 +1,27 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKSkyboxEffect;
-_exports.GLKSkyboxEffect = GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkyboxEffect", () => ({
+import { instanceProperty, instanceSelector } from '../objc';
+import { GLKBaseEffect } from 'glkbaseeffect';
+
+export let GLKSkyboxEffect = GLKBaseEffect.extendClass ("GLKSkyboxEffect", () => ({
 
     // Naming the Effect
-    label: objc.instanceProperty(),
+    label: instanceProperty(),
 
     // Preparing the Effect for Rendering
-    prepareToDraw: objc.instanceSelector("prepareToDraw"),
+    prepareToDraw: instanceSelector("prepareToDraw"),
 
     // Drawing the Skybox
-    draw: objc.instanceSelector("draw"),
+    draw: instanceSelector("draw"),
 
     // Configuring the Skybox
-    textureCubeMap: objc.instanceProperty(),
-    center: objc.instanceProperty(),
-    xSize: objc.instanceProperty(),
-    ySize: objc.instanceProperty(),
-    zSize: objc.instanceProperty(),
+    textureCubeMap: instanceProperty(),
+    center: instanceProperty(),
+    xSize: instanceProperty(),
+    ySize: instanceProperty(),
+    zSize: instanceProperty(),
 
     // Setting the Skybox Transform
-    transform: objc.instanceProperty()
+    transform: instanceProperty()
 
 }));

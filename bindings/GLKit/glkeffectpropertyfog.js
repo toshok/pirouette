@@ -1,16 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKEffectPropertyFog;
-_exports.GLKEffectPropertyFog = GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", () => ({
+import { instanceProperty } from '../objc';
+import { GLKEffectProprty } from 'glkeffectproperty';
+
+export let GLKEffectPropertyFog = GLKEffectProperty.extendClass ("GLKEffectPropertyFog", () => ({
     // Enabling Fog
-    enabled: objc.instanceProperty(),
+    enabled: instanceProperty(),
 
     // Choosing the Fog Mode
-    mode: objc.instanceProperty(),
+    mode: instanceProperty(),
 
     // Fog Properties
-    color: objc.instanceProperty(),
-    density: objc.instanceProperty(),
-    start: objc.instanceProperty(),
-    end: objc.instanceProperty()
+    color: instanceProperty(),
+    density: instanceProperty(),
+    start: instanceProperty(),
+    end: instanceProperty()
 }));

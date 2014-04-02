@@ -1,40 +1,42 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKBaseEffect;
-_exports.GLKBaseEffect = GLKBaseEffect = foundation.NSObject.extendClass("GLKBaseEffect", () => ({
+import { instanceProperty, instanceSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let GLKBaseEffect = NSObject.extendClass("GLKBaseEffect", () => ({
 
     // XXX ES6-port
     // @mixinProtocol GLKNamedEffect
 
     // Naming the Effect
-    label: objc.instanceProperty(),
+    label: instanceProperty(),
 
     // Configuring the Modelview Transform
-    transform: objc.instanceProperty(),
+    transform: instanceProperty(),
 
     // Configuring Lights
-    lightingType: objc.instanceProperty(),
-    lightModelTwoSided: objc.instanceProperty(),
-    material: objc.instanceProperty(),
-    lightModelAmbientColor: objc.instanceProperty(),
-    light0: objc.instanceProperty(),
-    light1: objc.instanceProperty(),
-    light2: objc.instanceProperty(),
+    lightingType: instanceProperty(),
+    lightModelTwoSided: instanceProperty(),
+    material: instanceProperty(),
+    lightModelAmbientColor: instanceProperty(),
+    light0: instanceProperty(),
+    light1: instanceProperty(),
+    light2: instanceProperty(),
 
     // Configuring Textures
-    texturingEnabled: objc.instanceProperty(),
-    texture2d0: objc.instanceProperty(),
-    texture2d1: objc.instanceProperty(),
-    textureOrder: objc.instanceProperty(),
+    texturingEnabled: instanceProperty(),
+    texture2d0: instanceProperty(),
+    texture2d1: instanceProperty(),
+    textureOrder: instanceProperty(),
 
     // Configuring Fog
-    fog: objc.instanceProperty(),
+    fog: instanceProperty(),
 
     // Configuring Color Information
-    colorMaterialEnabled: objc.instanceProperty(),
-    useConstantColor: objc.instanceProperty(),
-    constantColor: objc.instanceProperty(),
+    colorMaterialEnabled: instanceProperty(),
+    useConstantColor: instanceProperty(),
+    constantColor: instanceProperty(),
 
     // Preparing the Effect for Drawing
-    prepareToDraw: objc.instanceSelector()
+    prepareToDraw: instanceSelector()
 }));

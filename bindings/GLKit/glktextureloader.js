@@ -1,35 +1,37 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-var GLKTextureLoader;
-_exports.GLKTextureLoader = GLKTextureLoader = foundation.NSObject.extendClass ("GLKTextureLoader", () => ({
+import { instanceSelector, staticSelector } from '../objc';
+import { NSObject } from '../foundation';
+
+export let GLKTextureLoader = NSObject.extendClass ("GLKTextureLoader", () => ({
 
     // Initialization
-    initWithSharegroup: objc.instanceSelector("initWithSharegroup:"),
+    initWithSharegroup: instanceSelector("initWithSharegroup:"),
 
     // Loading Textures from Files
-    textureWithContentsOfFile: objc.staticSelector("textureWithContentsOfFile:options:error:"),
-    textureWithContentsOfFileWithQueue: objc.instanceSelector("textureWithContentsOfFile:options:queue:completionHandler:"),
+    textureWithContentsOfFile: staticSelector("textureWithContentsOfFile:options:error:"),
+    textureWithContentsOfFileWithQueue: instanceSelector("textureWithContentsOfFile:options:queue:completionHandler:"),
 
     // Loading a Texture From a URL
-    textureWithContentsOfURL: objc.staticSelector("textureWithContentsOfURL:options:error:"),
-    textureWithContentsOfURLWithQueue: objc.instanceSelector("textureWithContentsOfURL:options:queue:completionHandler:"),
+    textureWithContentsOfURL: staticSelector("textureWithContentsOfURL:options:error:"),
+    textureWithContentsOfURLWithQueue: instanceSelector("textureWithContentsOfURL:options:queue:completionHandler:"),
 
     // Creating Textures from In-Memory Representations
-    textureWithContentsOfData: objc.staticSelector("textureWithContentsOfData:options:error:"),
-    textureWithContentsOfDataWithQueue: objc.instanceSelector("textureWithContentsOfData:options:queue:completionHandler:"),
+    textureWithContentsOfData: staticSelector("textureWithContentsOfData:options:error:"),
+    textureWithContentsOfDataWithQueue: instanceSelector("textureWithContentsOfData:options:queue:completionHandler:"),
 
     // Creating Textures from CGImages
-    textureWithCGImage: objc.staticSelector("textureWithCGImage:options:error:"),
-    textureWithCGImageWithQueue: objc.instanceSelector("textureWithCGImage:options:queue:completionHandler:"),
+    textureWithCGImage: staticSelector("textureWithCGImage:options:error:"),
+    textureWithCGImageWithQueue: instanceSelector("textureWithCGImage:options:queue:completionHandler:"),
 
     // Loading Cube Maps from Files
-    cubeMapWithContentsOfFile: objc.staticSelector("cubeMapWithContentsOfFile:options:error:"),
-    cubeMapWithContentsOfFileWithQueue: objc.instanceSelector("cubeMapWithContentsOfFile:options:queue:completionHandler:"),
-    cubeMapWithContentsOfFiles: objc.staticSelector("cubeMapWithContentsOfFiles:options:error:"),
-    cubeMapWithContentsOfFilesWithQueue: objc.instanceSelector("cubeMapWithContentsOfFiles:options:queue:completionHandler:"),
+    cubeMapWithContentsOfFile: staticSelector("cubeMapWithContentsOfFile:options:error:"),
+    cubeMapWithContentsOfFileWithQueue: instanceSelector("cubeMapWithContentsOfFile:options:queue:completionHandler:"),
+    cubeMapWithContentsOfFiles: staticSelector("cubeMapWithContentsOfFiles:options:error:"),
+    cubeMapWithContentsOfFilesWithQueue: instanceSelector("cubeMapWithContentsOfFiles:options:queue:completionHandler:"),
 
     // Loading Cube Maps from URLs
-    cubeMapWithContentsOfURL: objc.staticSelector("cubeMapWithContentsOfURL:options:error:"),
-    cubeMapWithContentsOfURLWithQueue: objc.instanceSelector("cubeMapWithContentsOfURL:options:queue:completionHandler:")
+    cubeMapWithContentsOfURL: staticSelector("cubeMapWithContentsOfURL:options:error:"),
+    cubeMapWithContentsOfURLWithQueue: instanceSelector("cubeMapWithContentsOfURL:options:queue:completionHandler:")
 
 }));

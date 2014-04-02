@@ -1,46 +1,23 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-"use strict";
 
-let objc = require("objc"),
-    objc_internal = require("objc_internal"),
-    foundation = require("foundation"),
-    uikit = require("uikit"),
-    gles = require("opengles");
+// not yet
+//import "@framework GLKit";
 
-objc.requireFramework("GLKit");
-
-let _exports = exports;
-
-let GLKViewDrawableColorFormat;
-_exports.GLKViewDrawableColorFormat = GLKViewDrawableColorFormat = objc.makeEnum({
-   rgba8888 : 0,
-   rgb565   : 1
-});
-
-let GLKViewDrawableDepthFormat;
-_exports.GLKViewDrawableDepthFormat = GLKViewDrawableDepthFormat = objc.makeEnum({
-   depthNone : 0,
-   depth16   : 1,
-   depth24   : 2
-});
-
-let GLKViewDrawableStencilFormat;
-_exports.GLKViewDrawableStencilFormat = GLKViewDrawableStencilFormat = objc.makeEnum({
-   stencilNone : 0,
-   stencil8    : 1
-});
-
-let GLKViewDrawableMultisample;
-_exports.GLKViewDrawableMultisample = GLKViewDrawableMultisample = objc.makeEnum({
-   multisampleNone : 0,
-   multisample4X   : 1
-});
-
-let GLKVertexAttrib;
-_exports.GLKVertexAttrib = GLKVertexAttrib = objc.makeEnum({
-   position  : 0,
-   normal    : 1,
-   color     : 2,
-   texCoord0 : 3,
-   texCoord1 : 4
-});
+export { GLKViewDrawableColorFormat, GLKViewDrawableDepthFormat, GLKViewDrawableStencilFormat, GLKViewDrawableMultisample, GLKVertexAttrib } from 'GLKit/enums';
+export { GLKBaseEffect } from 'GLKit/glkbaseeffect';
+export { GLKCanvasView } from 'GLKit/glkcanvasview';
+export { GLKEffectProperty } from 'GLKit/glkeffectproperty';
+export { GLKEffectPropertyFog } from 'GLKit/glkeffectpropertyfog';
+export { GLKEffectPropertyLight } from 'GLKit/glkeffectpropertyLight';
+export { GLKEffectPropertyMaterial } from 'GLKit/glkeffectpropertymaterial';
+export { GLKEffectPropertyTexture } from 'GLKit/glkeffectpropertytexture';
+export { GLKEffectPropertyTransform } from 'GLKit/glkeffectpropertytransform';
+export { GLKNamedEffect } from 'GLKit/glknamedeffect';
+export { GLKReflectionMapEffect } from 'GLKit/glkreflectionmapeffect';
+export { GLKSkyBoxEffect } from 'GLKit/glkskyboxeffect';
+export { GLKTextureInfo } from 'GLKit/glktextureinfo';
+export { GLKTextureLoader } from 'GLKit/glktextureloader';
+export { GLKView } from 'GLKit/glkview';
+export { GLKViewController } from 'GLKit/glkviewcontroller';
+export { GLKViewControllerDelegate } from 'GLKit/glkviewcontrollerDelegate';
+export { GLKViewDelegate } from 'GLKit/glkviewdelegate';

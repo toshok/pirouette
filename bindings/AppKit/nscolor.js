@@ -1,5 +1,5 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-import { staticSelector, staticProperty, instanceSelector, instanceProperty } from "../objc"
+import { staticSelector, staticProperty, instanceSelector, instanceProperty } from "../objc";
 import { NSObject } from '../foundation';
 
 export let NSColor = NSObject.extendClass("NSColor", () => ({

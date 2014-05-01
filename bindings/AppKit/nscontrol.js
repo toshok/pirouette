@@ -97,7 +97,7 @@ export let NSControlProxy = NSObject.extendClass("NSControlProxy", () => ({
 
     proxyAction: instanceSelector("action").
                                returns( function() { return sig.Void; }).
-			        params( function() { return [NSObject]; }).
-				  impl( function() { return this.fn(); })
+                                params( function() { return [NSObject]; }).
+                                  impl( function() { return this.fn(); })
 
 }));

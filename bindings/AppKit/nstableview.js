@@ -2,6 +2,8 @@
 
 import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
 import { NSControl } from 'nscontrol';
+import { NSTableViewDataSource } from 'nstableviewdatasource';
+import { NSTableViewDelegate } from 'nstableviewdelegate';
 
 export let NSTableView = NSControl.extendClass("NSTableView", () => ({
     // Creating the Displayed Views

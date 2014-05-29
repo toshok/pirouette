@@ -1,7 +1,10 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
-module objc_internal from '@objc_internal';
 
-import { NSObject } from 'foundation';
+module objc_internal from '@objc_internal';
+// don't use "import { NSObject } from 'foundation'" here, since that
+// creates a local binding.  this fails to initialize things properly
+// due to circular dependencies
+module foundation from 'foundation';
 
 export const sig = {
   Class:     function() { return "//"; },
@@ -596,7 +599,7 @@ export function autobox(obj, protocol) {
     if (does_not_conform_to(obj, protocol) || does_not_conform_to(obj.constructor, protocol)) return obj;
 
     let proxy_name = `ProtocolProxy${autoboxCount++}(${protocol._ck_register})`;
-    let ProtocolProxy = createClass (proxy_name, NSObject, {});
+    let ProtocolProxy = createClass (proxy_name, foundation.NSObject, {});
 
     // first check for required methods.  if obj doesn't implement them, error out.
     Object.getOwnPropertyNames(protocol.prototype).forEach(function (key) {

@@ -595,8 +595,8 @@ export function autobox(obj, protocol) {
     // then we can just use the object, without the proxy
     if (does_not_conform_to(obj, protocol) || does_not_conform_to(obj.constructor, protocol)) return obj;
 
-    let proxy_name = "ProtocolProxy" + String(autoboxCount++) + "(" + protocol._ck_register + ")";
-    let ProtocolProxy = createClass (proxy_name, foundation.NSObject, {});
+    let proxy_name = `ProtocolProxy${autoboxCount++}(${protocol._ck_register})`;
+    let ProtocolProxy = createClass (proxy_name, NSObject, {});
 
     // first check for required methods.  if obj doesn't implement them, error out.
     Object.getOwnPropertyNames(protocol.prototype).forEach(function (key) {

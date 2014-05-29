@@ -691,6 +691,6 @@ export function makeEnum(spec) {
   Object.getOwnPropertyNames(spec).forEach (function (name) {
     addConstant (rv, name, spec[name]);
   });
-  Object.freeze(rv);
+  //Object.freeze(rv); XXX ejs freeze isn't working atm
   return rv;
 };

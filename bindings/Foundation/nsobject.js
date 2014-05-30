@@ -19,13 +19,13 @@ export let NSObject = extendClass("NSObject", PirouetteObject, () => ({
     },
 
     toString: function () {
-      return "[" + String(this.constructor._ck_register) + " " + this.handle.toString() + "]";
+      return `[${this.constructor._ck_register} ${this.handle.toString()}]`;
     }
 
 }));
 
 NSObject.alloc = function() {
-  //console.log ("NSObject.alloc(" + this._ck_register + ")");
+  //console.log (`NSObject.alloc(${this._ck_register})`);
   return allocInstance (this._ck_register);
 };
 
@@ -34,10 +34,10 @@ NSObject.getTypeSignature = function() {
 };
 
 NSObject.newWith = function(newInfo) {
-  let methodname = "initWith" + newInfo.initWith;
+  let methodname = `initWith${newInfo.initWith}`;
   let meth = this.prototype[methodname];
   if (typeof meth !== 'function') {
-    let err = "no method '" + methodname + "' defined in " + this.name + ".prototype";
+    let err = `no method '${methodname}' defined in ${this.name}.prototype`;
     console.log(err);
     throw err;
   }

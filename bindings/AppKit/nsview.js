@@ -8,7 +8,7 @@ export let NSView = NSResponder.extendClass("NSView", () => ({
     initWithFrame: instanceSelector("initWithFrame:"),
 
     // Managing the View Hierarchy
-    superview: instanceSelector("superview"),
+    superview: instanceProperty({set: null}),
     setSubviews: instanceSelector("setSubviews:"),
     subviews: instanceSelector("subviews"),
     window: instanceSelector("window"),

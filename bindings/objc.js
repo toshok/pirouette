@@ -40,7 +40,7 @@ function typeSignature(types) {
     if (typeof t === "string") return t;
     if (t.getTypeSignature) return t.getTypeSignature();
     if (typeof t === "function") return t();
-    throw "unable to find a type signature mapping for type " + t;
+    throw new Error(`unable to find a type signature mapping for type ${t}`);
   };
   return types.map(function(t) { return getTypeSignature(t); }).join('');
 };
@@ -63,7 +63,7 @@ function signatureFromTypeGetters(returnTypeGetter, paramTypesGetter) {
 
 
 export function instanceSelector (selector) {
-  //console.log ("adding instanceSelector for " + seletor);
+  //console.log (`adding instanceSelector for ${seletor}`);
   let instance_info = Object.create(null);
   instance_info.sel = selector;
   instance_info.makeUIAppearance = function() {
@@ -93,7 +93,7 @@ export function instanceSelector (selector) {
     return instance_info;
   };
   instance_info.register = function(cls, name) {
-    //console.log ("instance_info.register, name = " + name + ", selector = " + selector);
+    //console.log (`instance_info.register, name = ${name}, selector = ${selector}`);
 
     instance_info.sel = instance_info.sel || name;
     instance_info.declaringType = cls;
@@ -116,7 +116,7 @@ export function instanceSelector (selector) {
       fsig = signatureFromTypeGetters(instance_info.returnTypeGetter, instance_info.paramTypesGetter);
     }
     catch (e) {
-      console.warn ("exception registering " + selector + ", type error");
+      console.warn (`exception registering ${selector}, type error`);
     }
     if (!fsig) fsig = "@@:";
 
@@ -169,7 +169,7 @@ export function RegisterAttribute(obj, name) {
 };
 
 export function SelectorAttribute(obj, sel_name, type_sig) {
-  //console.log ("In SelectorAttribute (" + sel_name + ", " + type_sig + ")");
+  //console.log (`In SelectorAttribute (${sel_name}, ${type_sig})`);
   Attribute.call(this, obj);
   obj._ck_exported = true;
   obj._ck_sel = sel_name;
@@ -237,7 +237,7 @@ export function ConformsToProtocolAttribute(obj, protocol) {
 
     let fn = obj.prototype[key];
     if (typeof (fn) === "function") {
-      console.log ("found protocol entry " + obj._ck_register + "." + key + "!");
+      console.log (`found protocol entry ${protocol._ck_register}.${key} (selector ${selector})!`);
 
       let inst_info = instanceSelector(selector);
       if (protocol_item.returnTypeGetter) inst_info.returns(protocol_item.returnTypeGetter);
@@ -290,8 +290,8 @@ export function override () {
     }
 
     if (!overridden) {
-      console.warn ("Failed to find overridden method for " + name);
-      throw "Failed to find overridden method for " + name;
+      console.warn (`Failed to find overridden method for ${name}`);
+      throw new Error(`Failed to find overridden method for ${name}`);
     }
 
     let inst_info = instanceSelector(overridden.sel);
@@ -382,7 +382,7 @@ function optsToPropertyDesc (name, opts) {
 
   if (!opts) {
     getter = selectorInvoker(name);
-    setter = selectorInvoker("set" + name[0].toUpperCase() + name.slice(1) + ":");
+    setter = selectorInvoker(`set${name[0].toUpperCase()}${name.slice(1)}:`);
   }
   else {
     // the value for the set/get members of opts overrides this above behavior.
@@ -401,7 +401,7 @@ function optsToPropertyDesc (name, opts) {
       }
     }
     else {
-      //console.log ("default getter " + name);
+      //console.log (`default getter ${name}`);
       getter = selectorInvoker(name);
     }
 
@@ -417,7 +417,7 @@ function optsToPropertyDesc (name, opts) {
     }
     else {
       //console.log ("default setter");
-      setter = selectorInvoker("set" + name[0].toUpperCase() + name.slice(1) + ":");
+      setter = selectorInvoker(`set${name[0].toUpperCase()}${name.slice(1)}:`);
     }
 
     if ("ivar" in opts) {
@@ -439,7 +439,7 @@ function addProperty (opts, instance) {
   info.instance = instance;
 
   info.register = function(cls, jsprop) {
-    //console.log ("registering property descriptor on " + (info.instance ? "instance" : "ctor") + ", for jsprop = " + jsprop);
+    //console.log (`registering property descriptor on ${info.instance ? "instance" : "ctor"}, for jsprop = ${jsprop}`);
 
     let desc = optsToPropertyDesc(jsprop, opts);
     if (info._ck_appearance) {
@@ -473,12 +473,12 @@ function protocolMethod(selector, required) {
   info.method = selector;
   info.required = required;
   info.returns = function (typeGetter) {
-    console.log ("setting return type for selector " + selector);
+    console.log (`setting return type for selector ${selector}`);
     info.returnTypeGetter = typeGetter;
     return info;
   };
   info.params = function (typeGetter) {
-    console.log ("setting param types for selector " + selector);
+    console.log (`setting param types for selector ${selector}`);
     info.paramTypesGetter = typeGetter;
     return info;
   };
@@ -534,7 +534,7 @@ export function chainCtor(cls, self, args) {
 }
 
 function createClass(name, baseType, description) {
-  //console.log ("createClass 1 : " + name);
+  //console.log (`createClass 1 : ${name}`);
 
   let ctor = function () {
     chainCtor(ctor, this, arguments);
@@ -556,7 +556,7 @@ function createClass(name, baseType, description) {
 	info.register(type_ctor, pname);
       }
       else {
-	//console.log ("description for " + name + " contains unregisterable property " + pname + ", registering it on the prototype.");
+	//console.log (`description for ${name} contains unregisterable property ${pname}, registering it on the prototype.`);
 	Object.defineProperty(type_ctor.prototype, pname, { value: info, configurable: true, writable: true });
       }
     });
@@ -585,7 +585,7 @@ export function extendClass(name, baseType, description, protocols) {
   return ctor;
 };
 
-console.log("extendClass " + Object.prototype.toString.call(extendClass));
+console.log(`extendClass ${Object.prototype.toString.call(extendClass)}`);
 export function createExtendClass(ctor) {
   ctor.extendClass = function(name, description, protocols) {
     return extendClass(name, ctor, description, protocols);
@@ -606,8 +606,8 @@ export function autobox(obj, protocol) {
         let value = protocol.prototype[key];
 
 	if (value.required && !obj[key]) {
-          if (value.method) throw String(obj) + " is missing required method " + key + " from protocol " + protocol._ck_register;
-          if (value.property) throw String(obj) + " is missing required property " + key + " from protocol " + protocol._ck_register;
+          if (value.method) throw new Error(`${String(obj)} is missing required method ${key} from protocol ${protocol._ck_register}`);
+          if (value.property) throw new Error(`${String(obj)} is missing required property ${key} from protocol ${protocol._ck_register}`);
 	}
     });
 
@@ -617,7 +617,7 @@ export function autobox(obj, protocol) {
         let pv = protocol.prototype[key];
 
         if (!pv) {
-	  //console.log ("skipping autobox key " + key);
+	  //console.log (`skipping autobox key ${key}`);
 	  return;
 	}
 
@@ -628,7 +628,7 @@ export function autobox(obj, protocol) {
             new SelectorAttribute(ProtocolProxy.prototype[key], pv.method, fsig);
         }
         else {
-	  throw "unhandled case:  property " + key + " overriding from a protocol " + String(protocol);
+	  throw new Error (`unhandled case:  property ${key} overriding from a protocol ${String(protocol)}`);
         }
     });
 
@@ -646,8 +646,8 @@ export function autoboxProperty(protocolType) {
   autobox_info.register = function (cls, jsprop) {
     let propinfo = addProperty ({ set: function (v) {
 				    if (!autobox_info.invoker) {
-				      //console.log ("autobox selector = " + "set" + jsprop[0].toUpperCase() + jsprop.slice(1) + ":");
-				      autobox_info.invoker = selectorInvoker("set" + jsprop[0].toUpperCase() + jsprop.slice(1) + ":");
+				      //console.log (`autobox selector = set${jsprop[0].toUpperCase()}${jsprop.slice(1)}:`);
+				      autobox_info.invoker = selectorInvoker(`set${jsprop[0].toUpperCase()}${jsprop.slice(1)}:`);
 				    }
 				    autobox_info.invoker.call (this, autobox(v, autobox_info.protocolType));
 				  }
@@ -663,17 +663,17 @@ export function outlet (outletType) {
 
   outlet_info.outletType = outletType;
   outlet_info.register = function (cls, jsprop) {
-    console.log ("registering outlet property " + jsprop);
+    console.log (`registering outlet property ${jsprop}`);
     let propinfo = addProperty ({ get: function() {
-				    console.log("in getter for " + jsprop + ", this = " + this.constructor._ck_register + ", outlet type = " + outlet_info.outletType._ck_register);
+				    console.log(`in getter for ${jsprop}, this = ${this.constructor._ck_register}, outlet type = ${outlet_info.outletType._ck_register}`);
 				    let ivar_val = objc_internal.getInstanceVariable(this, jsprop);
 				    let outlet_val = ivar_val == null ? null : new outlet_info.outletType (ivar_val);
-				    console.log("   value is " + outlet_val);
+				    console.log(`   value is ${outlet_val}`);
 				    return outlet_val;
 				  },
 
 				  set: function(v) {
-				    console.log("in setter for " + jsprop + ", this = " + this.constructor._ck_register);
+				    console.log(`in setter for ${jsprop}, this = ${this.constructor._ck_register}`);
 				    objc_internal.setInstanceVariable(this, jsprop, v);
 				  },
 
@@ -694,6 +694,6 @@ export function makeEnum(spec) {
   Object.getOwnPropertyNames(spec).forEach (function (name) {
     addConstant (rv, name, spec[name]);
   });
-  //Object.freeze(rv); XXX ejs freeze isn't working atm
+  Object.freeze(rv); //XXX ejs freeze isn't working atm
   return rv;
 };

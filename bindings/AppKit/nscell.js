@@ -179,3 +179,10 @@ export let NSCell = NSObject.extendClass("NSCell", () => ({
     //
     userInterfaceLayoutDirection: instanceProperty()
 }));
+
+NSCell.newImageCell = function(anImage) {
+    return new NSCell().initImageCell(anImage);
+};
+NSCell.newTextCell = function(aString) {
+    return new NSCell().initTextCell(aString);
+};

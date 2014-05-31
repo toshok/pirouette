@@ -1,13 +1,19 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-import { optionalMethod } from '../objc';
-import { Protocol } from '../foundation';
+import { optionalMethod, sig } from '../objc';
+import { Protocol, NSObject } from '../foundation';
+import { NSTableColumn } from "nstablecolumn";
 
 export let NSTableViewDataSource = Protocol.extendClass("NSTableViewDataSource", () => ({
 
     // Getting Values
-    numberOfRows: optionalMethod ("numberOfRowsInTableView:"),
-    objectValueFor: optionalMethod ("tableView:objectValueForTableColumn:row:"),
+    numberOfRows: optionalMethod ("numberOfRowsInTableView:").
+	returns (function() { return sig.NSInteger; }).
+	params (function() { return [ NSObject ]; }),
+
+    objectValueFor: optionalMethod ("tableView:objectValueForTableColumn:row:").
+	returns (function() { return NSObject; }).
+	params (function() { return [ NSTableColumn, sig.NSInteger ]; }),
 
     // Setting Values
     setObjectValue: optionalMethod ("tableView:setObjectValue:forTableColumn:row:"),

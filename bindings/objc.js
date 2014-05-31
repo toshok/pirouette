@@ -32,7 +32,9 @@ export const sig = {
   // some things we're hardcoding here until/unless we move them into their respective bindings
   CVTimeStamp: function() { return "{?=IiqQdq{CVSMPTETime=ssIIIssss}QQ}"; },
   CGAffineTransform: function() { return "{CGAffineTransform=ffffff}"; },
-  CGContext: function() { return "{CGContext=}"; }
+  CGContext: function() { return "{CGContext=}"; },
+  NSInteger: function() { return "q"; }, // XXX osx/arm64 specific
+  NSUInteger: function() { return "Q"; }, // XXX osx/arm64 specific
 };
 
 function typeSignature(types) {
@@ -625,6 +627,7 @@ export function autobox(obj, protocol) {
             ProtocolProxy.prototype[key] = value.bind(obj);
 	    let fsig = signatureFromTypeGetters(pv.returnTypeGetter, pv.paramTypesGetter);
 	    if (!fsig) fsig = pv.sig;
+	    console.log (`signature of protocol method ${key} is ${fsig}`);
             new SelectorAttribute(ProtocolProxy.prototype[key], pv.method, fsig);
         }
         else {

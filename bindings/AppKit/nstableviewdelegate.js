@@ -1,13 +1,18 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-import { optionalMethod } from '../objc';
-import { Protocol } from '../foundation';
+import { optionalMethod, sig } from '../objc';
+import { NSObject, Protocol } from '../foundation';
 
 export let NSTableViewDelegate = Protocol.extendClass("NSTableViewDelegate", () => ({
 
     // Providing Views for Rows and Columns
-    viewFor: optionalMethod ("tableView:viewForTableColumn:row:"),
-    viewForRow: optionalMethod ("tableView:rowViewForRow:"),
+    viewFor: optionalMethod ("tableView:viewForTableColumn:row:").
+	returns (function() { return NSObject; }).
+	params (function() { return [ NSObject, NSObject, sig.NSInteger]; }),
+
+    viewForRow: optionalMethod ("tableView:rowViewForRow:").
+	returns (function() { return NSObject; }).
+	params (function() { return [ NSObject, sig.NSInteger ]; }),
 
     // Notification of Row Views Being Added or Removed.
     addedRowView: optionalMethod ("tableView:didAddRowView:forRow:"),

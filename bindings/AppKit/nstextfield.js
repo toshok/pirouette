@@ -8,8 +8,8 @@ export let NSTextField = NSControl.extendClass("NSTextField", () => ({
 
     // Controlling Selection and Editing
     //
-    isEditable: instanceProperty({ set: "setEditable" }),
-    isSelectable: instanceProperty({ set: "setSelectable" }),
+    editable: instanceProperty({ get: "isEditable" }),
+    selectable: instanceProperty({ get: "isSelectable" }),
 
     // Controlling Rich Text Behavior
     //
@@ -31,9 +31,9 @@ export let NSTextField = NSControl.extendClass("NSTextField", () => ({
 
     // Setting a Border
     //
-    isBezeled: instanceProperty({ set: "setBezeled" }),
+    bezeled: instanceProperty({ get: "isBezeled" }),
     bezelStyle: instanceProperty(),
-    isBordered: instanceProperty({ set: "setBordered" }),
+    bordered: instanceProperty({ get: "isBordered" }),
 
     // Selecting the Text
     //

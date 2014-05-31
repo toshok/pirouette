@@ -31,7 +31,11 @@ export let NSTableViewDelegate = Protocol.extendClass("NSTableViewDelegate", () 
     shouldEdit: optionalMethod ("tableView:shouldEditTableColumn:row:"),
 
     // Setting Row and Column Size
-    rowHeight: optionalMethod ("tableView:heightOfRow:"),
+    rowHeight: optionalMethod ("tableView:heightOfRow:").
+	returns (function() { return sig.NSInteger; }).
+	params (function() { return [ NSObject, sig.NSInteger ]; }),
+
+
     sizeToFitWidth: optionalMethod ("tableView:sizeToFitWidthOfColumn:"),
 
     // Selecting Rows

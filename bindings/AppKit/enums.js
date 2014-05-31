@@ -15,21 +15,21 @@ export let NSButtonType = makeEnum({
 
 
 export let NSBezelStyle = makeEnum({
-   RoundedBezelStyle           : 1,
-   RegularSquareBezelStyle     : 2,
-   ThickSquareBezelStyle       : 3,
-   ThickerSquareBezelStyle     : 4,
-   DisclosureBezelStyle        : 5,
-   ShadowlessSquareBezelStyle  : 6,
-   CircularBezelStyle          : 7,
-   TexturedSquareBezelStyle    : 8,
-   HelpButtonBezelStyle        : 9,
-   SmallSquareBezelStyle       : 10,
-   TexturedRoundedBezelStyle   : 11,
-   RoundRectBezelStyle         : 12,
-   RecessedBezelStyle          : 13,
-   RoundedDisclosureBezelStyle : 14,
-   InlineBezelStyle            : 15,
-   SmallIconButtonBezelStyle   : 2
+   Rounded           : 1,
+   RegularSquare     : 2,
+   ThickSquare       : 3,
+   ThickerSquare     : 4,
+   Disclosure        : 5,
+   ShadowlessSquare  : 6,
+   Circular          : 7,
+   TexturedSquare    : 8,
+   HelpButton        : 9,
+   SmallSquare       : 10,
+   TexturedRounded   : 11,
+   RoundRect         : 12,
+   Recessed          : 13,
+   RoundedDisclosure : 14,
+   Inline            : 15,
+   SmallIconButton   : 2
 });
 

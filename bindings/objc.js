@@ -440,12 +440,16 @@ function addProperty (opts, instance) {
   let info = Object.create(null);
   info.instance = instance;
 
+  let setter = null;
   info.register = function(cls, jsprop) {
     //console.log (`registering property descriptor on ${info.instance ? "instance" : "ctor"}, for jsprop = ${jsprop}`);
 
     let desc = optsToPropertyDesc(jsprop, opts);
     if (info._ck_appearance) {
-      if (desc.set) desc.set._ck_appearance = true;
+      if (desc.set) {
+        desc.set._ck_appearance = true;
+	setter = desc.set;
+      }
       if (desc.get) desc.get._ck_appearance = true;
     }
 
@@ -498,7 +502,7 @@ export function requiredMethod (selector) {
   return protocolMethod (selector, true);
 };
 
-export function optionalProperty(selector, accessors) {
+export function optionalProperty(selector, args) {
   let optional_info = { property: selector, tramp: args && args.tramp, sig: args && args.sig };
   optional_info.register = function(cls, jsprop) {
     cls.prototype[jsprop] = optional_info;

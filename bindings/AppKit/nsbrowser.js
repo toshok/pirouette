@@ -1,5 +1,6 @@
 import { instanceProperty, autoboxProperty, staticProperty, instanceSelector, staticSelector } from '../objc';
 import { NSControl } from 'nscontrol';
+import { NSObject } from '../foundation';
 
 export let NSBrowser = NSControl.extendClass("NSBrowser", () => ({
 
@@ -13,7 +14,7 @@ export let NSBrowser = NSControl.extendClass("NSBrowser", () => ({
     separatesColumns:             instanceProperty(),
     takesTitleFromPreviousColumn: instanceProperty(),
     tile:                         instanceProperty({ set: null }),
-    delegate:                     autoboxProperty(NSBrowserDelegate),
+    delegate:                     autoboxProperty(NSObject /* XXX should be NSBrowserDelegate*/),
     acceptsArrowKeys:             instanceProperty(),
 
     // Getting Browser Information

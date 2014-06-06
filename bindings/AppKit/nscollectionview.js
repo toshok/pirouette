@@ -2,6 +2,7 @@
 
 import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
 import { NSView } from 'nsview';
+import { NSObject } from '../foundation';
 
 export let NSCollectionView = NSView.extendClass("NSCollectionView", () => ({
     // Modifying the Collection View Item
@@ -36,7 +37,7 @@ export let NSCollectionView = NSView.extendClass("NSCollectionView", () => ({
 
     // Getting and Setting the Delegate
     //
-    delegate: autoboxProperty(NSCollectionViewDelegate),
+    delegate: autoboxProperty(NSObject /* XXX should be NSCollectionViewDelegate*/),
 
     // Drag and Drop Support
     //

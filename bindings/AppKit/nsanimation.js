@@ -18,7 +18,7 @@ export let NSAnimation = NSObject.extendClass("NSAnimation", () => ({
 
     // Managing the Delegate
     //
-    delegate: autoboxProperty(NSAnimationDelegate),
+    delegate: autoboxProperty(NSObject /* XXX should be NSAnimationDelegate*/),
 
     // Controlling and Monitoring an Animation
     //

@@ -1,7 +1,10 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 import { extendClass, createExtendClass } from '../objc';
-import { PirouetteObject, allocInstance } from '@objc_internal';
+
+module objc_internal from '@objc_internal';
+let PirouetteObject = objc_internal.PirouetteObject;
+let allocInstance = objc_internal.allocInstance;
 
 // console.log("NSObject");
 export let NSObject = extendClass("NSObject", PirouetteObject, () => ({

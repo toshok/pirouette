@@ -2,7 +2,7 @@
 
 module objc_internal from '@objc_internal';
 
-import { instanceProperty, staticProperty, autoboxProperty, instanceSelector, staticSelector, staticCall } from '../objc';
+import { instanceProperty, staticProperty, autoboxProperty, instanceSelector, staticSelector } from '../objc';
 import { NSResponder } from '../foundation';
 import { NSApplicationDelegate } from 'nsapplicationdelegate';
 
@@ -11,7 +11,7 @@ console.log("NSApplication");
 export let NSApplication = NSResponder.extendClass("NSApplication", () => ({
     // Getting the Application
     //
-    sharedApplication: staticProperty({ get: () => new NSApplication(staticCall("NSApplication", "sharedApplication")) }),
+    sharedApplication: staticProperty({ get: () => new NSApplication(objc_internal.staticCall("NSApplication", "sharedApplication")) }),
 
     // Configuring Applications
     //

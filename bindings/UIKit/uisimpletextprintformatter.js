@@ -4,7 +4,7 @@ import { instanceProperty, instanceSelector } from '../objc';
 import { UIPrintFormatter } from 'uiprintformatter';
 
 //console.log("UISimpleTextPrintFormatter");
-export let UISimplePrintFormatter = UIPrintFormatter.extendClass ("UISimplePrintFormatter", () => ({
+export let UISimpleTextPrintFormatter = UIPrintFormatter.extendClass ("UISimpleTextPrintFormatter", () => ({
     // Creating a Simple-Text Print Formatter
     initWithText:     instanceSelector("initWithText:"),
 

@@ -2,6 +2,7 @@
 
 import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
 import { UIScrollView } from 'uiscrollview';
+import { UITextViewDelegate } from 'uitextviewdelegate';
 
 //console.log("UITextView");
 export let UITextView = UIScrollView.extendClass ("UITextView", () => ({

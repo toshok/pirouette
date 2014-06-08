@@ -1,7 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
+module objc_internal from '@objc_internal';
 import { instanceProperty } from '../objc';
-import { allocateWebGLRenderingContext } from '@objc_internal';
 import { EAGLContext, EAGLRenderingAPI } from '../opengles';
 import { GLKView } from 'glkview';
 
@@ -15,7 +15,7 @@ export let GLKCanvasView = GLKView.extendClass("GLKCanvasView", () => ({
       if (name === "experimental-webgl" || name === "webgl") {
 	if (!this.webglcontext) {
 	  this.context = new EAGLContext().initWithAPI(EAGLRenderingAPI.OpenGLES2);
-          this.webglcontext = allocateWebGLRenderingContext(this.context);
+          this.webglcontext = objc_internal.allocateWebGLRenderingContext(this.context);
 	}
 	return this.webglcontext;
       }

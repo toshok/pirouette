@@ -1,6 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
+import { UIActionSheetDelegate } from 'uiactionsheetdelegate';
 import { UIView } from 'uiview';
 
 //console.log("UIActionSheet");

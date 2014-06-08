@@ -2,6 +2,7 @@
 
 import { instanceProperty, instanceSelector, autoboxProperty } from '../objc';
 import { UIView } from 'uiview';
+import { UIAlertViewDelegate } from 'uialertviewdelegate';
 
 console.log("UIAlertView");
 export let UIAlertView = UIView.extendClass ("UIAlertView", () => ({

@@ -3,7 +3,7 @@
 import { instanceProperty } from '../objc';
 import { CALayer } from 'calayer';
 
-export let CAReplicationLayer = CALayer.extendClass("CAReplicationLayer", () => ({
+export let CAReplicatorLayer = CALayer.extendClass("CAReplicatorLayer", () => ({
 
     // Setting Instance Display Properties
     instanceCount: instanceProperty(),

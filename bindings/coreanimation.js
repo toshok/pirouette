@@ -11,6 +11,7 @@ export { CABasicAnimation } from 'CoreAnimation/cabasicanimation';
 export { CAConstraint } from 'CoreAnimation/caconstraint';
 export { CAConstraintLayoutManager } from 'CoreAnimation/caconstraintlayoutmanager';
 export { CADisplayLink } from 'CoreAnimation/cadisplaylink';
+export { CAEAGLLayer } from 'CoreAnimation/caeagllayer';
 export { CALayer } from 'CoreAnimation/calayer';
 export { CAEmitterCell } from 'CoreAnimation/caemittercell';
 export { CAEmitterLayer } from 'CoreAnimation/caemitterlayer';

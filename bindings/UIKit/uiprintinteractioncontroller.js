@@ -5,7 +5,7 @@ import { NSObject } from '../foundation';
 import { UIPrintInteractionControllerDelegate } from 'uiprintinteractioncontrollerdelegate';
 
 //console.log("UIPrintInteractionController");
-export let UIPrintPageInteractionController = NSObject.extendClass ("UIPrintPageInteractionController", () => ({
+export let UIPrintInteractionController = NSObject.extendClass ("UIPrintInteractionController", () => ({
 
     // Getting the Shared Controller Instance
     sharedPrintController: staticSelector("sharedPrintController"),

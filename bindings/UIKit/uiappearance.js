@@ -2,7 +2,7 @@
 
 //console.log("UIAppearance");
 
-import { requiredMethod, selectorInvoker, getTypeEncoding } from '../objc';
+import { requiredMethod, selectorInvoker, typeSignature } from '../objc';
 import { Protocol } from '../foundation';
 
 let appearances = Object.create(null);
@@ -30,7 +30,7 @@ function makeAppearance (sel, o /*, ...args */) {
       // it's a property
       if (fn._ck_appearance)
         if (!fn._ck_typeEncoding)
-          fn._ck_typeEncoding = getTypeEncoding(o, fn);
+          fn._ck_typeEncoding = typeSignature(o, fn);
 	  if (fn === o.prototype.__lookupGetter__(key))
             appearance.__defineGetter__(key, fn);
           else
@@ -41,7 +41,7 @@ function makeAppearance (sel, o /*, ...args */) {
       fn = o.prototype[key];
       if (fn._ck_appearance) {
 	if (!fn._ck_typeEncoding)
-	  fn._ck_typeEncoding = getTypeEncoding(o, fn);
+	  fn._ck_typeEncoding = typeSignature(o, fn);
 	appearance[key] = fn;
       }
     }

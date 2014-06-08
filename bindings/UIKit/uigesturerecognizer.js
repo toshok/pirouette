@@ -5,7 +5,7 @@ import { NSObject } from '../foundation';
 import { UIGestureRecognizerDelegate } from 'uigesturerecognizerdelegate';
 
 //console.log("UIGestureRecognizer");
-export let UIGestureRecognizer = foundation.NSObject.extendClass ("UIGestureRecognizer", () => ({
+export let UIGestureRecognizer = NSObject.extendClass ("UIGestureRecognizer", () => ({
 
     // Initializing a Gesture Recognizer
     initWithTarget: instanceSelector("initWithTarget:action:"),

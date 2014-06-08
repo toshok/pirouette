@@ -1,6 +1,6 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-import { optionalMethod } from '../objc';
+import { optionalMethod, requiredMethod } from '../objc';
 import { Protocol } from '../foundation';
 
 //console.log("UITabBarDelegate");

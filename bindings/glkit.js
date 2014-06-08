@@ -14,7 +14,7 @@ export { GLKEffectPropertyTexture } from 'GLKit/glkeffectpropertytexture';
 export { GLKEffectPropertyTransform } from 'GLKit/glkeffectpropertytransform';
 export { GLKNamedEffect } from 'GLKit/glknamedeffect';
 export { GLKReflectionMapEffect } from 'GLKit/glkreflectionmapeffect';
-export { GLKSkyBoxEffect } from 'GLKit/glkskyboxeffect';
+export { GLKSkyboxEffect } from 'GLKit/glkskyboxeffect';
 export { GLKTextureInfo } from 'GLKit/glktextureinfo';
 export { GLKTextureLoader } from 'GLKit/glktextureloader';
 export { GLKView } from 'GLKit/glkview';

@@ -5,7 +5,7 @@ import { NSObject } from '../foundation';
 
 //console.log("UIPrintInfo");
 
-export let UIPrintPageInteractionController = NSObject.extendClass ("UIPrintPageInteractionController", () => ({
+export let UIPrintInfo = NSObject.extendClass ("UIPrintInfo", () => ({
 
     // Creating a UIPrintInfo Object
     printInfo:               staticSelector("printInfo"),

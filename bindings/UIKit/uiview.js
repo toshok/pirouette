@@ -1,7 +1,7 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
 import { instanceProperty, instanceSelector, staticSelector } from '../objc';
-import { NSObject } from '../foundation';
+import { NSObject, NSRect } from '../foundation';
 import { UIResponder } from 'uiresponder';
 
 //console.log("UIView");

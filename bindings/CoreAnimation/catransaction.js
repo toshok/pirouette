@@ -3,7 +3,7 @@
 import { staticProperty, staticSelector } from '../objc';
 import { NSObject } from '../foundation';
 
-export let CATransaction = foundation.NSObject.extendClass("CATransaction", () => ({
+export let CATransaction = NSObject.extendClass("CATransaction", () => ({
 
     // Creating and Committing Transactions
     begin: staticSelector("begin"),

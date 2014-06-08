@@ -2,6 +2,7 @@
 
 import { autoboxProperty, instanceProperty, instanceSelector } from '../objc';
 import { UIViewController } from 'uiviewcontroller';
+import { UITabBarControllerDelegate } from 'uitabbarcontrollerdelegate';
 
 //console.log("UITabBarController");
 export let UITabBarController = UIViewController.extendClass ("UITabBarController", () => ({

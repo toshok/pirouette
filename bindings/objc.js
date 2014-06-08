@@ -37,7 +37,7 @@ export const sig = {
   NSUInteger: function() { return "Q"; }, // XXX osx/arm64 specific
 };
 
-function typeSignature(types) {
+export function typeSignature(types) {
   let getTypeSignature = function (t) {
     if (typeof t === "string") return t;
     if (t.getTypeSignature) return t.getTypeSignature();

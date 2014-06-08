@@ -3,8 +3,8 @@
 import { optionalMethod } from '../objc';
 import { Protocol } from '../foundation';
 
-export let CAAction = foundation.Protocol.extendClass("CAAction", () => ({
+export let CAAction = Protocol.extendClass("CAAction", () => ({
 
-    runAction:  objc.optionalMethod("runActionForKey:object:arguments:")
+    runAction:  optionalMethod("runActionForKey:object:arguments:")
 
 }));

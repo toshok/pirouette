@@ -2,7 +2,7 @@
 
 //console.log("UICanvasView");
 
-module objc_internal from '@objc_internal';
+import * as objc_internal from '@objc_internal';
 import { staticSelector, sig } from '../objc';
 import { CAEAGLLayer } from '../coreanimation';
 import { UIView } from 'uiview';

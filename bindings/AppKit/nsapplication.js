@@ -1,6 +1,6 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-module objc_internal from '@objc_internal';
+import * as objc_internal from '@objc_internal';
 
 import { instanceProperty, staticProperty, autoboxProperty, instanceSelector, staticSelector } from '../objc';
 import { NSResponder } from '../foundation';

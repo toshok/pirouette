@@ -3,7 +3,7 @@
 import { staticProperty, selectorInvoker, autoboxProperty, instanceProperty, instanceSelector } from '../objc';
 import { UIResponder } from 'uiresponder';
 import { UIApplicationDelegate } from 'uiapplicationdelegate';
-module objc_internal from '@objc_internal';
+import * as objc_internal from '@objc_internal';
 
 //console.log("UIApplication");
 export let UIApplication = UIResponder.extendClass ("UIApplication", () => ({

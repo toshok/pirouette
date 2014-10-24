@@ -2,7 +2,7 @@
 
 import { extendClass, createExtendClass } from '../objc';
 
-module objc_internal from '@objc_internal';
+import * as objc_internal from '@objc_internal';
 let PirouetteObject = objc_internal.PirouetteObject;
 let allocInstance = objc_internal.allocInstance;
 

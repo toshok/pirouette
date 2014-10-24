@@ -4,11 +4,11 @@
 
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-module objc_internal from '@objc_internal';
+import * as objc_internal from '@objc_internal';
 // don't use "import { NSObject } from 'foundation'" here, since that
 // creates a local binding.  this fails to initialize things properly
 // due to circular dependencies
-module foundation from 'foundation';
+import * as foundation from 'foundation';
 
 export const sig = {
     Class:     function() { return "//"; },

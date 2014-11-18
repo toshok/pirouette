@@ -13,66 +13,66 @@ var createCommand = require("./commands/create"),
     devCommand    = require("./commands/dev"),
     cleanCommand  = require("./commands/clean");
 
-var commands = [
-    { name: "help",
-      usage: function() { return this.name + " <Command>"; },
-      usageString: function(s) { return ": gives more detailed help for <Command>, or this output if no command is given."; },
-      run: function(args) {
-	  if (args.length === 0) {
-	      return usage();
-	  }
-	  throw "help command not implemented";
-      }
-    },
+var commands = Object.create (null, {
+    help: { enumerable: true, value: {
+	usage: function(s) { return s + " <Command>"; },
+	usageString: function(s) { return ": gives more detailed help for <Command>, or this output if no command is given."; },
+	run: function(args) {
+	    if (args.length === 0) {
+		return usage();
+	    }
+	    throw "help command not implemented";
+	}
+    }},
 
-    { name: "create",
-      usage: function() { return this.name + " <options> <ProjectName>"; },
-      usageString: function(nl_and_indent) {
-	  return              ": generates initial project template named <ProjectName> in current directory." +
-	      nl_and_indent("    where <options> may contain:") +
-	      nl_and_indent("        -ios: an iOS project") + 
-	      nl_and_indent("        -osx: an OSX project [default]");
-      },
+    create: { enumerable: true, value: {
+	usage: function(s) { return s + " <options> <ProjectName>"; },
+	usageString: function(nl_and_indent) {
+	    return              ": generates initial project template named <ProjectName> in current directory." +
+		nl_and_indent("    where <options> may contain:") +
+		nl_and_indent("        -ios: an iOS project") + 
+		nl_and_indent("        -osx: an OSX project [default]");
+	},
 
-      run: function(args) {
-	  createCommand.run(args);
-      }
-    },
+	run: function(args) {
+	    createCommand.run(args);
+	}
+    }},
 
-    { name: "build",
-      usage: function() { return this.name; },
-      usageString: function(s) { return ": Builds the current project."; },
-      run: function(args) {
-	  buildCommand.run(args);
-      }
-    },
+    build: { enumerable: true, value: {
+	usage: function(s) { return s; },
+	usageString: function(s) { return ": Builds the current project."; },
+	run: function(args) {
+	    buildCommand.run(args);
+	}
+    }},
 
-    { name: "clean",
-      usage: function() { return this.name; },
-      usageString: function(s) { return ": Cleans the current project."; },
-      run: function(args) {
-	  cleanCommand.run(args);
-      }
-    },
+    clean: { enumerable: true, value: {
+	usage: function(s) { return s; },
+	usageString: function(s) { return ": Cleans the current project."; },
+	run: function(args) {
+	    cleanCommand.run(args);
+	}
+    }},
 
-    { name: "sim",
-      usage: function() { return this.name; },
-      usageString: function(s) { return ": deploy the current project to the simulator."; },
-      run: function(args) {
-	  buildCommand.run([]); // the default build behavior is to build if necessary
-	  simCommand.run(args);
-      }
-    },
+    sim: { enumerable: true, value: {
+	usage: function(s) { return s; },
+	usageString: function(s) { return ": deploy the current project to the simulator (only available for ios projects)."; },
+	run: function(args) {
+	    buildCommand.run([]); // the default build behavior is to build if necessary
+	    simCommand.run(args);
+	}
+    }},
 
-    { name: "dev",
-      usage: function() { return this.name; },
-      usageString: function(s) { return ": deploy the current project to the device."; },
-      run: function(args) {
-	  buildCommand.run([]); // the default build behavior is to build if necessary
-	  devCommand.run(args);
-      }
-    }
-];
+    dev: { enumerable: true, value: {
+	usage: function(s) { return s; },
+	usageString: function(s) { return ": deploy the current project to the device (only available for ios projects)."; },
+	run: function(args) {
+	    buildCommand.run([]); // the default build behavior is to build if necessary
+	    devCommand.run(args);
+	}
+    }}
+});
 	    
 
 function usage() {
@@ -85,21 +85,10 @@ function usage() {
 
     console.log (" $ " + toolname + " [options] <command>");
     console.log ("where <command> is one of the following:");
-    for (var i = 0, e = commands.length; i < e; i ++) {
-	var cmd = commands[i];
-	console.log ("  " + justify(cmd.usage()) + cmd.usageString(function(str) { return "\n" + justify("") + str; }));
+    for (var cmdname in commands) {
+	var cmd = commands[cmdname];
+	console.log ("  " + justify(cmd.usage(cmdname)) + cmd.usageString(function(str) { return "\n" + justify("") + str; }));
     }
-}
-
-function findCommand(name) {
-    var cmd;
-    for (var i = 0, e = commands.length; i < e; i ++) {
-	if (commands[i].name === name) {
-	    cmd = commands[i];
-	    break;
-	}
-    }
-    return cmd;
 }
 
 if (args.length === 0) {
@@ -107,10 +96,16 @@ if (args.length === 0) {
     process.exit(0);
 }
 
-var cmd = findCommand(args[0]);
+var cmd = commands[args[0]];
 
 if (cmd) {
-    cmd.run (args.slice(1));
+    try {
+	cmd.run (args.slice(1));
+    }
+    catch (e) {
+	console.log (toolname + ": command `" + args[0] + "' failed:");
+	console.log (e);
+    }
 }
 else {
     console.log(toolname + ": Unknown command `" + args[0] + "'");

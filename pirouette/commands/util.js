@@ -50,12 +50,29 @@ function compileXib(xibPath, destDir, cb) {
   nibCompile.on('close', cb);
 }
 
+function findEjsInPATH() {
+  var ejs_full_path;
+  var paths = process.env['PATH'].split(':');
+
+  for (var i = 0, e = paths.length; i < e; i ++) {
+    var ejs_path = path.resolve(paths[i], "ejs.exe");
+    if (fs.existsSync(ejs_path)) {
+	return ejs_path;
+    }
+  }
+
+  throw new Error("could not locate ejs.exe in your PATH");
+}
+
 function compileScripts(scriptList, outFile, cb) {
 
-  // ejs --target osx -o $outFile scriptList
-  var ejsCompile = spawn("ejs",
-			 ["--target", "osx", "--basename", "-o", outFile].concat(scriptList),
-			 { stdio: 'inherit' });
+  var ejs_path = findEjsInPATH();
+
+  var binding_path = path.resolve (path.dirname (process.argv[1]), "..", "bindings");
+
+  var args = ["--target", "osx", "-o", outFile, "-I", "pirouette=" + binding_path].concat(scriptList);
+
+  var ejsCompile = spawn(ejs_path, args, { stdio: 'inherit' });
 
   ejsCompile.on('close', cb);
 }
@@ -93,8 +110,9 @@ function traverseDir(p, pre, dir_cb, file_cb) {
 }
 
 function rmDir(dir) {
-  traverseDir (dir, false, /* preorder traversal, so we can remove contents before rmdir */
-    function dir_cb (dirPath) { fs.rmdirSync(dirPath);
+  traverseDir (dir, false, /* post-order traversal, so we can remove contents before rmdir */
+    function dir_cb (dirPath) {
+      fs.rmdirSync(dirPath);
     },
     function file_cb (filePath) {
       fs.unlinkSync(filePath);

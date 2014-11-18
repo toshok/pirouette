@@ -10,11 +10,11 @@ var Configuration = {
 };
 Object.freeze(Configuration);
 
-var ProjectType = {
-  IOS: "IOS",
-  OSX: "OSX"
+var ProjectTypes = {
+  ios: "ios",
+  osx: "osx"
 };
-Object.freeze(ProjectType);
+Object.freeze(ProjectTypes);
 
 function Project(root) {
   this.root = root;
@@ -35,8 +35,9 @@ Project.findContaining = function findContaining(starting_cwd) {
   var new_cwd = starting_cwd || process.cwd();
   do {
     cwd = new_cwd;
-    if (isRootProjectDirectory(cwd))
+    if (isRootProjectDirectory(cwd)) {
       return new Project(cwd);
+    }
     new_cwd = path.dirname(cwd);
   } while (cwd !== new_cwd); // is there a better way to tell if we're at the root of the filesystem?
 
@@ -44,4 +45,5 @@ Project.findContaining = function findContaining(starting_cwd) {
 };
 
 exports.Configuration = Configuration;
+exports.ProjectTypes = ProjectTypes;
 exports.Project = Project;

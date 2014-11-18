@@ -73,16 +73,10 @@ function run(args) {
 		   function (code) {
 		     generateInfoPlist(bundle_contents, config);
 
-		     // pull all the (optional) frameworks out of the project file, add .js to the names.
-		     function frameworkNameToPath(name) {
-		       return "/Users/toshok/src/coffeekit/pirouette/bindings/generated/" + name + ".js";
-		     }
-		     var framework_js_files = (config.frameworks||[]).map(frameworkNameToPath);
-
 		     var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
 
-		     util.compileScripts([config.projectName + ".js"].concat(framework_js_files),
-					 path.relative(project.root, dest_exe),
+		     util.compileScripts([config.projectName + ".js"],
+					 path.relative(proj.root, dest_exe),
 					 function (code) {
 					 });
 		   });

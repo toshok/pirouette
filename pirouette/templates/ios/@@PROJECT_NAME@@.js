@@ -1,6 +1,6 @@
-let foundation = require('foundation'),
-    ui = require('uikit'),
-    objc = require('objc');
+import * as foundation from '$pirouette/foundation';
+import * as ui from '$pirouette/uiit';
+import * as objc from '$pirouette/objc';
 
 let HelloIOSAppDelegate = foundation.NSObject.extendClass("HelloIOSAppDelegate", {
 

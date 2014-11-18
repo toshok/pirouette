@@ -1,23 +1,24 @@
 var util = require("./util"),
     fs = require("fs"),
-    path = require("path");
+    path = require("path"),
+    project = require("./project");
 
 function run(args) {
     var project_type;
 
     switch (args[0]) {
     case "-ios":
-	project_type = "ios";
+	project_type = project.ProjectTypes.ios;
 	args.shift();
 	break;
     case "-osx":
-	project_type = "osx";
+	project_type = project.ProjectTypes.osx;
 	args.shift();
 	break;
     default:
 	if (args[0][0] == '-')
 	    throw "unrecognized option " + args[0];
-	project_type = "osx";
+	project_type = project.ProjectTypes.osx;
     }
 
     project_name = args[0];

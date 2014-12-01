@@ -31,6 +31,7 @@ export { NSColorList }                from 'AppKit/nscolorlist';
 export { NSControl }                  from 'AppKit/nscontrol';
 export { NSController }               from 'AppKit/nscontroller';
 export { NSScrollView }               from 'AppKit/nsscrollview';
+export { NSSlider }                   from 'AppKit/nsslider';
 export { NSTableCellView }            from 'AppKit/nstablecellview';
 export { NSTableColumn }              from 'AppKit/nstablecolumn';
 export { NSTableRowView }             from 'AppKit/nstablerowview';

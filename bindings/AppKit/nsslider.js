@@ -27,6 +27,22 @@ export let NSSlider = NSControl.extendClass("NSSlider", () => ({
     tickMarkPosition: instanceProperty(),
     tickMarkValueAtIndex: instanceSelector(),
 
+    valueChanged: instanceProperty({
+      set: function (v) {
+        if (v) {
+          this.proxy = new NSControlProxy(v);
+          this.target = this.proxy;
+          this.action = this.proxy.proxyAction;
+        }
+        else {
+          this.proxy = null;
+          this.target = null;
+          this.action = null;
+        }
+      },
+      get: null // TODO
+    })
+
 }));
 
 NSSlider.newWithFrame = function(frame) {

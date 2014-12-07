@@ -2,7 +2,7 @@
 
 import { instanceSelector, instanceProperty, autoboxProperty } from '../objc';
 import { NSObject } from '../foundation';
-import { NSControl } from 'nscontrol';
+import { NSControl, NSControlProxy } from 'nscontrol';
 
 export let NSTextField = NSControl.extendClass("NSTextField", () => ({
 
@@ -59,7 +59,23 @@ export let NSTextField = NSControl.extendClass("NSTextField", () => ({
     textDidBeginEditing: instanceSelector("textDidBeginEditing:"),
     textDidChange: instanceSelector("textDidChange:"),
     textShouldEndEditing: instanceSelector("textShouldEndEditing:"),
-    textDidEndEditing: instanceSelector("textDidEndEditing:")
+    textDidEndEditing: instanceSelector("textDidEndEditing:"),
+
+    textChanged: instanceProperty({
+      set: function (v) {
+        if (v) {
+	  this.proxy = new NSControlProxy(v);
+          this.target = this.proxy;
+          this.action = this.proxy.proxyAction;
+	}
+	else {
+          this.proxy = null;
+          this.target = null;
+          this.action = null;
+	}
+      },
+      get: null // TODO
+    })
 
 }));
 

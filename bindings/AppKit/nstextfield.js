@@ -64,15 +64,15 @@ export let NSTextField = NSControl.extendClass("NSTextField", () => ({
     textChanged: instanceProperty({
       set: function (v) {
         if (v) {
-	  this.proxy = new NSControlProxy(v);
+          this.proxy = new NSControlProxy(v);
           this.target = this.proxy;
           this.action = this.proxy.proxyAction;
-	}
-	else {
+        }
+        else {
           this.proxy = null;
           this.target = null;
           this.action = null;
-	}
+        }
       },
       get: null // TODO
     })

@@ -11,7 +11,7 @@ export let NSApplicationDelegate = Protocol.extendClass ("NSApplicationDelegate"
 
   // Terminating Applications
   shouldTerminate: optionalMethod("applicationShouldTerminate:"),
-  shouldTerminateAfterLastWindowClosed: optionalMethod("applicationShouldTerminateAfterLastWindowClosed:"),
+  shouldTerminateAfterLastWindowClosed: optionalMethod("applicationShouldTerminateAfterLastWindowClosed:").returns(sig.Bool),
   willTerminate: optionalMethod("applicationWillTerminate:"),
 
   // Managing Active Status

@@ -36,6 +36,11 @@ NSObject.getTypeSignature = function() {
   return "@";
 };
 
+NSObject.new = function() {
+    let instance = new this.prototype.constructor;
+    return instance;
+};
+
 NSObject.newWith = function(newInfo) {
   let methodname = `initWith${newInfo.initWith}`;
   let meth = this.prototype[methodname];

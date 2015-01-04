@@ -5,7 +5,9 @@
 
 export { NSComparisonResult } from 'Foundation/enums';
 export { NSBundle } from 'Foundation/nsbundle';
+export { NSFormatter } from 'Foundation/nsformatter';
 export { NSIndexPath } from 'Foundation/nsindexpath';
+export { NSNumberFormatter } from 'Foundation/nsnumberformatter';
 export { NSObject } from 'Foundation/nsobject';
 export { NSProcessInfo } from 'Foundation/nsprocessinfo';
 export { NSPoint } from 'Foundation/nspoint';

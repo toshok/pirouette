@@ -42,13 +42,13 @@ export let NSTextAlignment = makeEnum({
 });
 
 export let NSDatePickerStyle = makeEnum({
-    TextFieldAndStepper:    0,
-    ClockAndCalendar:       1,
-    TextField:              2
+    TextFieldAndStepper     : 0,
+    ClockAndCalendar        : 1,
+    TextField               : 2
 });
 
 export let NSDatePickerMode = makeEnum({
-    Single:     0,
-    Range:      1
+    Single      : 0,
+    Range       : 1
 });
 

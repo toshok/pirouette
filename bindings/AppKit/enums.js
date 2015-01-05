@@ -33,6 +33,14 @@ export let NSBezelStyle = makeEnum({
    SmallIconButton   : 2
 });
 
+export let NSTextAlignment = makeEnum({
+    Left             : 0,
+    Right            : 1,
+    Center           : 2,
+    Justified        : 3,
+    Natural          : 4
+});
+
 export let NSDatePickerStyle = makeEnum({
     TextFieldAndStepper:    0,
     ClockAndCalendar:       1,

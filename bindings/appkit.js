@@ -3,7 +3,7 @@
 // not yet
 //import "@framework AppKit";
 
-export { NSButtonType, NSBezelStyle, NSDatePickerStyle, NSDatePickerMode } from 'AppKit/enums';
+export { NSButtonType, NSBezelStyle, NSTextAlignment, NSDatePickerStyle, NSDatePickerMode } from 'AppKit/enums';
 export { NSActionCell }               from 'AppKit/nsactioncell';
 export { NSAlert }                    from 'AppKit/nsalert';
 export { NSAnimation }                from 'AppKit/nsanimation';

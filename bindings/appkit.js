@@ -28,6 +28,7 @@ export { NSCollectionView }           from 'AppKit/nscollectionview';
 export { NSColor }                    from 'AppKit/nscolor';
 export { NSColorList }                from 'AppKit/nscolorlist';
 //export { NSColorPanel }               from 'AppKit/nscolorpanel';
+export { NSComboBox }                 from 'AppKit/nscombobox';
 export { NSControl }                  from 'AppKit/nscontrol';
 export { NSController }               from 'AppKit/nscontroller';
 export { NSDatePicker }               from 'AppKit/nsdatepicker';

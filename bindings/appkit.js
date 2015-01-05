@@ -3,7 +3,7 @@
 // not yet
 //import "@framework AppKit";
 
-export { NSButtonType, NSBezelStyle } from 'AppKit/enums';
+export { NSButtonType, NSBezelStyle, NSDatePickerStyle, NSDatePickerMode } from 'AppKit/enums';
 export { NSActionCell }               from 'AppKit/nsactioncell';
 export { NSAlert }                    from 'AppKit/nsalert';
 export { NSAnimation }                from 'AppKit/nsanimation';
@@ -30,6 +30,7 @@ export { NSColorList }                from 'AppKit/nscolorlist';
 //export { NSColorPanel }               from 'AppKit/nscolorpanel';
 export { NSControl }                  from 'AppKit/nscontrol';
 export { NSController }               from 'AppKit/nscontroller';
+export { NSDatePicker }               from 'AppKit/nsdatepicker';
 export { NSScrollView }               from 'AppKit/nsscrollview';
 export { NSSlider }                   from 'AppKit/nsslider';
 export { NSTableCellView }            from 'AppKit/nstablecellview';

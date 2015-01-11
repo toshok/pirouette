@@ -42,7 +42,7 @@ NSObject.new = function() {
     let instance = new this.prototype.constructor;
 
     let initMeth = this.prototype['init']; // init is guaranteed to always exist.
-    initMeth.apply(instance, initMeth);
+    initMeth.call(instance);
 
     return instance;
 };

@@ -34,21 +34,21 @@ export let NSBezelStyle = makeEnum({
 });
 
 export let NSTextAlignment = makeEnum({
-    Left             : 0,
-    Right            : 1,
-    Center           : 2,
-    Justified        : 3,
-    Natural          : 4
+    left             : 0,
+    right            : 1,
+    center           : 2,
+    justified        : 3,
+    natural          : 4
 });
 
 export let NSDatePickerStyle = makeEnum({
-    TextFieldAndStepper     : 0,
-    ClockAndCalendar        : 1,
-    TextField               : 2
+    textFieldAndStepper     : 0,
+    clockAndCalendar        : 1,
+    textField               : 2
 });
 
 export let NSDatePickerMode = makeEnum({
-    Single      : 0,
-    Range       : 1
+    single      : 0,
+    range       : 1
 });
 

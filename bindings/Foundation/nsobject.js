@@ -1,6 +1,6 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-import { extendClass, createExtendClass } from '../objc';
+import { extendClass, createExtendClass, instanceSelector } from '../objc';
 
 import * as objc_internal from '@objc_internal';
 let PirouetteObject = objc_internal.PirouetteObject;
@@ -23,7 +23,9 @@ export let NSObject = extendClass("NSObject", PirouetteObject, () => ({
 
     toString: function () {
       return `[${this.constructor._ck_register} ${this.handle.toString()}]`;
-    }
+    },
+
+    init: instanceSelector()
 
 }));
 
@@ -34,6 +36,15 @@ NSObject.alloc = function() {
 
 NSObject.getTypeSignature = function() {
   return "@";
+};
+
+NSObject.new = function() {
+    let instance = new this.prototype.constructor;
+
+    let initMeth = this.prototype['init']; // init is guaranteed to always exist.
+    initMeth.call(instance);
+
+    return instance;
 };
 
 NSObject.newWith = function(newInfo) {

@@ -2,7 +2,7 @@
 
 import { instanceProperty, autoboxProperty } from '../objc';
 import { UIViewController } from 'uiviewcontroller';
-import { UISplitViewController } from 'uisplitviewcontroller';
+//import { UISplitViewControllerDelegate } from 'uisplitviewcontrollerdelegate';
 
 //console.log("UISplitViewController");
 export let UISplitViewController = UIViewController.extendClass ("UISplitViewController", () => ({
@@ -11,6 +11,6 @@ export let UISplitViewController = UIViewController.extendClass ("UISplitViewCon
     viewControllers: instanceProperty(),
 
     // Accessing the Delegate Object
-    delegate: autoboxProperty(UISplitViewController)
+    //delegate: autoboxProperty(UISplitViewControllerDelegate)
 
 }));

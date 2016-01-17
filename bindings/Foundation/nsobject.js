@@ -1,6 +1,6 @@
 // This file is part of Pirouette.  for licensing information, see the LICENSE file
 
-import { extendClass, createExtendClass, instanceSelector } from '../objc';
+import { __internalSetNSObject, extendClass, createExtendClass, instanceSelector } from '../objc';
 
 import * as objc_internal from '@objc_internal';
 let PirouetteObject = objc_internal.PirouetteObject;
@@ -28,6 +28,7 @@ export let NSObject = extendClass("NSObject", PirouetteObject, () => ({
     init: instanceSelector()
 
 }));
+__internalSetNSObject(NSObject);
 
 NSObject.alloc = function() {
   //console.log (`NSObject.alloc(${this._ck_register})`);

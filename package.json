@@ -1,0 +1,22 @@
+{
+  "name": "pirouette",
+  "version": "0.1.0-alpha.0",
+  "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toshok/pirouette.git"
+  },
+  "author": "Chris Toshok <toshok@toshokelectic.com> (https://blog.toshokelectric.com/)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/toshok/pirouette/issues"
+  },
+  "homepage": "https://github.com/toshok/pirouette#readme",
+  "optionalDependencies": {
+    "pirouette-bindings": "0.1.0-alpha.0",
+    "pirouette-toolchain": "0.1.0-alpha.0"
+  },
+  "bin": ["pirouette/pirouette"],
+  "files": ["pirouette"]
+}

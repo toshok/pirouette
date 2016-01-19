@@ -11,7 +11,9 @@ var createCommand = require("./commands/create"),
     buildCommand  = require("./commands/build"),
     simCommand    = require("./commands/sim"),
     devCommand    = require("./commands/dev"),
-    cleanCommand  = require("./commands/clean");
+    cleanCommand  = require("./commands/clean"),
+    compileCommand  = require("./commands/compile");
+
 
 var commands = Object.create (null, {
     help: { enumerable: true, value: {
@@ -70,6 +72,14 @@ var commands = Object.create (null, {
 	run: function(args) {
 	    buildCommand.run([]); // the default build behavior is to build if necessary
 	    devCommand.run(args);
+	}
+    }},
+
+    compile: { enumerable: true, value: {
+	usage: function(s) { return s; },
+	usageString: function(s) { return ": deploy the current project to the device (only available for ios projects)."; },
+	run: function(args) {
+	    compileCommand.run(args);
 	}
     }}
 });

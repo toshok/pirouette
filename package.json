@@ -1,6 +1,6 @@
 {
   "name": "pirouette",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
   "main": "index.js",
   "repository": {
@@ -17,6 +17,10 @@
     "pirouette-bindings": "0.1.0-alpha.0",
     "pirouette-toolchain": "0.1.0-alpha.0"
   },
-  "bin": ["pirouette/pirouette"],
-  "files": ["pirouette"]
+  "bin": [
+    "pirouette/pirouette"
+  ],
+  "files": [
+    "pirouette"
+  ]
 }

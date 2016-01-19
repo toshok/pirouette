@@ -1,6 +1,6 @@
 {
   "name": "pirouette",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.4",
   "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
   "main": "index.js",
   "repository": {
@@ -13,9 +13,8 @@
     "url": "https://github.com/toshok/pirouette/issues"
   },
   "homepage": "https://github.com/toshok/pirouette#readme",
-  "optionalDependencies": {
-    "pirouette-bindings": "0.1.0-alpha.0",
-    "pirouette-toolchain-bin": "0.1.0-alpha.0"
+  "scripts": {
+    "preinstall": "node installArchSpecificPackages.js"
   },
   "bin": [
     "pirouette/pirouette"

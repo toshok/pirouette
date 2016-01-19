@@ -1,6 +1,6 @@
 {
   "name": "pirouette",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.6",
   "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
   "main": "index.js",
   "repository": {
@@ -20,6 +20,7 @@
     "pirouette/pirouette"
   ],
   "files": [
-    "pirouette", "installArchSpecificPackages.js"
+    "pirouette",
+    "installArchSpecificPackages.js"
   ]
 }

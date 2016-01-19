@@ -15,7 +15,7 @@
   "homepage": "https://github.com/toshok/pirouette#readme",
   "optionalDependencies": {
     "pirouette-bindings": "0.1.0-alpha.0",
-    "pirouette-toolchain": "0.1.0-alpha.0"
+    "pirouette-toolchain-bin": "0.1.0-alpha.0"
   },
   "bin": [
     "pirouette/pirouette"

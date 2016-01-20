@@ -75,7 +75,8 @@ function run(args) {
 
 		     var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
 
-		     util.compileScripts([config.projectName + ".js"],
+		     util.compileScripts(config.projectType,
+					 [config.projectName + ".js"],
 					 path.relative(proj.root, dest_exe),
 					 function (code) {
 					 });

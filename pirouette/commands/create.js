@@ -28,10 +28,11 @@ function run(args) {
 	throw "you need to specify project name"
     }
 
-    copyTemplateDir(path.join ("templates", project_type), project_name);
+    
+    copyTemplateDir(path.resolve (path.dirname(fs.realpathSync(process.argv[1])), "templates", project_type), project_name);
 }
 
-function copyTemplateDir(templateDir, projectDir) {
+function copyTemplateDir(templateDir, project_name) {
     function do_replace(str) {
 	return str.replace(/@@PROJECT_NAME@@/g, project_name)
 	          .replace(/@@APP_DELEGATE_NAME@@/g, app_delegate_name)
@@ -40,11 +41,11 @@ function copyTemplateDir(templateDir, projectDir) {
 
     util.traverseDir (templateDir, true, /* preorder traversal, so we can create dirs before their contents */
 	 	      function dir_cb (templatePath) {
-			  var projectPath = path.join (projectDir, do_replace(path.relative (templateDir, templatePath)));
+			  var projectPath = path.join (project_name, do_replace(path.relative (templateDir, templatePath)));
 			  fs.mkdirSync (projectPath);
 		      },
 		      function file_cb (templatePath) {
-			  var projectPath = path.join (projectDir, do_replace(path.relative (templateDir, templatePath)));
+			  var projectPath = path.join (project_name, do_replace(path.relative (templateDir, templatePath)));
 			  var contents = do_replace (fs.readFileSync(templatePath, "utf-8"));
 			  fs.writeFileSync(projectPath, contents);
 		      });

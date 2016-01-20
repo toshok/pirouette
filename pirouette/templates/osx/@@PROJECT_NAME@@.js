@@ -1,22 +1,18 @@
-import * as foundation from '$pirouette/foundation';
-import * as appkit from '$pirouette/appkit';
-import * as objc from '$pirouette/objc';
+import { NSObject } from '$pirouette/foundation';
+import { NSApplication, NSApplicationDelegate, NSWindow } from '$pirouette/appkit';
+import { outlet } from '$pirouette/objc';
 
-let AppDelegate = foundation.NSObject.extendClass("AppDelegate", {
+let AppDelegate = NSObject.extendClass("AppDelegate", {
 
-    didFinishLaunching: function() {
+    didFinishLaunching: function(notification) {
+	console.log("hey, we made it here");
+	console.log(`window == ${this.window}`);
     },
 
-    /* XXX we shouldn't need this, but without the selector registered the outlet doesn't get set for some reason... */
-    setWindow: objc.instanceSelector("setWindow:").returns(objc.sig.Void)
-                                                  .params([ appkit.NSWindow ])
-                                                  .impl(function (v) {
-                                                     this.window = v;
-                                                  }),
-    window: objc.outlet (appkit.NSWindow)
+    window: outlet (NSWindow)
   }, [
   /* protocols this type conforms to */
-  appkit.NSApplicationDelegate
+  NSApplicationDelegate
 ]);
 
-appkit.NSApplication.main(process.argv);
+NSApplication.main(process.argv);

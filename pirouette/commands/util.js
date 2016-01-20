@@ -55,7 +55,7 @@ function findEjsInPATH() {
   var paths = process.env['PATH'].split(':');
 
   for (var i = 0, e = paths.length; i < e; i ++) {
-    var ejs_path = path.resolve(paths[i], "ejs.exe");
+    var ejs_path = path.resolve(paths[i], "ejs");
     if (fs.existsSync(ejs_path)) {
 	return ejs_path;
     }
@@ -64,13 +64,15 @@ function findEjsInPATH() {
   throw new Error("could not locate ejs.exe in your PATH");
 }
 
-function compileScripts(scriptList, outFile, cb) {
+function compileScripts(projectType, scriptList, outFile, cb) {
 
   var ejs_path = findEjsInPATH();
 
-  var binding_path = path.resolve (path.dirname (process.argv[1]), "..", "bindings");
+  var binding_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-bindings-darwin", "bindings");
 
-  var args = ["--target", "osx", "-o", outFile, "-I", "pirouette=" + binding_path].concat(scriptList);
+  var module_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-toolchain-darwin-x64", "lib");
+
+  var args = ["--target", projectType, "-o", outFile, "--moduledir", module_path, "-I", "pirouette=" + binding_path].concat(scriptList);
 
   var ejsCompile = spawn(ejs_path, args, { stdio: 'inherit' });
 
@@ -90,8 +92,10 @@ function collectXibs(config) {
 
 // pre = true if pre-order (dir_cb is invoked before children), false if post-order (dir_cb is invoked after children)
 function traverseDir(p, pre, dir_cb, file_cb) {
-  if (!fs.existsSync(p))
+  if (!fs.existsSync(p)) {
+      console.warn("directory " + p + " does not exist");
     return;
+  }
   var stats = fs.statSync(p);
   if (stats.isDirectory()) {
     if (pre) dir_cb(p);

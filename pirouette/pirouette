@@ -28,12 +28,13 @@ var commands = Object.create (null, {
     }},
 
     create: { enumerable: true, value: {
-	usage: function(s) { return s + " <options> <ProjectName>"; },
+	usage: function(s) { return s + " <ProjectType> <ProjectName>"; },
 	usageString: function(nl_and_indent) {
 	    return              ": generates initial project template named <ProjectName> in current directory." +
-		nl_and_indent("    where <options> may contain:") +
-		nl_and_indent("        -ios: an iOS project") + 
-		nl_and_indent("        -osx: an OSX project [default]");
+		nl_and_indent("    where <ProjectType> is <target_platform>/<template_name>") +
+		nl_and_indent("        currently only these are supported:") +
+		nl_and_indent("          osx/application") +
+		nl_and_indent("          ios/application");
 	},
 
 	run: function(args) {

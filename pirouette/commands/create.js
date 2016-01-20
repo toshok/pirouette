@@ -4,32 +4,21 @@ var util = require("./util"),
     project = require("./project");
 
 function run(args) {
-    var project_type;
 
-    switch (args[0]) {
-    case "-ios":
-	project_type = project.ProjectTypes.ios;
-	args.shift();
-	break;
-    case "-osx":
-	project_type = project.ProjectTypes.osx;
-	args.shift();
-	break;
-    default:
-	if (args[0][0] == '-')
-	    throw "unrecognized option " + args[0];
-	project_type = project.ProjectTypes.osx;
+    if (args.length != 2) {
+	throw new Error("create command requires two arguments: <template_type> <project name>");
     }
 
-    project_name = args[0];
+    var template_type = args[0];
+    var project_name = args[1];
+
+    var template_dir = path.resolve (path.dirname(fs.realpathSync(process.argv[1])), "templates", template_type);
+    if (!fs.existsSync(template_dir))
+	throw new Error("unknown template type '" + template_type + "'");
+
     app_delegate_name = "AppDelegate"; // XXX eventually make this a parameter
 
-    if (!project_name) {
-	throw "you need to specify project name"
-    }
-
-    
-    copyTemplateDir(path.resolve (path.dirname(fs.realpathSync(process.argv[1])), "templates", project_type), project_name);
+    copyTemplateDir(template_dir, project_name);
 }
 
 function copyTemplateDir(templateDir, project_name) {

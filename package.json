@@ -1,6 +1,6 @@
 {
   "name": "pirouette",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
   "main": "index.js",
   "repository": {

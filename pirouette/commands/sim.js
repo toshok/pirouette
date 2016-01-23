@@ -64,7 +64,7 @@ exports.run = function run(args) {
 
   console.log ("uuid = " + uuid);
 
-  install(uuid, proj.configurationDir(build_config), config);
+  install(uuid, proj.buildDir(build_config), config);
 
   spawn("instruments",
         [ "-D", "/tmp/runsim.trace", "-t", XCODE+TRCSUB, path.join (APPDIR,uuid,config.projectName+".app") ],

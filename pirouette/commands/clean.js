@@ -9,8 +9,8 @@ function run(args) {
   if (!project)
     throw new Error ("Couldn't find containing project.");
 
-  util.rmDir (project.configurationDir(Configuration.Debug));
-  util.rmDir (project.configurationDir(Configuration.Release));
+  util.rmDir (project.buildDir(Configuration.Debug));
+  util.rmDir (project.buildDir(Configuration.Release));
 }
 
 

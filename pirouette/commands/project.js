@@ -22,8 +22,8 @@ function Project(root) {
 }
 Project.prototype = Object.create(null);
 
-Project.prototype.configurationDir = function configurationDir(config) {
-  return path.join (this.root, config);
+Project.prototype.buildDir = function buildDir(config) {
+  return path.join (this.root, "build", config);
 };
 
 function isRootProjectDirectory(dir) {

@@ -8,6 +8,15 @@ var util = require("./util"),
 function generateInfoPlist(contents_path, config) {
   var info_plist_path = path.join(contents_path, "Info.plist");
 
+  var bundleName = config.bundleName;
+  if (!bundleName && config.bundleIdentifier) {
+      var split_ident = config.bundleIdentifier.split('.');
+      if (split_ident.length > 1)
+	  bundleName = split_ident[split_ident.length - 1];
+  }
+  if (!bundleName)
+      bundleName = config.projectName;
+
   var info_plist_contents = '' +
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">\n' +
@@ -26,7 +35,7 @@ function generateInfoPlist(contents_path, config) {
     '       <key>CFBundleIdentifier</key>\n' +
     '       <string>' + config.bundleIdentifier + '</string>\n' +
     '       <key>CFBundleName</key>\n' +
-    '       <string>' + config.bundleName + '</string>\n' +
+    '       <string>' + bundleName + '</string>\n' +
     '       <key>NSMainNibFile</key>\n' +
     '       <string>' + path.basename(config.mainXib, ".xib") + '</string>\n' +
     '       <key>NSPrincipalClass</key>\n' +
@@ -37,14 +46,14 @@ function generateInfoPlist(contents_path, config) {
   fs.writeFileSync(info_plist_path, info_plist_contents);
 }
 
-function buildDestDir(top, config) {
-  function ensureDirectory(p) { try { fs.mkdirSync(p); } catch (e) { } return p; }
+function buildDestDir(proj, build_config) {
+  function ensureDirectory(p) { try { fs.mkdirSync(p); } catch (e) { if (e.code != 'EEXIST') throw e; } return p; }
 
-  var dir = top;
   var bundle_contents;
 
-  dir = ensureDirectory (dir);
-  dir = ensureDirectory (path.join (dir, config.projectName + ".app"));
+  var dir = ensureDirectory ("build");
+  dir = ensureDirectory (proj.buildDir(build_config));
+  dir = ensureDirectory (path.join (dir, proj.config.projectName + ".app"));
   bundle_contents = dir = ensureDirectory (path.join (dir, "Contents"));
 
   ensureDirectory (path.join (bundle_contents, "Resources"));
@@ -55,32 +64,43 @@ function buildDestDir(top, config) {
 }
 
 function run(args) {
-  var build_config = project.Configuration.Debug; // eventually this will be a parameter
+    var build_config = project.Configuration.Debug;
+    if (args.length > 0) {
+	if (args[0] === "release") {
+	    build_config = project.Configuration.Release;
+	}
+	else if (args[0] !== "debug") {
+	    throw new Error("configuration must be 'release' or 'debug'");
+	}
+    }
 
-  var proj = project.Project.findContaining ();
-  if (!proj)
-    throw new Error ("Couldn't find containing project.");
+    var proj = project.Project.findContaining ();
+    if (!proj)
+	throw new Error ("Couldn't find containing project.");
 
-  var config = proj.config;
+    var bundle_contents = buildDestDir(proj, build_config);
 
-  var bundle_contents = buildDestDir(proj.configurationDir(build_config), config);
+    // we need to compile the nibs, then the .exe, then assemble the Info.plist and make the directory
+    var config = proj.config;
 
-  // we need to compile the nibs, then the .exe, then assemble the Info.plist and make the directory
+    var xibs = util.collectXibs(config);
 
-  var xibs = util.collectXibs(config);
+    if (xibs.length > 1) {
+	console.log("warning, pirouette only compiles the main xib file at the moment.");
+    }
 
-  util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
-		   function (code) {
-		     generateInfoPlist(bundle_contents, config);
+    util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
+		     function (code) {
+			 generateInfoPlist(bundle_contents, config);
 
-		     var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
+			 var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
 
-		     util.compileScripts(config.projectType,
-					 [config.projectName + ".js"],
-					 path.relative(proj.root, dest_exe),
-					 function (code) {
-					 });
-		   });
+			 util.compileScripts(config.projectType,
+					     [config.projectName + ".js"],
+					     path.relative(proj.root, dest_exe),
+					     function (code) {
+					     });
+		     });
 }
 
 exports.run = run;

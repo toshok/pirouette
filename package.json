@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/toshok/pirouette#readme",
   "scripts": {
-    "preinstall": "node installArchSpecificPackages.js"
+    "preinstall": "node npm-scripts/installArchSpecificPackages.js"
   },
   "bin": [
     "pirouette/pirouette"

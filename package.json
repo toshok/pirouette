@@ -21,6 +21,6 @@
   ],
   "files": [
     "pirouette",
-    "installArchSpecificPackages.js"
+    "npm-scripts"
   ]
 }

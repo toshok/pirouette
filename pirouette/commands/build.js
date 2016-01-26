@@ -63,6 +63,16 @@ function buildDestDir(proj, build_config) {
   return bundle_contents;
 }
 
+function compileScripts(proj, config, bundle_contents) {
+    generateInfoPlist(bundle_contents, config);
+    var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
+    util.compileScripts(config.projectType,
+			config.files || [config.projectName + ".js"],
+			path.relative(proj.root, dest_exe),
+			function (code) {
+			});
+}
+
 function run(args) {
     var build_config = project.Configuration.Debug;
     if (args.length > 0) {
@@ -84,23 +94,20 @@ function run(args) {
     var config = proj.config;
 
     var xibs = util.collectXibs(config);
+    if (xibs.length > 0) {
+	if (xibs.length > 1) {
+	    console.log("warning, pirouette only compiles the main xib file at the moment.");
+	}
 
-    if (xibs.length > 1) {
-	console.log("warning, pirouette only compiles the main xib file at the moment.");
+	util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
+			 function (code) {
+			     compileScripts(proj, config, bundle_contents);
+			 });
+    }
+    else {
+	compileScripts(proj, config, bundle_contents);
     }
 
-    util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
-		     function (code) {
-			 generateInfoPlist(bundle_contents, config);
-
-			 var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
-
-			 util.compileScripts(config.projectType,
-					     [config.projectName + ".js"],
-					     path.relative(proj.root, dest_exe),
-					     function (code) {
-					     });
-		     });
 }
 
 exports.run = run;

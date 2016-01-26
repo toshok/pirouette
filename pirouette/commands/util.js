@@ -4,22 +4,6 @@ var fs = require("fs"),
     child_process = require("child_process"),
     spawn = child_process.spawn;
 
-function terminalBold()
-{
-  if (process.stderr.isTTY)
-    return terminal.ANSIStyle("bold");
-  else
-    return "";
-}
-
-function terminalReset()
-{
-  if (process.stderr.isTTY)
-    return terminal.ANSIStyle("reset");
-  else
-    return "";
-}
-
 function findConfigJson(starting_cwd) {
   var cwd;
   var new_cwd = process.cwd();
@@ -40,7 +24,7 @@ function compileXib(xibPath, destDir, cb) {
   // make sure the destDir is there
   try { fs.mkdirSync(destDir); } catch (e) { }
 
-  console.log (terminalBold() + "COMPILE" + terminalReset() + " " + xibPath);
+  console.log ("COMPILE-XIB " + xibPath);
 
   var nibPath = path.join (destDir, path.basename(xibPath, ".xib") + ".nib");
   var nibCompile = spawn("ibtool",
@@ -71,6 +55,8 @@ function compileScripts(projectType, scriptList, outFile, cb) {
   var binding_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-bindings-darwin", "bindings");
 
   var module_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-toolchain-darwin-x64", "lib");
+
+    projectType = 'sim';
 
   var args = ["--target", projectType, "-o", outFile, "--moduledir", module_path, "-I", "pirouette=" + binding_path].concat(scriptList);
 
@@ -123,9 +109,15 @@ function rmDir(dir) {
     });
 }
 
+function getUserHome() {
+  return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+}
+
+
 exports.findConfigJson = findConfigJson;
 exports.collectXibs = collectXibs;
 exports.compileXib = compileXib;
 exports.compileScripts = compileScripts;
 exports.traverseDir = traverseDir;
 exports.rmDir = rmDir;
+exports.getUserHome = getUserHome;

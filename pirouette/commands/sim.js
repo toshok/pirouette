@@ -6,17 +6,11 @@ var uuid = require("./uuid"),
     child_process = require("child_process");
 
 var spawn = child_process.spawn;
-var APPDIR = getUserHome() + "/Library/Application Support/iPhone Simulator/6.1/Applications";
+var APPDIR = util.getUserHome() + "/Library/Application Support/iPhone Simulator/6.1/Applications";
 var XCODE = "/Applications/Xcode.app";
 var TRCSUB="/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate";
 
-function getUserHome() {
-  return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
-}
-
-//
 // create a new uuid for apps that haven't been installed.  reuse the existing one if they have been.
-//
 function appuuid(appdir) {
   var uuid_dirs = fs.readdirSync(APPDIR);
   for (var i = 0, e = uuid_dirs.length; i < e; i ++) {
@@ -53,12 +47,12 @@ exports.run = function run(args) {
   var build_config = project.Configuration.Debug; // eventually this will be a parameter
   var proj = project.Project.findContaining ();
   if (!proj)
-    throw new Error ("Couldn't find containing project.");
+    throw new Error("Couldn't find containing project.");
     
   var config = proj.config;
 
   if (config.projectType != project.ProjectTypes.ios)
-    throw new Error ("Can't deploy non-ios projects to simulator.");
+    throw new Error("Can't deploy non-ios projects to simulator.");
 
   var uuid = appuuid(config.projectName + ".app");
 

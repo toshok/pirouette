@@ -41,11 +41,12 @@ function findEjsInPATH() {
   for (var i = 0, e = paths.length; i < e; i ++) {
     var ejs_path = path.resolve(paths[i], "ejs");
     if (fs.existsSync(ejs_path)) {
+	//console.log("found ejs at "+ ejs_path);
 	return ejs_path;
     }
   }
 
-  throw new Error("could not locate ejs.exe in your PATH");
+  throw new Error("could not locate ejs in your PATH");
 }
 
 function compileScripts(projectType, scriptList, outFile, cb) {
@@ -56,6 +57,8 @@ function compileScripts(projectType, scriptList, outFile, cb) {
 
   var module_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-toolchain-darwin-x64", "lib");
 
+  // XXX(toshok) we need a buildType, I think?
+  if (projectType === 'ios')
     projectType = 'sim';
 
   var args = ["--target", projectType, "-o", outFile, "--moduledir", module_path, "-I", "pirouette=" + binding_path].concat(scriptList);

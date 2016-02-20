@@ -1,6 +1,6 @@
 {
   "name": "pirouette",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "description": "Pirouette meta-package that installs bindings, cli, and toolchain",
   "main": "index.js",
   "repository": {
@@ -20,7 +20,11 @@
     "pirouette/pirouette"
   ],
   "files": [
-    "pirouette",
-    "npm-scripts"
-  ]
+    "npm-scripts",
+    "pirouette"
+  ],
+  "dependencies": {
+    "ioslib": "^0.9.1",
+    "mktemp": "^0.4.0"
+  }
 }

@@ -6,5 +6,5 @@
 
     "projectName": "@@PROJECT_NAME@@",
     "projectType": "ios",
-    "configVersion": @@PIROUETTE_VERSION@@
+    "configVersion": "@@PIROUETTE_VERSION@@"
 }

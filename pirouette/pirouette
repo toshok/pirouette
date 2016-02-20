@@ -38,7 +38,8 @@ var commands = Object.create (null, {
 	},
 
 	run: function(args) {
-	    createCommand.run(args);
+	    createCommand.run(args, function() {
+	    });
 	}
     }},
 
@@ -46,7 +47,8 @@ var commands = Object.create (null, {
 	usage: function(s) { return s; },
 	usageString: function(s) { return ": Builds the current project."; },
 	run: function(args) {
-	    buildCommand.run(args);
+	    buildCommand.run(args, function() {
+	    });
 	}
     }},
 
@@ -54,7 +56,8 @@ var commands = Object.create (null, {
 	usage: function(s) { return s; },
 	usageString: function(s) { return ": Cleans the current project."; },
 	run: function(args) {
-	    cleanCommand.run(args);
+	    cleanCommand.run(args, function() {
+	    });
 	}
     }},
 
@@ -62,8 +65,11 @@ var commands = Object.create (null, {
 	usage: function(s) { return s; },
 	usageString: function(s) { return ": deploy the current project to the simulator (only available for ios projects)."; },
 	run: function(args) {
-	    buildCommand.run([]); // the default build behavior is to build if necessary
-	    simCommand.run(args);
+	    // the default build behavior is to build if necessary
+	    buildCommand.run([], function() {
+		simCommand.run(args, function() {
+		});
+	    });
 	}
     }},
 
@@ -71,8 +77,11 @@ var commands = Object.create (null, {
 	usage: function(s) { return s; },
 	usageString: function(s) { return ": deploy the current project to the device (only available for ios projects)."; },
 	run: function(args) {
-	    buildCommand.run([]); // the default build behavior is to build if necessary
-	    devCommand.run(args);
+	    // the default build behavior is to build if necessary
+	    buildCommand.run([], function() {
+		devCommand.run(args, function() {
+		});
+	    });
 	}
     }},
 
@@ -80,7 +89,8 @@ var commands = Object.create (null, {
 	usage: function(s) { return s; },
 	usageString: function(s) { return ": deploy the current project to the device (only available for ios projects)."; },
 	run: function(args) {
-	    compileCommand.run(args);
+	    compileCommand.run(args, function() {
+	    });
 	}
     }}
 });
@@ -110,6 +120,8 @@ if (args.length === 0) {
 var cmd = commands[args[0]];
 
 if (cmd) {
+    cmd.run (args.slice(1));
+/*
     try {
 	cmd.run (args.slice(1));
     }
@@ -117,6 +129,7 @@ if (cmd) {
 	console.log (toolname + ": command `" + args[0] + "' failed:");
 	console.log (e);
     }
+*/
 }
 else {
     console.log(toolname + ": Unknown command `" + args[0] + "'");

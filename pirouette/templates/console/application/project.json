@@ -1,0 +1,7 @@
+
+{
+    "projectName": "@@PROJECT_NAME@@",
+
+    "projectType": "console",
+    "version": "@@PIROUETTE_VERSION@@"
+}

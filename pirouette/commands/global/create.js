@@ -48,6 +48,7 @@ exports.command = {
 	    nl_and_indent("        currently only these are supported:") +
 	    nl_and_indent("          osx/application") +
 	    nl_and_indent("          ios/application");
+	    nl_and_indent("          console/application");
     },
 
     run: function(args) {

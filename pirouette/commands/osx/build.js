@@ -84,7 +84,6 @@ function buildOSX(proj, build_config, args, cb) {
 
     var xibs = util.collectXibs(proj.config);
     if (xibs.length > 0) {
-	console.log("building xibs");
 	if (xibs.length > 1) {
 	    console.log("warning, pirouette only compiles the main xib file at the moment.");
 	}
@@ -95,7 +94,6 @@ function buildOSX(proj, build_config, args, cb) {
 			 });
     }
     else {
-	console.log("no xibs");
 	compileScripts(proj, proj.config, bundle_contents, cb);
     }
 
@@ -108,7 +106,7 @@ function run(args, cb) {
 	    build_config = project.Configuration.Release;
 	}
 	else if (args[0] !== "debug") {
-	    throw new configuration must be 'release' or 'debug'");
+	    throw new Error("configuration must be 'release' or 'debug'");
 	}
     }
 

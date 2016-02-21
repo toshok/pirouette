@@ -1,0 +1,7 @@
+var create = require("./create"),
+    help = require("./help");
+
+exports.commands = Object.create (null, {
+    help: { enumerable: true, value: help.command },
+    create: { enumerable: true, value: create.command }
+});

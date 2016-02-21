@@ -1,12 +1,12 @@
-var util = require("./util"),
+var util = require("../../util/util"),
     fs = require("fs"),
     mktemp = require("mktemp"),
     path = require("path"),
     child_process = require("child_process"),
     spawn = child_process.spawn,
-    project = require("./project");
+    project = require("../../util/project");
 
-function generateInfoPlist(proj, config, contents_path, output_binary, cb) {
+function generateInfoPlist(proj, config, contents_path, cb) {
     var info_plist_path = path.join(contents_path, "Info.plist");
 
     var bundleName = config.bundleName;
@@ -32,6 +32,9 @@ function generateInfoPlist(proj, config, contents_path, output_binary, cb) {
     addStringValue('CFBundleIdentifier', config.bundleIdentifier);
     addStringValue('CFBundleName', bundleName);
 
+    addStringValue('NSMainNibFile', path.basename(config.mainXib, ".xib"));
+    addStringValue('NSPrincipalClass', 'NSApplication');
+
     var info_plist_contents = '' +
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">\n' +
@@ -41,39 +44,7 @@ function generateInfoPlist(proj, config, contents_path, output_binary, cb) {
     '</dict>\n' +
     '</plist>';
 
-    if (config.projectType === 'osx') {
-	addStringValue('NSMainNibFile', path.basename(config.mainXib, ".xib"));
-	addStringValue('NSPrincipalClass', 'NSApplication');
-    }
-    else if (config.projectType === 'ios') {
-	addStringValue('DTPlatformName', 'iphonesimulator');
-	addStringValue('DTPlatformVersion', '9.1');
-    }
-
-    if (output_binary) {
-	var tmpdir = process.env["TMPDIR"];
-	if (!tmpdir)
-	    tmpdir = "/tmp";
-
-	mktemp.createFile(path.join(tmpdir, 'XXX.tmp'),  function(err, path) {
-	    fs.writeFile(path, info_plist_contents, function (err) {
-		var plutil = spawn('plutil', ['-convert', 'binary1', '-o', info_plist_path, path],
-				   { stdio: ['pipe', process.stdout, process.stderr] });
-		plutil.on('exit', function (code, signal) {
-		    if (code == null) {
-			console.error ("error running plutil " + signal);
-			process.exit(-1);
-		    }
-
-		    console.log("done converting plist file at " + info_plist_path);
-		    cb();
-		});
-	    });
-	});
-    }
-    else {
-	fs.writeFile(info_plist_path, info_plist_contents, cb);
-    }
+    fs.writeFile(info_plist_path, info_plist_contents, cb);
 }
 
 function buildDestDir(proj, build_config) {
@@ -85,32 +56,19 @@ function buildDestDir(proj, build_config) {
     dir = ensureDirectory (proj.buildDir(build_config));
     dir = ensureDirectory (path.join (dir, proj.config.projectName + ".app"));
 
-    if (proj.projectType === 'osx') {
-	bundle_contents = dir = ensureDirectory (path.join (dir, "Contents"));
+    bundle_contents = dir = ensureDirectory (path.join (dir, "Contents"));
+    ensureDirectory (path.join (bundle_contents, "plugins"));
+    ensureDirectory (path.join (bundle_contents, "MacOS"));
 
-	ensureDirectory (path.join (bundle_contents, "Resources"));
-	ensureDirectory (path.join (bundle_contents, "plugins"));
-	ensureDirectory (path.join (bundle_contents, "MacOS"));
-    }
-    else {
-	bundle_contents = dir;
+    var resources = ensureDirectory (path.join (bundle_contents, "Resources"));
+    ensureDirectory (path.join (resources, "en.lproj"));
 
-	ensureDirectory (path.join (bundle_contents, "Base.lproj"));
-    }
-
-  return bundle_contents;
+    return bundle_contents;
 }
 
-function compileScripts(proj, config, bundle_contents, binary_plist, cb) {
-    generateInfoPlist(proj, config, bundle_contents, binary_plist, function (err) {
-	var dest_exe;
-
-	if (config.projectType === 'osx')
-	    dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
-	else if (config.projectType === 'ios')
-	    dest_exe = path.join(bundle_contents, config.projectName);
-	else
-	    throw new Error("unknown project type: "  + config.projectType);
+function compileScripts(proj, config, bundle_contents, cb) {
+    generateInfoPlist(proj, config, bundle_contents, function (err) {
+	var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
 
 	util.compileScripts(config.projectType,
 			    config.files || [config.projectName + ".js"],
@@ -124,27 +82,23 @@ function buildOSX(proj, build_config, args, cb) {
 
     // we need to compile the nibs, then the .exe, then assemble the Info.plist and make the directory
 
-    var xibs = util.collectXibs(build_config);
+    var xibs = util.collectXibs(proj.config);
     if (xibs.length > 0) {
+	console.log("building xibs");
 	if (xibs.length > 1) {
 	    console.log("warning, pirouette only compiles the main xib file at the moment.");
 	}
 
 	util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
 			 function (code) {
-			     compileScripts(proj, proj.config, bundle_contents, false, cb);
+			     compileScripts(proj, proj.config, bundle_contents, cb);
 			 });
     }
     else {
-	compileScripts(proj, proj.config, bundle_contents, false, cb);
+	console.log("no xibs");
+	compileScripts(proj, proj.config, bundle_contents, cb);
     }
 
-}
-
-function buildIOS(proj, build_config, args, cb) {
-    var bundle_contents = buildDestDir(proj, build_config);
-
-    compileScripts(proj, proj.config, bundle_contents, true, cb);
 }
 
 function run(args, cb) {
@@ -154,7 +108,7 @@ function run(args, cb) {
 	    build_config = project.Configuration.Release;
 	}
 	else if (args[0] !== "debug") {
-	    throw new Error("configuration must be 'release' or 'debug'");
+	    throw new configuration must be 'release' or 'debug'");
 	}
     }
 
@@ -163,12 +117,14 @@ function run(args, cb) {
 	throw new Error ("Couldn't find containing project.");
 
     var config = proj.config;
-    if (config.projectType === 'ios')
-	return buildIOS(proj, build_config, args, cb);
-    else if (config.projectType === 'osx')
-	return buildOSX(proj, build_config, args, cb);
-    else
-	throw new Error("unknown project type: "  + config.projectType);
+    return buildOSX(proj, build_config, args, cb);
 }
 
-exports.run = run;
+exports.command = {
+    usage: function(s) { return s; },
+    usageString: function(s) { return ": Builds the current project."; },
+    run: function(args) {
+        run(args, function() {
+        });
+    }
+};

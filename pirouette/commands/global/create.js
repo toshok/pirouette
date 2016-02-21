@@ -1,7 +1,7 @@
-var util = require("./util"),
+var util = require("../../util/util"),
     fs = require("fs"),
     path = require("path"),
-    project = require("./project");
+    project = require("../../util/project");
 
 function run(args) {
 
@@ -40,7 +40,21 @@ function copyTemplateDir(templateDir, project_name) {
 		      });
 }
 
-exports.run = run;
+exports.command = {
+    usage: function(s) { return s + " <ProjectType> <ProjectName>"; },
+    usageString: function(nl_and_indent) {
+	return              ": generates initial project template named <ProjectName> in current directory." +
+	    nl_and_indent("    where <ProjectType> is <target_platform>/<template_name>") +
+	    nl_and_indent("        currently only these are supported:") +
+	    nl_and_indent("          osx/application") +
+	    nl_and_indent("          ios/application");
+    },
+
+    run: function(args) {
+	run(args, function() {
+	});
+    }
+}
 
 // Local Variables:
 // mode: javascript

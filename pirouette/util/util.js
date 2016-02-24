@@ -35,7 +35,6 @@ function compileXib(xibPath, destDir, cb) {
 }
 
 function findEjsInPATH() {
-  var ejs_full_path;
   var paths = process.env['PATH'].split(':');
 
   for (var i = 0, e = paths.length; i < e; i ++) {
@@ -45,6 +44,11 @@ function findEjsInPATH() {
 	return ejs_path;
     }
   }
+
+  // fall back to the one we should included in ../node_modules
+  var builtin_ejs_path = path.resolve(path.dirname (fs.realpathSync(process.argv[1])), "..", "node_modules", "pirouette-toolchain-darwin-x64", "bin", "ejs");
+  if (fs.existsSync(builtin_ejs_path))
+    return builtin_ejs_path;
 
   throw new Error("could not locate ejs in your PATH");
 }

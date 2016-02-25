@@ -35,16 +35,9 @@ if (args.length === 0) {
 var cmd = commands[args[0]];
 
 if (cmd) {
-    cmd.run (args.slice(1));
-/*
-    try {
-	cmd.run (args.slice(1));
-    }
-    catch (e) {
-	console.log (toolname + ": command `" + args[0] + "' failed:");
-	console.log (e);
-    }
-*/
+    cmd.run (args.slice(1), function() {
+	// something needs to happen here..
+    });
 }
 else {
     console.log(toolname + ": Unknown command `" + args[0] + "'");

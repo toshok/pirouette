@@ -116,8 +116,7 @@ function run(args, cb) {
 exports.command = {
     usage: function(s) { return s; },
     usageString: function(s) { return ": Builds the current project."; },
-    run: function(args) {
-        run(args, function() {
-        });
+    run: function(args, cb) {
+        run(args, cb);
     }
 };

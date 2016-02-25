@@ -51,9 +51,8 @@ exports.command = {
 	    nl_and_indent("          console/application");
     },
 
-    run: function(args) {
-	run(args, function() {
-	});
+    run: function(args, cb) {
+	run(args, cb);
     }
 }
 

@@ -4,22 +4,6 @@ var fs = require("fs"),
     child_process = require("child_process"),
     spawn = child_process.spawn;
 
-function findConfigJson(starting_cwd) {
-  var cwd;
-  var new_cwd = process.cwd();
-  do {
-    cwd = new_cwd;
-    var candidate = path.join (cwd, "config.json");
-    if (fs.existsSync(candidate)) {
-      console.log ("found config.json!");
-      return candidate;
-    }
-    new_cwd = path.dirname(cwd);
-  } while (cwd !== new_cwd);
-
-  return null;
-}
-
 function compileXib(xibPath, destDir, cb) {
   // make sure the destDir is there
   try { fs.mkdirSync(destDir); } catch (e) { }
@@ -85,10 +69,6 @@ function collectXibs(config) {
 
 // pre = true if pre-order (dir_cb is invoked before children), false if post-order (dir_cb is invoked after children)
 function traverseDir(p, pre, dir_cb, file_cb) {
-  if (!fs.existsSync(p)) {
-      console.warn("directory " + p + " does not exist");
-    return;
-  }
   var stats = fs.statSync(p);
   if (stats.isDirectory()) {
     if (pre) dir_cb(p);
@@ -106,6 +86,16 @@ function traverseDir(p, pre, dir_cb, file_cb) {
   }
 }
 
+function ensureDir(p) {
+    try {
+	fs.mkdirSync(p);
+    }
+    catch (e) {
+	if (e.code != 'EEXIST') throw e;
+    }
+    return p;
+}
+
 function rmDir(dir) {
   traverseDir (dir, false, /* post-order traversal, so we can remove contents before rmdir */
     function dir_cb (dirPath) {
@@ -121,10 +111,10 @@ function getUserHome() {
 }
 
 
-exports.findConfigJson = findConfigJson;
 exports.collectXibs = collectXibs;
 exports.compileXib = compileXib;
 exports.compileScripts = compileScripts;
 exports.traverseDir = traverseDir;
 exports.rmDir = rmDir;
+exports.ensureDir = ensureDir;
 exports.getUserHome = getUserHome;

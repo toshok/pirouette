@@ -23,17 +23,20 @@ function run(args) {
     var config = proj.config;
 
     var simUDID = "D8AD0294-5589-48A4-A7F1-311B8A465E69";
-    ioslib.simulator.launch(null /*simUDID*/, {
+    ioslib.simulator.launch(simUDID, {
         appPath: path.join(proj.buildDir(build_config), config.projectName + ".app")
     }, function (err, simHandle) {
-        console.error(err);
+        if (err)
+            console.error('startup error ' + err);
     }).on('appStarted', function (msg) {
         console.log('App has started');
         console.log(msg);
     }).on('log', function (msg) {
         console.log('[LOG] ' + msg);
+    }).on('log-debug', function (msg) {
+        console.log('[DEBUG] ' + msg);
     }).on('error', function (err) {
-        console.error(err);
+        console.error('[ERR] ' + err);
     });
 };
 
@@ -41,9 +44,14 @@ exports.command = {
     usage: function(s) { return s; },
     usageString: function(s) { return ": deploy the current project to the simulator (only available for ios projects)."; },
     run: function(args, cb) {
-        // the default build behavior is to build if necessary
-        build.command.run([], function() {
+        if (args[0] === '--nobuild') {
             run(args, cb);
-        });
+        }
+        else {
+            // the default build behavior is to build if necessary
+            build.command.run([], function() {
+                run(args, cb);
+            });
+        }
     }
 };

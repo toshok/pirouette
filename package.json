@@ -24,6 +24,7 @@
     "pirouette"
   ],
   "dependencies": {
+    "fs-extra": "^0.26.5",
     "ioslib": "^0.9.1",
     "mktemp": "^0.4.0"
   }

@@ -7,9 +7,11 @@ var uuid = require("../../util/uuid"),
     fs = require("fs"),
     project = require("../../util/project"),
     util = require("../../util/util"),
+    usage = require("../global/usage"),
     build = require('./build'),
     child_process = require("child_process"),
-    ioslib = require("ioslib");
+    ioslib = require("ioslib"),
+    parseArgs = require("minimist");
 
 var spawn = child_process.spawn;
 
@@ -40,17 +42,37 @@ function run(args) {
     });
 };
 
+var flags = {
+    "--help": { usage: function(s) { return s; }, usageString: function(s) { return ": this output."; } },
+    "--nobuild": { usage: function(s) { return s; }, usageString: function(s) { return ": don't build - just re-deploy"; } }
+};
+
+function printUsage() {
+    console.log (" $ pirouette sim [options]");
+    console.log ("where [options] can be:");
+    for (var flag in flags) {
+	    console.log(usage.formatCommand(flag, flags[flag]));
+    }
+}
+
 exports.command = {
     usage: function(s) { return s; },
     usageString: function(s) { return ": deploy the current project to the simulator (only available for ios projects)."; },
-    run: function(args, cb) {
-        if (args[0] === '--nobuild') {
-            run(args, cb);
+    run: function(argv, cb) {
+
+        var args = parseArgs(argv);
+
+        if (args.help) {
+            printUsage();
+            cb();
+        }
+        else if (args.nobuild) {
+            run(argv, cb);
         }
         else {
             // the default build behavior is to build if necessary
             build.command.run([], function() {
-                run(args, cb);
+                run(argv, cb);
             });
         }
     }

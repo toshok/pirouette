@@ -5,7 +5,9 @@ var util = require("../../util/util"),
     path = require("path"),
     child_process = require("child_process"),
     spawn = child_process.spawn,
-    project = require("../../util/project");
+    usage = require("../global/usage"),
+    project = require("../../util/project"),
+    parseArgs = require("minimist");
 
 function generateInfoPlist(proj, config, contents_path, cb) {
     var info_plist_path = path.join(contents_path, "Info.plist");
@@ -21,15 +23,15 @@ function generateInfoPlist(proj, config, contents_path, cb) {
 
 
     var plist_json_contents = {
-	CFBundleDevelopmentRegion: 'en',
+	//CFBundleDevelopmentRegion: 'en',
 	CFBundlePackageType: 'AAPL',
 	CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
 	CFBundleSignature: '????',
 	CFBundleExecutable: config.projectName,
 	CFBundleIdentifier: config.bundleIdentifier,
 	CFBundleInfoDictionaryVersion: '6.0',
-	CFBundleShortVersionString: '0.1',
-	CFBundleVersion: '1',
+	//CFBundleShortVersionString: '0.1',
+	//CFBundleVersion: '1',
 	CFBundleName: bundleName,
 	CFBundleDisplayName: bundleName,
 	DTPlatformName: 'iphonesimulator',
@@ -127,10 +129,30 @@ function run(args, cb) {
     return buildIOS(proj, build_config, args, cb);
 }
 
+var flags = {
+    "--help": { usage: function(s) { return s; }, usageString: function(s) { return ": this output."; } }
+};
+
+function printUsage() {
+    console.log (" $ pirouette build [options]");
+    console.log ("where [options] can be:");
+    for (var flag in flags) {
+	    console.log(usage.formatCommand(flag, flags[flag]));
+    }
+}
+
 exports.command = {
     usage: function(s) { return s; },
     usageString: function(s) { return ': Builds the current project.'; },
-    run: function(args, cb) {
-        run(args, cb);
+    run: function(argv, cb) {
+        var args = parseArgs(argv);
+
+        if (args.help) {
+            printUsage();
+            cb();
+        }
+	else {
+            run(args, cb);
+	}
     }
 };

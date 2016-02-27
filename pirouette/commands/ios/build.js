@@ -23,19 +23,31 @@ function generateInfoPlist(proj, config, contents_path, cb) {
 
 
     var plist_json_contents = {
-	//CFBundleDevelopmentRegion: 'en',
+	CFBundleDevelopmentRegion: 'en',
 	CFBundlePackageType: 'AAPL',
 	CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
 	CFBundleSignature: '????',
 	CFBundleExecutable: config.projectName,
 	CFBundleIdentifier: config.bundleIdentifier,
 	CFBundleInfoDictionaryVersion: '6.0',
-	//CFBundleShortVersionString: '0.1',
-	//CFBundleVersion: '1',
+	CFBundleShortVersionString: '0.1',
+	CFBundleVersion: '1',
 	CFBundleName: bundleName,
 	CFBundleDisplayName: bundleName,
 	DTPlatformName: 'iphonesimulator',
-	DTPlatformVersion: '9.1'
+	DTPlatformVersion: '9.1',
+	UIDeviceFamily : [1, 2],
+	UISupportedInterfaceOrientations : [
+	    "UIInterfaceOrientationPortrait",
+	    "UIInterfaceOrientationLandscapeLeft",
+	    "UIInterfaceOrientationLandscapeRight"
+	],
+	"UISupportedInterfaceOrientations~ipad" : [
+	    "UIInterfaceOrientationPortrait",
+	    "UIInterfaceOrientationPortraitUpsideDown",
+	    "UIInterfaceOrientationLandscapeLeft",
+	    "UIInterfaceOrientationLandscapeRight"
+	],
     };
 
     var tmpdir = process.env['TMPDIR'];

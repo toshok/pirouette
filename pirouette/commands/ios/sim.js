@@ -24,8 +24,7 @@ function run(args) {
     
     var config = proj.config;
 
-    var simUDID = "D8AD0294-5589-48A4-A7F1-311B8A465E69";
-    ioslib.simulator.launch(simUDID, {
+    ioslib.simulator.launch(args.udid, {
         appPath: path.join(proj.buildDir(build_config), config.projectName + ".app")
     }, function (err, simHandle) {
         if (err)
@@ -44,7 +43,8 @@ function run(args) {
 
 var flags = {
     "--help": { usage: function(s) { return s; }, usageString: function(s) { return ": this output."; } },
-    "--nobuild": { usage: function(s) { return s; }, usageString: function(s) { return ": don't build - just re-deploy"; } }
+    "--nobuild": { usage: function(s) { return s; }, usageString: function(s) { return ": don't build - just re-deploy"; } },
+    "--udid": { usage: function(s) { return "--udid <sim-udid>"; }, usageString: function(s) { return ": use the simulator matching <udid>"; } }
 };
 
 function printUsage() {
@@ -67,12 +67,12 @@ exports.command = {
             cb();
         }
         else if (args.nobuild) {
-            run(argv, cb);
+            run(args, cb);
         }
         else {
             // the default build behavior is to build if necessary
             build.command.run([], function() {
-                run(argv, cb);
+                run(args, cb);
             });
         }
     }

@@ -1,6 +1,5 @@
 var util = require("../util/util"),
     proj = require("../util/project"),
-    path = require("path"),
     Project = proj.Project,
     Configuration = proj.Configuration;
 

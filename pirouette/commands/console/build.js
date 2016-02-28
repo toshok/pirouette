@@ -1,14 +1,11 @@
 var util = require("../../util/util"),
     project = require("../../util/project"),
     path = require("path"),
-    spawn = require('child_process').spawn,
-    fs = require('fs');
+    spawn = require('child_process').spawn;
 
 function buildDestDir(proj, build_config) {
-    function ensureDirectory(p) { try { fs.mkdirSync(p); } catch (e) { if (e.code != 'EEXIST') throw e; } return p; }
-
-    var dir = ensureDirectory ("build");
-    dir = ensureDirectory (proj.buildDir(build_config));
+    var dir = util.ensureDir ("build");
+    dir = util.ensureDir (proj.buildDir(build_config));
 
     return dir;
 }

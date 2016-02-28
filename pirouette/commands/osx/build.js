@@ -9,14 +9,7 @@ var util = require("../../util/util"),
 function generateInfoPlist(proj, config, contents_path, cb) {
     var info_plist_path = path.join(contents_path, "Info.plist");
 
-    var bundleName = config.bundleName;
-    if (!bundleName && config.bundleIdentifier) {
-	var split_ident = config.bundleIdentifier.split('.');
-	if (split_ident.length > 1)
-	    bundleName = split_ident[split_ident.length - 1];
-    }
-    if (!bundleName)
-	bundleName = config.projectName;
+    var bundleName = util.getBundleName(config);
 
     var body = "";
     function addStringValue(key, value) {
@@ -48,20 +41,18 @@ function generateInfoPlist(proj, config, contents_path, cb) {
 }
 
 function buildDestDir(proj, build_config) {
-    function ensureDirectory(p) { try { fs.mkdirSync(p); } catch (e) { if (e.code != 'EEXIST') throw e; } return p; }
-
     var bundle_contents;
 
-    var dir = ensureDirectory ("build");
-    dir = ensureDirectory (proj.buildDir(build_config));
-    dir = ensureDirectory (path.join (dir, proj.config.projectName + ".app"));
+    var dir = util.ensureDir ("build");
+    dir = util.ensureDir (proj.buildDir(build_config));
+    dir = util.ensureDir (path.join (dir, proj.config.projectName + ".app"));
 
-    bundle_contents = dir = ensureDirectory (path.join (dir, "Contents"));
-    ensureDirectory (path.join (bundle_contents, "plugins"));
-    ensureDirectory (path.join (bundle_contents, "MacOS"));
+    bundle_contents = dir = util.ensureDir (path.join (dir, "Contents"));
+    util.ensureDir (path.join (bundle_contents, "plugins"));
+    util.ensureDir (path.join (bundle_contents, "MacOS"));
 
-    var resources = ensureDirectory (path.join (bundle_contents, "Resources"));
-    ensureDirectory (path.join (resources, "en.lproj"));
+    var resources = util.ensureDir (path.join (bundle_contents, "Resources"));
+    util.ensureDir (path.join (resources, "en.lproj"));
 
     return bundle_contents;
 }
@@ -84,11 +75,7 @@ function buildOSX(proj, build_config, args, cb) {
 
     var xibs = util.collectXibs(proj.config);
     if (xibs.length > 0) {
-	if (xibs.length > 1) {
-	    console.log("warning, pirouette only compiles the main xib file at the moment.");
-	}
-
-	util.compileXib (xibs[0], path.join(bundle_contents, path.dirname(xibs[0])),
+	util.compileXibs (xibs, bundle_contents,
 			 function (code) {
 			     compileScripts(proj, proj.config, bundle_contents, cb);
 			 });

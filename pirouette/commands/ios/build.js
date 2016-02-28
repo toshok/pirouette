@@ -1,7 +1,6 @@
 var util = require("../../util/util"),
     fs = require("fs"),
     fse = require("fs-extra"),
-    mktemp = require("mktemp"),
     path = require("path"),
     child_process = require("child_process"),
     spawn = child_process.spawn,
@@ -12,15 +11,7 @@ var util = require("../../util/util"),
 function generateInfoPlist(proj, config, contents_path, cb) {
     var info_plist_path = path.join(contents_path, "Info.plist");
 
-    var bundleName = config.bundleName;
-    if (!bundleName && config.bundleIdentifier) {
-	var split_ident = config.bundleIdentifier.split('.');
-	if (split_ident.length > 1)
-	    bundleName = split_ident[split_ident.length - 1];
-    }
-    if (!bundleName)
-	bundleName = config.projectName;
-
+    var bundleName = util.getBundleName(config);
 
     var plist_json_contents = {
 	CFBundleDevelopmentRegion: 'en',
@@ -47,28 +38,25 @@ function generateInfoPlist(proj, config, contents_path, cb) {
 	    "UIInterfaceOrientationPortraitUpsideDown",
 	    "UIInterfaceOrientationLandscapeLeft",
 	    "UIInterfaceOrientationLandscapeRight"
-	],
+	]
     };
 
-    var tmpdir = process.env['TMPDIR'];
-    if (!tmpdir)
-	tmpdir = '/tmp';
+    if (config.launchStoryboard)
+	plist_json_contents.UILaunchStoryboardName = path.basename(config.launchStoryboard, ".storyboard");
 
-    mktemp.createFile(path.join(tmpdir, 'XXX.tmp'),  function(err, path) {
-	fs.writeFile(path, JSON.stringify(plist_json_contents), function (err) {
-	    var plutil = spawn('plutil', ['-convert', 'binary1', '-o', info_plist_path, path],
-			       { stdio: ['pipe', process.stdout, process.stderr] });
-	    plutil.on('exit', function (code, signal) {
-		if (code == null) {
-		    console.error ('error running plutil ' + signal);
-		    process.exit(-1);
-		}
+    if (config.mainStoryboard)
+	plist_json_contents.UIMainStoryboardName = path.basename(config.mainStoryboard, ".storyboard");
+
+    util.writePlist(plist_json_contents, info_plist_path, "binary1", 
+		    function (code, signal) {
+			if (code == null) {
+			    console.error ('error running plutil ' + signal);
+			    process.exit(-1);
+			}
 		
-		console.log('done converting plist file at ' + info_plist_path);
-		cb();
-	    });
-	});
-    });
+			console.log('done converting plist file at ' + info_plist_path);
+			cb();
+		    });
 }
 
 function buildDestDir(proj, build_config) {
@@ -107,8 +95,7 @@ function copyResources(proj, bundle_contents, build_config, cb) {
     return cb();
 }
 
-function buildIOS(proj, build_config, args, cb) {
-    var bundle_contents = buildDestDir(proj, build_config);
+function compileScripts(proj, build_config, bundle_contents, cb) {
 
     generateInfoPlist(proj, proj.config, bundle_contents, function (err) {
 	var dest_exe = path.join(bundle_contents, proj.config.projectName);
@@ -120,6 +107,22 @@ function buildIOS(proj, build_config, args, cb) {
 				copyResources(proj, bundle_contents, build_config, cb);
 			    });
     });
+}
+
+function buildIOS(proj, build_config, args, cb) {
+    var bundle_contents = buildDestDir(proj, build_config);
+
+    var boards = util.collectStoryboards(proj.config);
+    if (boards.length > 0) {
+	util.compileStoryboards(boards, bundle_contents,
+				util.getBundleName(proj.config),
+				function (code) {
+				    compileScripts(proj, build_config, bundle_contents, cb);
+				});
+    }
+    else {
+	compileScripts(proj, build_config, bundle_contents, cb);
+    }
 }
 
 function run(args, cb) {

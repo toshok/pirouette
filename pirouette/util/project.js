@@ -3,7 +3,8 @@
  */
 var util = require("./util"),
     fs = require("fs"),
-    path = require("path");
+    path = require("path"),
+    jsonlint = require("jsonlint");
 
 var project_json = "project.json";
 
@@ -21,7 +22,30 @@ Object.freeze(ProjectTypes);
 
 function Project(root) {
     this.root = root;
-    this.config = JSON.parse (fs.readFileSync (path.join (root, project_json), "utf-8"));
+    var project_json_path = path.join (root, project_json);
+    var project_json_contents;
+
+    try {
+        project_json_contents = fs.readFileSync (project_json_path, "utf-8");
+    }
+    catch (e) {
+        console.warn("Error loading '" + project_json_path + "': " + e);
+        process.exit(-1);
+    }
+
+    try {
+        this.config = JSON.parse (project_json_contents);
+    }
+    catch (e) {
+        try {
+            jsonlint.parse(project_json_contents);
+            console.warn("shouldn't have gotten here..");
+        }
+        catch (linte) {
+            console.log(linte);
+        }
+        process.exit(-1);
+    }
 }
 Project.prototype = Object.create(null);
 

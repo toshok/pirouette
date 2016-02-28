@@ -30,7 +30,6 @@ function generateInfoPlist(proj, config, contents_path, cb) {
         CFBundleDisplayName: bundleName,
         DTPlatformName: 'iphonesimulator',
         DTPlatformVersion: '9.1',
-        UIDeviceFamily : [1, 2],
         UISupportedInterfaceOrientations : [
             "UIInterfaceOrientationPortrait",
             "UIInterfaceOrientationLandscapeLeft",
@@ -43,6 +42,29 @@ function generateInfoPlist(proj, config, contents_path, cb) {
             "UIInterfaceOrientationLandscapeRight"
         ]
     };
+
+    if (config.deviceFamilies) {
+        var families = config.deviceFamilies;
+        var plist_families = [];
+        var iphone_seen = false, ipad_seen = false;
+        for (var i = 0, e = families.length; i < e; i ++) {
+            if (families[i] === 'iphone') {
+                if (iphone_seen)
+                    console.warn("duplicate deviceFamily 'iphone'");
+                iphone_seen = true;
+                plist_families.push(1);
+            }
+            else if (families[i] === 'ipad') {
+                if (ipad_seen)
+                    console.warn("duplicate deviceFamily 'ipad'");
+                ipad_seen = true;
+                plist_families.push(2);
+            }
+            else
+                console.warn("unknown deviceFamily '" + families[i] + "' in project.json");
+        }
+        plist_json_contents.UIDeviceFamily = plist_families;
+    }
 
     if (config.launchStoryboard)
         plist_json_contents.UILaunchStoryboardName = path.basename(config.launchStoryboard, ".storyboard");

@@ -14,33 +14,28 @@ function generateInfoPlist(proj, config, contents_path, cb) {
 
     var bundleName = util.getBundleName(config);
 
-    var body = "";
-    function addStringValue(key, value) {
-        body += ('       <key>' + key + '</key>\n' +
-                 '       <string>' + value + '</string>\n');
-    }
+    var plist_json_contents = {
+        CFBundleIconFile: 'moonlight.icns',
+        CFBundlePackageType: 'APPL',
+        CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
+        CFBundleSignature: '????',
+        CFBundleExecutable: config.projectName,
+        CFBundleIdentifier: config.bundleIdentifier,
+        CFBundleName: bundleName,
+        NSMainNibFile: path.basename(config.mainXib, ".xib"),
+        NSPrincipalClass: 'NSApplication'
+    };
 
-    addStringValue('CFBundleIconFile', 'moonlight.icns');
-    addStringValue('CFBundlePackageType', 'APPL');
-    addStringValue('CFBundleGetInfoString', 'Created by Pirouette/EchoJS');
-    addStringValue('CFBundleSignature', '????');
-    addStringValue('CFBundleExecutable', config.projectName);
-    addStringValue('CFBundleIdentifier', config.bundleIdentifier);
-    addStringValue('CFBundleName', bundleName);
-
-    addStringValue('NSMainNibFile', path.basename(config.mainXib, ".xib"));
-    addStringValue('NSPrincipalClass', 'NSApplication');
-
-    var info_plist_contents = '' +
-            '<?xml version="1.0" encoding="UTF-8"?>\n' +
-            '<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">\n' +
-            '<plist version="0.9">\n' +
-            '<dict>\n' +
-            body +
-            '</dict>\n' +
-            '</plist>';
-
-    fs.writeFile(info_plist_path, info_plist_contents, cb);
+    util.writePlist(plist_json_contents, info_plist_path, "xml1", 
+                    function (code, signal) {
+                        if (code == null) {
+                            console.error ('error running plutil ' + signal);
+                            process.exit(-1);
+                        }
+                        
+                        console.log('done converting plist file at ' + info_plist_path);
+                        cb();
+                    });
 }
 
 function buildDestDir(proj, build_config) {

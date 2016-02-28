@@ -12,7 +12,7 @@ var fs = require("fs"),
 function compileXibs(xibs, bundle_contents, cb) {
     var idx = 0;
 
-    function compileXib(bundle_contents, bundleName, cb) {
+    function compileXib(bundle_contents, cb) {
         var xibPath = xibs[idx];
         var destDir = path.join(bundle_contents, path.dirname(xibPath));
 

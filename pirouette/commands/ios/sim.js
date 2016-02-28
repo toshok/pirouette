@@ -2,25 +2,19 @@
  * vim: set ts=4 sw=4 et tw=99 ft=js:
  */
 
-var uuid = require("../../util/uuid"),
-    path = require("path"),
-    fs = require("fs"),
+var path = require("path"),
     project = require("../../util/project"),
-    util = require("../../util/util"),
     usage = require("../global/usage"),
     build = require('./build'),
-    child_process = require("child_process"),
     ioslib = require("ioslib"),
     parseArgs = require("minimist");
-
-var spawn = child_process.spawn;
 
 
 function run(args) {
     var build_config = project.Configuration.Debug; // eventually this will be a parameter
     var proj = project.Project.findContaining ();
     if (!proj)
-	    throw new Error("Couldn't find containing project.");
+        throw new Error("Couldn't find containing project.");
     
     var config = proj.config;
 
@@ -51,7 +45,7 @@ function printUsage() {
     console.log (" $ pirouette sim [options]");
     console.log ("where [options] can be:");
     for (var flag in flags) {
-	    console.log(usage.formatCommand(flag, flags[flag]));
+        console.log(usage.formatCommand(flag, flags[flag]));
     }
 }
 

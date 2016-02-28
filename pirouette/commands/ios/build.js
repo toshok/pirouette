@@ -1,3 +1,6 @@
+/* -*- Mode: js2; tab-width: 4; indent-tabs-mode: nil; -*-
+ * vim: set ts=4 sw=4 et tw=99 ft=js:
+ */
 var util = require("../../util/util"),
     fs = require("fs"),
     fse = require("fs-extra"),
@@ -14,49 +17,49 @@ function generateInfoPlist(proj, config, contents_path, cb) {
     var bundleName = util.getBundleName(config);
 
     var plist_json_contents = {
-	CFBundleDevelopmentRegion: 'en',
-	CFBundlePackageType: 'AAPL',
-	CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
-	CFBundleSignature: '????',
-	CFBundleExecutable: config.projectName,
-	CFBundleIdentifier: config.bundleIdentifier,
-	CFBundleInfoDictionaryVersion: '6.0',
-	CFBundleShortVersionString: '0.1',
-	CFBundleVersion: '1',
-	CFBundleName: bundleName,
-	CFBundleDisplayName: bundleName,
-	DTPlatformName: 'iphonesimulator',
-	DTPlatformVersion: '9.1',
-	UIDeviceFamily : [1, 2],
-	UISupportedInterfaceOrientations : [
-	    "UIInterfaceOrientationPortrait",
-	    "UIInterfaceOrientationLandscapeLeft",
-	    "UIInterfaceOrientationLandscapeRight"
-	],
-	"UISupportedInterfaceOrientations~ipad" : [
-	    "UIInterfaceOrientationPortrait",
-	    "UIInterfaceOrientationPortraitUpsideDown",
-	    "UIInterfaceOrientationLandscapeLeft",
-	    "UIInterfaceOrientationLandscapeRight"
-	]
+        CFBundleDevelopmentRegion: 'en',
+        CFBundlePackageType: 'AAPL',
+        CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
+        CFBundleSignature: '????',
+        CFBundleExecutable: config.projectName,
+        CFBundleIdentifier: config.bundleIdentifier,
+        CFBundleInfoDictionaryVersion: '6.0',
+        CFBundleShortVersionString: '0.1',
+        CFBundleVersion: '1',
+        CFBundleName: bundleName,
+        CFBundleDisplayName: bundleName,
+        DTPlatformName: 'iphonesimulator',
+        DTPlatformVersion: '9.1',
+        UIDeviceFamily : [1, 2],
+        UISupportedInterfaceOrientations : [
+            "UIInterfaceOrientationPortrait",
+            "UIInterfaceOrientationLandscapeLeft",
+            "UIInterfaceOrientationLandscapeRight"
+        ],
+        "UISupportedInterfaceOrientations~ipad" : [
+            "UIInterfaceOrientationPortrait",
+            "UIInterfaceOrientationPortraitUpsideDown",
+            "UIInterfaceOrientationLandscapeLeft",
+            "UIInterfaceOrientationLandscapeRight"
+        ]
     };
 
     if (config.launchStoryboard)
-	plist_json_contents.UILaunchStoryboardName = path.basename(config.launchStoryboard, ".storyboard");
+        plist_json_contents.UILaunchStoryboardName = path.basename(config.launchStoryboard, ".storyboard");
 
     if (config.mainStoryboard)
-	plist_json_contents.UIMainStoryboardName = path.basename(config.mainStoryboard, ".storyboard");
+        plist_json_contents.UIMainStoryboardName = path.basename(config.mainStoryboard, ".storyboard");
 
     util.writePlist(plist_json_contents, info_plist_path, "binary1", 
-		    function (code, signal) {
-			if (code == null) {
-			    console.error ('error running plutil ' + signal);
-			    process.exit(-1);
-			}
-		
-			console.log('done converting plist file at ' + info_plist_path);
-			cb();
-		    });
+                    function (code, signal) {
+                        if (code == null) {
+                            console.error ('error running plutil ' + signal);
+                            process.exit(-1);
+                        }
+                        
+                        console.log('done converting plist file at ' + info_plist_path);
+                        cb();
+                    });
 }
 
 function buildDestDir(proj, build_config) {
@@ -77,8 +80,8 @@ function buildDestDir(proj, build_config) {
 function copyResources(proj, bundle_contents, build_config, cb) {
     var resource_list = proj.config.resources;
     if (!resource_list) {
-	// no resources, easy.
-	return cb();
+        // no resources, easy.
+        return cb();
     }
 
     var resources_dir = bundle_contents;
@@ -86,10 +89,10 @@ function copyResources(proj, bundle_contents, build_config, cb) {
     var resource_srcs = Object.getOwnPropertyNames(resource_list);
 
     for (var i = 0, e = resource_srcs.length; i < e; i ++) {
-	var src = resource_srcs[i];
-	var dest = resource_list[src];
+        var src = resource_srcs[i];
+        var dest = resource_list[src];
 
-	fse.copySync(src, path.join(resources_dir, dest), {});
+        fse.copySync(src, path.join(resources_dir, dest), {});
     }
 
     return cb();
@@ -98,14 +101,14 @@ function copyResources(proj, bundle_contents, build_config, cb) {
 function compileScripts(proj, build_config, bundle_contents, cb) {
 
     generateInfoPlist(proj, proj.config, bundle_contents, function (err) {
-	var dest_exe = path.join(bundle_contents, proj.config.projectName);
+        var dest_exe = path.join(bundle_contents, proj.config.projectName);
 
-	util.compileScripts(proj.config.projectType,
-			    proj.config.files || [proj.config.projectName + '.js'],
-			    path.relative(proj.root, dest_exe),
-			    function (err) {
-				copyResources(proj, bundle_contents, build_config, cb);
-			    });
+        util.compileScripts(proj.config.projectType,
+                            proj.config.files || [proj.config.projectName + '.js'],
+                            path.relative(proj.root, dest_exe),
+                            function (err) {
+                                copyResources(proj, bundle_contents, build_config, cb);
+                            });
     });
 }
 
@@ -114,31 +117,31 @@ function buildIOS(proj, build_config, args, cb) {
 
     var boards = util.collectStoryboards(proj.config);
     if (boards.length > 0) {
-	util.compileStoryboards(boards, bundle_contents,
-				util.getBundleName(proj.config),
-				function (code) {
-				    compileScripts(proj, build_config, bundle_contents, cb);
-				});
+        util.compileStoryboards(boards, bundle_contents,
+                                util.getBundleName(proj.config),
+                                function (code) {
+                                    compileScripts(proj, build_config, bundle_contents, cb);
+                                });
     }
     else {
-	compileScripts(proj, build_config, bundle_contents, cb);
+        compileScripts(proj, build_config, bundle_contents, cb);
     }
 }
 
 function run(args, cb) {
     var build_config = project.Configuration.Debug;
     if (args.length > 0) {
-	if (args[0] === 'release') {
-	    build_config = project.Configuration.Release;
-	}
-	else if (args[0] !== 'debug') {
-	    throw new Error("configuration must be 'release' or 'debug'");
-	}
+        if (args[0] === 'release') {
+            build_config = project.Configuration.Release;
+        }
+        else if (args[0] !== 'debug') {
+            throw new Error("configuration must be 'release' or 'debug'");
+        }
     }
 
     var proj = project.Project.findContaining ();
     if (!proj)
-	throw new Error ("Couldn't find containing project.");
+        throw new Error ("Couldn't find containing project.");
 
     var config = proj.config;
     return buildIOS(proj, build_config, args, cb);
@@ -152,7 +155,7 @@ function printUsage() {
     console.log (" $ pirouette build [options]");
     console.log ("where [options] can be:");
     for (var flag in flags) {
-	    console.log(usage.formatCommand(flag, flags[flag]));
+        console.log(usage.formatCommand(flag, flags[flag]));
     }
 }
 
@@ -166,8 +169,8 @@ exports.command = {
             printUsage();
             cb();
         }
-	else {
+        else {
             run(args, cb);
-	}
+        }
     }
 };

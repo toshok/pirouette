@@ -1,3 +1,6 @@
+/* -*- Mode: js2; tab-width: 4; indent-tabs-mode: nil; -*-
+ * vim: set ts=4 sw=4 et tw=99 ft=js:
+ */
 
 var commands = Object.create(null);
 
@@ -16,7 +19,7 @@ function printUsage() {
     console.log (" $ pirouette [options] <command>");
     console.log ("where <command> is one of the following:");
     for (var cmdname in commands) {
-	console.log(formatCommand(cmdname, commands[cmdname]));
+        console.log(formatCommand(cmdname, commands[cmdname]));
     }
 }
 

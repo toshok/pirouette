@@ -1,3 +1,6 @@
+/* -*- Mode: js2; tab-width: 4; indent-tabs-mode: nil; -*-
+ * vim: set ts=4 sw=4 et tw=99 ft=js:
+ */
 var util = require("./util"),
     fs = require("fs"),
     path = require("path");
@@ -5,43 +8,43 @@ var util = require("./util"),
 var project_json = "project.json";
 
 var Configuration = {
-  Debug: "Debug",
-  Release: "Release"
+    Debug: "Debug",
+    Release: "Release"
 };
 Object.freeze(Configuration);
 
 var ProjectTypes = {
-  ios: "ios",
-  osx: "osx"
+    ios: "ios",
+    osx: "osx"
 };
 Object.freeze(ProjectTypes);
 
 function Project(root) {
-  this.root = root;
-  this.config = JSON.parse (fs.readFileSync (path.join (root, project_json), "utf-8"));
+    this.root = root;
+    this.config = JSON.parse (fs.readFileSync (path.join (root, project_json), "utf-8"));
 }
 Project.prototype = Object.create(null);
 
 Project.prototype.buildDir = function buildDir(config) {
-  return path.join (this.root, "build", config);
+    return path.join (this.root, "build", config);
 };
 
 function isRootProjectDirectory(dir) {
-  return fs.existsSync(path.join (dir, project_json));
+    return fs.existsSync(path.join (dir, project_json));
 }
 
 Project.findContaining = function findContaining(starting_cwd) {
-  var cwd;
-  var new_cwd = starting_cwd || process.cwd();
-  do {
-    cwd = new_cwd;
-    if (isRootProjectDirectory(cwd)) {
-      return new Project(cwd);
-    }
-    new_cwd = path.dirname(cwd);
-  } while (cwd !== new_cwd); // is there a better way to tell if we're at the root of the filesystem?
+    var cwd;
+    var new_cwd = starting_cwd || process.cwd();
+    do {
+        cwd = new_cwd;
+        if (isRootProjectDirectory(cwd)) {
+            return new Project(cwd);
+        }
+        new_cwd = path.dirname(cwd);
+    } while (cwd !== new_cwd); // is there a better way to tell if we're at the root of the filesystem?
 
-  return null;
+    return null;
 };
 
 exports.Configuration = Configuration;

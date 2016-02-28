@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/* -*- Mode: js2; tab-width: 4; indent-tabs-mode: nil; -*-
+ * vim: set ts=4 sw=4 et tw=99 ft=js:
+ */
 
 var args = process.argv;
 
@@ -13,12 +16,12 @@ var project = require('./util/project'),
 function getCommands() {
     var proj = project.Project.findContaining ();
     if (proj) {
-	try {
-	    return require('./commands/'+proj.config.projectType+'/commands').commands;
-	}
-	catch (e) {
-	    console.log(e);
-	}
+        try {
+            return require('./commands/'+proj.config.projectType+'/commands').commands;
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
     return require('./commands/global/commands').commands;
 }
@@ -36,14 +39,9 @@ var cmd = commands[args[0]];
 
 if (cmd) {
     cmd.run (args.slice(1), function() {
-	// something needs to happen here..
+        // something needs to happen here..
     });
 }
 else {
     console.log(toolname + ": Unknown command `" + args[0] + "'");
 }
-
-// Local Variables:
-// mode: javascript
-// End:
-

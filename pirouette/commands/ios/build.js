@@ -99,7 +99,7 @@ function buildDestDir(proj, build_config) {
     return bundle_contents;
 }
 
-function copyResources(proj, bundle_contents, build_config, cb) {
+function copyResources(proj, bundle_contents, cb) {
     var resource_list = proj.config.resources;
     if (!resource_list) {
         // no resources, easy.
@@ -129,7 +129,7 @@ function compileScripts(proj, build_config, bundle_contents, cb) {
                             proj.config.files || [proj.config.projectName + '.js'],
                             path.relative(proj.root, dest_exe),
                             function (err) {
-                                copyResources(proj, bundle_contents, build_config, cb);
+                                copyResources(proj, bundle_contents, cb);
                             });
     });
 }

@@ -3,6 +3,7 @@
  */
 var util = require("../../util/util"),
     fs = require("fs"),
+    fse = require("fs-extra"),
     mktemp = require("mktemp"),
     path = require("path"),
     child_process = require("child_process"),
@@ -15,7 +16,6 @@ function generateInfoPlist(proj, config, contents_path, cb) {
     var bundleName = util.getBundleName(config);
 
     var plist_json_contents = {
-        CFBundleIconFile: 'moonlight.icns',
         CFBundlePackageType: 'APPL',
         CFBundleGetInfoString: 'Created by Pirouette/EchoJS',
         CFBundleSignature: '????',
@@ -55,6 +55,27 @@ function buildDestDir(proj, build_config) {
     return bundle_contents;
 }
 
+function copyResources(proj, bundle_contents, cb) {
+    var resource_list = proj.config.resources;
+    if (!resource_list) {
+        // no resources, easy.
+        return cb();
+    }
+
+    var resources_dir = path.join (bundle_contents, "Resources");
+
+    var resource_srcs = Object.getOwnPropertyNames(resource_list);
+
+    for (var i = 0, e = resource_srcs.length; i < e; i ++) {
+        var src = resource_srcs[i];
+        var dest = resource_list[src];
+
+        fse.copySync(src, path.join(resources_dir, dest), {});
+    }
+
+    return cb();
+}
+
 function compileScripts(proj, config, bundle_contents, cb) {
     generateInfoPlist(proj, config, bundle_contents, function (err) {
         var dest_exe = path.join(bundle_contents, "MacOS", config.projectName);
@@ -62,7 +83,9 @@ function compileScripts(proj, config, bundle_contents, cb) {
         util.compileScripts(config.projectType,
                             config.files || [config.projectName + ".js"],
                             path.relative(proj.root, dest_exe),
-                            cb);
+                            function (err) {
+                                copyResources(proj, bundle_contents, cb);
+                            });
     });
 }
 

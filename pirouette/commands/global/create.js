@@ -3,6 +3,7 @@
  */
 
 var util = require("../../util/util"),
+usage = require("../global/usage"),
 fs = require("fs"),
 path = require("path"),
 project = require("../../util/project");
@@ -10,7 +11,7 @@ project = require("../../util/project");
 function run(args) {
 
     if (args.length != 2) {
-        throw new Error("create command requires two arguments: <template_type> <project name>");
+	throw new UsageError();
     }
 
     var template_type = args[0];
@@ -58,8 +59,4 @@ exports.command = {
     run: function(args, cb) {
         run(args, cb);
     }
-}
-
-// Local Variables:
-// mode: javascript
-// End:
+};

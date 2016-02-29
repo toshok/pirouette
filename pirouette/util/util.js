@@ -211,6 +211,7 @@ function getUserHome() {
 }
 
 
+exports.findEjsInPATH = findEjsInPATH;
 exports.getBundleName = getBundleName;
 exports.writePlist = writePlist;
 exports.collectXibs = collectXibs;

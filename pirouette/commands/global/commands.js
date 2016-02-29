@@ -3,9 +3,11 @@
  */
 
 var create = require("./create"),
-    help = require("./help");
+    help = require("./help"),
+    compile = require("./compile");
 
 exports.commands = Object.create (null, {
     help: { enumerable: true, value: help.command },
-    create: { enumerable: true, value: create.command }
+    create: { enumerable: true, value: create.command },
+    compile: { enumerable: true, value: compile.command },
 });

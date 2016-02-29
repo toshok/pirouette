@@ -27,6 +27,11 @@ function installCommands(cmds) {
     commands = cmds;
 }
 
+function UsageError() {
+    // XXX should subclass from Error
+}
+
+exports.UsageError = UsageError;
 exports.printUsage = printUsage;
 exports.justify = justify;
 exports.formatCommand = formatCommand;

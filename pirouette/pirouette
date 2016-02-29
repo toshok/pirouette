@@ -38,10 +38,18 @@ if (args.length === 0) {
 var cmd = commands[args[0]];
 
 if (cmd) {
-    cmd.run (args.slice(1), function() {
-        // something needs to happen here..
-    });
+    try {
+        cmd.run (args.slice(1), function() {
+            // something needs to happen here..
+        });
+    }
+    catch (e) {
+        if (e instanceof usage.UsageError) {
+            console.log(usage.formatCommand(args[0], commands[args[0]]));
+        }
+    }
 }
 else {
     console.log(toolname + ": Unknown command `" + args[0] + "'");
+    usage.printUsage();
 }

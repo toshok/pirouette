@@ -16,5 +16,5 @@ function installBindings(version) {
   });
 }
 
-installToolchain.apply(null, ["0.1.0-alpha.8"].concat(process.argv.slice(2)));
-installBindings.apply(null, ["0.1.0-alpha.1"].concat(process.argv.slice(2)));
+installToolchain.apply(null, ["^0.1.0"].concat(process.argv.slice(2)));
+installBindings.apply(null, ["^0.1.0"].concat(process.argv.slice(2)));
